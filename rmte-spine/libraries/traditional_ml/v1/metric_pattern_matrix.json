@@ -1,0 +1,426 @@
+{
+  "library_id": "tlai-rmte-traditional_ml-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_TraditionalML_Logs_Layers_Formulas.xlsx — sheet 'Traditional ML RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "classification",
+    "regression_forecasting",
+    "recommendation",
+    "anomaly_detection",
+    "nlp__text_classification",
+    "computer_vision",
+    "All patterns (perspective-level)"
+  ],
+  "family_defaults": {
+    "PP": {
+      "classification": "STRENGTH: Most mature. Accuracy, F1, AUC-ROC well-establishe",
+      "regression_forecasting": "RMSE, MAE, MAPE for point estimates. Forecast accuracy by ho",
+      "recommendation": "Precision@k, Recall@k, NDCG for ranking quality. Hit rate.",
+      "anomaly_detection": "Standard accuracy problematic — imbalanced (99%+ normal). Us",
+      "nlp__text_classification": "Standard classification metrics per class. Macro/micro avera",
+      "computer_vision": "Accuracy, mAP for detection. IoU for segmentation. Per-class"
+    },
+    "CU": {
+      "classification": "CRITICAL: Probability outputs must be calibrated — 80% confi",
+      "regression_forecasting": "Prediction interval calibration. Confidence level alignment.",
+      "recommendation": "Relevance score calibration. Ranking confidence alignment.",
+      "anomaly_detection": "CRITICAL: Anomaly score calibration. Alert confidence must b",
+      "nlp__text_classification": "Classification confidence calibration. Per-category calibrat",
+      "computer_vision": "Detection/classification confidence calibration. Especially"
+    },
+    "FB": {
+      "classification": "CRITICAL: Approval/positive rate equal across protected grou",
+      "regression_forecasting": "Prediction value equity across groups. Forecast fairness.",
+      "recommendation": "CRITICAL: Recommendation exposure equity. Item coverage acro",
+      "anomaly_detection": "Detection rate equity across transaction types and user demo",
+      "nlp__text_classification": "Classification rate equity across languages, dialects, cultu",
+      "computer_vision": "CRITICAL: Recognition accuracy equity across race, gender, a"
+    },
+    "RS": {
+      "classification": "Standard: Feature distribution monitoring (KL divergence, PS",
+      "regression_forecasting": "CRITICAL: Temporal drift in time-series. Covariate shift. Re",
+      "recommendation": "User behavior drift. Item catalog drift. Interaction pattern",
+      "anomaly_detection": "CRITICAL: Normal behavior drift is the core challenge. Conti",
+      "nlp__text_classification": "Language drift (new slang, emerging topics). Vocabulary shif",
+      "computer_vision": "Environmental drift (lighting, camera, conditions). Data aug"
+    },
+    "EI": {
+      "classification": "STRENGTH: Tree-based models (feature importance native). SHA",
+      "regression_forecasting": "STRENGTH: Regression coefficients inherently interpretable.",
+      "recommendation": "Collaborative filtering features less interpretable. Item/us",
+      "anomaly_detection": "Isolation Forest feature importance. Autoencoder reconstruct",
+      "nlp__text_classification": "Token/word importance (attention weights, SHAP). Topic-level",
+      "computer_vision": "CRITICAL: Deep CNN black-box. GradCAM, SHAP for images. Spat"
+    },
+    "DQ": {
+      "classification": "Standard: Feature completeness, label accuracy, class distri",
+      "regression_forecasting": "Standard + temporal coverage, gap detection, outlier prevale",
+      "recommendation": "Interaction data quality: sparsity, noise, implicit vs expli",
+      "anomaly_detection": "CRITICAL: \"Normal\" training data purity. Contaminated normal",
+      "nlp__text_classification": "Text quality: encoding, tokenization coverage, label agreeme",
+      "computer_vision": "CRITICAL: Image quality, annotation accuracy (bounding boxes"
+    },
+    "PC": {
+      "classification": "Standard: Feature-level PII audit. De-identification verific",
+      "regression_forecasting": "Standard: Temporal data PII (individual time-series).",
+      "recommendation": "CRITICAL: User behavioral profiling. Interaction data PII. U",
+      "anomaly_detection": "Standard: Transaction/event-level PII in training data.",
+      "nlp__text_classification": "CRITICAL: Text may contain PII (names, addresses, SSN). PII",
+      "computer_vision": "CRITICAL: Facial recognition = biometric PII. Image data con"
+    },
+    "OP": {
+      "classification": "Standard: Real-time scoring <50ms. Batch acceptable for non-",
+      "regression_forecasting": "Standard: Real-time forecasts <100ms. Batch forecasting comm",
+      "recommendation": "CRITICAL: Real-time recommendations <100ms for interactive U",
+      "anomaly_detection": "Standard: Real-time detection <200ms for streaming. Batch fo",
+      "nlp__text_classification": "Standard: Real-time classification <200ms. Batch for documen",
+      "computer_vision": "CRITICAL: Real-time detection <100ms for video. Edge inferen"
+    },
+    "LG": {
+      "classification": "Standard: MLflow/Weights&Biases registry. Well-established p",
+      "regression_forecasting": "Standard: Forecast model versioning. Backtesting results tra",
+      "recommendation": "Standard: Recommendation model versioning. A/B test tracking",
+      "anomaly_detection": "Standard: Anomaly model versioning. Baseline versioning.",
+      "nlp__text_classification": "Standard: NLP model versioning. Preprocessing pipeline versi",
+      "computer_vision": "Standard: CV model versioning. Annotation version tracking."
+    }
+  },
+  "metric_overrides": {
+    "PP-01": {
+      "classification": "STRENGTH: Most mature. Accuracy, F1, AUC-ROC well-establishe",
+      "regression_forecasting": "RMSE, MAE, MAPE for point estimates. Forecast accuracy by ho",
+      "recommendation": "Precision@k, Recall@k, NDCG for ranking quality. Hit rate.",
+      "anomaly_detection": "Standard accuracy problematic — imbalanced (99%+ normal). Us",
+      "nlp__text_classification": "Standard classification metrics per class. Macro/micro avera",
+      "computer_vision": "Accuracy, mAP for detection. IoU for segmentation. Per-class"
+    },
+    "PP-02": {
+      "classification": "CRITICAL: Trade-off between precision and recall drives busi",
+      "regression_forecasting": "MODERATE: Less directly applicable. Threshold-based conversi",
+      "recommendation": "Precision@k and Recall@k for top-k recommendations. Relevanc",
+      "anomaly_detection": "CRITICAL: Precision = alert quality (false positive rate). R",
+      "nlp__text_classification": "Per-category precision/recall. Critical for imbalanced text",
+      "computer_vision": "Per-class/object precision/recall. Detection confidence thre"
+    },
+    "PP-03": {
+      "classification": "STRENGTH: Threshold-independent performance measure. AUC-PR",
+      "regression_forecasting": "MODERATE: Applicable when regression outputs are thresholded",
+      "recommendation": "AUC for recommendation relevance scoring. Ranking quality.",
+      "anomaly_detection": "AUC-PR preferred — highly imbalanced (anomalies rare). AUC-R",
+      "nlp__text_classification": "Standard AUC-ROC. AUC-PR for rare categories (toxic content,",
+      "computer_vision": "Per-class AUC. Overall AUC for binary tasks (defect/no-defec"
+    },
+    "PP-04": {
+      "classification": "N/A — discrete classification",
+      "regression_forecasting": "CRITICAL: Core metric. 95% PI should cover 95% of actuals. C",
+      "recommendation": "N/A — ranking, not intervals",
+      "anomaly_detection": "MODERATE: Anomaly score confidence intervals. Detection conf",
+      "nlp__text_classification": "MODERATE: Classification confidence calibration.",
+      "computer_vision": "Detection confidence score calibration. Bounding box confide"
+    },
+    "PP-05": {
+      "classification": "CRITICAL: Per-demographic precision/recall/F1. Approval rate",
+      "regression_forecasting": "Per-subgroup RMSE/MAE. Forecast equity across segments.",
+      "recommendation": "CRITICAL: Recommendation quality parity across user segments",
+      "anomaly_detection": "Detection rate equity across transaction types, user segment",
+      "nlp__text_classification": "CRITICAL: Per-language, per-dialect performance parity. Cult",
+      "computer_vision": "CRITICAL: Per-demographic accuracy parity. Race/gender/age p"
+    },
+    "CU-01": {
+      "classification": "CRITICAL: Probability outputs must be calibrated — 80% confi",
+      "regression_forecasting": "Prediction interval calibration. Confidence level alignment.",
+      "recommendation": "Relevance score calibration. Ranking confidence alignment.",
+      "anomaly_detection": "CRITICAL: Anomaly score calibration. Alert confidence must b",
+      "nlp__text_classification": "Classification confidence calibration. Per-category calibrat",
+      "computer_vision": "Detection/classification confidence calibration. Especially"
+    },
+    "CU-02": {
+      "classification": "Probability outputs provide inherent uncertainty. Ensemble d",
+      "regression_forecasting": "STRENGTH: Prediction intervals are native. Bayesian regressi",
+      "recommendation": "MODERATE: Relevance score as implicit uncertainty. Ensemble",
+      "anomaly_detection": "Anomaly scores provide natural uncertainty ranking. Threshol",
+      "nlp__text_classification": "Softmax calibration. Ensemble disagreement. MC Dropout for u",
+      "computer_vision": "Detection confidence scores. Epistemic vs aleatoric uncertai"
+    },
+    "CU-03": {
+      "classification": "Feature-space distance from training distribution. Mahalanob",
+      "regression_forecasting": "Input feature distribution monitoring. Forecast for unseen r",
+      "recommendation": "Cold-start users/items as OOD. New item categories. Feature",
+      "anomaly_detection": "STRENGTH: OOD detection is core capability — novelty detecti",
+      "nlp__text_classification": "OOD text (new language, new domain, gibberish). Character en",
+      "computer_vision": "OOD images (new object types, environmental conditions unsee"
+    },
+    "CU-04": {
+      "classification": "Abstention rate. Human-in-the-loop for low-confidence classi",
+      "regression_forecasting": "High-uncertainty forecasts flagged for manual review. Wide P",
+      "recommendation": "Low-confidence recommendations suppressed or flagged.",
+      "anomaly_detection": "Medium-confidence anomalies in investigation queue. Triage b",
+      "nlp__text_classification": "Low-confidence classifications escalated. Ambiguous text fla",
+      "computer_vision": "Low-confidence detections flagged. Edge cases routed to huma"
+    },
+    "FB-01": {
+      "classification": "CRITICAL: Approval/positive rate equal across protected grou",
+      "regression_forecasting": "Prediction value equity across groups. Forecast fairness.",
+      "recommendation": "CRITICAL: Recommendation exposure equity. Item coverage acro",
+      "anomaly_detection": "Detection rate equity across transaction types and user demo",
+      "nlp__text_classification": "Classification rate equity across languages, dialects, cultu",
+      "computer_vision": "CRITICAL: Recognition accuracy equity across race, gender, a"
+    },
+    "FB-02": {
+      "classification": "CRITICAL: Equal true positive and false positive rates acros",
+      "regression_forecasting": "Prediction error parity across demographics.",
+      "recommendation": "Hit rate parity and miss rate parity across user segments.",
+      "anomaly_detection": "False alert rate parity across groups. Missed detection pari",
+      "nlp__text_classification": "Per-category error rate parity across language groups.",
+      "computer_vision": "CRITICAL: False positive/negative parity across demographics"
+    },
+    "FB-03": {
+      "classification": "CRITICAL: When model says \"positive,\" is it equally correct",
+      "regression_forecasting": "When model predicts high value, is it equally accurate acros",
+      "recommendation": "When system recommends item, is relevance equal across user",
+      "anomaly_detection": "When alert fires, is it equally likely to be genuine across",
+      "nlp__text_classification": "When text is classified, is precision equal across language",
+      "computer_vision": "When object is detected, is confidence equally reliable acro"
+    },
+    "FB-04": {
+      "classification": "CRITICAL: SHAP/LIME analysis for proxy variable detection. F",
+      "regression_forecasting": "Proxy detection in regression features. Temporal proxy analy",
+      "recommendation": "CRITICAL: User feature proxy detection. Item feature bias au",
+      "anomaly_detection": "Feature importance audit for anomaly scoring. Context bias i",
+      "nlp__text_classification": "Word/token importance bias. Embedding bias audit. Preprocess",
+      "computer_vision": "CRITICAL: Feature attribution bias (GradCAM). Spatial attent"
+    },
+    "FB-05": {
+      "classification": "Model predictions influence future labels (e.g., more polici",
+      "regression_forecasting": "Forecast-influenced decisions change future actuals, reinfor",
+      "recommendation": "CRITICAL: Recommendations influence user behavior → reinforc",
+      "anomaly_detection": "Alerts influence investigation → more data on alerted patter",
+      "nlp__text_classification": "Classification influences content exposure → reinforces trai",
+      "computer_vision": "Detection influences labeling → reinforces detection pattern"
+    },
+    "RS-01": {
+      "classification": "Standard: Feature distribution monitoring (KL divergence, PS",
+      "regression_forecasting": "CRITICAL: Temporal drift in time-series. Covariate shift. Re",
+      "recommendation": "User behavior drift. Item catalog drift. Interaction pattern",
+      "anomaly_detection": "CRITICAL: Normal behavior drift is the core challenge. Conti",
+      "nlp__text_classification": "Language drift (new slang, emerging topics). Vocabulary shif",
+      "computer_vision": "Environmental drift (lighting, camera, conditions). Data aug"
+    },
+    "RS-02": {
+      "classification": "Standard: Performance monitoring catches concept drift. Grou",
+      "regression_forecasting": "CRITICAL: Regime changes (COVID, economic shifts). Relations",
+      "recommendation": "User preference evolution. Item relevance shifts over time.",
+      "anomaly_detection": "CRITICAL: Adversarial actors adapt to detection model. Attac",
+      "nlp__text_classification": "Intent semantics evolve. Topic boundaries shift. Cultural co",
+      "computer_vision": "Object appearance evolution. Manufacturing process changes."
+    },
+    "RS-03": {
+      "classification": "Standard: Feature perturbation robustness. Adversarial examp",
+      "regression_forecasting": "MODERATE: Input perturbation robustness. Outlier injection r",
+      "recommendation": "Manipulation resistance — gaming recommendations via fake in",
+      "anomaly_detection": "CRITICAL: Adversarial evasion — attackers craft inputs withi",
+      "nlp__text_classification": "CRITICAL: Character substitution, homoglyphs, adversarial te",
+      "computer_vision": "CRITICAL: Pixel perturbation attacks (FGSM, PGD). Patch atta"
+    },
+    "RS-04": {
+      "classification": "Standard: Version-to-version prediction consistency. Churn r",
+      "regression_forecasting": "Forecast stability across retraining windows. Prediction fli",
+      "recommendation": "Recommendation stability. \"Rashomon effect\" — different mode",
+      "anomaly_detection": "Alert consistency across retraining. New model doesn't miss",
+      "nlp__text_classification": "Classification stability across retraining. Category assignm",
+      "computer_vision": "Detection stability across retraining. Consistent object rec"
+    },
+    "RS-05": {
+      "classification": "Behavior with missing features, noisy inputs, partial data.",
+      "regression_forecasting": "Behavior with missing time periods, irregular intervals, par",
+      "recommendation": "Behavior with sparse interaction data, cold-start conditions",
+      "anomaly_detection": "Behavior with partial telemetry, delayed data, noisy baselin",
+      "nlp__text_classification": "Behavior with noisy text, OCR errors, multilingual mixing.",
+      "computer_vision": "CRITICAL: Behavior with poor image quality, low light, unusu"
+    },
+    "EI-01": {
+      "classification": "STRENGTH: Tree-based models (feature importance native). SHA",
+      "regression_forecasting": "STRENGTH: Regression coefficients inherently interpretable.",
+      "recommendation": "Collaborative filtering features less interpretable. Item/us",
+      "anomaly_detection": "Isolation Forest feature importance. Autoencoder reconstruct",
+      "nlp__text_classification": "Token/word importance (attention weights, SHAP). Topic-level",
+      "computer_vision": "CRITICAL: Deep CNN black-box. GradCAM, SHAP for images. Spat"
+    },
+    "EI-02": {
+      "classification": "STRENGTH: SHAP/LIME per-prediction. Counterfactual explanati",
+      "regression_forecasting": "Per-prediction feature contributions. Confidence interval ex",
+      "recommendation": "MODERATE: \"Because you liked X\" explanations. Feature-based",
+      "anomaly_detection": "MODERATE: \"This was flagged because of features X, Y, Z.\" An",
+      "nlp__text_classification": "Token-level attribution. \"This was classified as X because o",
+      "computer_vision": "CRITICAL: Pixel-level attribution (GradCAM). \"This region ca"
+    },
+    "EI-03": {
+      "classification": "CRITICAL for regulated: \"If income were $X higher, loan woul",
+      "regression_forecasting": "\"If demand increases by X%, forecast would change by Y.\" Sce",
+      "recommendation": "\"If you also watched X, this would be recommended.\" Recommen",
+      "anomaly_detection": "MODERATE: \"If metric X were below threshold, this would not",
+      "nlp__text_classification": "\"If this word were changed, classification would change.\" Se",
+      "computer_vision": "MODERATE: \"If this region were different, detection would ch"
+    },
+    "EI-04": {
+      "classification": "Standard model card requirements. Well-established practice.",
+      "regression_forecasting": "Standard model cards + forecast horizon documentation + back",
+      "recommendation": "Recommendation model card + diversity/fairness documentation",
+      "anomaly_detection": "Anomaly detection model card + normal behavior definition +",
+      "nlp__text_classification": "NLP model card + language coverage + bias analysis + preproc",
+      "computer_vision": "CV model card + demographic performance + environmental robu"
+    },
+    "EI-05": {
+      "classification": "CRITICAL for regulated: Complete audit trail for credit, hir",
+      "regression_forecasting": "Forecast audit trail: inputs, model version, prediction, con",
+      "recommendation": "Recommendation audit trail: user context, candidate pool, ra",
+      "anomaly_detection": "Alert audit trail: input data, anomaly score, threshold, mod",
+      "nlp__text_classification": "Classification audit trail: input text, preprocessing, model",
+      "computer_vision": "Detection audit trail: input image, model, detections, confi"
+    },
+    "DQ-01": {
+      "classification": "Standard: Feature completeness, label accuracy, class distri",
+      "regression_forecasting": "Standard + temporal coverage, gap detection, outlier prevale",
+      "recommendation": "Interaction data quality: sparsity, noise, implicit vs expli",
+      "anomaly_detection": "CRITICAL: \"Normal\" training data purity. Contaminated normal",
+      "nlp__text_classification": "Text quality: encoding, tokenization coverage, label agreeme",
+      "computer_vision": "CRITICAL: Image quality, annotation accuracy (bounding boxes"
+    },
+    "DQ-02": {
+      "classification": "CRITICAL: Label agreement drives model ceiling. Human labele",
+      "regression_forecasting": "MODERATE: Ground truth accuracy for regression targets.",
+      "recommendation": "MODERATE: Relevance label quality. User interaction signal q",
+      "anomaly_detection": "MODERATE: Confirmed anomaly labels (post-investigation) qual",
+      "nlp__text_classification": "CRITICAL: Text annotation agreement. Subjective categories (",
+      "computer_vision": "CRITICAL: Annotation agreement for bounding boxes (IoU), seg"
+    },
+    "DQ-03": {
+      "classification": "Standard: Feature pipeline lineage. Data source documentatio",
+      "regression_forecasting": "Standard + temporal lineage (data windows, update frequency)",
+      "recommendation": "Interaction data lineage. User consent tracking. Item catalo",
+      "anomaly_detection": "Normal behavior baseline lineage. Data window documentation.",
+      "nlp__text_classification": "Text corpus lineage. Source documentation. Preprocessing pip",
+      "computer_vision": "Image dataset lineage. Collection methodology. Annotation pr"
+    },
+    "DQ-04": {
+      "classification": "Standard: Model retraining cadence vs data arrival rate.",
+      "regression_forecasting": "CRITICAL: Forecast models degrade rapidly with stale data. R",
+      "recommendation": "User interaction data freshness. Item catalog freshness. Rea",
+      "anomaly_detection": "CRITICAL: Normal behavior baseline staleness. Evolving basel",
+      "nlp__text_classification": "Text model staleness vs language evolution. Topic drift rate",
+      "computer_vision": "Image model staleness vs environmental/manufacturing process"
+    },
+    "PC-01": {
+      "classification": "Standard: Feature-level PII audit. De-identification verific",
+      "regression_forecasting": "Standard: Temporal data PII (individual time-series).",
+      "recommendation": "CRITICAL: User behavioral profiling. Interaction data PII. U",
+      "anomaly_detection": "Standard: Transaction/event-level PII in training data.",
+      "nlp__text_classification": "CRITICAL: Text may contain PII (names, addresses, SSN). PII",
+      "computer_vision": "CRITICAL: Facial recognition = biometric PII. Image data con"
+    },
+    "PC-02": {
+      "classification": "Standard: Can attackers determine if specific individuals we",
+      "regression_forecasting": "Standard: Time-series membership inference.",
+      "recommendation": "INCREASED: User interaction history inference. Behavioral pr",
+      "anomaly_detection": "Standard: Can attackers determine if specific events were in",
+      "nlp__text_classification": "INCREASED: Can attackers determine if specific texts were in",
+      "computer_vision": "CRITICAL: Facial recognition membership inference. Identity"
+    },
+    "PC-03": {
+      "classification": "Standard: DP-SGD or output perturbation. Privacy-accuracy tr",
+      "regression_forecasting": "Standard: Temporal DP considerations.",
+      "recommendation": "CRITICAL: User-level differential privacy. Interaction-level",
+      "anomaly_detection": "Standard: Event-level DP.",
+      "nlp__text_classification": "Standard: Text-level DP. Corpus-level privacy.",
+      "computer_vision": "CRITICAL: Image-level DP. Individual-level privacy. Biometri"
+    },
+    "PC-04": {
+      "classification": "CRITICAL: EU AI Act (high-risk category for credit, hiring).",
+      "regression_forecasting": "Financial regulation compliance (SEC, Basel). Forecast metho",
+      "recommendation": "Consumer protection. Recommendation transparency requirement",
+      "anomaly_detection": "Financial regulation. AML/KYC compliance. Security regulatio",
+      "nlp__text_classification": "Content moderation regulation. Platform liability. Hate spee",
+      "computer_vision": "CRITICAL: Biometric regulation (BIPA, GDPR Article 9). Facia"
+    },
+    "OP-01": {
+      "classification": "Standard: Real-time scoring <50ms. Batch acceptable for non-",
+      "regression_forecasting": "Standard: Real-time forecasts <100ms. Batch forecasting comm",
+      "recommendation": "CRITICAL: Real-time recommendations <100ms for interactive U",
+      "anomaly_detection": "Standard: Real-time detection <200ms for streaming. Batch fo",
+      "nlp__text_classification": "Standard: Real-time classification <200ms. Batch for documen",
+      "computer_vision": "CRITICAL: Real-time detection <100ms for video. Edge inferen"
+    },
+    "OP-02": {
+      "classification": "LOWEST: Tree models compact. Logistic regression minimal. Si",
+      "regression_forecasting": "Standard: Statistical models compact. LSTM moderate. Prophet",
+      "recommendation": "MODERATE: Embedding matrices can be large. Real-time serving",
+      "anomaly_detection": "Standard: Isolation Forest compact. Autoencoders moderate.",
+      "nlp__text_classification": "INCREASED: Transformer models large (BERT 110M params). Fine",
+      "computer_vision": "HIGHEST: CNN/ViT models large. GPU required for inference. E"
+    },
+    "OP-03": {
+      "classification": "HIGHEST: Simple models support millions of predictions/sec.",
+      "regression_forecasting": "Standard: Batch forecasting high throughput. Real-time moder",
+      "recommendation": "Standard: Recommendation serving at scale. CDN/cache-friendl",
+      "anomaly_detection": "Standard: Streaming anomaly detection throughput. Event proc",
+      "nlp__text_classification": "MODERATE: NLP models slower than tabular. Tokenization overh",
+      "computer_vision": "LOWEST: Image processing computationally expensive. Video fr"
+    },
+    "OP-04": {
+      "classification": "Standard: Scheduled retraining pipeline. Data validation gat",
+      "regression_forecasting": "CRITICAL: Retraining frequency drives forecast accuracy. Pip",
+      "recommendation": "Standard: Online learning reliability. Batch retraining sche",
+      "anomaly_detection": "CRITICAL: Continuous retraining needed for evolving normal b",
+      "nlp__text_classification": "Standard: Retraining on new text data. Vocabulary updates.",
+      "computer_vision": "Standard: Retraining on new image data. Augmentation pipelin"
+    },
+    "OP-05": {
+      "classification": "LOWEST: Simple models on CPU. Minimal cost.",
+      "regression_forecasting": "Standard: Time-series models on CPU. Moderate cost.",
+      "recommendation": "MODERATE: Embedding lookup + ranking. Caching reduces cost.",
+      "anomaly_detection": "Standard: Anomaly scoring on CPU. Moderate cost.",
+      "nlp__text_classification": "INCREASED: Transformer inference on GPU. Token processing co",
+      "computer_vision": "HIGHEST: CNN inference on GPU. Video processing premium. Edg"
+    },
+    "LG-01": {
+      "classification": "Standard: MLflow/Weights&Biases registry. Well-established p",
+      "regression_forecasting": "Standard: Forecast model versioning. Backtesting results tra",
+      "recommendation": "Standard: Recommendation model versioning. A/B test tracking",
+      "anomaly_detection": "Standard: Anomaly model versioning. Baseline versioning.",
+      "nlp__text_classification": "Standard: NLP model versioning. Preprocessing pipeline versi",
+      "computer_vision": "Standard: CV model versioning. Annotation version tracking."
+    },
+    "LG-02": {
+      "classification": "STRENGTH: Most mature champion/challenger practices. A/B tes",
+      "regression_forecasting": "Backtesting as challenger validation. Hold-out period evalua",
+      "recommendation": "A/B testing for recommendations well-established. Multi-arme",
+      "anomaly_detection": "Parallel scoring (shadow mode) for new anomaly models. Alert",
+      "nlp__text_classification": "A/B testing for text classifiers. Shadow mode evaluation.",
+      "computer_vision": "Parallel detection for new models. Shadow mode with human re"
+    },
+    "LG-03": {
+      "classification": "Standard: Unit tests, integration tests, performance benchma",
+      "regression_forecasting": "Standard + backtesting suites, forecast horizon tests, regim",
+      "recommendation": "Standard + diversity tests, cold-start tests, manipulation r",
+      "anomaly_detection": "Standard + evasion tests, false positive rate tests, thresho",
+      "nlp__text_classification": "Standard + adversarial text tests, multilingual tests, diale",
+      "computer_vision": "Standard + adversarial image tests, environmental robustness"
+    },
+    "LG-04": {
+      "classification": "Standard: Model degradation response. Rollback procedures.",
+      "regression_forecasting": "Forecast failure response. Emergency model reversion.",
+      "recommendation": "Recommendation quality incident response. Emergency filterin",
+      "anomaly_detection": "CRITICAL: Anomaly detection failure = security/fraud exposur",
+      "nlp__text_classification": "Classification failure response. Emergency category override",
+      "computer_vision": "Detection failure response. Safety-critical requires fastest"
+    },
+    "LG-05": {
+      "classification": "Standard: Model archival, prediction cessation, downstream n",
+      "regression_forecasting": "Standard: Forecast cessation, historical forecast archival.",
+      "recommendation": "Standard: Recommendation removal, user data handling, intera",
+      "anomaly_detection": "Standard: Detection cessation, alert archival, baseline arch",
+      "nlp__text_classification": "Standard: Classifier retirement, training data disposition.",
+      "computer_vision": "CRITICAL: Model retirement + biometric data deletion. GDPR r"
+    }
+  }
+}

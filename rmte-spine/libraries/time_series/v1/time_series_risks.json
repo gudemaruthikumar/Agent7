@@ -1,0 +1,391 @@
+{
+  "library_id": "tlai-rmte-time_series-risks",
+  "version": "v1",
+  "source": "TrustLensAI_TimeSeries_Logs_Layers_Formulas.xlsx — sheet 'Time-Series RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "reconstruction": true,
+  "notes": {
+    "compliance": "TrustLensAI produces evidence; it does not certify compliance."
+  },
+  "risks": [
+    {
+      "risk_id": "TSF-01",
+      "name": "Forecasts inaccurate / exceed acceptable error for the decision they inform",
+      "description": "Forecasts inaccurate / exceed acceptable error for the decision they inform",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Forecasts inaccurate / exceed acceptable error for the decision they i arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-02",
+      "name": "Prediction intervals miscalibrated (over- or under-confident)",
+      "description": "Prediction intervals miscalibrated (over- or under-confident)",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Prediction intervals miscalibrated (over- or under-confident) arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-03",
+      "name": "Look-ahead bias / data leakage inflates backtest performance",
+      "description": "Look-ahead bias / data leakage inflates backtest performance",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Look-ahead bias / data leakage inflates backtest performance arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — undetected defect / invalid evaluation reaches release",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-04",
+      "name": "Backtest performance not reproduced in production (backtest-live gap)",
+      "description": "Backtest performance not reproduced in production (backtest-live gap)",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Backtest performance not reproduced in production (backtest-live gap) arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — undetected defect / invalid evaluation reaches release",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-05",
+      "name": "Improper temporal validation (random split, no embargo) yields invalid evaluation",
+      "description": "Improper temporal validation (random split, no embargo) yields invalid evaluation",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Improper temporal validation (random split, no embargo) yields invalid arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — undetected defect / invalid evaluation reaches release",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-06",
+      "name": "Anomaly detector misses critical events (false negatives)",
+      "description": "Anomaly detector misses critical events (false negatives)",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Anomaly detector misses critical events (false negatives) arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-07",
+      "name": "Excessive false alarms cause alert fatigue / desensitization",
+      "description": "Excessive false alarms cause alert fatigue / desensitization",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Excessive false alarms cause alert fatigue / desensitization arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-08",
+      "name": "Missed safety-critical anomaly causes physical / operational / financial harm",
+      "description": "Missed safety-critical anomaly causes physical / operational / financial harm",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Missed safety-critical anomaly causes physical / operational / financi arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-09",
+      "name": "Model fails to adapt to regime change / structural break",
+      "description": "Model fails to adapt to regime change / structural break",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Model fails to adapt to regime change / structural break arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-10",
+      "name": "Concept drift / non-stationarity degrades performance silently",
+      "description": "Concept drift / non-stationarity degrades performance silently",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Concept drift / non-stationarity degrades performance silently arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-11",
+      "name": "Missing data, outliers, or noise degrade forecasts / detection",
+      "description": "Missing data, outliers, or noise degrade forecasts / detection",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Missing data, outliers, or noise degrade forecasts / detection arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-12",
+      "name": "Adversarial manipulation of time-series inputs evades detection or biases forecasts",
+      "description": "Adversarial manipulation of time-series inputs evades detection or biases forecasts",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Security",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Adversarial manipulation of time-series inputs evades detection or bia arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Security (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-13",
+      "name": "Forecast accuracy or anomaly flagging is disparate across segments / groups",
+      "description": "Forecast accuracy or anomaly flagging is disparate across segments / groups",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness & Policy Consistency",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Forecast accuracy or anomaly flagging is disparate across segments / g arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Fairness & Policy Consistency (7-TA taxonomy); pillar Govern. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-14",
+      "name": "Forecast-driven allocation / decisions create inequitable downstream impact",
+      "description": "Forecast-driven allocation / decisions create inequitable downstream impact",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness & Policy Consistency",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Forecast-driven allocation / decisions create inequitable downstream i arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Fairness & Policy Consistency (7-TA taxonomy); pillar Govern. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-15",
+      "name": "Forecasts / anomalies are unexplainable to operators and auditors",
+      "description": "Forecasts / anomalies are unexplainable to operators and auditors",
+      "category": "Delivery",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Explainability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Forecasts / anomalies are unexplainable to operators and auditors arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — undetected defect / invalid evaluation reaches release",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Explainability (7-TA taxonomy); pillar Prove. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-16",
+      "name": "Series-level PII / sensitive patterns exposed or re-identifiable",
+      "description": "Series-level PII / sensitive patterns exposed or re-identifiable",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Series-level PII / sensitive patterns exposed or re-identifiable arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Privacy (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-17",
+      "name": "Time-series data quality issues (gaps, duplicate / irregular timestamps) undermine results",
+      "description": "Time-series data quality issues (gaps, duplicate / irregular timestamps) undermine results",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Time-series data quality issues (gaps, duplicate / irregular timestamp arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-18",
+      "name": "Stale / delayed data makes forecasts / detection unfit for real-time use",
+      "description": "Stale / delayed data makes forecasts / detection unfit for real-time use",
+      "category": "Deployment",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Stale / delayed data makes forecasts / detection unfit for real-time u arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — production reliability / timeliness impact",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-19",
+      "name": "Governance gaps: unversioned models, no champion/challenger, missing model-risk documentation",
+      "description": "Governance gaps: unversioned models, no champion/challenger, missing model-risk documentation",
+      "category": "Delivery",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Explainability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Governance gaps: unversioned models, no champion/challenger, missing m arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — undetected defect / invalid evaluation reaches release",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Explainability (7-TA taxonomy); pillar Prove. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "TSF-20",
+      "name": "Serving latency / scale failure prevents timely forecasts / alerts",
+      "description": "Serving latency / scale failure prevents timely forecasts / alerts",
+      "category": "Deployment",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Serving latency / scale failure prevents timely forecasts / alerts arising in time-series forecasting / anomaly-detection execution",
+      "impact": "Net-new (derived) — production reliability / timeliness impact",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Time-Series / Forecasting / Anomaly (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Time-Series / Forecasting / Anomaly-Detection RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    }
+  ]
+}

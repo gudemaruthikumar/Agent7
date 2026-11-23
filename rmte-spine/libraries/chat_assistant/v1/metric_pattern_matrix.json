@@ -1,0 +1,410 @@
+{
+  "library_id": "tlai-rmte-chat_assistant-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_ChatAssistant_Logs_Layers_Formulas.xlsx — sheet 'Chat Assistant RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "basic_stateless",
+    "multi_turn",
+    "persona_based",
+    "safety__guardrailed",
+    "domain__constrained",
+    "multi_modal",
+    "All patterns (perspective-level)"
+  ],
+  "family_defaults": {
+    "RQ": {
+      "basic_stateless": "Baseline: single-turn coherence",
+      "multi_turn": "CRITICAL: Coherence must be maintained across turns as conte",
+      "persona_based": "Persona tone must align with coherence expectations",
+      "safety__guardrailed": "Guardrails may interrupt coherence with refusal insertions",
+      "domain__constrained": "STRENGTH: Domain focus improves topic coherence",
+      "multi_modal": "Cross-modal coherence — text response must align with image/"
+    },
+    "FA": {
+      "basic_stateless": "Baseline: HIGHEST RISK — no grounding, pure parametric knowl",
+      "multi_turn": "May compound errors across turns (incorrect fact in turn 2 i",
+      "persona_based": "Persona may generate character-appropriate but factually wro",
+      "safety__guardrailed": "Guardrails don't address factual accuracy (safety ≠ accuracy",
+      "domain__constrained": "STRENGTH: Domain fine-tuning improves domain accuracy",
+      "multi_modal": "Cross-modal factual accuracy (image description accuracy + t"
+    },
+    "SC": {
+      "basic_stateless": "Baseline: standard LLM safety",
+      "multi_turn": "Context may be manipulated to elicit unsafe content across t",
+      "persona_based": "Persona boundary gaps may allow harmful content",
+      "safety__guardrailed": "PRIMARY TARGET: Defense-in-depth filters directly target thi",
+      "domain__constrained": "Domain may have specific safety rules (medical: \"do no harm\"",
+      "multi_modal": "AMPLIFIED: Modal-specific safety (NSFW images, harmful audio"
+    },
+    "RF": {
+      "basic_stateless": "Baseline: standard over-refusal assessment",
+      "multi_turn": "Context-dependent over-refusal (refuses based on earlier sen",
+      "persona_based": "Persona boundaries may cause over-refusal for edge-of-role t",
+      "safety__guardrailed": "CRITICAL TRADE-OFF: Tighter safety → more over-refusal",
+      "domain__constrained": "Domain boundaries may over-refuse at domain edges",
+      "multi_modal": "Modal-specific over-refusal (refuses valid image queries)"
+    },
+    "AD": {
+      "basic_stateless": "Baseline: standard injection defense",
+      "multi_turn": "INCREASED: History injection — inject adversarial content in",
+      "persona_based": "Persona injection — trick system into adopting adversarial p",
+      "safety__guardrailed": "DEFENSE LAYER: Input classifier catches many injection attem",
+      "domain__constrained": "REDUCED: Domain constraints limit attack surface",
+      "multi_modal": "AMPLIFIED: Cross-modal injection (inject via image/voice)"
+    },
+    "CA": {
+      "basic_stateless": "N/A — single turn only",
+      "multi_turn": "PRIMARY: Core competency — coherence across turns",
+      "persona_based": "Persona coherence: stays in character across turns",
+      "safety__guardrailed": "Standard — guardrails don't address coherence",
+      "domain__constrained": "STRENGTH: Domain focus supports topic coherence",
+      "multi_modal": "Cross-modal coherence across conversation turns"
+    },
+    "PV": {
+      "basic_stateless": "Baseline: PII from training data",
+      "multi_turn": "CRITICAL: PII accumulates across turns. User shares PII in t",
+      "persona_based": "Persona may collect/store PII inappropriately for role",
+      "safety__guardrailed": "DEFENSE: PII scrubber in output filter",
+      "domain__constrained": "Domain may handle sensitive PII (medical, legal)",
+      "multi_modal": "Cross-modal PII (PII in images, voice biometrics)"
+    },
+    "EO": {
+      "basic_stateless": "LOWEST: Single inference call",
+      "multi_turn": "INCREASED: Context window processing grows with conversation",
+      "persona_based": "Standard — persona doesn't significantly affect latency",
+      "safety__guardrailed": "INCREASED: Pre+post classification adds 50-200ms overhead",
+      "domain__constrained": "Standard — domain constraint doesn't add latency",
+      "multi_modal": "HIGHEST: Multi-modal processing (image encoding, voice trans"
+    },
+    "LC": {
+      "basic_stateless": "Baseline: standard model drift tracking",
+      "multi_turn": "Session-level drift patterns + per-turn quality drift",
+      "persona_based": "Persona drift over time (character degradation)",
+      "safety__guardrailed": "Filter/classifier drift (safety model performance changes)",
+      "domain__constrained": "Domain knowledge staleness drift",
+      "multi_modal": "Per-modal drift tracking (image model + text model + voice m"
+    }
+  },
+  "metric_overrides": {
+    "RQ-01": {
+      "basic_stateless": "Baseline: single-turn coherence",
+      "multi_turn": "CRITICAL: Coherence must be maintained across turns as conte",
+      "persona_based": "Persona tone must align with coherence expectations",
+      "safety__guardrailed": "Guardrails may interrupt coherence with refusal insertions",
+      "domain__constrained": "STRENGTH: Domain focus improves topic coherence",
+      "multi_modal": "Cross-modal coherence — text response must align with image/"
+    },
+    "RQ-02": {
+      "basic_stateless": "Baseline: standard LLM fluency",
+      "multi_turn": "Standard — fluency generally stable across turns",
+      "persona_based": "Persona style may deliberately vary fluency (casual vs forma",
+      "safety__guardrailed": "Standard — guardrails don't typically affect fluency",
+      "domain__constrained": "Standard within domain",
+      "multi_modal": "Voice modality fluency requires additional assessment"
+    },
+    "RQ-03": {
+      "basic_stateless": "Baseline: single-turn relevance",
+      "multi_turn": "Must maintain relevance to current turn + conversation conte",
+      "persona_based": "Persona may constrain relevance to role-appropriate topics",
+      "safety__guardrailed": "Guardrail refusals may reduce relevance for borderline queri",
+      "domain__constrained": "STRENGTH: Domain constraint improves relevance within scope",
+      "multi_modal": "Cross-modal relevance — response relevant to all input modal"
+    },
+    "RQ-04": {
+      "basic_stateless": "Baseline: single-turn completeness",
+      "multi_turn": "Can build completeness across turns (multi-turn advantage)",
+      "persona_based": "Persona boundaries may intentionally limit completeness",
+      "safety__guardrailed": "Guardrail refusals reduce completeness for sensitive topics",
+      "domain__constrained": "STRENGTH: Deep domain knowledge enables better completeness",
+      "multi_modal": "Must be complete across modalities (text + visual explanatio"
+    },
+    "RQ-05": {
+      "basic_stateless": "Baseline: LLM temperature-dependent consistency",
+      "multi_turn": "CRITICAL: Must be consistent within session AND across sessi",
+      "persona_based": "CRITICAL: Persona must remain consistent across all interact",
+      "safety__guardrailed": "Standard — guardrails add consistency via fixed refusal resp",
+      "domain__constrained": "STRENGTH: Domain constraint reduces response variance",
+      "multi_modal": "Cross-modal consistency — same query via text vs voice shoul"
+    },
+    "FA-01": {
+      "basic_stateless": "Baseline: HIGHEST RISK — no grounding, pure parametric knowl",
+      "multi_turn": "May compound errors across turns (incorrect fact in turn 2 i",
+      "persona_based": "Persona may generate character-appropriate but factually wro",
+      "safety__guardrailed": "Guardrails don't address factual accuracy (safety ≠ accuracy",
+      "domain__constrained": "STRENGTH: Domain fine-tuning improves domain accuracy",
+      "multi_modal": "Cross-modal factual accuracy (image description accuracy + t"
+    },
+    "FA-02": {
+      "basic_stateless": "Baseline: HIGHEST RISK — all hallucinations from parametric",
+      "multi_turn": "Conversation context may reduce OR increase hallucinations (",
+      "persona_based": "Persona confidence may mask hallucinations (\"in my expert op",
+      "safety__guardrailed": "Guardrails don't detect hallucinations — only safety violati",
+      "domain__constrained": "REDUCED: Domain constraint limits hallucination scope",
+      "multi_modal": "AMPLIFIED: Cross-modal hallucination (incorrect image descri"
+    },
+    "FA-03": {
+      "basic_stateless": "Baseline: single-turn internal contradictions",
+      "multi_turn": "CRITICAL: Cross-turn contradictions — says X in turn 3, cont",
+      "persona_based": "Persona contradictions: breaks character or contradicts pers",
+      "safety__guardrailed": "Standard — guardrails don't address contradictions",
+      "domain__constrained": "REDUCED: Domain constraint reduces contradictory scope",
+      "multi_modal": "Cross-modal contradictions (text says one thing, image shows"
+    },
+    "FA-04": {
+      "basic_stateless": "Baseline: confidence calibration assessment",
+      "multi_turn": "Confidence should adapt based on conversation context",
+      "persona_based": "Persona may project false confidence (expert role)",
+      "safety__guardrailed": "Standard — guardrails don't calibrate confidence",
+      "domain__constrained": "STRENGTH: Domain knowledge supports better calibration",
+      "multi_modal": "Per-modal confidence calibration needed"
+    },
+    "SC-01": {
+      "basic_stateless": "Baseline: standard LLM safety",
+      "multi_turn": "Context may be manipulated to elicit unsafe content across t",
+      "persona_based": "Persona boundary gaps may allow harmful content",
+      "safety__guardrailed": "PRIMARY TARGET: Defense-in-depth filters directly target thi",
+      "domain__constrained": "Domain may have specific safety rules (medical: \"do no harm\"",
+      "multi_modal": "AMPLIFIED: Modal-specific safety (NSFW images, harmful audio"
+    },
+    "SC-02": {
+      "basic_stateless": "Baseline: LLM toxicity from training",
+      "multi_turn": "Toxic user turns in history may prime toxic responses",
+      "persona_based": "Persona may have unintended toxic edge cases",
+      "safety__guardrailed": "PRIMARY TARGET: Toxicity classifiers directly detect this",
+      "domain__constrained": "Domain-specific toxicity rules",
+      "multi_modal": "Cross-modal toxicity (toxic image generation, toxic voice to"
+    },
+    "SC-03": {
+      "basic_stateless": "Baseline: standard content policy",
+      "multi_turn": "Policy compliance across multi-turn context",
+      "persona_based": "Persona-specific content policies (brand compliance)",
+      "safety__guardrailed": "STRENGTH: Policy rule engine directly enforces compliance",
+      "domain__constrained": "Domain-specific content policies",
+      "multi_modal": "Per-modal content policies needed"
+    },
+    "SC-04": {
+      "basic_stateless": "Baseline: harmful request detection",
+      "multi_turn": "Multi-turn escalation attacks (gradually escalate to harmful",
+      "persona_based": "Persona role may create false authority for harmful info",
+      "safety__guardrailed": "STRENGTH: Input classifiers catch harmful requests pre-gener",
+      "domain__constrained": "Domain boundaries naturally limit harmful info scope",
+      "multi_modal": "Cross-modal harmful content (harmful image requests)"
+    },
+    "SC-05": {
+      "basic_stateless": "Baseline: jailbreak resistance",
+      "multi_turn": "INCREASED: Multi-turn jailbreak via context poisoning",
+      "persona_based": "Persona jailbreak: trick LLM out of character to bypass rule",
+      "safety__guardrailed": "PRIMARY CONCERN: If bypassed, system has failed its core pur",
+      "domain__constrained": "Domain boundaries add additional defense layer",
+      "multi_modal": "Cross-modal bypass (inject via image to bypass text filters)"
+    },
+    "RF-01": {
+      "basic_stateless": "Baseline: standard over-refusal assessment",
+      "multi_turn": "Context-dependent over-refusal (refuses based on earlier sen",
+      "persona_based": "Persona boundaries may cause over-refusal for edge-of-role t",
+      "safety__guardrailed": "CRITICAL TRADE-OFF: Tighter safety → more over-refusal",
+      "domain__constrained": "Domain boundaries may over-refuse at domain edges",
+      "multi_modal": "Modal-specific over-refusal (refuses valid image queries)"
+    },
+    "RF-02": {
+      "basic_stateless": "Baseline: standard under-refusal assessment",
+      "multi_turn": "INCREASED: Multi-turn context manipulation to bypass refusal",
+      "persona_based": "Persona authority may reduce refusal threshold",
+      "safety__guardrailed": "PRIMARY TARGET: Multi-layer filters minimize under-refusal",
+      "domain__constrained": "STRENGTH: Domain boundary naturally refuses out-of-domain ha",
+      "multi_modal": "Cross-modal under-refusal (image bypass text refusal rules)"
+    },
+    "RF-03": {
+      "basic_stateless": "Baseline: standard refusal messages",
+      "multi_turn": "Context-aware refusal explanations",
+      "persona_based": "Persona-appropriate refusal language",
+      "safety__guardrailed": "STRENGTH: Configurable refusal templates with explanations",
+      "domain__constrained": "Domain-specific refusal guidance",
+      "multi_modal": "Per-modal refusal explanation needed"
+    },
+    "RF-04": {
+      "basic_stateless": "Baseline: demographic refusal analysis",
+      "multi_turn": "Conversation context may influence demographic refusal patte",
+      "persona_based": "CRITICAL: Persona may have built-in demographic bias in refu",
+      "safety__guardrailed": "Standard — filters may have built-in bias",
+      "domain__constrained": "Domain-specific fairness requirements",
+      "multi_modal": "Modal-specific fairness (voice accent bias in refusal)"
+    },
+    "AD-01": {
+      "basic_stateless": "Baseline: standard injection defense",
+      "multi_turn": "INCREASED: History injection — inject adversarial content in",
+      "persona_based": "Persona injection — trick system into adopting adversarial p",
+      "safety__guardrailed": "DEFENSE LAYER: Input classifier catches many injection attem",
+      "domain__constrained": "REDUCED: Domain constraints limit attack surface",
+      "multi_modal": "AMPLIFIED: Cross-modal injection (inject via image/voice)"
+    },
+    "AD-02": {
+      "basic_stateless": "Baseline: standard jailbreak defense",
+      "multi_turn": "INCREASED: Multi-turn jailbreak escalation (most effective a",
+      "persona_based": "Persona jailbreak: persuade character to break rules",
+      "safety__guardrailed": "BEST DEFENSE: Multi-layer safety architecture",
+      "domain__constrained": "ENHANCED: Domain boundaries add defense layer",
+      "multi_modal": "Cross-modal jailbreak (image-based instruction injection)"
+    },
+    "AD-03": {
+      "basic_stateless": "Baseline: typo/paraphrase robustness",
+      "multi_turn": "Context-dependent robustness across turns",
+      "persona_based": "Persona response should be consistent regardless of input ph",
+      "safety__guardrailed": "Standard — guardrails don't address perturbation robustness",
+      "domain__constrained": "STRENGTH: Domain knowledge supports consistent interpretatio",
+      "multi_modal": "Per-modal robustness (image noise, voice accent)"
+    },
+    "AD-04": {
+      "basic_stateless": "N/A — no context window",
+      "multi_turn": "PRIMARY RISK: Context poisoning is the main multi-turn attac",
+      "persona_based": "Context manipulation to break persona",
+      "safety__guardrailed": "Pre-generation filter can catch manipulated context",
+      "domain__constrained": "Domain context boundary limits manipulation scope",
+      "multi_modal": "Cross-modal context manipulation (inject image that alters c"
+    },
+    "AD-05": {
+      "basic_stateless": "Baseline: behavioral consistency under attack",
+      "multi_turn": "Consistency across multi-turn adversarial escalation",
+      "persona_based": "Persona consistency under adversarial pressure",
+      "safety__guardrailed": "STRENGTH: Guardrails provide consistent safety behavior",
+      "domain__constrained": "Domain consistency under adversarial domain-edge queries",
+      "multi_modal": "Per-modal consistency under adversarial inputs"
+    },
+    "CA-01": {
+      "basic_stateless": "N/A — single turn only",
+      "multi_turn": "PRIMARY: Core competency — coherence across turns",
+      "persona_based": "Persona coherence: stays in character across turns",
+      "safety__guardrailed": "Standard — guardrails don't address coherence",
+      "domain__constrained": "STRENGTH: Domain focus supports topic coherence",
+      "multi_modal": "Cross-modal coherence across conversation turns"
+    },
+    "CA-02": {
+      "basic_stateless": "N/A — no context retention",
+      "multi_turn": "PRIMARY: Must correctly reference earlier conversation conte",
+      "persona_based": "Must remember and apply persona rules across turns",
+      "safety__guardrailed": "Standard — no impact on context retention",
+      "domain__constrained": "Domain context retention across turns",
+      "multi_modal": "Cross-modal context retention (remember image from earlier t"
+    },
+    "CA-03": {
+      "basic_stateless": "N/A — single turn",
+      "multi_turn": "CRITICAL: Quality degrades as context window fills. Track de",
+      "persona_based": "Persona drift increases with conversation length",
+      "safety__guardrailed": "Guardrail overhead may increase with conversation length",
+      "domain__constrained": "Domain accuracy may drift over long conversations",
+      "multi_modal": "Cross-modal quality degradation over long sessions"
+    },
+    "CA-04": {
+      "basic_stateless": "Baseline: single-turn disambiguation",
+      "multi_turn": "ENHANCED: Can ask follow-up questions for clarification",
+      "persona_based": "Persona-appropriate clarification style",
+      "safety__guardrailed": "Standard — no impact on disambiguation",
+      "domain__constrained": "STRENGTH: Domain expertise supports better disambiguation",
+      "multi_modal": "Cross-modal disambiguation (clarify ambiguous image + text)"
+    },
+    "PV-01": {
+      "basic_stateless": "Baseline: PII from training data",
+      "multi_turn": "CRITICAL: PII accumulates across turns. User shares PII in t",
+      "persona_based": "Persona may collect/store PII inappropriately for role",
+      "safety__guardrailed": "DEFENSE: PII scrubber in output filter",
+      "domain__constrained": "Domain may handle sensitive PII (medical, legal)",
+      "multi_modal": "Cross-modal PII (PII in images, voice biometrics)"
+    },
+    "PV-02": {
+      "basic_stateless": "STRENGTH: Stateless = inherent session isolation",
+      "multi_turn": "CRITICAL: Session boundaries must be enforced. No cross-sess",
+      "persona_based": "Persona should not retain user PII across sessions",
+      "safety__guardrailed": "Standard — session isolation independent of guardrails",
+      "domain__constrained": "Standard — domain doesn't affect isolation",
+      "multi_modal": "Cross-modal session isolation (uploaded images not leaked)"
+    },
+    "PV-03": {
+      "basic_stateless": "Baseline: LLM memorization risk",
+      "multi_turn": "Conversation context may trigger memorized sequences",
+      "persona_based": "Persona prompts may increase memorization of certain pattern",
+      "safety__guardrailed": "Standard — guardrails don't address memorization",
+      "domain__constrained": "Domain fine-tuning may increase domain-specific memorization",
+      "multi_modal": "Multi-modal training data memorization"
+    },
+    "PV-04": {
+      "basic_stateless": "Baseline: standard sensitive topic handling",
+      "multi_turn": "Context may escalate sensitivity of earlier benign topics",
+      "persona_based": "Persona-appropriate sensitive topic handling",
+      "safety__guardrailed": "STRENGTH: Policy engine handles sensitive topics explicitly",
+      "domain__constrained": "STRENGTH: Domain policy for sensitive topics (medical privac",
+      "multi_modal": "Per-modal sensitive handling needed"
+    },
+    "EO-01": {
+      "basic_stateless": "LOWEST: Single inference call",
+      "multi_turn": "INCREASED: Context window processing grows with conversation",
+      "persona_based": "Standard — persona doesn't significantly affect latency",
+      "safety__guardrailed": "INCREASED: Pre+post classification adds 50-200ms overhead",
+      "domain__constrained": "Standard — domain constraint doesn't add latency",
+      "multi_modal": "HIGHEST: Multi-modal processing (image encoding, voice trans"
+    },
+    "EO-02": {
+      "basic_stateless": "LOWEST: Single turn cost",
+      "multi_turn": "INCREASES with conversation length (longer context = more to",
+      "persona_based": "Standard — persona doesn't significantly affect cost",
+      "safety__guardrailed": "INCREASED: Classifier inference costs per turn",
+      "domain__constrained": "Standard within domain",
+      "multi_modal": "HIGHEST: Multi-modal model costs (image/voice processing pre"
+    },
+    "EO-03": {
+      "basic_stateless": "HIGHEST: Simplest processing",
+      "multi_turn": "REDUCED: State management overhead",
+      "persona_based": "Standard — minimal overhead",
+      "safety__guardrailed": "REDUCED: Classification overhead per request",
+      "domain__constrained": "Standard",
+      "multi_modal": "LOWEST: Multi-modal processing overhead"
+    },
+    "EO-04": {
+      "basic_stateless": "LOWEST: System prompt + user query only",
+      "multi_turn": "CRITICAL: Grows with conversation. Monitor utilization curve",
+      "persona_based": "Persona definition consumes fixed portion of context window",
+      "safety__guardrailed": "Guardrail messages consume context window space",
+      "domain__constrained": "Domain knowledge consumes context window",
+      "multi_modal": "Multi-modal tokens consume large context portions"
+    },
+    "LC-01": {
+      "basic_stateless": "Baseline: standard model drift tracking",
+      "multi_turn": "Session-level drift patterns + per-turn quality drift",
+      "persona_based": "Persona drift over time (character degradation)",
+      "safety__guardrailed": "Filter/classifier drift (safety model performance changes)",
+      "domain__constrained": "Domain knowledge staleness drift",
+      "multi_modal": "Per-modal drift tracking (image model + text model + voice m"
+    },
+    "LC-02": {
+      "basic_stateless": "Baseline: standard incident tracking",
+      "multi_turn": "Session-level incidents (multi-turn escalation incidents)",
+      "persona_based": "Persona violation incidents (brand compliance)",
+      "safety__guardrailed": "Guardrail failure incidents (bypass, false positive/negative",
+      "domain__constrained": "Domain boundary violation incidents",
+      "multi_modal": "Per-modal incidents (image safety, voice incidents)"
+    },
+    "LC-03": {
+      "basic_stateless": "Standard: basic safety + quality suites",
+      "multi_turn": "Multi-turn scenario suites + context manipulation tests",
+      "persona_based": "Persona consistency + jailbreak suites",
+      "safety__guardrailed": "Guardrail validation + filter performance + refusal correctn",
+      "domain__constrained": "Domain accuracy benchmarks + boundary tests",
+      "multi_modal": "Per-modal test suites + cross-modal interaction tests"
+    },
+    "LC-04": {
+      "basic_stateless": "Baseline: prompt versioning",
+      "multi_turn": "Session management versioning added",
+      "persona_based": "Persona definition versioning critical (brand impact)",
+      "safety__guardrailed": "Filter model versioning + rule versioning + coordination",
+      "domain__constrained": "Domain model versioning + knowledge update governance",
+      "multi_modal": "Multi-modal model versioning (each modal model governed sepa"
+    },
+    "LC-05": {
+      "basic_stateless": "Baseline compliance",
+      "multi_turn": "Session data handling compliance",
+      "persona_based": "Brand/advertising regulation compliance",
+      "safety__guardrailed": "STRENGTH: Safety architecture supports EU AI Act compliance",
+      "domain__constrained": "Domain-specific regulatory compliance (HIPAA, financial regs",
+      "multi_modal": "Accessibility regulation compliance + cross-modal data prote"
+    }
+  }
+}

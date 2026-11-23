@@ -1,0 +1,273 @@
+{
+  "library_id": "tlai-rmte-fine_tuned_llm-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_FineTunedLLM_Logs_Layers_Formulas.xlsx — sheet 'Fine-Tuned LLM RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Fine-Tuned LLM pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Base Model",
+      "logs_telemetry": "Base-model log",
+      "key_fields": "base model ID, version, source provenance, licence",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Base Preservation",
+        "Governance"
+      ],
+      "notes": "Anchors pre-FT baselines & lineage"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Training Data Curation & Governance",
+      "logs_telemetry": "Data-governance log",
+      "key_fields": "bias audit, licensing, versioning (hash/date/source), quality score",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Data Governance"
+      ],
+      "notes": "Feeds TG-01..04 (100% pre-training gates)"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Data Preprocessing / Filtering",
+      "logs_telemetry": "Data-filter log",
+      "key_fields": "PII/toxic filtering, dedup, poisoning detection, normalization",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Data Governance",
+        "Adversarial"
+      ],
+      "notes": "Feeds TG-05, RA-02"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Fine-tuning (LoRA / PEFT / Full / RLHF)",
+      "logs_telemetry": "Training log",
+      "key_fields": "hyperparameters, compute FLOPs/GPU-hours, checkpoints, loss curves",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Domain Adaptation",
+        "Operational"
+      ],
+      "notes": "Feeds DA-05, OE-01, PM-04 (ε)"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Alignment / Reward Modeling",
+      "logs_telemetry": "Alignment log",
+      "key_fields": "reward-model scores, RLHF preference signals, alignment deltas",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Safety"
+      ],
+      "notes": "Feeds SA-03 reward alignment"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Base-Preservation / Regression Check",
+      "logs_telemetry": "Regression log",
+      "key_fields": "pre/post-FT benchmark deltas, catastrophic-forgetting index",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Base Preservation"
+      ],
+      "notes": "Feeds BP-01..05, SA-02"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Inference / Generation",
+      "logs_telemetry": "Inference log",
+      "key_fields": "generated output, domain-term usage, claims, tokens",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance (AAJ)",
+      "related_metric_families": [
+        "Domain Adaptation"
+      ],
+      "notes": "Feeds DA-01/02/03"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Guardrails / Safety",
+      "logs_telemetry": "Guardrail log",
+      "key_fields": "harmful-request refusal, toxicity classifier, jailbreak verdict",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Safety",
+        "Adversarial"
+      ],
+      "notes": "Feeds SA-01/04/05, RA-01"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Privacy & Memorization Control",
+      "logs_telemetry": "Privacy log",
+      "key_fields": "memorization/extraction test, membership inference, DP ε accountant",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PM-01..04"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Evaluation / Benchmarking",
+      "logs_telemetry": "Evaluation-harness log",
+      "key_fields": "domain & general benchmarks, human-eval correlation",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Domain Adaptation",
+        "Base Preservation"
+      ],
+      "notes": "Feeds DA-01, BP-*"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Serving & API",
+      "logs_telemetry": "Serving telemetry",
+      "key_fields": "latency (post/pre-FT), storage overhead, multi-tenant, extraction detection",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Operational",
+        "Adversarial"
+      ],
+      "notes": "Feeds OE-02..05, RA-04"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Monitoring & Drift",
+      "logs_telemetry": "Monitoring telemetry",
+      "key_fields": "distribution-shift, incidents & rollback time",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Adversarial",
+        "Governance"
+      ],
+      "notes": "Feeds RA-03, MG-04"
+    },
+    {
+      "index": 13,
+      "architecture": "AI Product (Fine-Tuned LLM)",
+      "layer": "Governance / Lineage",
+      "logs_telemetry": "Governance log",
+      "key_fields": "lineage (base→FT→deployed), model card, provenance, base-dependency, TEVV",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Provenance",
+        "Governance"
+      ],
+      "notes": "Feeds EP-01..04, MG-01..05"
+    },
+    {
+      "index": 14,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered fine-tuned models, base-model registry, tenancy, lineage anchors",
+      "ingested_by": "Anchors identity, model/lineage registry & tenancy",
+      "related_metric_families": [
+        "Governance",
+        "Provenance"
+      ],
+      "notes": "Base→FT lineage origin (MG-01)"
+    },
+    {
+      "index": 15,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized training/inference spans/events, redaction, event-bus refs",
+      "ingested_by": "Consumes all fine-tuning product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Raw data/content redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed training/inference traces, dependency views, time-series (drift)",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Governance"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator/judge outputs, benchmark deltas, reward-alignment, metric scores",
+      "ingested_by": "Consumes training/inference/regression logs + gold benchmarks",
+      "related_metric_families": [
+        "Domain Adaptation",
+        "Base Preservation",
+        "Safety"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, gold benchmarks (MMLU/GSM8K etc.), versions",
+      "ingested_by": "Supplies formulas/thresholds & base-benchmark references to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the Fine-Tuned RMTE metric corpus"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "data-governance, safety, privacy, licensing decisions, risk register, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Data Governance",
+        "Safety",
+        "Privacy"
+      ],
+      "notes": "Gates 0–4; 100% pre-training data gates"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 21,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

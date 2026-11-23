@@ -1,0 +1,304 @@
+{
+  "library_id": "tlai-rmte-scientific-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_Scientific_Logs_Layers_Formulas.xlsx — sheet 'Scientific RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Scientific pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Scientific Data Ingestion",
+      "logs_telemetry": "Ingestion log",
+      "key_fields": "experimental + computational + literature data, source, assay/method, timestamps",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Data Quality & Provenance"
+      ],
+      "notes": "Mixed experimental/computational provenance"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Data Quality & Provenance",
+      "logs_telemetry": "Data-quality / provenance log",
+      "key_fields": "quality, lineage, benchmark-contamination checks, representation coverage",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Data Quality & Provenance",
+        "Equity & Generalization Fairness"
+      ],
+      "notes": "Feeds DQ-01/02/03, FE-02"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Representation / Featurization",
+      "logs_telemetry": "Feature log",
+      "key_fields": "molecular graphs / sequences / grids, descriptors, encodings",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Scientific Accuracy"
+      ],
+      "notes": "Domain representation"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Model / Simulation Surrogate",
+      "logs_telemetry": "Model log",
+      "key_fields": "surrogate/model outputs, generalization behaviour, robustness",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Generalization & Extrapolation",
+        "Robustness & Adversarial"
+      ],
+      "notes": "Feeds GE-*, RS-*"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Prediction / Generation",
+      "logs_telemetry": "Prediction log",
+      "key_fields": "predicted structures/properties/candidates, scores, per-cohort outputs",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Scientific Accuracy",
+        "Equity & Generalization Fairness"
+      ],
+      "notes": "Feeds SA-*, FE-01"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Physical-Constraint Enforcement / Validity Check",
+      "logs_telemetry": "Validity-check log",
+      "key_fields": "conservation / symmetry / stability / constraint checks",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Physical Plausibility"
+      ],
+      "notes": "Feeds PP-01..04 (distinctive)"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Uncertainty Quantification",
+      "logs_telemetry": "Uncertainty log",
+      "key_fields": "predicted confidence, calibration, abstention routing",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Uncertainty Quantification"
+      ],
+      "notes": "Feeds UQ-01/03/04 (guides experiments)"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Dual-Use / Biosecurity Screening",
+      "logs_telemetry": "Biosecurity-screening log",
+      "key_fields": "hazard screening, capability gating, controlled-agent match, misuse detection",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Dual-Use & Biosecurity"
+      ],
+      "notes": "Feeds DU-01/02/03/05 (zero-tolerance)"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Access Control / Capability Gating",
+      "logs_telemetry": "Access-control log",
+      "key_fields": "high-risk-capability access requests, authorization, KYC, human approval",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Dual-Use & Biosecurity"
+      ],
+      "notes": "Feeds DU-04 (human-gated)"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Domain-Knowledge / Theory Consistency Check",
+      "logs_telemetry": "Consistency log",
+      "key_fields": "theory agreement, constraint violations, contradiction flags, literature match",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Domain-Knowledge Consistency"
+      ],
+      "notes": "Feeds DK-01..04"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Experimental Validation Loop",
+      "logs_telemetry": "Validation log",
+      "key_fields": "wet-lab / prospective confirmation, hit rate, reproducibility",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Experimental Validation"
+      ],
+      "notes": "Feeds EV-01..04 (real ground truth)"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Explainability / Hypothesis Generation",
+      "logs_telemetry": "Explainability log",
+      "key_fields": "attribution, testable-hypothesis traceability, provenance/method docs",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Explainability & Interpretability"
+      ],
+      "notes": "Feeds EX-01/02/03"
+    },
+    {
+      "index": 13,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Privacy & Consent (Biomedical)",
+      "logs_telemetry": "Privacy log",
+      "key_fields": "biomedical/genomic PII detection, de-identification, consent basis",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Data Privacy"
+      ],
+      "notes": "Feeds PV-01/02 (biomedical slice)"
+    },
+    {
+      "index": 14,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Serving / Screening Pipeline",
+      "logs_telemetry": "Serving telemetry",
+      "key_fields": "latency, throughput, cost, screening-campaign scale",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Operational"
+      ],
+      "notes": "Feeds OP-01..03"
+    },
+    {
+      "index": 15,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Reproducibility & Provenance Recording",
+      "logs_telemetry": "Reproducibility log",
+      "key_fields": "environment, seeds, determinism, run provenance",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Reproducibility & Lifecycle",
+        "Experimental Validation"
+      ],
+      "notes": "Feeds LG-01, EV-04"
+    },
+    {
+      "index": 16,
+      "architecture": "AI Product (Scientific)",
+      "layer": "Governance / Model & Benchmark Registry",
+      "logs_telemetry": "Governance log",
+      "key_fields": "model/weights registry & lineage, benchmark governance, TEVV, docs",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Reproducibility & Lifecycle"
+      ],
+      "notes": "Feeds LG-02/03/04"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered science models/weights, data & instrument connectors, tenancy, registry",
+      "ingested_by": "Anchors identity, model/benchmark registry & tenancy",
+      "related_metric_families": [
+        "Reproducibility & Lifecycle"
+      ],
+      "notes": "Model & benchmark registry origin (LG-02)"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized science spans/events, biomedical-PII redaction, event-bus refs",
+      "ingested_by": "Consumes all science product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Sensitive biomedical data redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed pipeline traces, dependency views, time-series",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Reproducibility & Lifecycle"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator outputs, accuracy/plausibility/UQ/generalization/consistency scores",
+      "ingested_by": "Consumes prediction/validity/validation logs + experimental & benchmark refs",
+      "related_metric_families": [
+        "Scientific Accuracy",
+        "Physical Plausibility",
+        "Experimental Validation"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 21,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, experimental refs & controlled-agent lists, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the Science RMTE metric corpus (net-new)"
+    },
+    {
+      "index": 22,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "dual-use, biosecurity, access-control, privacy, contamination decisions, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Dual-Use & Biosecurity",
+        "Data Privacy",
+        "Equity & Generalization Fairness"
+      ],
+      "notes": "Gates 0–4; biosecurity zero-tolerance"
+    },
+    {
+      "index": 23,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 24,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Scientist / Risk personas"
+    }
+  ]
+}

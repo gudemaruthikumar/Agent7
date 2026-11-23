@@ -1,0 +1,426 @@
+{
+  "library_id": "tlai-rmte-copilot-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_EnterpriseCopilot_Logs_Layers_Formulas.xlsx — sheet 'Copilot RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "code_copilot",
+    "document_copilot",
+    "dataanalytics_copilot",
+    "workflow_copilot",
+    "meetingcomms_copilot",
+    "knowledgesearch_copilot",
+    "All patterns (perspective-level)"
+  ],
+  "family_defaults": {
+    "SQ": {
+      "code_copilot": "CRITICAL: Inline completion acceptance. Low acceptance = noi",
+      "document_copilot": "Standard: Draft acceptance rate. Template compliance influen",
+      "dataanalytics_copilot": "CRITICAL: SQL/query acceptance. Wrong query acceptance is da",
+      "workflow_copilot": "Standard: Form auto-fill acceptance. Routing suggestion acce",
+      "meetingcomms_copilot": "Standard: Email draft acceptance. Summary approval rate.",
+      "knowledgesearch_copilot": "Standard: Answer acceptance. Source relevance influences acc"
+    },
+    "CU": {
+      "code_copilot": "CRITICAL: Uses open files, imports, repo structure, variable",
+      "document_copilot": "Uses document structure, previous sections, organizational t",
+      "dataanalytics_copilot": "CRITICAL: Uses table schemas, column types, relationships. D",
+      "workflow_copilot": "Uses workflow state, prior steps, approval chain, user role.",
+      "meetingcomms_copilot": "Uses conversation history, speaker roles, agenda, prior meet",
+      "knowledgesearch_copilot": "CRITICAL: Uses permission context, user role, org structure."
+    },
+    "SC": {
+      "code_copilot": "CRITICAL: SQL injection, XSS, CSRF, buffer overflow, insecur",
+      "document_copilot": "MODERATE: Embedded macros, executable content in generated d",
+      "dataanalytics_copilot": "CRITICAL: SQL injection via generated queries. Data exfiltra",
+      "workflow_copilot": "CRITICAL: API key exposure, insecure webhook configs, unvali",
+      "meetingcomms_copilot": "MODERATE: Link injection in generated emails. Malicious cale",
+      "knowledgesearch_copilot": "MODERATE: Link injection in synthesized answers. Redirect to"
+    },
+    "UI": {
+      "code_copilot": "Measures need for manual editing after accepting code sugges",
+      "document_copilot": "Measures revision effort after accepting document draft.",
+      "dataanalytics_copilot": "Measures query modification after accepting generated SQL.",
+      "workflow_copilot": "Measures form field correction after auto-fill.",
+      "meetingcomms_copilot": "Measures summary editing after accepting meeting notes.",
+      "knowledgesearch_copilot": "Measures answer refinement needs after accepting search resu"
+    },
+    "RA": {
+      "code_copilot": "CRITICAL: Injection via code comments, docstrings, file name",
+      "document_copilot": "Injection via document content, template fields, embedded me",
+      "dataanalytics_copilot": "CRITICAL: Injection via column names, table comments, data v",
+      "workflow_copilot": "INCREASED: Injection via form field values, workflow descrip",
+      "meetingcomms_copilot": "Injection via meeting chat, spoken content, calendar invite",
+      "knowledgesearch_copilot": "CRITICAL: Injection via document content indexed in knowledg"
+    },
+    "PD": {
+      "code_copilot": "Hardcoded credentials, API keys, personal data in generated",
+      "document_copilot": "CRITICAL: PII from one document leaking into another. Cross-",
+      "dataanalytics_copilot": "CRITICAL: PII in query results exposed to unauthorized users",
+      "workflow_copilot": "PII in form auto-fill from unauthorized sources. Cross-workf",
+      "meetingcomms_copilot": "CRITICAL: Speaker PII in meeting summaries shared broadly. R",
+      "knowledgesearch_copilot": "CRITICAL: PII from restricted documents appearing in search"
+    },
+    "AP": {
+      "code_copilot": "Code: references to documentation, StackOverflow, library do",
+      "document_copilot": "CRITICAL: Document citations. Reference accuracy. Source doc",
+      "dataanalytics_copilot": "Data source attribution. Table/column provenance. Query sour",
+      "workflow_copilot": "Process definition attribution. Policy source identification",
+      "meetingcomms_copilot": "CRITICAL: Speaker attribution accuracy. Source meeting ident",
+      "knowledgesearch_copilot": "CRITICAL: Document source attribution. Knowledge base proven"
+    },
+    "EP": {
+      "code_copilot": "Coding time reduction. Debug time reduction. Test writing ac",
+      "document_copilot": "Document drafting time reduction. Editing/review acceleratio",
+      "dataanalytics_copilot": "Query writing time reduction. Analysis time reduction. Repor",
+      "workflow_copilot": "Process execution time reduction. Form completion accelerati",
+      "meetingcomms_copilot": "Meeting notes time reduction. Email drafting acceleration. S",
+      "knowledgesearch_copilot": "Information lookup time reduction. Answer synthesis speed."
+    },
+    "LG": {
+      "code_copilot": "Code quality drift. Suggestion acceptance trend. Language-sp",
+      "document_copilot": "Document quality drift. Template compliance trend.",
+      "dataanalytics_copilot": "Query accuracy drift. Schema change impact.",
+      "workflow_copilot": "Process compliance drift. Action accuracy trend.",
+      "meetingcomms_copilot": "Transcription accuracy drift. Summary quality trend.",
+      "knowledgesearch_copilot": "Knowledge freshness drift. Attribution accuracy trend."
+    }
+  },
+  "metric_overrides": {
+    "SQ-01": {
+      "code_copilot": "CRITICAL: Inline completion acceptance. Low acceptance = noi",
+      "document_copilot": "Standard: Draft acceptance rate. Template compliance influen",
+      "dataanalytics_copilot": "CRITICAL: SQL/query acceptance. Wrong query acceptance is da",
+      "workflow_copilot": "Standard: Form auto-fill acceptance. Routing suggestion acce",
+      "meetingcomms_copilot": "Standard: Email draft acceptance. Summary approval rate.",
+      "knowledgesearch_copilot": "Standard: Answer acceptance. Source relevance influences acc"
+    },
+    "SQ-02": {
+      "code_copilot": "CRITICAL: Compiled and passed tests? Functionally correct? S",
+      "document_copilot": "Standard: Factually correct content? Grammar correct? Templa",
+      "dataanalytics_copilot": "CRITICAL: SQL returns correct results? Joins correct? Aggreg",
+      "workflow_copilot": "CRITICAL: Action produces intended outcome? Form fields popu",
+      "meetingcomms_copilot": "Standard: Summary accurate? Action items correct? Attributio",
+      "knowledgesearch_copilot": "Standard: Answer factually correct? Sources valid?"
+    },
+    "SQ-03": {
+      "code_copilot": "CRITICAL: Hallucinated APIs, non-existent functions, wrong m",
+      "document_copilot": "Fabricated citations, invented statistics, false claims in g",
+      "dataanalytics_copilot": "Hallucinated column names, non-existent tables, fabricated d",
+      "workflow_copilot": "MODERATE: Hallucinated process steps, non-existent approval",
+      "meetingcomms_copilot": "Misquoted statements, fabricated action items, invented meet",
+      "knowledgesearch_copilot": "Hallucinated documents, fabricated sources, synthesized answ"
+    },
+    "SQ-04": {
+      "code_copilot": "Language-appropriate idioms. Framework-specific patterns. Or",
+      "document_copilot": "Organizational tone. Industry-appropriate language. Audience",
+      "dataanalytics_copilot": "Database-appropriate SQL dialect. Schema-appropriate joins.",
+      "workflow_copilot": "Process-appropriate actions. Org policy compliance. Role-app",
+      "meetingcomms_copilot": "Meeting context-appropriate tone. Audience-appropriate forma",
+      "knowledgesearch_copilot": "Permission-appropriate results. Role-relevant knowledge. Org"
+    },
+    "SQ-05": {
+      "code_copilot": "Complete function vs partial snippet. Includes error handlin",
+      "document_copilot": "Complete draft vs partial. Includes all required sections? P",
+      "dataanalytics_copilot": "Complete query with all clauses? Includes relevant filters?",
+      "workflow_copilot": "Complete workflow step vs partial. All required fields? Prop",
+      "meetingcomms_copilot": "Complete summary covering all topics? All action items captu",
+      "knowledgesearch_copilot": "Complete answer synthesized from all relevant sources? All a"
+    },
+    "CU-01": {
+      "code_copilot": "CRITICAL: Uses open files, imports, repo structure, variable",
+      "document_copilot": "Uses document structure, previous sections, organizational t",
+      "dataanalytics_copilot": "CRITICAL: Uses table schemas, column types, relationships. D",
+      "workflow_copilot": "Uses workflow state, prior steps, approval chain, user role.",
+      "meetingcomms_copilot": "Uses conversation history, speaker roles, agenda, prior meet",
+      "knowledgesearch_copilot": "CRITICAL: Uses permission context, user role, org structure."
+    },
+    "CU-02": {
+      "code_copilot": "Code consistent with project architecture? Uses existing pat",
+      "document_copilot": "Document consistent with related documents? References corre",
+      "dataanalytics_copilot": "Query consistent with data model? Uses established naming? F",
+      "workflow_copilot": "Action consistent with broader workflow? Follows established",
+      "meetingcomms_copilot": "Summary consistent with previous meeting context? Ongoing pr",
+      "knowledgesearch_copilot": "Answer synthesizes across sources consistently? No contradic"
+    },
+    "CU-03": {
+      "code_copilot": "CRITICAL: Large repos exceed context windows. Quality degrad",
+      "document_copilot": "Long documents may exceed context. Multi-document tasks are",
+      "dataanalytics_copilot": "Large schemas (100+ tables) challenge context limits. Query",
+      "workflow_copilot": "Complex workflows with many steps may exceed context.",
+      "meetingcomms_copilot": "Long meetings (>1hr) exceed context. Multi-meeting context i",
+      "knowledgesearch_copilot": "Large knowledge bases require efficient retrieval. Context s"
+    },
+    "CU-04": {
+      "code_copilot": "Recognizes: completion, refactoring, debugging, testing, doc",
+      "document_copilot": "Recognizes: drafting, editing, summarizing, translating, for",
+      "dataanalytics_copilot": "Recognizes: exploration, reporting, troubleshooting, optimiz",
+      "workflow_copilot": "Recognizes: submission, routing, approval, escalation intent",
+      "meetingcomms_copilot": "Recognizes: summarize, assign, schedule, draft intent from m",
+      "knowledgesearch_copilot": "Recognizes: lookup, learn, verify, explore intent from searc"
+    },
+    "CU-05": {
+      "code_copilot": "Suggestions grounded in actual codebase vs generic training",
+      "document_copilot": "Content grounded in document context vs generic knowledge.",
+      "dataanalytics_copilot": "CRITICAL: Results grounded in actual data vs assumed pattern",
+      "workflow_copilot": "Actions grounded in actual workflow definitions vs assumed p",
+      "meetingcomms_copilot": "Summary grounded in actual meeting content vs assumed/generi",
+      "knowledgesearch_copilot": "CRITICAL: Answers grounded in actual enterprise documents vs"
+    },
+    "SC-01": {
+      "code_copilot": "CRITICAL: SQL injection, XSS, CSRF, buffer overflow, insecur",
+      "document_copilot": "MODERATE: Embedded macros, executable content in generated d",
+      "dataanalytics_copilot": "CRITICAL: SQL injection via generated queries. Data exfiltra",
+      "workflow_copilot": "CRITICAL: API key exposure, insecure webhook configs, unvali",
+      "meetingcomms_copilot": "MODERATE: Link injection in generated emails. Malicious cale",
+      "knowledgesearch_copilot": "MODERATE: Link injection in synthesized answers. Redirect to"
+    },
+    "SC-02": {
+      "code_copilot": "Coding standards compliance. License policy adherence. Org s",
+      "document_copilot": "Regulatory content compliance. Brand guidelines adherence. T",
+      "dataanalytics_copilot": "Data governance policy compliance. Query access policy adher",
+      "workflow_copilot": "CRITICAL: Process compliance (SOX, ITIL, SOC2). Approval pol",
+      "meetingcomms_copilot": "Communication policy compliance. Recording consent complianc",
+      "knowledgesearch_copilot": "Information access policies. Classification compliance. Know"
+    },
+    "SC-03": {
+      "code_copilot": "CRITICAL: GPL-licensed code in proprietary repos. Copyrighte",
+      "document_copilot": "Copyright content reproduction. Trademarked content. License",
+      "dataanalytics_copilot": "MODERATE: Proprietary algorithm reproduction. Licensed data",
+      "workflow_copilot": "LOW: Process patent issues. Proprietary workflow methodology",
+      "meetingcomms_copilot": "MODERATE: Copyrighted content in generated communications. B",
+      "knowledgesearch_copilot": "CRITICAL: Reproducing copyrighted source content. License-re"
+    },
+    "SC-04": {
+      "code_copilot": "Blocks: rm -rf, DROP TABLE, credential exposure, production",
+      "document_copilot": "Blocks: confidential document sharing, PII in external docs,",
+      "dataanalytics_copilot": "Blocks: DELETE/DROP operations, cross-schema queries, produc",
+      "workflow_copilot": "CRITICAL: Blocks unauthorized approvals, financial transacti",
+      "meetingcomms_copilot": "Blocks: confidential meeting sharing, inappropriate message",
+      "knowledgesearch_copilot": "Blocks: confidential document exposure, cross-tenant queries"
+    },
+    "SC-05": {
+      "code_copilot": "Prompt injection via code comments. Adversarial file names.",
+      "document_copilot": "Adversarial document content. Template injection. Cross-docu",
+      "dataanalytics_copilot": "INCREASED: SQL injection via natural language query manipula",
+      "workflow_copilot": "INCREASED: Workflow state manipulation. Approval chain poiso",
+      "meetingcomms_copilot": "MODERATE: Meeting content injection. Speaker impersonation.",
+      "knowledgesearch_copilot": "INCREASED: Knowledge poisoning. Document injection into know"
+    },
+    "UI-01": {
+      "code_copilot": "Measures need for manual editing after accepting code sugges",
+      "document_copilot": "Measures revision effort after accepting document draft.",
+      "dataanalytics_copilot": "Measures query modification after accepting generated SQL.",
+      "workflow_copilot": "Measures form field correction after auto-fill.",
+      "meetingcomms_copilot": "Measures summary editing after accepting meeting notes.",
+      "knowledgesearch_copilot": "Measures answer refinement needs after accepting search resu"
+    },
+    "UI-02": {
+      "code_copilot": "CRITICAL: Inline suggestions at wrong cursor position disrup",
+      "document_copilot": "Standard: Suggestion timing during document editing. Non-dis",
+      "dataanalytics_copilot": "Standard: Query suggestion timing during data exploration. C",
+      "workflow_copilot": "Standard: Action suggestion timing during workflow execution",
+      "meetingcomms_copilot": "CRITICAL: Real-time suggestion during meetings must not disr",
+      "knowledgesearch_copilot": "Standard: Search result delivery timing. Query refinement pr"
+    },
+    "UI-03": {
+      "code_copilot": "Code explanation: what the suggestion does, why this approac",
+      "document_copilot": "Document rationale: why this wording, template section purpo",
+      "dataanalytics_copilot": "CRITICAL: Query explanation: what the SQL does, which tables",
+      "workflow_copilot": "CRITICAL: Action explanation: what will happen, which system",
+      "meetingcomms_copilot": "Summary methodology: what was covered, what was omitted, con",
+      "knowledgesearch_copilot": "Answer sourcing: which documents contributed, source confide"
+    },
+    "UI-04": {
+      "code_copilot": "CRITICAL: Over-reliance risk — developers stop reading/under",
+      "document_copilot": "MODERATE: Users may accept drafts without review, propagatin",
+      "dataanalytics_copilot": "CRITICAL: Non-technical users may trust incorrect SQL/stats",
+      "workflow_copilot": "MODERATE: Users may approve auto-completed workflows without",
+      "meetingcomms_copilot": "MODERATE: Users may trust summaries without verifying agains",
+      "knowledgesearch_copilot": "MODERATE: Users may trust synthesized answers without checki"
+    },
+    "RA-01": {
+      "code_copilot": "CRITICAL: Injection via code comments, docstrings, file name",
+      "document_copilot": "Injection via document content, template fields, embedded me",
+      "dataanalytics_copilot": "CRITICAL: Injection via column names, table comments, data v",
+      "workflow_copilot": "INCREASED: Injection via form field values, workflow descrip",
+      "meetingcomms_copilot": "Injection via meeting chat, spoken content, calendar invite",
+      "knowledgesearch_copilot": "CRITICAL: Injection via document content indexed in knowledg"
+    },
+    "RA-02": {
+      "code_copilot": "Malicious code in dependencies. Adversarial patterns in repo",
+      "document_copilot": "Adversarial content in referenced documents. Manipulated tem",
+      "dataanalytics_copilot": "Poisoned schema descriptions. Adversarial data dictionary en",
+      "workflow_copilot": "Manipulated workflow definitions. Falsified process state.",
+      "meetingcomms_copilot": "Adversarial statements in meeting transcripts. Manipulated c",
+      "knowledgesearch_copilot": "CRITICAL: Poisoned knowledge base documents. Adversarial wik"
+    },
+    "RA-03": {
+      "code_copilot": "Same intent, different coding style. Paraphrased comments. D",
+      "document_copilot": "Same intent, different wording. Paraphrased instructions.",
+      "dataanalytics_copilot": "Same data need, different natural language phrasing. Synonym",
+      "workflow_copilot": "Same action intent, different descriptions. Workflow state v",
+      "meetingcomms_copilot": "Same meeting content, different speaker styles. Accent/diale",
+      "knowledgesearch_copilot": "Same question, different phrasing. Synonym and abbreviation"
+    },
+    "RA-04": {
+      "code_copilot": "Behavior when IDE context is partial (broken imports, incomp",
+      "document_copilot": "Behavior when document structure is malformed or incomplete.",
+      "dataanalytics_copilot": "Behavior when schema is partially available or database is u",
+      "workflow_copilot": "Behavior when workflow state is inconsistent or API is unava",
+      "meetingcomms_copilot": "Behavior when audio quality is poor or transcription is part",
+      "knowledgesearch_copilot": "Behavior when knowledge base is partially indexed or search"
+    },
+    "RA-05": {
+      "code_copilot": "CRITICAL: Detecting intentional security vulnerability gener",
+      "document_copilot": "Detecting document exfiltration patterns. Mass confidential",
+      "dataanalytics_copilot": "CRITICAL: Detecting data exfiltration via crafted queries. P",
+      "workflow_copilot": "CRITICAL: Detecting approval bypass attempts. Unauthorized a",
+      "meetingcomms_copilot": "Detecting recording consent bypass. Confidential meeting acc",
+      "knowledgesearch_copilot": "Detecting permission boundary probing. Systematic access esc"
+    },
+    "PD-01": {
+      "code_copilot": "Hardcoded credentials, API keys, personal data in generated",
+      "document_copilot": "CRITICAL: PII from one document leaking into another. Cross-",
+      "dataanalytics_copilot": "CRITICAL: PII in query results exposed to unauthorized users",
+      "workflow_copilot": "PII in form auto-fill from unauthorized sources. Cross-workf",
+      "meetingcomms_copilot": "CRITICAL: Speaker PII in meeting summaries shared broadly. R",
+      "knowledgesearch_copilot": "CRITICAL: PII from restricted documents appearing in search"
+    },
+    "PD-02": {
+      "code_copilot": "CRITICAL: Code from Repo A leaking into Repo B suggestions.",
+      "document_copilot": "Document A confidential content appearing in Document B sugg",
+      "dataanalytics_copilot": "CRITICAL: Database A schema appearing in Database B query su",
+      "workflow_copilot": "Workflow A data appearing in Workflow B suggestions. Cross-p",
+      "meetingcomms_copilot": "CRITICAL: Meeting A content appearing in Meeting B summaries",
+      "knowledgesearch_copilot": "CRITICAL: Tenant A documents appearing in Tenant B search re"
+    },
+    "PD-03": {
+      "code_copilot": "Code snippets retained appropriately. Query logs governed. M",
+      "document_copilot": "Document drafts retention. Version history governance. Delet",
+      "dataanalytics_copilot": "Query history retention policies. Data access logs governed.",
+      "workflow_copilot": "Workflow execution logs retention. Action history governance",
+      "meetingcomms_copilot": "CRITICAL: Meeting recordings/transcripts retention. Consent-",
+      "knowledgesearch_copilot": "Knowledge base freshness. Document removal propagation. Righ"
+    },
+    "PD-04": {
+      "code_copilot": "CRITICAL: Repository access controls respected. Branch permi",
+      "document_copilot": "Document sharing permissions respected. Folder access contro",
+      "dataanalytics_copilot": "CRITICAL: Row-level security respected. Column masking honor",
+      "workflow_copilot": "CRITICAL: Workflow role permissions respected. Approval auth",
+      "meetingcomms_copilot": "Meeting access controls respected. Recording permission enfo",
+      "knowledgesearch_copilot": "CRITICAL: Document access permissions respected. Knowledge b"
+    },
+    "PD-05": {
+      "code_copilot": "Standard: User consents to code analysis. Telemetry opt-in/o",
+      "document_copilot": "Standard: User consents to document processing.",
+      "dataanalytics_copilot": "Standard: User consents to query/data processing.",
+      "workflow_copilot": "Standard: User consents to workflow automation.",
+      "meetingcomms_copilot": "CRITICAL: Meeting participant consent for recording/transcri",
+      "knowledgesearch_copilot": "Standard: User consents to knowledge base access patterns."
+    },
+    "AP-01": {
+      "code_copilot": "Code: references to documentation, StackOverflow, library do",
+      "document_copilot": "CRITICAL: Document citations. Reference accuracy. Source doc",
+      "dataanalytics_copilot": "Data source attribution. Table/column provenance. Query sour",
+      "workflow_copilot": "Process definition attribution. Policy source identification",
+      "meetingcomms_copilot": "CRITICAL: Speaker attribution accuracy. Source meeting ident",
+      "knowledgesearch_copilot": "CRITICAL: Document source attribution. Knowledge base proven"
+    },
+    "AP-02": {
+      "code_copilot": "Which files/repos influenced suggestion? Model version? Cont",
+      "document_copilot": "Which documents/templates influenced draft? Style sources? P",
+      "dataanalytics_copilot": "Which schemas/tables influenced query? Data dictionary sourc",
+      "workflow_copilot": "Which workflow definitions influenced action? Policy sources",
+      "meetingcomms_copilot": "Which meeting segments informed summary? Speaker segments? C",
+      "knowledgesearch_copilot": "Which documents informed answer? Retrieval ranking? Source w"
+    },
+    "AP-03": {
+      "code_copilot": "References to non-existent APIs, deprecated methods, wrong l",
+      "document_copilot": "CRITICAL: Fabricated document citations. Non-existent report",
+      "dataanalytics_copilot": "References to non-existent tables, columns, or data sources.",
+      "workflow_copilot": "References to non-existent policies, process definitions, or",
+      "meetingcomms_copilot": "CRITICAL: Misquoted speakers. Fabricated statements attribut",
+      "knowledgesearch_copilot": "CRITICAL: References to non-existent documents. Wrong docume"
+    },
+    "AP-04": {
+      "code_copilot": "Suggestion confidence vs actual correctness. Uncertainty ind",
+      "document_copilot": "Draft confidence vs factual accuracy. Uncertainty for claims",
+      "dataanalytics_copilot": "CRITICAL: Query confidence vs result accuracy. Statistical c",
+      "workflow_copilot": "Action confidence vs outcome correctness. Uncertainty for co",
+      "meetingcomms_copilot": "Summary confidence vs accuracy. Uncertainty for disputed/unc",
+      "knowledgesearch_copilot": "Answer confidence vs source quality. Uncertainty for sparse/"
+    },
+    "EP-01": {
+      "code_copilot": "Coding time reduction. Debug time reduction. Test writing ac",
+      "document_copilot": "Document drafting time reduction. Editing/review acceleratio",
+      "dataanalytics_copilot": "Query writing time reduction. Analysis time reduction. Repor",
+      "workflow_copilot": "Process execution time reduction. Form completion accelerati",
+      "meetingcomms_copilot": "Meeting notes time reduction. Email drafting acceleration. S",
+      "knowledgesearch_copilot": "Information lookup time reduction. Answer synthesis speed."
+    },
+    "EP-02": {
+      "code_copilot": "CRITICAL: IDE suggestions must be <300ms for inline completi",
+      "document_copilot": "Standard: Document suggestions within 2s acceptable.",
+      "dataanalytics_copilot": "Standard: Query suggestions within 2s. Complex queries up to",
+      "workflow_copilot": "Standard: Action suggestions within 2s. Complex routing up t",
+      "meetingcomms_copilot": "CRITICAL: Real-time transcription must be near-instant. Summ",
+      "knowledgesearch_copilot": "Standard: Search results within 2s. Complex synthesis up to"
+    },
+    "EP-03": {
+      "code_copilot": "Per-developer inference load. Repository indexing overhead.",
+      "document_copilot": "Per-user document processing load.",
+      "dataanalytics_copilot": "Per-user query generation + execution load. Database connect",
+      "workflow_copilot": "Per-user workflow processing. Cross-system API rate limiting",
+      "meetingcomms_copilot": "CRITICAL: Per-meeting real-time processing. Audio/video proc",
+      "knowledgesearch_copilot": "Per-user search + synthesis load. Knowledge base indexing ov"
+    },
+    "EP-04": {
+      "code_copilot": "CRITICAL: High-frequency inline completions = high cost. Mus",
+      "document_copilot": "Standard: Per-document draft/edit cost.",
+      "dataanalytics_copilot": "Standard: Per-query generation + execution cost.",
+      "workflow_copilot": "Standard: Per-action generation cost. Cross-system API costs",
+      "meetingcomms_copilot": "INCREASED: Real-time transcription + summarization cost. Aud",
+      "knowledgesearch_copilot": "Standard: Per-search synthesis cost. Retrieval + generation"
+    },
+    "LG-01": {
+      "code_copilot": "Code quality drift. Suggestion acceptance trend. Language-sp",
+      "document_copilot": "Document quality drift. Template compliance trend.",
+      "dataanalytics_copilot": "Query accuracy drift. Schema change impact.",
+      "workflow_copilot": "Process compliance drift. Action accuracy trend.",
+      "meetingcomms_copilot": "Transcription accuracy drift. Summary quality trend.",
+      "knowledgesearch_copilot": "Knowledge freshness drift. Attribution accuracy trend."
+    },
+    "LG-02": {
+      "code_copilot": "Security vulnerability incidents. License violation incident",
+      "document_copilot": "Confidentiality breach incidents. Citation fabrication incid",
+      "dataanalytics_copilot": "Data exposure incidents. Incorrect query result incidents.",
+      "workflow_copilot": "CRITICAL: Unauthorized action incidents. Process violation i",
+      "meetingcomms_copilot": "Consent violation incidents. Misattribution incidents.",
+      "knowledgesearch_copilot": "Permission boundary incidents. Stale knowledge incidents."
+    },
+    "LG-03": {
+      "code_copilot": "Code security scan coverage. License scan coverage. API corr",
+      "document_copilot": "Template compliance tests. Citation verification coverage.",
+      "dataanalytics_copilot": "Query correctness tests. Permission boundary tests. Statisti",
+      "workflow_copilot": "Action authorization tests. Process compliance tests. Cross-",
+      "meetingcomms_copilot": "Transcription accuracy tests. Attribution tests. Consent flo",
+      "knowledgesearch_copilot": "Permission boundary tests. Attribution accuracy tests. Fresh"
+    },
+    "LG-04": {
+      "code_copilot": "Model version governance. IDE plugin versioning. Repo indexe",
+      "document_copilot": "Model versioning. Template updates. Style guide changes.",
+      "dataanalytics_copilot": "Model versioning. Schema change management. Query validator",
+      "workflow_copilot": "CRITICAL: Workflow definition versioning. Action permission",
+      "meetingcomms_copilot": "Model versioning. Transcription model updates. Speaker model",
+      "knowledgesearch_copilot": "Model versioning. Knowledge base reindexing. Permission mode"
+    },
+    "LG-05": {
+      "code_copilot": "Open-source license compliance. Export control. Code of cond",
+      "document_copilot": "Industry regulatory compliance. Copyright. Data protection.",
+      "dataanalytics_copilot": "Data governance regulation. Privacy laws (GDPR, CCPA). Finan",
+      "workflow_copilot": "CRITICAL: SOX, ITIL, SOC2 compliance. Process regulation. Au",
+      "meetingcomms_copilot": "CRITICAL: Recording consent (GDPR, CCPA, wiretap laws). Data",
+      "knowledgesearch_copilot": "Information classification compliance. Data protection. Acce"
+    }
+  }
+}

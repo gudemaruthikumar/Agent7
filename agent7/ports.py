@@ -1,0 +1,126 @@
+from __future__ import annotations
+
+from collections.abc import Callable
+from datetime import datetime
+from typing import Any, Protocol
+
+from .domain import (
+    ChangeRecord,
+    Comparison,
+    EmittedEvent,
+    EvaluationOutcome,
+    EvaluationRun,
+    EvidencePackResult,
+    EvidenceRecord,
+    ImpactNarrative,
+    LedgerEntry,
+    MetricDefinition,
+    PinnedContext,
+    RegistryEvent,
+    Severity,
+    TaskRecord,
+    TestDefinition,
+    ThresholdComparison,
+    TriggerCode,
+    TrustFactor,
+)
+
+
+class RMTEReader(Protocol):
+    def impact_for(self, trigger: TriggerCode) -> dict[str, Any]: ...
+    def metrics(self) -> dict[str, MetricDefinition]: ...
+    def tests(self) -> dict[str, TestDefinition]: ...
+    def risks(self) -> dict[str, dict[str, Any]]: ...
+    def product_context(self) -> dict[str, Any]: ...
+    def baseline_scores(self) -> dict[str, float]: ...
+    def previous_pack(self) -> EvidencePackResult: ...
+    def seed_changes(self) -> list[dict[str, Any]]: ...
+    def change_detail(self, event: RegistryEvent) -> str: ...
+
+
+class DatasetPinner(Protocol):
+    def pin(self, event: RegistryEvent, test_ids: list[str]) -> PinnedContext: ...
+
+
+class EvaluationRunner(Protocol):
+    def start_delta_run(
+        self,
+        job_id: str,
+        test_ids: list[str],
+        context: PinnedContext,
+        simulation: EvaluationOutcome,
+    ) -> EvaluationRun: ...
+
+
+class EvidenceWriter(Protocol):
+    def write(self, job_id: str, records: list[EvidenceRecord]) -> EvidencePackResult: ...
+
+
+class Q6Scorer(Protocol):
+    """Q6 IS the Trust Factor scorer (GaaS Algorithm 1).
+
+    Takes the full revalidation context and returns a TrustFactor containing
+    the TFa scalar and all intermediate components (Vnorm, Vcoer, Vmim, Ssum, V̄).
+    """
+
+    def score(
+        self,
+        pack_reference: str,
+        comparisons: list[ThresholdComparison],
+        severity: Severity,
+        metric_definitions: dict[str, MetricDefinition],
+    ) -> TrustFactor: ...
+
+
+class ImpactExplainer(Protocol):
+    def explain(self, change: ChangeRecord) -> ImpactNarrative: ...
+
+    def map_risks_and_metrics(
+        self,
+        change: ChangeRecord,
+        risks: dict[str, dict[str, Any]],
+        metrics: dict[str, MetricDefinition],
+        default_risk_ids: list[str],
+        allowed_metric_ids: list[str] | None = None,
+    ) -> tuple[list[str], dict[str, list[str]], ImpactNarrative]: ...
+
+
+class NotificationTicketPort(Protocol):
+    def create(self, notification: TaskRecord) -> str: ...
+
+
+class Persistence(Protocol):
+    def save_change(self, change: ChangeRecord) -> None: ...
+    def get_change(self, change_id: str) -> ChangeRecord | None: ...
+    def list_changes(self) -> list[ChangeRecord]: ...
+    def append_ledger(self, entry: LedgerEntry) -> None: ...
+    def list_ledger(self, job_id: str | None = None) -> list[LedgerEntry]: ...
+    def append_event(self, event: EmittedEvent) -> None: ...
+    def list_events(self) -> list[EmittedEvent]: ...
+    def save_task(self, task: TaskRecord) -> None: ...
+    def list_tasks(self) -> list[TaskRecord]: ...
+    def save_state(self, state: dict[str, Any]) -> None: ...
+    def get_state(self, product_id: str) -> dict[str, Any] | None: ...
+    def save_pack(self, pack: EvidencePackResult) -> None: ...
+    def list_packs(self) -> list[EvidencePackResult]: ...
+    def get_pack(self, pack_id: str) -> EvidencePackResult | None: ...
+    def save_decay_trigger(self, trigger: dict[str, Any]) -> None: ...
+    def save_impact_set(self, job_id: str, impacts: list[dict[str, Any]]) -> None: ...
+    def save_product_context(self, product_id: str, context: dict[str, Any]) -> None: ...
+    def reset(self) -> None: ...
+
+
+class EventPublisher(Protocol):
+    def publish(self, event: EmittedEvent) -> None: ...
+
+
+class ToolGateway(Protocol):
+    def execute(self, tool: str, allowlist: set[str], call: Callable[[], Any]) -> Any: ...
+
+
+class Clock(Protocol):
+    def now(self) -> datetime: ...
+
+
+class IDGenerator(Protocol):
+    def new(self, prefix: str) -> str: ...

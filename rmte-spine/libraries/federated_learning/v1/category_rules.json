@@ -1,0 +1,89 @@
+{
+  "library_id": "agent5-federated_learning-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Federated Learning RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "BR": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "CE": [
+      "monitoring",
+      "regression"
+    ],
+    "CF": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "CH": [
+      "monitoring",
+      "regression"
+    ],
+    "EX": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "GP": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "LG": [
+      "monitoring",
+      "regression"
+    ],
+    "OP": [
+      "monitoring",
+      "regression"
+    ],
+    "PV": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "PZ": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "SH": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "BR-01": [
+      "adversarial"
+    ],
+    "BR-02": [
+      "adversarial"
+    ],
+    "BR-03": [
+      "adversarial"
+    ],
+    "BR-04": [
+      "adversarial"
+    ],
+    "BR-05": [
+      "adversarial"
+    ]
+  }
+}

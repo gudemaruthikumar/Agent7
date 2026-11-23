@@ -1,0 +1,1165 @@
+{
+  "library_id": "tlai-rmte-chat_assistant-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_ChatAssistant_Logs_Layers_Formulas.xlsx — sheet 'Chat Assistant RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "CH-01",
+      "metric_ids": [
+        "AD-03",
+        "CA-01",
+        "CA-02",
+        "CA-04",
+        "EO-01",
+        "EO-02",
+        "EO-03",
+        "FA-01",
+        "FA-02",
+        "FA-03",
+        "FA-04",
+        "LC-01",
+        "LC-02",
+        "RQ-01",
+        "RQ-02",
+        "RQ-03",
+        "RQ-04",
+        "RQ-05"
+      ]
+    },
+    {
+      "risk_id": "CH-02",
+      "metric_ids": [
+        "AD-05",
+        "PV-01",
+        "PV-03",
+        "PV-04",
+        "RF-03",
+        "SC-01",
+        "SC-02",
+        "SC-03",
+        "SC-04"
+      ]
+    },
+    {
+      "risk_id": "CH-03",
+      "metric_ids": [
+        "PV-04",
+        "RF-01",
+        "RF-03",
+        "RF-04"
+      ]
+    },
+    {
+      "risk_id": "CH-04",
+      "metric_ids": [
+        "RF-02",
+        "RF-04",
+        "SC-03",
+        "SC-04"
+      ]
+    },
+    {
+      "risk_id": "CH-05",
+      "metric_ids": [
+        "AD-01",
+        "AD-02",
+        "AD-05",
+        "LC-01",
+        "LC-02",
+        "SC-04",
+        "SC-05"
+      ]
+    },
+    {
+      "risk_id": "CONV-01",
+      "metric_ids": [
+        "AD-04"
+      ]
+    },
+    {
+      "risk_id": "CONV-02",
+      "metric_ids": [
+        "PV-02"
+      ]
+    },
+    {
+      "risk_id": "CONV-03",
+      "metric_ids": [
+        "CA-02"
+      ]
+    },
+    {
+      "risk_id": "CONV-04",
+      "metric_ids": [
+        "CA-01",
+        "CA-03",
+        "EO-04"
+      ]
+    },
+    {
+      "risk_id": "MM-01",
+      "metric_ids": [
+        "AD-01",
+        "SC-05"
+      ]
+    },
+    {
+      "risk_id": "MM-02",
+      "metric_ids": [
+        "FA-01",
+        "FA-02"
+      ]
+    },
+    {
+      "risk_id": "MM-03",
+      "metric_ids": [
+        "SC-01",
+        "SC-04"
+      ]
+    },
+    {
+      "risk_id": "MM-05",
+      "metric_ids": [
+        "CA-04",
+        "RF-04"
+      ]
+    },
+    {
+      "risk_id": "PER-01",
+      "metric_ids": [
+        "AD-01",
+        "AD-02",
+        "SC-05"
+      ]
+    },
+    {
+      "risk_id": "PER-02",
+      "metric_ids": [
+        "CA-03",
+        "LC-01",
+        "RQ-05"
+      ]
+    },
+    {
+      "risk_id": "PER-03",
+      "metric_ids": [
+        "CA-01",
+        "RQ-05"
+      ]
+    },
+    {
+      "risk_id": "PER-04",
+      "metric_ids": [
+        "LC-04",
+        "SC-03"
+      ]
+    },
+    {
+      "risk_id": "SAFE-01",
+      "metric_ids": [
+        "AD-01",
+        "AD-02",
+        "SC-05"
+      ]
+    },
+    {
+      "risk_id": "SAFE-02",
+      "metric_ids": [
+        "SC-01",
+        "SC-05"
+      ]
+    }
+  ],
+  "derived_perspectives": [
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by TEVV Coverage Index (Chat Assistant)",
+      "description": "Lifecycle failure detected by TEVV Coverage Index (Chat Assistant)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LC-03"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Prompt/Model Version Governance (Chat Assistant)",
+      "description": "Lifecycle failure detected by Prompt/Model Version Governance (Chat Assistant)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LC-04"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Regulatory Framework Compliance (Chat Assistant)",
+      "description": "Lifecycle failure detected by Regulatory Framework Compliance (Chat Assistant)",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "LC-05"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy, Fairness; Original HLA primary TA: Accountability (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "description": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "metric_ids": [
+        "RQ-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Reliability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "description": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "RQ-05"
+      ],
+      "notes": "Derived from HLA — Business perspective of Fairness & Policy Consistency failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "description": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "category": "Business",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "FA-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Explainability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "description": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "metric_ids": [
+        "SC-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Safety failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Security compromise causes data / financial loss and reputational damage",
+      "description": "Security compromise causes data / financial loss and reputational damage",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "metric_ids": [
+        "SC-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Security failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "description": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "metric_ids": [
+        "PV-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Privacy failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    }
+  ],
+  "rmte_links": [
+    {
+      "metric_id": "RQ-01",
+      "risk_id": "CH-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RQ-02",
+      "risk_id": "CH-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RQ-03",
+      "risk_id": "CH-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RQ-04",
+      "risk_id": "CH-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RQ-05",
+      "risk_id": "CH-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FA-01",
+      "risk_id": "CH-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FA-02",
+      "risk_id": "CH-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FA-03",
+      "risk_id": "CH-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FA-04",
+      "risk_id": "CH-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SC-01",
+      "risk_id": "CH-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or disallowed responses",
+      "test_suite_id": "TS-CH-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-02",
+      "risk_id": "CH-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or disallowed responses",
+      "test_suite_id": "TS-CH-03",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SC-03",
+      "risk_id": "CH-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or disallowed responses",
+      "test_suite_id": "TS-CH-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SC-03",
+      "risk_id": "CH-04",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Under-refusal (allows disallowed content)",
+      "test_suite_id": "TS-CH-04",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SC-04",
+      "risk_id": "CH-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or disallowed responses",
+      "test_suite_id": "TS-CH-02",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SC-04",
+      "risk_id": "CH-04",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Under-refusal (allows disallowed content)",
+      "test_suite_id": "TS-CH-02",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SC-04",
+      "risk_id": "CH-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Jailbreak success",
+      "test_suite_id": "TS-CH-02",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SC-05",
+      "risk_id": "CH-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Jailbreak success",
+      "test_suite_id": "TS-CH-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RF-01",
+      "risk_id": "CH-03",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Over-refusal (blocks legitimate requests)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RF-02",
+      "risk_id": "CH-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Under-refusal (allows disallowed content)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RF-03",
+      "risk_id": "CH-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or disallowed responses",
+      "test_suite_id": "TS-CH-05",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RF-03",
+      "risk_id": "CH-03",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Over-refusal (blocks legitimate requests)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RF-04",
+      "risk_id": "CH-03",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Over-refusal (blocks legitimate requests)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RF-04",
+      "risk_id": "CH-04",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Under-refusal (allows disallowed content)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AD-01",
+      "risk_id": "CH-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Jailbreak success",
+      "test_suite_id": "TS-CH-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AD-02",
+      "risk_id": "CH-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Jailbreak success",
+      "test_suite_id": "TS-CH-06",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AD-03",
+      "risk_id": "CH-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-04",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AD-04",
+      "risk_id": "CONV-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Context manipulation via conversation history",
+      "test_suite_id": "TS-CH-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "AD-05",
+      "risk_id": "CH-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or disallowed responses",
+      "test_suite_id": "TS-CH-06",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "AD-05",
+      "risk_id": "CH-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Jailbreak success",
+      "test_suite_id": "TS-CH-06",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CA-01",
+      "risk_id": "CH-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CA-01",
+      "risk_id": "CONV-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Context overflow quality degradation",
+      "test_suite_id": "TS-CH-05",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CA-02",
+      "risk_id": "CH-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CA-02",
+      "risk_id": "CONV-03",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "History poisoning (inject malicious content in earlier turns)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CA-03",
+      "risk_id": "CONV-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Context overflow quality degradation",
+      "test_suite_id": "TS-CH-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-04",
+      "risk_id": "CH-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PV-01",
+      "risk_id": "CH-02",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or disallowed responses",
+      "test_suite_id": "TS-CH-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PV-02",
+      "risk_id": "CONV-02",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "PII accumulation across conversation turns",
+      "test_suite_id": "TS-CH-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PV-03",
+      "risk_id": "CH-02",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or disallowed responses",
+      "test_suite_id": "TS-CH-03",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-04",
+      "risk_id": "CH-02",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or disallowed responses",
+      "test_suite_id": "TS-CH-03",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-04",
+      "risk_id": "CH-03",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Over-refusal (blocks legitimate requests)",
+      "test_suite_id": "TS-CH-03",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EO-01",
+      "risk_id": "CH-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-07",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EO-02",
+      "risk_id": "CH-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-07",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EO-03",
+      "risk_id": "CH-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-07",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EO-04",
+      "risk_id": "CONV-04",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Context overflow quality degradation",
+      "test_suite_id": "TS-CH-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LC-01",
+      "risk_id": "CH-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-01",
+      "risk_id": "CH-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Jailbreak success",
+      "test_suite_id": "TS-CH-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-02",
+      "risk_id": "CH-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incorrect answers presented as facts (hallucination)",
+      "test_suite_id": "TS-CH-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-02",
+      "risk_id": "CH-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Jailbreak success",
+      "test_suite_id": "TS-CH-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-03",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by TEVV Coverage Index (Chat Assistant)",
+      "test_suite_id": "TS-CH-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-04",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Prompt/Model Version Governance (Chat Assistant)",
+      "test_suite_id": "TS-CH-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-05",
+      "risk_id": null,
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Regulatory Framework Compliance (Chat Assistant)",
+      "test_suite_id": "TS-CH-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AD-01",
+      "risk_id": "PER-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Persona jailbreak (trick character out of role)",
+      "test_suite_id": "TS-CH-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AD-02",
+      "risk_id": "PER-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Persona jailbreak (trick character out of role)",
+      "test_suite_id": "TS-CH-06",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SC-05",
+      "risk_id": "PER-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Persona jailbreak (trick character out of role)",
+      "test_suite_id": "TS-CH-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RQ-05",
+      "risk_id": "PER-02",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Persona drift over conversation",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-03",
+      "risk_id": "PER-02",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Persona drift over conversation",
+      "test_suite_id": "TS-CH-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LC-01",
+      "risk_id": "PER-02",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Persona drift over conversation",
+      "test_suite_id": "TS-CH-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RQ-05",
+      "risk_id": "PER-03",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Character inconsistency under edge cases",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-01",
+      "risk_id": "PER-03",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Character inconsistency under edge cases",
+      "test_suite_id": "TS-CH-05",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SC-03",
+      "risk_id": "PER-04",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Brand compliance violation",
+      "test_suite_id": "TS-CH-04",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-04",
+      "risk_id": "PER-04",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Brand compliance violation",
+      "test_suite_id": "TS-CH-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SC-05",
+      "risk_id": "SAFE-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Filter bypass via adversarial techniques",
+      "test_suite_id": "TS-CH-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "AD-01",
+      "risk_id": "SAFE-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Filter bypass via adversarial techniques",
+      "test_suite_id": "TS-CH-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AD-02",
+      "risk_id": "SAFE-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Filter bypass via adversarial techniques",
+      "test_suite_id": "TS-CH-06",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SC-01",
+      "risk_id": "SAFE-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Filter-LLM inconsistency (filter passes but LLM unsafe)",
+      "test_suite_id": "TS-CH-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-05",
+      "risk_id": "SAFE-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Filter-LLM inconsistency (filter passes but LLM unsafe)",
+      "test_suite_id": "TS-CH-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "AD-01",
+      "risk_id": "MM-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Image-based injection (inject instructions via image)",
+      "test_suite_id": "TS-CH-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-05",
+      "risk_id": "MM-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Image-based injection (inject instructions via image)",
+      "test_suite_id": "TS-CH-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FA-01",
+      "risk_id": "MM-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Cross-modal hallucination (incorrect image/voice description)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FA-02",
+      "risk_id": "MM-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Cross-modal hallucination (incorrect image/voice description)",
+      "test_suite_id": "TS-CH-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-01",
+      "risk_id": "MM-03",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Modal-specific safety (NSFW images, harmful audio)",
+      "test_suite_id": "TS-CH-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-04",
+      "risk_id": "MM-03",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Modal-specific safety (NSFW images, harmful audio)",
+      "test_suite_id": "TS-CH-02",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RF-04",
+      "risk_id": "MM-05",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Modal fairness gap (different quality per modality)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-04",
+      "risk_id": "MM-05",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Modal fairness gap (different quality per modality)",
+      "test_suite_id": "TS-CH-05",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RQ-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "test_suite_id": "TS-CH-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RQ-05",
+      "risk_id": "(derived)",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "test_suite_id": "TS-CH-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FA-04",
+      "risk_id": "(derived)",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Business",
+      "risk": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "test_suite_id": "TS-CH-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SC-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "test_suite_id": "TS-CH-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SC-04",
+      "risk_id": "(derived)",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Security compromise causes data / financial loss and reputational damage",
+      "test_suite_id": "TS-CH-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "test_suite_id": "TS-CH-03",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    }
+  ]
+}

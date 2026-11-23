@@ -1,0 +1,255 @@
+{
+  "library_id": "tlai-rmte-nlp-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_NLP_Logs_Layers_Formulas.xlsx — sheet 'NLP RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each NLP pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (NLP)",
+      "layer": "Data Ingestion",
+      "logs_telemetry": "Ingestion log",
+      "key_fields": "documents, source, language/locale, timestamps",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Preprocessing"
+      ],
+      "notes": "Source-of-record for inputs"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (NLP)",
+      "layer": "Text Preprocessing / Tokenization",
+      "logs_telemetry": "Preprocessing log",
+      "key_fields": "tokens, UNK/OOV rate, subword fragmentation, normalization, stopwords",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Preprocessing",
+        "Linguistic Robustness"
+      ],
+      "notes": "Feeds PR-01..04, LR-02"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (NLP)",
+      "layer": "Feature / Embedding",
+      "logs_telemetry": "Embedding log",
+      "key_fields": "features, embeddings (refs), encoder model & version",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Task Performance"
+      ],
+      "notes": "Vector refs only"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (NLP)",
+      "layer": "Model / Inference",
+      "logs_telemetry": "Inference log",
+      "key_fields": "predictions, logits, per-class/entity/language outputs, confidence",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Task Performance",
+        "Faithfulness"
+      ],
+      "notes": "Core log for TP, FH families"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (NLP)",
+      "layer": "Confidence / Calibration",
+      "logs_telemetry": "Calibration log",
+      "key_fields": "confidence bins, ECE inputs, reliability data",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Task Performance"
+      ],
+      "notes": "Feeds TP-03 ECE"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (NLP)",
+      "layer": "Postprocessing / Output",
+      "logs_telemetry": "Output log",
+      "key_fields": "final output, generated text, readability, entity list",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Faithfulness",
+        "Fairness"
+      ],
+      "notes": "Feeds FH-04, FE-05"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (NLP)",
+      "layer": "Attribution / Explainability",
+      "logs_telemetry": "Explainability log",
+      "key_fields": "token-level attribution (attention/SHAP/LIME), counterfactuals, provenance",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Explainability"
+      ],
+      "notes": "Feeds EA-01/02/03"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (NLP)",
+      "layer": "Privacy & Redaction",
+      "logs_telemetry": "Privacy log",
+      "key_fields": "PII detection/redaction, memorization checks, data-minimization",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PP-01..04"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (NLP)",
+      "layer": "Guardrails / Fairness",
+      "logs_telemetry": "Guardrail log",
+      "key_fields": "bias classifier, dialect/gender parity, adversarial-text resistance",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Fairness",
+        "Linguistic Robustness"
+      ],
+      "notes": "Feeds FE-01/02, LR-01"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (NLP)",
+      "layer": "Evaluation / QA",
+      "logs_telemetry": "Evaluation-harness log",
+      "key_fields": "task metrics (F1/ROUGE/BLEU/EM), human-eval correlation",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance (AAJ)",
+      "related_metric_families": [
+        "Task Performance"
+      ],
+      "notes": "Feeds TP-01/02/04"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (NLP)",
+      "layer": "Serving & API",
+      "logs_telemetry": "Serving telemetry",
+      "key_fields": "latency (p50/p95/p99), throughput, cost, model size/resource",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Operational"
+      ],
+      "notes": "Feeds OP-01..04"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (NLP)",
+      "layer": "Monitoring & Lifecycle",
+      "logs_telemetry": "Monitoring telemetry",
+      "key_fields": "input drift, model registry, TEVV, annotation IAA governance",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Feeds LG-01..05 (continuous)"
+    },
+    {
+      "index": 13,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered NLP models, data connectors, tenancy, model registry",
+      "ingested_by": "Anchors identity, model registry & tenancy for all logs",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Model registry origin (LG-01)"
+    },
+    {
+      "index": 14,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized NLP spans/events, redaction applied, event-bus refs",
+      "ingested_by": "Consumes all NLP product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Raw text redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 15,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed pipeline traces, dependency views, time-series (drift)",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator/judge outputs, NLI faithfulness, task metrics, scores",
+      "ingested_by": "Consumes inference/output/explainability logs + gold sets",
+      "related_metric_families": [
+        "Task Performance",
+        "Faithfulness",
+        "Explainability"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, gold sets & references, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the NLP RMTE metric corpus"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "fairness, privacy, annotation-governance decisions, risk register, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Fairness",
+        "Privacy"
+      ],
+      "notes": "Gates 0–4"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

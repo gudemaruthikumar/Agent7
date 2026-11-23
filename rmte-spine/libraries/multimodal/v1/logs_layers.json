@@ -1,0 +1,255 @@
+{
+  "library_id": "tlai-rmte-multimodal-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_Multimodal_Logs_Layers_Formulas.xlsx — sheet 'Multimodal RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Multimodal pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Multimodal Ingestion",
+      "logs_telemetry": "Ingestion log",
+      "key_fields": "input modalities (image/audio/video/text), formats, sizes, timestamps",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Cross-Modal Accuracy"
+      ],
+      "notes": "Source-of-record for input modalities"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Modality Preprocessing",
+      "logs_telemetry": "Preprocessing log",
+      "key_fields": "per-modality preprocessing, OCR extraction, resampling, normalization",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Modal Quality",
+        "Robustness"
+      ],
+      "notes": "Feeds MQ-04 OCR, CR-01 degradation"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Encoding / Embedding",
+      "logs_telemetry": "Encoding log",
+      "key_fields": "per-modality embeddings (refs), encoder models & versions",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Cross-Modal Accuracy"
+      ],
+      "notes": "Vector refs only; raw media in-perimeter"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Cross-Modal Alignment / Fusion",
+      "logs_telemetry": "Fusion log",
+      "key_fields": "alignment (CLIPScore), cross-modal mapping, fusion weights",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Cross-Modal Accuracy"
+      ],
+      "notes": "Feeds CA-01/02/04"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Grounding / Retrieval",
+      "logs_telemetry": "Retrieval log",
+      "key_fields": "grounding context/sources (if augmented)",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Faithfulness"
+      ],
+      "notes": "Optional grounding path"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Generation / Inference",
+      "logs_telemetry": "Generation log",
+      "key_fields": "output per modality, claims, quality signals (FID/MOS/WER/OCR), tokens",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance (AAJ)",
+      "related_metric_families": [
+        "Modal Quality",
+        "Faithfulness"
+      ],
+      "notes": "Feeds MQ, FG families"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Cross-Modal Consistency",
+      "logs_telemetry": "Consistency log",
+      "key_fields": "cross-modal contradiction, temporal/frame consistency",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Faithfulness",
+        "Cross-Modal Accuracy"
+      ],
+      "notes": "Feeds FG-03, CA-05"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Content Safety / Guardrails",
+      "logs_telemetry": "Guardrail log",
+      "key_fields": "NSFW classifier, deepfake detector, cross-modal injection, IP scanner, watermark",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Safety"
+      ],
+      "notes": "Feeds SP-01..05, CR-02"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Privacy & Redaction",
+      "logs_telemetry": "Privacy log",
+      "key_fields": "biometric consent, PII detection/redaction per modality, cross-modal leakage",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PC-01..05 (consent zero-tolerance)"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Output Rendering",
+      "logs_telemetry": "Output log",
+      "key_fields": "rendered output, embedded watermark, provenance, format",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Safety",
+        "Modal Quality"
+      ],
+      "notes": "Watermark/provenance (SP-03)"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Serving & Infrastructure",
+      "logs_telemetry": "Serving telemetry",
+      "key_fields": "latency, GPU/TPU cost, throughput, pipeline-stage success",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Operational"
+      ],
+      "notes": "Feeds OP-01..04"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (Multimodal)",
+      "layer": "Monitoring & Lifecycle",
+      "logs_telemetry": "Monitoring telemetry",
+      "key_fields": "drift, incidents & MTTR, modal-model registry, TEVV, ethical assessment",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Feeds LG-01..05 (continuous)"
+    },
+    {
+      "index": 13,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered multimodal product, per-modal model registry, tenancy",
+      "ingested_by": "Anchors identity, model registry & tenancy for all logs",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Per-modal model registry origin (LG-01)"
+    },
+    {
+      "index": 14,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized multimodal spans/events, redaction applied, event-bus refs",
+      "ingested_by": "Consumes all product logs; normalizes & redacts raw media",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Raw media redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 15,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed pipeline traces, dependency views, time-series",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator/judge outputs, cross-modal grounding, quality metrics, scores",
+      "ingested_by": "Consumes generation/fusion/consistency logs + gold sets",
+      "related_metric_families": [
+        "Cross-Modal Accuracy",
+        "Modal Quality",
+        "Faithfulness"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, gold references (FID/WER/OCR), versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the Multimodal RMTE metric corpus"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "safety, deepfake, consent, IP decisions, risk register, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Safety",
+        "Privacy"
+      ],
+      "notes": "Gates 0–4; deepfake/consent controls"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

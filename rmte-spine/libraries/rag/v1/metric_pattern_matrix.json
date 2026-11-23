@@ -1,0 +1,433 @@
+{
+  "library_id": "hla-a1-rag-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_RAG_Logs_Layers_Formulas.xlsx — RAG RMTE (Master) column 'Pattern Applicability', merged with HLA Appendix A1 pattern notes",
+  "patterns": [
+    "naive_rag",
+    "hybrid_rag",
+    "self_rag",
+    "crag",
+    "graph_rag",
+    "agentic_rag"
+  ],
+  "family_defaults": {
+    "CQ": {
+      "naive_rag": "Baseline: single corpus measurement",
+      "hybrid_rag": "Measure per dense AND sparse index separately",
+      "self_rag": "Track across re-retrieval iterations",
+      "crag": "Evaluator operates on chunks; pre vs post correction where applicable",
+      "graph_rag": "Graph nodes/relationships replace chunks",
+      "agentic_rag": "Multi-corpus / per knowledge source the agent accesses"
+    },
+    "RE": {
+      "naive_rag": "Baseline: standard retrieval metric",
+      "hybrid_rag": "Measure per-path and fused independently; hybrid often justified by recall",
+      "self_rag": "Track per iteration; should improve with re-retrieval",
+      "crag": "Post-correction vs pre-correction; watch precision/recall tradeoff",
+      "graph_rag": "Traversal relevance of entities/relationships",
+      "agentic_rag": "Per-step metric; aggregate across agent retrievals"
+    },
+    "CS": {
+      "naive_rag": "Baseline: selected context vs gold relevant set",
+      "hybrid_rag": "Selection after fusion; measure fused context quality",
+      "self_rag": "Selected context may change each critique loop",
+      "crag": "Corrected context vs original retrieved set",
+      "graph_rag": "Selected subgraph vs query-relevant neighbourhood",
+      "agentic_rag": "Per-tool/per-source selected context"
+    },
+    "AQ": {
+      "naive_rag": "Baseline: answer vs gold on single retrieve-then-generate",
+      "hybrid_rag": "Answers may differ by retrieval path; score fused generator output",
+      "self_rag": "Score final answer after self-critique iterations",
+      "crag": "Score post-correction generation",
+      "graph_rag": "Answers grounded in graph facts, not only passages",
+      "agentic_rag": "Score terminal answer after multi-step agent use"
+    },
+    "GH": {
+      "naive_rag": "Baseline: claims vs retrieved passages",
+      "hybrid_rag": "Support may come from dense or sparse path; require span on fused context",
+      "self_rag": "Faithfulness after re-retrieval; detect leftover unsupported claims",
+      "crag": "Groundedness of corrected context vs original",
+      "graph_rag": "Claims must bind to graph evidence, not only text",
+      "agentic_rag": "Claims vs union of contexts the agent actually used"
+    },
+    "AE": {
+      "naive_rag": "Baseline: citations resolve to retrieved spans",
+      "hybrid_rag": "Cite the path that supplied the span",
+      "self_rag": "Citations must match final retrieved set",
+      "crag": "Citations after correction; drop retracted sources",
+      "graph_rag": "Cite nodes/edges, not only documents",
+      "agentic_rag": "Cite the source each agent step used"
+    },
+    "RS": {
+      "naive_rag": "Baseline adversarial probes against single retriever+generator",
+      "hybrid_rag": "Inject via dense, sparse, and fused paths",
+      "self_rag": "Injection that survives critique loops",
+      "crag": "Injection that survives correction",
+      "graph_rag": "Poisoned nodes / traversal hijack",
+      "agentic_rag": "Indirect injection across tools and delegated retrieval"
+    },
+    "EO": {
+      "naive_rag": "Baseline latency/cost/cache on single hop",
+      "hybrid_rag": "Sum both paths plus fusion cost",
+      "self_rag": "Multiply by iteration count",
+      "crag": "Include correction-model cost",
+      "graph_rag": "Include traversal cost",
+      "agentic_rag": "Aggregate per-step latency and cost"
+    },
+    "LC": {
+      "naive_rag": "Baseline drift, incidents, TEVV, docs, logs",
+      "hybrid_rag": "Drift per path and fused",
+      "self_rag": "Drift across iteration policies",
+      "crag": "Drift of correction effectiveness",
+      "graph_rag": "Graph freshness and completeness",
+      "agentic_rag": "Per-agent incident and log completeness"
+    }
+  },
+  "metric_overrides": {
+    "CQ-01": {
+      "naive_rag": "Baseline: single corpus measurement",
+      "hybrid_rag": "Measure per dense AND sparse index separately — overlap patterns differ",
+      "self_rag": "Same + track chunk quality across re-retrieval iterations",
+      "crag": "Same — evaluator operates on chunks, not corpus structure",
+      "graph_rag": "DIFFERENT: Graph nodes replace chunks; measure entity/relationship overlap",
+      "agentic_rag": "Multi-corpus measurement per knowledge source agent accesses"
+    },
+    "CQ-02": {
+      "naive_rag": "Baseline: validate vs LLM context window",
+      "hybrid_rag": "May need different sizes per path (dense=semantic, sparse=keyword-rich)",
+      "self_rag": "Same — chunk size unchanged by iterations",
+      "crag": "Same — evaluator filters, doesn't resize",
+      "graph_rag": "Measure avg node/subgraph size instead",
+      "agentic_rag": "Per-source chunk analysis across multiple knowledge bases"
+    },
+    "CQ-03": {
+      "naive_rag": "Baseline: never-retrieved chunk identification",
+      "hybrid_rag": "Track orphans per retrieval path independently",
+      "self_rag": "REDUCED: Re-retrieval may access orphaned chunks",
+      "crag": "Same — CRAG doesn't change retrieval scope",
+      "graph_rag": "Track orphan nodes/entities never traversed",
+      "agentic_rag": "Source-specific orphan tracking across agent's knowledge bases"
+    },
+    "CQ-04": {
+      "naive_rag": "Baseline: standard retrieval coverage",
+      "hybrid_rag": "ENHANCED: Track Coverage_dense, Coverage_sparse, Coverage_fused",
+      "self_rag": "Track coverage improvement across re-retrieval iterations",
+      "crag": "Measure Coverage_pre vs Coverage_post correction",
+      "graph_rag": "Entity/relationship coverage, not just document coverage",
+      "agentic_rag": "Per-retrieval-step coverage across 2-5 agent retrievals"
+    },
+    "RE-01": {
+      "naive_rag": "Baseline: standard precision",
+      "hybrid_rag": "CRITICAL: Measure per-path + fused independently",
+      "self_rag": "Track precision per iteration — should improve",
+      "crag": "Post-correction precision improves; evaluator filters noise",
+      "graph_rag": "Precision of graph traversal: % relevant traversed entities",
+      "agentic_rag": "Per-step precision; aggregate across agent decisions"
+    },
+    "RE-02": {
+      "naive_rag": "Baseline: standard recall",
+      "hybrid_rag": "PRIMARY JUSTIFICATION: Hybrid recall > individual paths",
+      "self_rag": "Re-retrieval directly targets recall gaps",
+      "crag": "May sacrifice recall for precision — monitor recall drop",
+      "graph_rag": "Graph recall = relationship completeness for query scope",
+      "agentic_rag": "Multi-retrieval improves recall at cost; track recall vs retrieval count"
+    },
+    "RE-03": {
+      "naive_rag": "Baseline: binary relevance check",
+      "hybrid_rag": "Dual paths virtually guarantee improvement",
+      "self_rag": "Re-retrieval provides second chance",
+      "crag": "Improves hit quality, not rate",
+      "graph_rag": "High hit rate from structured graph navigation",
+      "agentic_rag": "Agent retries ensure high hit rate at latency cost"
+    },
+    "RE-04": {
+      "naive_rag": "Baseline: first relevant ranking",
+      "hybrid_rag": "Fusion re-ranking should improve MRR",
+      "self_rag": "Self-critique may re-rank; track per-iteration MRR",
+      "crag": "Re-ranking directly targets MRR improvement",
+      "graph_rag": "Graph structural priority may help or hurt MRR",
+      "agentic_rag": "MRR varies by agent's retrieval strategy selection"
+    },
+    "RE-05": {
+      "naive_rag": "Baseline: graded relevance ranking",
+      "hybrid_rag": "VALIDATION: NDCG_fused ≥ max(NDCG_dense, NDCG_sparse)",
+      "self_rag": "Track NDCG convergence across iterations",
+      "crag": "Post-correction NDCG should improve",
+      "graph_rag": "Depends on traversal depth and relationship weighting",
+      "agentic_rag": "Aggregate NDCG across agent retrieval decisions"
+    },
+    "RE-06": {
+      "naive_rag": "Baseline: retrieval diversity",
+      "hybrid_rag": "ENHANCED: Hybrid inherently increases diversity",
+      "self_rag": "Re-retrieval may reduce diversity (narrowing). Monitor.",
+      "crag": "Evaluator filtering may reduce diversity",
+      "graph_rag": "Graph may constrain to local neighborhood",
+      "agentic_rag": "Agent multi-source retrieval maximizes diversity potential"
+    },
+    "RE-07": {
+      "naive_rag": "Baseline: source distribution",
+      "hybrid_rag": "Track per-path source overlap",
+      "self_rag": "Track source expansion per iteration",
+      "crag": "Unchanged — quality filter, not source filter",
+      "graph_rag": "Connects across sources via graph relationships",
+      "agentic_rag": "Highest diversity: agent accesses multiple knowledge bases"
+    },
+    "CS-01": {
+      "naive_rag": "Baseline: selection quality",
+      "hybrid_rag": "Fusion selection quality varies by path contribution",
+      "self_rag": "Per-iteration precision; improves as irrelevant context disc",
+      "crag": "PRIMARY TARGET: evaluator directly improves context precisio",
+      "graph_rag": "Depends on entity resolution accuracy",
+      "agentic_rag": "Driven by agent planning quality"
+    },
+    "CS-02": {
+      "naive_rag": "Baseline: relevant context coverage",
+      "hybrid_rag": "Hybrid improves context recall — primary justification",
+      "self_rag": "Re-retrieval targets context recall gaps",
+      "crag": "May sacrifice recall for precision — critical trade-off",
+      "graph_rag": "May miss contexts outside graph scope",
+      "agentic_rag": "Multi-step retrieval improves recall at latency cost"
+    },
+    "CS-03": {
+      "naive_rag": "Baseline: redundancy measurement",
+      "hybrid_rag": "Hybrid may increase/decrease — dense+sparse overlap concern",
+      "self_rag": "May increase if re-fetching similar content",
+      "crag": "Filtering should reduce redundancy",
+      "graph_rag": "Graph may introduce structured redundancy",
+      "agentic_rag": "Agent can diversify sources; best redundancy control"
+    },
+    "CS-04": {
+      "naive_rag": "Baseline: fresh vs cached ratio",
+      "hybrid_rag": "Track novelty per retrieval path",
+      "self_rag": "Re-retrieval MUST produce novel contexts — else iteration is",
+      "crag": "Corrections may fetch novel alternatives",
+      "graph_rag": "Depends on graph query cache stability",
+      "agentic_rag": "Agent memory/cache interaction critical; track session-level"
+    },
+    "CS-05": {
+      "naive_rag": "Baseline: utilization ratio",
+      "hybrid_rag": "Track per path — one path may be over-retrieved/underused",
+      "self_rag": "Later iterations more targeted → higher utilization",
+      "crag": "Post-correction context more usable",
+      "graph_rag": "Graph context may be more targeted",
+      "agentic_rag": "Per-step token budget management across operations"
+    },
+    "AQ-01": {
+      "naive_rag": "Baseline: strict correctness",
+      "hybrid_rag": "Better retrieval → improved EM",
+      "self_rag": "Self-critique iterative refinement may improve EM",
+      "crag": "Better context → better EM (indirect)",
+      "graph_rag": "Structured knowledge supports factual EM",
+      "agentic_rag": "Multi-step reasoning may improve complex factual EM"
+    },
+    "AQ-02": {
+      "naive_rag": "Baseline: partial match",
+      "hybrid_rag": "Moderate indirect improvement",
+      "self_rag": "Self-reflection targets answer quality directly",
+      "crag": "Better context → incrementally better F1",
+      "graph_rag": "Graph answers more structured → potentially higher F1",
+      "agentic_rag": "Final F1 depends on multi-step synthesis quality"
+    },
+    "AQ-03": {
+      "naive_rag": "Baseline: semantic quality",
+      "hybrid_rag": "Better retrieval → semantically closer",
+      "self_rag": "Best per-iteration improvement potential",
+      "crag": "Better context → incrementally better",
+      "graph_rag": "Graph-derived answers may embed differently — calibrate",
+      "agentic_rag": "Agent synthesis may be valid but structurally different"
+    },
+    "AQ-04": {
+      "naive_rag": "Baseline: how often system answers",
+      "hybrid_rag": "Hybrid improves (better recall = fewer \"I don't know\")",
+      "self_rag": "Re-retrieval gives second chance to answer",
+      "crag": "May slightly reduce (filtering removes contexts)",
+      "graph_rag": "Limited to entities in graph scope",
+      "agentic_rag": "Highest answerability — agent tries multiple strategies"
+    },
+    "GH-01": {
+      "naive_rag": "CRITICAL: Highest risk — no quality loop",
+      "hybrid_rag": "Better retrieval → improved but not guaranteed",
+      "self_rag": "PRIMARY TARGET: Self-critique validates faithfulness per cla",
+      "crag": "Better context → more supportable claims",
+      "graph_rag": "Graph provenance provides structured support evidence",
+      "agentic_rag": "CRITICAL: Multi-step generation compounds unfaithful claims"
+    },
+    "GH-02": {
+      "naive_rag": "HIGHEST RISK: No hallucination detection",
+      "hybrid_rag": "Reduces but doesn't eliminate hallucinations",
+      "self_rag": "PRIMARY TARGET: Reflection designed to catch hallucinations",
+      "crag": "Moderate improvement via cleaner context",
+      "graph_rag": "Structured knowledge reduces hallucination opportunity",
+      "agentic_rag": "CRITICAL: Agent planning errors create structured hallucinat"
+    },
+    "GH-03": {
+      "naive_rag": "Baseline: from conflicting passages",
+      "hybrid_rag": "MAY INCREASE: Dense+sparse return conflicting docs",
+      "self_rag": "Self-critique should detect contradictions",
+      "crag": "Filtering may remove contradicting sources",
+      "graph_rag": "Graph constraints reduce contradictions",
+      "agentic_rag": "Highest contradiction potential from multi-source"
+    },
+    "GH-04": {
+      "naive_rag": "Baseline: semantic alignment",
+      "hybrid_rag": "Better context → better alignment",
+      "self_rag": "Per-iteration convergence toward context",
+      "crag": "Post-correction similarity improves",
+      "graph_rag": "Graph context may embed differently — calibrate",
+      "agentic_rag": "Per-step alignment varies; compound measure"
+    },
+    "AE-01": {
+      "naive_rag": "Baseline: citation quality",
+      "hybrid_rag": "Dual sources → track per retrieval path",
+      "self_rag": "STRENGTH: Reflection validates citations explicitly",
+      "crag": "Better context → better citations",
+      "graph_rag": "STRENGTH: Graph traversal path = structured citation chain",
+      "agentic_rag": "Multi-step citation chain; maintain provenance across steps"
+    },
+    "AE-02": {
+      "naive_rag": "Baseline: token-level support",
+      "hybrid_rag": "Better retrieval → more supported tokens",
+      "self_rag": "Reflection enforces attribution; coverage improves per itera",
+      "crag": "Better context quality → more attributable tokens",
+      "graph_rag": "Graph provenance supports high attribution for entity-based",
+      "agentic_rag": "Per-source attribution tracking across agent steps"
+    },
+    "AE-03": {
+      "naive_rag": "Baseline: citation redundancy",
+      "hybrid_rag": "Hybrid may increase (dual paths cite same doc)",
+      "self_rag": "May over-cite for safety (cite more to be cautious)",
+      "crag": "Reduces available citations → may reduce over-citation",
+      "graph_rag": "Graph path-based citation, less prone to over-citation",
+      "agentic_rag": "Multi-step may over-cite same source across steps"
+    },
+    "AE-04": {
+      "naive_rag": "LOW: No reasoning trace",
+      "hybrid_rag": "MEDIUM: Can explain which path contributed",
+      "self_rag": "HIGH: Reflection tokens provide explicit reasoning trace",
+      "crag": "MEDIUM: Evaluator decisions logged and explainable",
+      "graph_rag": "HIGH: Graph traversal path inherently explainable",
+      "agentic_rag": "MEDIUM-HIGH: Agent plans + tool choices traceable but comple"
+    },
+    "RS-01": {
+      "naive_rag": "CRITICAL: No defense layer",
+      "hybrid_rag": "INCREASED: Both paths are injection vectors",
+      "self_rag": "Reflection may detect effects BUT is also injection target",
+      "crag": "DEFENSE: Evaluator flags suspicious content pre-generation",
+      "graph_rag": "Graph harder to inject; but entity poisoning possible",
+      "agentic_rag": "HIGHEST RISK: Agent+tools+retrieval = max injection surface"
+    },
+    "RS-02": {
+      "naive_rag": "Baseline: adversarial stress",
+      "hybrid_rag": "Test both dense+sparse paths independently",
+      "self_rag": "Re-retrieval under adversarial conditions: amplify or mitiga",
+      "crag": "Evaluator should flag adversarial patterns — critical defens",
+      "graph_rag": "Depends on entity resolution robustness",
+      "agentic_rag": "Agent response across multi-component adversarial attacks"
+    },
+    "RS-03": {
+      "naive_rag": "Baseline: corpus bias passes through",
+      "hybrid_rag": "Dual retrieval MAY increase diversity OR amplify bias",
+      "self_rag": "Self-reflection could detect bias if trained for it",
+      "crag": "Evaluator not designed for fairness; bias passes through",
+      "graph_rag": "Graph may encode structural bias in relationships",
+      "agentic_rag": "Multi-source may diversify or compound; most complex to asse"
+    },
+    "RS-04": {
+      "naive_rag": "Baseline: corpus/generation toxicity",
+      "hybrid_rag": "Both paths may surface toxic content",
+      "self_rag": "Self-reflection can catch toxic outputs — partial defense",
+      "crag": "Evaluator can filter toxic context pre-generation",
+      "graph_rag": "Graph doesn't address generation-time toxicity",
+      "agentic_rag": "Tool outputs may contain toxic content (AG-05)"
+    },
+    "RS-05": {
+      "naive_rag": "CRITICAL: PII from corpus exposed via retrieval",
+      "hybrid_rag": "INCREASED: Dual paths = dual PII exposure vectors",
+      "self_rag": "Reflection may catch PII in output — partial defense",
+      "crag": "Evaluator can flag PII-containing docs pre-generation",
+      "graph_rag": "Entity-level ACLs enforce PII protection structurally",
+      "agentic_rag": "HIGHEST: Agent multi-source = maximum PII exposure"
+    },
+    "EO-01": {
+      "naive_rag": "LOWEST: Single retrieval + generation",
+      "hybrid_rag": "INCREASED: Dual retrieval + fusion adds 20-50%",
+      "self_rag": "CRITICAL: Each iteration multiplies latency; cap max iterati",
+      "crag": "Evaluator adds 100-300ms inference overhead",
+      "graph_rag": "Graph query latency varies by traversal depth",
+      "agentic_rag": "HIGHEST: Agent planning + multiple retrievals + tools = 5-10"
+    },
+    "EO-02": {
+      "naive_rag": "LOWEST: Single LLM call",
+      "hybrid_rag": "INCREASED: Dual retrieval infrastructure",
+      "self_rag": "CRITICAL: Per-iteration LLM calls → 2-5× Naive",
+      "crag": "Evaluator LLM inference → 1.5-2× Naive",
+      "graph_rag": "Graph infra (Neo4j) adds operational cost",
+      "agentic_rag": "HIGHEST: Agent + tools + multi-retrieval → 3-10× Naive"
+    },
+    "EO-03": {
+      "naive_rag": "HIGHEST throughput",
+      "hybrid_rag": "REDUCED 20-40%",
+      "self_rag": "SIGNIFICANTLY REDUCED: Iteration-based processing",
+      "crag": "Evaluator step is bottleneck; batch where possible",
+      "graph_rag": "Depends on graph size and query complexity",
+      "agentic_rag": "LOWEST: Multi-step agent processing"
+    },
+    "EO-04": {
+      "naive_rag": "Baseline: standard cache",
+      "hybrid_rag": "Per-path caching; dense/sparse cache differently",
+      "self_rag": "Iteration queries defeat cache (refinement differs)",
+      "crag": "Evaluator decisions may be cacheable",
+      "graph_rag": "Depends on traversal pattern stability",
+      "agentic_rag": "Complex cache invalidation across agent components"
+    },
+    "EO-05": {
+      "naive_rag": "Baseline: standard utilization",
+      "hybrid_rag": "Hybrid may over-retrieve → lower utilization",
+      "self_rag": "Per-iteration budget management; later iterations more targe",
+      "crag": "Post-correction: higher utilization (less noise)",
+      "graph_rag": "Graph context more targeted → higher utilization",
+      "agentic_rag": "Per-step token budget management across multi-step ops"
+    },
+    "LC-01": {
+      "naive_rag": "Baseline: all metric trends",
+      "hybrid_rag": "Track drift per retrieval path + fusion weight drift",
+      "self_rag": "Reflection accuracy drift + answer quality drift (separate)",
+      "crag": "Evaluator model drift is first-class concern",
+      "graph_rag": "Graph structure drift + metric drift compound",
+      "agentic_rag": "Most complex: agent planning + retrieval + tool drift"
+    },
+    "LC-02": {
+      "naive_rag": "Baseline: standard tracking",
+      "hybrid_rag": "Track incidents per retrieval path for root cause",
+      "self_rag": "New class: reflection failures, iteration timeouts, loop det",
+      "crag": "New class: evaluator failures, false corrections, downtimes",
+      "graph_rag": "New class: entity errors, relationship corruption, schema br",
+      "agentic_rag": "Highest surface: agent + retrieval + tool + interaction erro"
+    },
+    "LC-03": {
+      "naive_rag": "Baseline: standard TEVV",
+      "hybrid_rag": "Cover both paths + fusion + combined scenarios",
+      "self_rag": "Include reflection calibration, loop tests, adversarial refl",
+      "crag": "Include evaluator validation as separate governed component",
+      "graph_rag": "Include graph integrity, entity resolution, schema tests",
+      "agentic_rag": "Most complex: RAG + Agent + compound interaction suites"
+    },
+    "LC-04": {
+      "naive_rag": "Baseline: standard docs",
+      "hybrid_rag": "Document fusion strategy, per-path config, weight rationale",
+      "self_rag": "Document reflection governance, iteration bounds, calibratio",
+      "crag": "Document evaluator selection, governance, versioning",
+      "graph_rag": "Document graph schema, entity resolution, versioning",
+      "agentic_rag": "Most extensive: agent design, permissions, tools, compound g"
+    },
+    "LC-05": {
+      "naive_rag": "Baseline: standard log schema",
+      "hybrid_rag": "Per-path retrieval + fusion decision logs",
+      "self_rag": "Per-iteration trace + reflection decision logs (high volume)",
+      "crag": "Evaluator decision + correction action + confidence logs",
+      "graph_rag": "Graph query + traversal path + entity resolution logs",
+      "agentic_rag": "HIGHEST volume: agent trace + tool + retrieval + planning lo"
+    }
+  }
+}

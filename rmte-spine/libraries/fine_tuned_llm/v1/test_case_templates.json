@@ -1,0 +1,72 @@
+{
+  "library_id": "agent5-test-case-templates",
+  "version": "v1",
+  "source": "Agent 5 14-field skeleton; metric thresholds, pass/fail rules, and evidence from TrustLensAI Fine-Tuned LLM RMTE (Master) / HLA A1",
+  "skeleton": {
+    "test_id": "TC-{metric_id}-{category}-{seq}",
+    "scenario_id": "SCN-{metric_id}-{category}",
+    "metric_ids": [
+      "{metric_id}"
+    ],
+    "risk_ids": [
+      "{risk_ids}"
+    ],
+    "trust_attribute": "{trust_attribute}",
+    "category": "{category}",
+    "preconditions": [
+      "Product registry pinned",
+      "Fine-Tuned LLM metric library v1 pinned",
+      "Pattern {execution_pattern}"
+    ],
+    "steps": [],
+    "expected_results": "Metric {metric_id} satisfies {threshold_display} for pattern {execution_pattern}.",
+    "pass_fail_rules": {
+      "source": "HLA Appendix A1",
+      "threshold": "{threshold_object}",
+      "rule": "{designer_authored_rule}",
+      "canonical_direction": "{threshold_direction}"
+    },
+    "test_data_requirements": "{dataset_kind}",
+    "expected_evidence_model": {
+      "observations": [
+        {
+          "observation_id": "OBS-01",
+          "name": "{observation_name}",
+          "capture_stage": "{pipeline_stage}",
+          "granularity": "{observation_granularity}",
+          "attributes": [],
+          "derivation": "direct_observation",
+          "why": "{observation_reason}"
+        }
+      ],
+      "metric_input_bindings": [
+        {
+          "formula_term": "{formula_term}",
+          "from_observation": "OBS-01",
+          "computation": "{how_the_term_is_derived}"
+        }
+      ],
+      "ground_truth": {
+        "required": "{ground_truth_required}",
+        "dataset_id": "{ground_truth_dataset_id}",
+        "label_fields": [],
+        "reason": "{ground_truth_reason}"
+      }
+    },
+    "expected_metric_behavior": "{threshold_direction}",
+    "evidence_requirements": "{evidence_artefact}",
+    "environment_and_execution_boundaries": {
+      "environment": "Staging / system-test",
+      "agent5_invokes_sut": false,
+      "adversarial_requires_separate_approval": "{adv_flag}"
+    },
+    "rmte_links": {
+      "risks": "{risk_ids}",
+      "metrics": [
+        "{metric_id}"
+      ],
+      "test": "TC-{metric_id}-{category}-{seq}",
+      "expected_evidence": "{evidence_artefact}"
+    }
+  }
+}

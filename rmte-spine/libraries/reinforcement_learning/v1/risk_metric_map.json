@@ -1,0 +1,971 @@
+{
+  "library_id": "tlai-rmte-reinforcement_learning-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_ReinforcementLearning_Logs_Layers_Formulas.xlsx — sheet 'Reinforcement RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "MA-01",
+      "metric_ids": [
+        "EX-01",
+        "PP-01"
+      ]
+    },
+    {
+      "risk_id": "MA-02",
+      "metric_ids": [
+        "PP-01",
+        "PP-03"
+      ]
+    },
+    {
+      "risk_id": "MA-05",
+      "metric_ids": [
+        "EX-01",
+        "EX-02"
+      ]
+    },
+    {
+      "risk_id": "MB-01",
+      "metric_ids": [
+        "EF-04",
+        "RA-02"
+      ]
+    },
+    {
+      "risk_id": "MB-02",
+      "metric_ids": [
+        "EF-04",
+        "PP-01"
+      ]
+    },
+    {
+      "risk_id": "MB-03",
+      "metric_ids": [
+        "EF-04"
+      ]
+    },
+    {
+      "risk_id": "OFF-01",
+      "metric_ids": [
+        "PP-05"
+      ]
+    },
+    {
+      "risk_id": "OFF-03",
+      "metric_ids": [
+        "FE-03"
+      ]
+    },
+    {
+      "risk_id": "PG-03",
+      "metric_ids": [
+        "RA-02"
+      ]
+    },
+    {
+      "risk_id": "PG-04",
+      "metric_ids": [
+        "ES-01",
+        "ES-02"
+      ]
+    },
+    {
+      "risk_id": "R-01",
+      "metric_ids": [
+        "EF-01"
+      ]
+    },
+    {
+      "risk_id": "R-02",
+      "metric_ids": [
+        "EF-04",
+        "LG-04"
+      ]
+    },
+    {
+      "risk_id": "R-03",
+      "metric_ids": [
+        "EF-03"
+      ]
+    },
+    {
+      "risk_id": "RL-01",
+      "metric_ids": [
+        "OS-01",
+        "OS-02",
+        "PP-01",
+        "PP-02",
+        "PP-04",
+        "PP-05"
+      ]
+    },
+    {
+      "risk_id": "RL-02",
+      "metric_ids": [
+        "OS-03",
+        "OS-04",
+        "PP-03"
+      ]
+    },
+    {
+      "risk_id": "RL-03",
+      "metric_ids": [
+        "LG-01",
+        "RA-01",
+        "RA-02",
+        "RA-04"
+      ]
+    },
+    {
+      "risk_id": "RL-04",
+      "metric_ids": [
+        "EF-02",
+        "PP-05"
+      ]
+    },
+    {
+      "risk_id": "RL-05",
+      "metric_ids": [
+        "ES-02",
+        "ES-03",
+        "LG-02",
+        "RA-03"
+      ]
+    },
+    {
+      "risk_id": "RL-06",
+      "metric_ids": [
+        "ES-01",
+        "ES-02",
+        "ES-04",
+        "ES-05"
+      ]
+    },
+    {
+      "risk_id": "RL-07",
+      "metric_ids": [
+        "FE-01",
+        "FE-02",
+        "FE-03",
+        "FE-04"
+      ]
+    },
+    {
+      "risk_id": "RL-08",
+      "metric_ids": [
+        "EX-01",
+        "EX-02",
+        "EX-03",
+        "EX-04"
+      ]
+    },
+    {
+      "risk_id": "RL-09",
+      "metric_ids": [
+        "PD-01",
+        "PD-02",
+        "PD-03",
+        "PD-04"
+      ]
+    },
+    {
+      "risk_id": "RL-10",
+      "metric_ids": [
+        "OS-01",
+        "PP-04"
+      ]
+    }
+  ],
+  "derived_perspectives": [
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by TEVV Coverage Index (Reinforcement Learning)",
+      "description": "Lifecycle failure detected by TEVV Coverage Index (Reinforcement Learning)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LG-03"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Regulatory Compliance (Reinforcement Learning)",
+      "description": "Lifecycle failure detected by Regulatory Compliance (Reinforcement Learning)",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "LG-05"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy, Fairness; Original HLA primary TA: Accountability (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "description": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "PP-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Fairness & Policy Consistency failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "description": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "metric_ids": [
+        "PP-03"
+      ],
+      "notes": "Derived from HLA — Business perspective of Privacy failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "description": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "metric_ids": [
+        "RA-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Reliability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "description": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "metric_ids": [
+        "RA-03"
+      ],
+      "notes": "Derived from HLA — Business perspective of Safety failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "description": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "category": "Business",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "RA-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Explainability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    }
+  ],
+  "rmte_links": [
+    {
+      "metric_id": "PP-01",
+      "risk_id": "RL-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Policy underperformance — learned policy significantly worse than optimal or baseline",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-02",
+      "risk_id": "RL-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Policy underperformance — learned policy significantly worse than optimal or baseline",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-03",
+      "risk_id": "RL-02",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Policy instability — frequent or catastrophic policy changes during updates",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-04",
+      "risk_id": "RL-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Policy underperformance — learned policy significantly worse than optimal or baseline",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PP-05",
+      "risk_id": "RL-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Policy underperformance — learned policy significantly worse than optimal or baseline",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-05",
+      "risk_id": "RL-04",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Environment non-stationarity — environment dynamics change over time, degrading policy",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-01",
+      "risk_id": "RL-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Reward misspecification — reward function doesn't capture true business objective",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-02",
+      "risk_id": "RL-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Reward misspecification — reward function doesn't capture true business objective",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-02",
+      "risk_id": "PG-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Reward hacking — agent finds unintended shortcuts to maximize reward without achieving objective",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-03",
+      "risk_id": "RL-05",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Safety constraint violations — policy violates hard safety constraints",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-04",
+      "risk_id": "RL-03",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Reward misspecification — reward function doesn't capture true business objective",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ES-01",
+      "risk_id": "RL-06",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or unfair exploration — exploration actions cause harm or inequitable impact",
+      "test_suite_id": "TS-RL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ES-02",
+      "risk_id": "RL-05",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Safety constraint violations — policy violates hard safety constraints",
+      "test_suite_id": "TS-RL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ES-02",
+      "risk_id": "RL-06",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or unfair exploration — exploration actions cause harm or inequitable impact",
+      "test_suite_id": "TS-RL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ES-03",
+      "risk_id": "RL-05",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Safety constraint violations — policy violates hard safety constraints",
+      "test_suite_id": "TS-RL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ES-04",
+      "risk_id": "RL-06",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or unfair exploration — exploration actions cause harm or inequitable impact",
+      "test_suite_id": "TS-RL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ES-05",
+      "risk_id": "RL-06",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Unsafe or unfair exploration — exploration actions cause harm or inequitable impact",
+      "test_suite_id": "TS-RL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EF-01",
+      "risk_id": "R-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Environment Fidelity failure detected by Sim-to-Real Performance Gap (Reinforcement Learning)",
+      "test_suite_id": "TS-RL-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EF-02",
+      "risk_id": "RL-04",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Environment non-stationarity — environment dynamics change over time, degrading policy",
+      "test_suite_id": "TS-RL-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EF-03",
+      "risk_id": "R-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Environment Fidelity failure detected by Domain Randomization Coverage (Reinforcement Learning)",
+      "test_suite_id": "TS-RL-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EF-04",
+      "risk_id": "MB-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Environment Fidelity failure detected by Environment/Model Validation Score (Reinforcement Learning)",
+      "test_suite_id": "TS-RL-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EF-04",
+      "risk_id": "R-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Environment Fidelity failure detected by Environment/Model Validation Score (Reinforcement Learning)",
+      "test_suite_id": "TS-RL-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EX-01",
+      "risk_id": "RL-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Policy opacity — cannot explain why policy chose specific action",
+      "test_suite_id": "TS-RL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EX-02",
+      "risk_id": "RL-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Policy opacity — cannot explain why policy chose specific action",
+      "test_suite_id": "TS-RL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EX-03",
+      "risk_id": "RL-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Policy opacity — cannot explain why policy chose specific action",
+      "test_suite_id": "TS-RL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EX-04",
+      "risk_id": "RL-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Policy opacity — cannot explain why policy chose specific action",
+      "test_suite_id": "TS-RL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FE-01",
+      "risk_id": "RL-07",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Unfair policy outcomes — policy systematically disadvantages certain groups",
+      "test_suite_id": "TS-RL-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FE-02",
+      "risk_id": "RL-07",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Unfair policy outcomes — policy systematically disadvantages certain groups",
+      "test_suite_id": "TS-RL-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FE-03",
+      "risk_id": "RL-07",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Unfair policy outcomes — policy systematically disadvantages certain groups",
+      "test_suite_id": "TS-RL-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FE-03",
+      "risk_id": "OFF-03",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Data collection policy bias — logged data reflects biased historical policy",
+      "test_suite_id": "TS-RL-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FE-04",
+      "risk_id": "RL-07",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Unfair policy outcomes — policy systematically disadvantages certain groups",
+      "test_suite_id": "TS-RL-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-01",
+      "risk_id": "RL-09",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy leakage from trajectory data",
+      "test_suite_id": "TS-RL-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-02",
+      "risk_id": "RL-09",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy leakage from trajectory data",
+      "test_suite_id": "TS-RL-06",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PD-03",
+      "risk_id": "RL-09",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy leakage from trajectory data",
+      "test_suite_id": "TS-RL-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-04",
+      "risk_id": "RL-09",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy leakage from trajectory data",
+      "test_suite_id": "TS-RL-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OS-01",
+      "risk_id": "RL-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Policy underperformance — learned policy significantly worse than optimal or baseline",
+      "test_suite_id": "TS-RL-07",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OS-02",
+      "risk_id": "RL-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Policy underperformance — learned policy significantly worse than optimal or baseline",
+      "test_suite_id": "TS-RL-07",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OS-03",
+      "risk_id": "RL-02",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Policy instability — frequent or catastrophic policy changes during updates",
+      "test_suite_id": "TS-RL-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OS-04",
+      "risk_id": "RL-02",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Policy instability — frequent or catastrophic policy changes during updates",
+      "test_suite_id": "TS-RL-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-01",
+      "risk_id": "RL-03",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Reward misspecification — reward function doesn't capture true business objective",
+      "test_suite_id": "TS-RL-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": "RL-05",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Safety constraint violations — policy violates hard safety constraints",
+      "test_suite_id": "TS-RL-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-03",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by TEVV Coverage Index (Reinforcement Learning)",
+      "test_suite_id": "TS-RL-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "R-02",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Environment/Simulator Governance (Reinforcement Learning)",
+      "test_suite_id": "TS-RL-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-05",
+      "risk_id": null,
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Regulatory Compliance (Reinforcement Learning)",
+      "test_suite_id": "TS-RL-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OS-01",
+      "risk_id": "RL-10",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Compute/resource cost exceeds acceptable limits",
+      "test_suite_id": "TS-RL-07",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PP-04",
+      "risk_id": "RL-10",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Compute/resource cost exceeds acceptable limits",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "ES-01",
+      "risk_id": "PG-04",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Catastrophic exploration action — exploration causes irreversible harm",
+      "test_suite_id": "TS-RL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ES-02",
+      "risk_id": "PG-04",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Catastrophic exploration action — exploration causes irreversible harm",
+      "test_suite_id": "TS-RL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-02",
+      "risk_id": "MB-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Model exploitation — agent finds plans that are high-reward in model but fail in reality",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EF-04",
+      "risk_id": "MB-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Model exploitation — agent finds plans that are high-reward in model but fail in reality",
+      "test_suite_id": "TS-RL-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EF-04",
+      "risk_id": "MB-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Compounding model errors — small per-step model errors amplify over planning horizon",
+      "test_suite_id": "TS-RL-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-01",
+      "risk_id": "MB-02",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Compounding model errors — small per-step model errors amplify over planning horizon",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-01",
+      "risk_id": "MA-01",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Emergent behavior unpredictability — multi-agent interaction produces unforeseen behaviors",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EX-01",
+      "risk_id": "MA-01",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Emergent behavior unpredictability — multi-agent interaction produces unforeseen behaviors",
+      "test_suite_id": "TS-RL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-01",
+      "risk_id": "MA-02",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Coordination failure — agents learn conflicting/contradictory strategies",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-03",
+      "risk_id": "MA-02",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Coordination failure — agents learn conflicting/contradictory strategies",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EX-01",
+      "risk_id": "MA-05",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Credit assignment failure — cannot determine which agent caused team outcome",
+      "test_suite_id": "TS-RL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EX-02",
+      "risk_id": "MA-05",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Credit assignment failure — cannot determine which agent caused team outcome",
+      "test_suite_id": "TS-RL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-05",
+      "risk_id": "OFF-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Distributional shift — deployed policy encounters states not in training data",
+      "test_suite_id": "TS-RL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "test_suite_id": "TS-RL-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PP-03",
+      "risk_id": "(derived)",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "test_suite_id": "TS-RL-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RA-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "test_suite_id": "TS-RL-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RA-03",
+      "risk_id": "(derived)",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "test_suite_id": "TS-RL-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RA-04",
+      "risk_id": "(derived)",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Business",
+      "risk": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "test_suite_id": "TS-RL-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    }
+  ]
+}

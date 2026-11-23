@@ -1,0 +1,493 @@
+{
+  "library_id": "agent5-nlp-case-variant-slots",
+  "version": "v1",
+  "note": "Each extra test case under a scenario must occupy a different slot. Code never synthesises clones.",
+  "generic_extras": [
+    {
+      "slot_id": "canonical_happy_path",
+      "focus": "A canonical in-scope NLP task with a gold outcome."
+    },
+    {
+      "slot_id": "sparse_or_missing_signal",
+      "focus": "Required evidence is missing or the signal is empty."
+    },
+    {
+      "slot_id": "threshold_boundary",
+      "focus": "The score sits on the pinned HLA boundary."
+    },
+    {
+      "slot_id": "policy_or_scope_violation",
+      "focus": "The run crosses a pinned policy, permission, or safety boundary."
+    }
+  ],
+  "by_family": {
+    "EA": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family EA."
+        },
+        {
+          "slot_id": "typical_production_shape",
+          "focus": "A typical NLP production-shaped input for EA."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_signal",
+          "focus": "A required EA signal is omitted or corrupted."
+        },
+        {
+          "slot_id": "wrong_but_plausible",
+          "focus": "A plausible wrong EA outcome that should fail the metric."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "adversarial_probe",
+          "focus": "An adversarial fixture tries to break family EA."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "scope_violation",
+          "focus": "The run exceeds pinned scope for family EA."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "FE": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family FE."
+        },
+        {
+          "slot_id": "typical_production_shape",
+          "focus": "A typical NLP production-shaped input for FE."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_signal",
+          "focus": "A required FE signal is omitted or corrupted."
+        },
+        {
+          "slot_id": "wrong_but_plausible",
+          "focus": "A plausible wrong FE outcome that should fail the metric."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "adversarial_probe",
+          "focus": "An adversarial fixture tries to break family FE."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "scope_violation",
+          "focus": "The run exceeds pinned scope for family FE."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "FH": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family FH."
+        },
+        {
+          "slot_id": "typical_production_shape",
+          "focus": "A typical NLP production-shaped input for FH."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_signal",
+          "focus": "A required FH signal is omitted or corrupted."
+        },
+        {
+          "slot_id": "wrong_but_plausible",
+          "focus": "A plausible wrong FH outcome that should fail the metric."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "adversarial_probe",
+          "focus": "An adversarial fixture tries to break family FH."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "scope_violation",
+          "focus": "The run exceeds pinned scope for family FH."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "LG": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family LG."
+        },
+        {
+          "slot_id": "typical_production_shape",
+          "focus": "A typical NLP production-shaped input for LG."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_signal",
+          "focus": "A required LG signal is omitted or corrupted."
+        },
+        {
+          "slot_id": "wrong_but_plausible",
+          "focus": "A plausible wrong LG outcome that should fail the metric."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "adversarial_probe",
+          "focus": "An adversarial fixture tries to break family LG."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "scope_violation",
+          "focus": "The run exceeds pinned scope for family LG."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "LR": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family LR."
+        },
+        {
+          "slot_id": "typical_production_shape",
+          "focus": "A typical NLP production-shaped input for LR."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_signal",
+          "focus": "A required LR signal is omitted or corrupted."
+        },
+        {
+          "slot_id": "wrong_but_plausible",
+          "focus": "A plausible wrong LR outcome that should fail the metric."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "adversarial_probe",
+          "focus": "An adversarial fixture tries to break family LR."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "scope_violation",
+          "focus": "The run exceeds pinned scope for family LR."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "OP": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family OP."
+        },
+        {
+          "slot_id": "typical_production_shape",
+          "focus": "A typical NLP production-shaped input for OP."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_signal",
+          "focus": "A required OP signal is omitted or corrupted."
+        },
+        {
+          "slot_id": "wrong_but_plausible",
+          "focus": "A plausible wrong OP outcome that should fail the metric."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "adversarial_probe",
+          "focus": "An adversarial fixture tries to break family OP."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "scope_violation",
+          "focus": "The run exceeds pinned scope for family OP."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "PP": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family PP."
+        },
+        {
+          "slot_id": "typical_production_shape",
+          "focus": "A typical NLP production-shaped input for PP."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_signal",
+          "focus": "A required PP signal is omitted or corrupted."
+        },
+        {
+          "slot_id": "wrong_but_plausible",
+          "focus": "A plausible wrong PP outcome that should fail the metric."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "adversarial_probe",
+          "focus": "An adversarial fixture tries to break family PP."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "scope_violation",
+          "focus": "The run exceeds pinned scope for family PP."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "PR": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family PR."
+        },
+        {
+          "slot_id": "typical_production_shape",
+          "focus": "A typical NLP production-shaped input for PR."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_signal",
+          "focus": "A required PR signal is omitted or corrupted."
+        },
+        {
+          "slot_id": "wrong_but_plausible",
+          "focus": "A plausible wrong PR outcome that should fail the metric."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "adversarial_probe",
+          "focus": "An adversarial fixture tries to break family PR."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "scope_violation",
+          "focus": "The run exceeds pinned scope for family PR."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "TP": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family TP."
+        },
+        {
+          "slot_id": "typical_production_shape",
+          "focus": "A typical NLP production-shaped input for TP."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_signal",
+          "focus": "A required TP signal is omitted or corrupted."
+        },
+        {
+          "slot_id": "wrong_but_plausible",
+          "focus": "A plausible wrong TP outcome that should fail the metric."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "adversarial_probe",
+          "focus": "An adversarial fixture tries to break family TP."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "scope_violation",
+          "focus": "The run exceeds pinned scope for family TP."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    }
+  }
+}

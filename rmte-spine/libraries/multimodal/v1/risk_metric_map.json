@@ -1,0 +1,959 @@
+{
+  "library_id": "tlai-rmte-multimodal-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_Multimodal_Logs_Layers_Formulas.xlsx — sheet 'Multimodal RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "ASR-01",
+      "metric_ids": [
+        "FR-02",
+        "MQ-03"
+      ]
+    },
+    {
+      "risk_id": "ASR-05",
+      "metric_ids": [
+        "PC-02"
+      ]
+    },
+    {
+      "risk_id": "DOC-01",
+      "metric_ids": [
+        "MQ-04"
+      ]
+    },
+    {
+      "risk_id": "DOC-05",
+      "metric_ids": [
+        "PC-03"
+      ]
+    },
+    {
+      "risk_id": "EMB-02",
+      "metric_ids": [
+        "CA-04"
+      ]
+    },
+    {
+      "risk_id": "I-01",
+      "metric_ids": [
+        "LG-04",
+        "MQ-01",
+        "MQ-05",
+        "SP-02"
+      ]
+    },
+    {
+      "risk_id": "I-02",
+      "metric_ids": [
+        "SP-05"
+      ]
+    },
+    {
+      "risk_id": "I-03",
+      "metric_ids": [
+        "FR-01",
+        "FR-03"
+      ]
+    },
+    {
+      "risk_id": "I-04",
+      "metric_ids": [
+        "SP-01"
+      ]
+    },
+    {
+      "risk_id": "I-06",
+      "metric_ids": [
+        "SP-03"
+      ]
+    },
+    {
+      "risk_id": "MM-01",
+      "metric_ids": [
+        "CA-01",
+        "CA-02",
+        "CA-03",
+        "CA-04",
+        "CA-05",
+        "FG-02",
+        "FG-03"
+      ]
+    },
+    {
+      "risk_id": "MM-02",
+      "metric_ids": [
+        "CR-01",
+        "CR-02",
+        "CR-03",
+        "CR-05"
+      ]
+    },
+    {
+      "risk_id": "MM-03",
+      "metric_ids": [
+        "SP-01"
+      ]
+    },
+    {
+      "risk_id": "MM-04",
+      "metric_ids": [
+        "CR-04",
+        "FR-04"
+      ]
+    },
+    {
+      "risk_id": "MM-05",
+      "metric_ids": [
+        "PC-01",
+        "PC-04",
+        "PC-05"
+      ]
+    },
+    {
+      "risk_id": "MM-06",
+      "metric_ids": [
+        "OP-01",
+        "OP-02",
+        "OP-03",
+        "OP-04"
+      ]
+    },
+    {
+      "risk_id": "MM-07",
+      "metric_ids": [
+        "FR-01",
+        "FR-03"
+      ]
+    },
+    {
+      "risk_id": "MM-08",
+      "metric_ids": [
+        "CR-01"
+      ]
+    },
+    {
+      "risk_id": "MM-09",
+      "metric_ids": [
+        "CA-05"
+      ]
+    },
+    {
+      "risk_id": "MM-10",
+      "metric_ids": [
+        "LG-01"
+      ]
+    },
+    {
+      "risk_id": "TTS-01",
+      "metric_ids": [
+        "LG-04",
+        "SP-02"
+      ]
+    },
+    {
+      "risk_id": "TTS-02",
+      "metric_ids": [
+        "PC-02"
+      ]
+    },
+    {
+      "risk_id": "TTS-03",
+      "metric_ids": [
+        "MQ-02"
+      ]
+    },
+    {
+      "risk_id": "VLM-01",
+      "metric_ids": [
+        "CA-02",
+        "FG-01"
+      ]
+    },
+    {
+      "risk_id": "VLM-02",
+      "metric_ids": [
+        "SP-04"
+      ]
+    },
+    {
+      "risk_id": "VLM-04",
+      "metric_ids": [
+        "FG-04"
+      ]
+    }
+  ],
+  "derived_perspectives": [
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Per-Modal Model Registry (Multimodal)",
+      "description": "Lifecycle failure detected by Per-Modal Model Registry (Multimodal)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LG-01"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by TEVV Coverage Index (Multimodal)",
+      "description": "Lifecycle failure detected by TEVV Coverage Index (Multimodal)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LG-02"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Regulatory Compliance (Multimodal)",
+      "description": "Lifecycle failure detected by Regulatory Compliance (Multimodal)",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "LG-03"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy, Fairness; Original HLA primary TA: Accountability (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Cross-Modal Incident Response (Multimodal)",
+      "description": "Lifecycle failure detected by Cross-Modal Incident Response (Multimodal)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LG-05"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "description": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "metric_ids": [
+        "CA-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Reliability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "description": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "CA-05"
+      ],
+      "notes": "Derived from HLA — Business perspective of Fairness & Policy Consistency failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "description": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "category": "Business",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "MQ-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Explainability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "description": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "metric_ids": [
+        "SP-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Safety failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Security compromise causes data / financial loss and reputational damage",
+      "description": "Security compromise causes data / financial loss and reputational damage",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "metric_ids": [
+        "SP-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Security failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "description": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "metric_ids": [
+        "PC-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Privacy failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    }
+  ],
+  "rmte_links": [
+    {
+      "metric_id": "CA-01",
+      "risk_id": "MM-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Cross-modal hallucination — output fabricates details not present in input modality",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-02",
+      "risk_id": "MM-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Cross-modal hallucination — output fabricates details not present in input modality",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-02",
+      "risk_id": "VLM-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Visual hallucination — VLM fabricates objects, attributes, or spatial relations not in image",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-03",
+      "risk_id": "MM-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Cross-modal hallucination — output fabricates details not present in input modality",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-04",
+      "risk_id": "MM-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Cross-modal hallucination — output fabricates details not present in input modality",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-04",
+      "risk_id": "EMB-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Compositional understanding failure — embeddings fail on attribute-object relationships",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-05",
+      "risk_id": "MM-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Cross-modal hallucination — output fabricates details not present in input modality",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MQ-01",
+      "risk_id": "I-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Modal Quality failure detected by Image/Video Generation Quality (Multimodal)",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MQ-02",
+      "risk_id": "TTS-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Modal Quality failure detected by Speech Quality (MOS) (Multimodal)",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MQ-03",
+      "risk_id": "ASR-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Accent/dialect discrimination — WER dramatically higher for non-standard speakers",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MQ-04",
+      "risk_id": "DOC-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "OCR error propagation — OCR errors cascade to all downstream reasoning",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MQ-05",
+      "risk_id": "I-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Modal Quality failure detected by Perceptual Quality Score (Multimodal)",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FG-01",
+      "risk_id": "VLM-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Visual hallucination — VLM fabricates objects, attributes, or spatial relations not in image",
+      "test_suite_id": "TS-MM-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FG-02",
+      "risk_id": "MM-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Cross-modal hallucination — output fabricates details not present in input modality",
+      "test_suite_id": "TS-MM-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FG-03",
+      "risk_id": "MM-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Cross-modal hallucination — output fabricates details not present in input modality",
+      "test_suite_id": "TS-MM-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FG-04",
+      "risk_id": "VLM-04",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Faithfulness failure detected by Spatial/Temporal Reasoning Accuracy (Multimodal)",
+      "test_suite_id": "TS-MM-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SP-01",
+      "risk_id": "MM-03",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Harmful/NSFW content in modal output",
+      "test_suite_id": "TS-MM-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SP-01",
+      "risk_id": "I-04",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Safety failure detected by NSFW/Harmful Content Rate (Multimodal)",
+      "test_suite_id": "TS-MM-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SP-02",
+      "risk_id": "I-01",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Safety failure detected by Deepfake / Synthetic Media Detection Rate (Multimodal)",
+      "test_suite_id": "TS-MM-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SP-02",
+      "risk_id": "TTS-01",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Voice cloning for fraud/impersonation — cloned voice used for CEO fraud, vishing",
+      "test_suite_id": "TS-MM-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SP-03",
+      "risk_id": "I-06",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Safety failure detected by Content Watermark Persistence (Multimodal)",
+      "test_suite_id": "TS-MM-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SP-04",
+      "risk_id": "VLM-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Cross-modal injection — adversarial text embedded in images overrides VLM instructions",
+      "test_suite_id": "TS-MM-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SP-05",
+      "risk_id": "I-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Safety failure detected by IP/Copyright Compliance Rate (Multimodal)",
+      "test_suite_id": "TS-MM-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CR-01",
+      "risk_id": "MM-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Cross-modal adversarial attacks — adversarial input in one modality manipulates output",
+      "test_suite_id": "TS-MM-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CR-02",
+      "risk_id": "MM-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Cross-modal adversarial attacks — adversarial input in one modality manipulates output",
+      "test_suite_id": "TS-MM-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CR-03",
+      "risk_id": "MM-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Cross-modal adversarial attacks — adversarial input in one modality manipulates output",
+      "test_suite_id": "TS-MM-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CR-04",
+      "risk_id": "MM-04",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Language/locale fairness gap across modalities",
+      "test_suite_id": "TS-MM-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CR-05",
+      "risk_id": "MM-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Cross-modal adversarial attacks — adversarial input in one modality manipulates output",
+      "test_suite_id": "TS-MM-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PC-01",
+      "risk_id": "MM-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Biometric/PII exposure across modalities",
+      "test_suite_id": "TS-MM-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PC-02",
+      "risk_id": "ASR-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Recording consent violation — transcription without proper multi-party consent",
+      "test_suite_id": "TS-MM-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PC-02",
+      "risk_id": "TTS-02",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Voice likeness consent — cloning voice without subject's permission",
+      "test_suite_id": "TS-MM-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PC-03",
+      "risk_id": "DOC-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "PII extraction from documents at scale",
+      "test_suite_id": "TS-MM-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PC-04",
+      "risk_id": "MM-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Biometric/PII exposure across modalities",
+      "test_suite_id": "TS-MM-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PC-05",
+      "risk_id": "MM-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Biometric/PII exposure across modalities",
+      "test_suite_id": "TS-MM-07",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FR-01",
+      "risk_id": "I-03",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Fairness failure detected by Demographic Representation in Generation (Multimodal)",
+      "test_suite_id": "TS-MM-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FR-02",
+      "risk_id": "ASR-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Accent/dialect discrimination — WER dramatically higher for non-standard speakers",
+      "test_suite_id": "TS-MM-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FR-03",
+      "risk_id": "I-03",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Fairness failure detected by Cultural Representation Appropriateness (Multimodal)",
+      "test_suite_id": "TS-MM-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FR-04",
+      "risk_id": "MM-04",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Language/locale fairness gap across modalities",
+      "test_suite_id": "TS-MM-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OP-01",
+      "risk_id": "MM-06",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Multi-modal pipeline complexity and failure surface",
+      "test_suite_id": "TS-MM-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OP-02",
+      "risk_id": "MM-06",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Multi-modal pipeline complexity and failure surface",
+      "test_suite_id": "TS-MM-09",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-03",
+      "risk_id": "MM-06",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Multi-modal pipeline complexity and failure surface",
+      "test_suite_id": "TS-MM-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OP-04",
+      "risk_id": "MM-06",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Multi-modal pipeline complexity and failure surface",
+      "test_suite_id": "TS-MM-09",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LG-01",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Per-Modal Model Registry (Multimodal)",
+      "test_suite_id": "TS-MM-10",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by TEVV Coverage Index (Multimodal)",
+      "test_suite_id": "TS-MM-10",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-03",
+      "risk_id": null,
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Regulatory Compliance (Multimodal)",
+      "test_suite_id": "TS-MM-10",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "I-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Ethical Use Governance (Multimodal)",
+      "test_suite_id": "TS-MM-10",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "TTS-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Voice cloning for fraud/impersonation — cloned voice used for CEO fraud, vishing",
+      "test_suite_id": "TS-MM-10",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-05",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Cross-Modal Incident Response (Multimodal)",
+      "test_suite_id": "TS-MM-10",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FR-01",
+      "risk_id": "MM-07",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Cross-modal bias amplification — bias from one modality amplifies in another",
+      "test_suite_id": "TS-MM-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FR-03",
+      "risk_id": "MM-07",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Cross-modal bias amplification — bias from one modality amplifies in another",
+      "test_suite_id": "TS-MM-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CR-01",
+      "risk_id": "MM-08",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Input quality dependency — degraded input in one modality cascades to output",
+      "test_suite_id": "TS-MM-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-05",
+      "risk_id": "MM-09",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Temporal consistency failure in streaming/video",
+      "test_suite_id": "TS-MM-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-01",
+      "risk_id": "MM-10",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Multi-component governance complexity",
+      "test_suite_id": "TS-MM-10",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "test_suite_id": "TS-MM-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CA-05",
+      "risk_id": "(derived)",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "test_suite_id": "TS-MM-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "MQ-04",
+      "risk_id": "(derived)",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Business",
+      "risk": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "test_suite_id": "TS-MM-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SP-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "test_suite_id": "TS-MM-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SP-04",
+      "risk_id": "(derived)",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Security compromise causes data / financial loss and reputational damage",
+      "test_suite_id": "TS-MM-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PC-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "test_suite_id": "TS-MM-07",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    }
+  ]
+}

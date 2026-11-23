@@ -1,0 +1,920 @@
+{
+  "library_id": "tlai-rmte-nlp-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_NLP_Logs_Layers_Formulas.xlsx — sheet 'NLP RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "MT-01",
+      "metric_ids": [
+        "FE-03"
+      ]
+    },
+    {
+      "risk_id": "MT-02",
+      "metric_ids": [
+        "FE-04"
+      ]
+    },
+    {
+      "risk_id": "MT-04",
+      "metric_ids": [
+        "FE-02"
+      ]
+    },
+    {
+      "risk_id": "NER-01",
+      "metric_ids": [
+        "FH-04"
+      ]
+    },
+    {
+      "risk_id": "NER-05",
+      "metric_ids": [
+        "PP-01"
+      ]
+    },
+    {
+      "risk_id": "NLP-01",
+      "metric_ids": [
+        "EA-01",
+        "EA-03",
+        "EA-04",
+        "FE-01",
+        "FE-05",
+        "LG-04",
+        "LR-05",
+        "OP-01",
+        "OP-02",
+        "OP-03",
+        "OP-04",
+        "PP-02",
+        "PP-03",
+        "PP-04",
+        "TP-01",
+        "TP-02",
+        "TP-03",
+        "TP-04"
+      ]
+    },
+    {
+      "risk_id": "NLP-02",
+      "metric_ids": [
+        "LR-01",
+        "LR-02",
+        "LR-03",
+        "LR-04"
+      ]
+    },
+    {
+      "risk_id": "NLP-03",
+      "metric_ids": [
+        "LG-02"
+      ]
+    },
+    {
+      "risk_id": "NLP-04",
+      "metric_ids": [
+        "PR-02"
+      ]
+    },
+    {
+      "risk_id": "NLP-05",
+      "metric_ids": [
+        "TP-05"
+      ]
+    },
+    {
+      "risk_id": "NLP-06",
+      "metric_ids": [
+        "LR-05",
+        "TP-02"
+      ]
+    },
+    {
+      "risk_id": "NLP-07",
+      "metric_ids": [
+        "FE-02"
+      ]
+    },
+    {
+      "risk_id": "NLP-08",
+      "metric_ids": [
+        "PR-01",
+        "PR-03"
+      ]
+    },
+    {
+      "risk_id": "NLP-09",
+      "metric_ids": [
+        "TP-01"
+      ]
+    },
+    {
+      "risk_id": "NLP-10",
+      "metric_ids": [
+        "PR-04"
+      ]
+    },
+    {
+      "risk_id": "QA-01",
+      "metric_ids": [
+        "TP-01"
+      ]
+    },
+    {
+      "risk_id": "QA-04",
+      "metric_ids": [
+        "TP-01"
+      ]
+    },
+    {
+      "risk_id": "SUM-01",
+      "metric_ids": [
+        "FH-01",
+        "FH-02"
+      ]
+    },
+    {
+      "risk_id": "SUM-02",
+      "metric_ids": [
+        "EA-02",
+        "FH-01"
+      ]
+    },
+    {
+      "risk_id": "SUM-03",
+      "metric_ids": [
+        "FH-03"
+      ]
+    },
+    {
+      "risk_id": "SUM-05",
+      "metric_ids": [
+        "FH-04"
+      ]
+    },
+    {
+      "risk_id": "TOP-01",
+      "metric_ids": [
+        "TP-01"
+      ]
+    },
+    {
+      "risk_id": "TOP-02",
+      "metric_ids": [
+        "PR-04"
+      ]
+    }
+  ],
+  "derived_perspectives": [
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Model Registry Coverage (NLP)",
+      "description": "Lifecycle failure detected by Model Registry Coverage (NLP)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LG-01"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by TEVV Coverage Index (NLP)",
+      "description": "Lifecycle failure detected by TEVV Coverage Index (NLP)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LG-03"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Regulatory Compliance (NLP)",
+      "description": "Lifecycle failure detected by Regulatory Compliance (NLP)",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "LG-05"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy, Fairness; Original HLA primary TA: Accountability (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "description": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "TP-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Fairness & Policy Consistency failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Loss of human control leads to unauthorized high-impact actions and liability",
+      "description": "Loss of human control leads to unauthorized high-impact actions and liability",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Human Oversight",
+      "metric_ids": [
+        "TP-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Human Control failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "description": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "metric_ids": [
+        "TP-05"
+      ],
+      "notes": "Derived from HLA — Business perspective of Reliability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Security compromise causes data / financial loss and reputational damage",
+      "description": "Security compromise causes data / financial loss and reputational damage",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "metric_ids": [
+        "LR-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Security failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "description": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "metric_ids": [
+        "FE-02"
+      ],
+      "notes": "Derived from HLA — Business perspective of Privacy failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "description": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "category": "Business",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "EA-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Explainability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "description": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "metric_ids": [
+        "LG-02"
+      ],
+      "notes": "Derived from HLA — Business perspective of Safety failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    }
+  ],
+  "rmte_links": [
+    {
+      "metric_id": "TP-01",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "TP-02",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TP-02",
+      "risk_id": "NLP-06",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Class imbalance — rare categories underperform",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TP-03",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TP-04",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TP-05",
+      "risk_id": "NLP-05",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Domain transfer brittleness — model fails on out-of-domain text",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LR-01",
+      "risk_id": "NLP-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial text attacks — character substitution, homoglyphs bypass models",
+      "test_suite_id": "TS-NLP-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LR-02",
+      "risk_id": "NLP-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial text attacks — character substitution, homoglyphs bypass models",
+      "test_suite_id": "TS-NLP-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LR-03",
+      "risk_id": "NLP-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial text attacks — character substitution, homoglyphs bypass models",
+      "test_suite_id": "TS-NLP-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LR-04",
+      "risk_id": "NLP-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial text attacks — character substitution, homoglyphs bypass models",
+      "test_suite_id": "TS-NLP-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LR-05",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LR-05",
+      "risk_id": "NLP-06",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Class imbalance — rare categories underperform",
+      "test_suite_id": "TS-NLP-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FH-01",
+      "risk_id": "SUM-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Abstractive hallucination — generates facts/entities not in source document",
+      "test_suite_id": "TS-NLP-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FH-01",
+      "risk_id": "SUM-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Unfaithful abstraction — summary contradicts or misrepresents source",
+      "test_suite_id": "TS-NLP-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FH-02",
+      "risk_id": "SUM-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Abstractive hallucination — generates facts/entities not in source document",
+      "test_suite_id": "TS-NLP-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FH-03",
+      "risk_id": "SUM-03",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Information omission bias — summary selectively omits critical information",
+      "test_suite_id": "TS-NLP-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FH-04",
+      "risk_id": "SUM-05",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Faithfulness failure detected by Entity-Level Accuracy (NLP)",
+      "test_suite_id": "TS-NLP-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FH-04",
+      "risk_id": "NER-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Entity boundary errors — off-by-one tokens in entity span extraction",
+      "test_suite_id": "TS-NLP-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FE-01",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FE-02",
+      "risk_id": "NLP-07",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Embedding bias — pre-trained embeddings encode demographic stereotypes",
+      "test_suite_id": "TS-NLP-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FE-03",
+      "risk_id": "MT-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Low-resource language quality gap — dramatic performance disparity",
+      "test_suite_id": "TS-NLP-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FE-04",
+      "risk_id": "MT-02",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Cultural mistranslation — culturally inappropriate translation beyond literal errors",
+      "test_suite_id": "TS-NLP-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FE-05",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-05",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EA-01",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-06",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EA-02",
+      "risk_id": "SUM-02",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Unfaithful abstraction — summary contradicts or misrepresents source",
+      "test_suite_id": "TS-NLP-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EA-03",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EA-04",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-01",
+      "risk_id": "NER-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "PII extraction dual-use — NER enables both PII protection and PII harvesting",
+      "test_suite_id": "TS-NLP-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-02",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PP-03",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-07",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PP-04",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PR-01",
+      "risk_id": "NLP-08",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "OOV / tokenization failure — domain terms, neologisms, rare scripts handled poorly",
+      "test_suite_id": "TS-NLP-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PR-02",
+      "risk_id": "NLP-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Preprocessing sensitivity — tokenizer/stopword/normalization choices change outcomes",
+      "test_suite_id": "TS-NLP-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PR-03",
+      "risk_id": "NLP-08",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "OOV / tokenization failure — domain terms, neologisms, rare scripts handled poorly",
+      "test_suite_id": "TS-NLP-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PR-04",
+      "risk_id": "NLP-10",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Pipeline failure — preprocessing, encoding, or serving pipeline breaks",
+      "test_suite_id": "TS-NLP-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-01",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-02",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-03",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-04",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LG-01",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Model Registry Coverage (NLP)",
+      "test_suite_id": "TS-NLP-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": "NLP-03",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Label subjectivity — inherently subjective tasks (sentiment, toxicity) have low IAA",
+      "test_suite_id": "TS-NLP-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-03",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by TEVV Coverage Index (NLP)",
+      "test_suite_id": "TS-NLP-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "NLP-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Linguistic bias — models perform worse on non-standard dialects, minority languages",
+      "test_suite_id": "TS-NLP-09",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LG-05",
+      "risk_id": null,
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Regulatory Compliance (NLP)",
+      "test_suite_id": "TS-NLP-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TP-01",
+      "risk_id": "NLP-09",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Sarcasm / irony detection failure — literal interpretation of non-literal language",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FE-02",
+      "risk_id": "MT-04",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Gender/formality bias — gendered languages force assumptions",
+      "test_suite_id": "TS-NLP-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TP-01",
+      "risk_id": "TOP-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Topic incoherence — generated topics don't make semantic sense",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PR-04",
+      "risk_id": "TOP-02",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Topic instability — different runs produce different topic structures",
+      "test_suite_id": "TS-NLP-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "TP-01",
+      "risk_id": "QA-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Wrong span extraction — extracts nearby but incorrect answer span",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "TP-01",
+      "risk_id": "QA-04",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Position bias — favors answers in early passage positions",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "TP-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "TP-04",
+      "risk_id": "(derived)",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Loss of human control leads to unauthorized high-impact actions and liability",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "TP-05",
+      "risk_id": "(derived)",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "test_suite_id": "TS-NLP-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LR-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Security compromise causes data / financial loss and reputational damage",
+      "test_suite_id": "TS-NLP-03",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FE-02",
+      "risk_id": "(derived)",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "test_suite_id": "TS-NLP-05",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EA-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Business",
+      "risk": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "test_suite_id": "TS-NLP-06",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": "(derived)",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "test_suite_id": "TS-NLP-09",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    }
+  ]
+}

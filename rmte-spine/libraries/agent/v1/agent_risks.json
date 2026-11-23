@@ -1,0 +1,221 @@
+{
+  "library_id": "hla-a2-agentic-risks",
+  "version": "v1",
+  "source": "TrustLensAI_Agentic_Logs_Layers_Formulas.xlsx — sheet 'Agentic RMTE (Master)'. Risks from HLA A1/A2 archetype risk register.",
+  "reconstruction": true,
+  "notes": {
+    "compliance": "TrustLensAI produces evidence; it does not certify compliance."
+  },
+  "risks": [
+    {
+      "risk_id": "AG-01",
+      "name": "Agent performs actions beyond permission scope",
+      "description": "Agent performs actions beyond permission scope",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Agent performs actions beyond permission scope arising in Agentic AI execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Agentic AI); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accuracy (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "AG-02",
+      "name": "Agent bypasses required human approval step",
+      "description": "Agent bypasses required human approval step",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Agent bypasses required human approval step arising in Agentic AI execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Agentic AI); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "AG-03",
+      "name": "Agent executes irreversible action without confirmation",
+      "description": "Agent executes irreversible action without confirmation",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Human Oversight",
+      "trust_attributes": [
+        "Human Oversight"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Agent executes irreversible action without confirmation arising in Agentic AI execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Agentic AI); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accuracy (normalised to Human Control); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "AG-04",
+      "name": "Agent makes too many tool calls (runaway loops / cost)",
+      "description": "Agent makes too many tool calls (runaway loops / cost)",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Agent makes too many tool calls (runaway loops / cost) arising in Agentic AI execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Agentic AI); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability; Original HLA primary TA: Robustness (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "AG-05",
+      "name": "Tool output contains malicious instructions agent follows",
+      "description": "Tool output contains malicious instructions agent follows",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Tool output contains malicious instructions agent follows arising in Agentic AI execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Agentic AI); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "AG-06",
+      "name": "Data exfiltration through tool responses or invocation chains",
+      "description": "Data exfiltration through tool responses or invocation chains",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Data exfiltration through tool responses or invocation chains arising in Agentic AI execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Agentic AI); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "AG-07",
+      "name": "Missing action trace for audit",
+      "description": "Missing action trace for audit",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Missing action trace for audit arising in Agentic AI execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Agentic AI); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accuracy (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "AG-08",
+      "name": "Incomplete reasoning or decision justification",
+      "description": "Incomplete reasoning or decision justification",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Incomplete reasoning or decision justification arising in Agentic AI execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Agentic AI); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accuracy (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "AG-09",
+      "name": "Tool downtime causes unpredictable behavior",
+      "description": "Tool downtime causes unpredictable behavior",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Tool downtime causes unpredictable behavior arising in Agentic AI execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Agentic AI); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability; Original HLA primary TA: Robustness (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "AG-10",
+      "name": "Agent retries create duplicate actions (idempotency)",
+      "description": "Agent retries create duplicate actions (idempotency)",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Agent retries create duplicate actions (idempotency) arising in Agentic AI execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Agentic AI); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability; Original HLA primary TA: Robustness (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    }
+  ]
+}

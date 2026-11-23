@@ -1,0 +1,246 @@
+{
+  "library_id": "tlai-rmte-chat_assistant-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_ChatAssistant_Logs_Layers_Formulas.xlsx — sheet 'Chat Assistant RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Chat Assistant pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Chat)",
+      "layer": "Input / Intent",
+      "logs_telemetry": "Input log",
+      "key_fields": "user message, parsed intent, disambiguation request",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Conversational"
+      ],
+      "notes": "Feeds CA-04 disambiguation"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Chat)",
+      "layer": "Dialogue / Context Management",
+      "logs_telemetry": "Dialogue log",
+      "key_fields": "conversation history, turn coherence, referenced prior turns",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Conversational"
+      ],
+      "notes": "Feeds CA-01/02/03"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Chat)",
+      "layer": "Session Memory",
+      "logs_telemetry": "Session-memory log",
+      "key_fields": "session state, cross-session isolation, retention",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PV-02 session isolation"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Chat)",
+      "layer": "Grounding / Retrieval",
+      "logs_telemetry": "Retrieval log",
+      "key_fields": "grounding sources (if augmented), retrieved context",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Factual Accuracy"
+      ],
+      "notes": "Optional — RAG-augmented chat"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Chat)",
+      "layer": "Prompt Orchestration",
+      "logs_telemetry": "Prompt log",
+      "key_fields": "prompt, system-prompt version, persona template, assembled context",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Response Quality"
+      ],
+      "notes": "Prompt/persona version governance"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Chat)",
+      "layer": "Generation (LLM)",
+      "logs_telemetry": "Generation log",
+      "key_fields": "response, extracted claims, tokens, stated confidence, model version",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance (AAJ)",
+      "related_metric_families": [
+        "Response Quality",
+        "Factual Accuracy"
+      ],
+      "notes": "Feeds RQ, FA families"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Chat)",
+      "layer": "Persona / Policy",
+      "logs_telemetry": "Persona / policy log",
+      "key_fields": "persona constraints, sensitive-topic policy decisions",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy",
+        "Safety"
+      ],
+      "notes": "Feeds PV-04, SC-03"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Chat)",
+      "layer": "Guardrails / Safety",
+      "logs_telemetry": "Guardrail log",
+      "key_fields": "safety-classifier, toxicity, PII-detector, injection/jailbreak verdicts",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Safety",
+        "Adversarial",
+        "Privacy"
+      ],
+      "notes": "Feeds SC-01/02/04/05, AD-*, PV-01"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Chat)",
+      "layer": "Refusal / Escalation",
+      "logs_telemetry": "Refusal log",
+      "key_fields": "refusal decision, refusal message, over/under-refusal, escalation",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Refusal Correctness"
+      ],
+      "notes": "Feeds RF-01..04"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Chat)",
+      "layer": "Output / Formatting",
+      "logs_telemetry": "Output log",
+      "key_fields": "final response, formatting, disclaimers",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Response Quality"
+      ],
+      "notes": "Final response artifact"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Chat)",
+      "layer": "Serving & Monitoring",
+      "logs_telemetry": "Serving / monitoring telemetry",
+      "key_fields": "latency, cost per conversation, throughput, drift, incidents",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Efficiency",
+        "Lifecycle"
+      ],
+      "notes": "Feeds EO-01..04, LC-01..05"
+    },
+    {
+      "index": 12,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered chat product, channel connectors, tenancy, persona registry",
+      "ingested_by": "Anchors identity, tenancy & persona/policy for all logs",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Persona/policy registry origin"
+    },
+    {
+      "index": 13,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized chat spans/events, redaction applied, event-bus refs",
+      "ingested_by": "Consumes all chat product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Raw content redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 14,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed conversation traces, dependency views, time-series",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Conversational",
+        "Lifecycle"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 15,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator/judge outputs, rubric scores, hallucination, metric scores",
+      "ingested_by": "Consumes generation/dialogue/refusal logs + gold sets",
+      "related_metric_families": [
+        "Response Quality",
+        "Factual Accuracy",
+        "Refusal Correctness"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, gold sets & rubrics, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the Chat RMTE metric corpus"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "safety, content-policy, privacy decisions, risk register, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Safety",
+        "Privacy",
+        "Adversarial"
+      ],
+      "notes": "Gates 0–4; safety-critical controls"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

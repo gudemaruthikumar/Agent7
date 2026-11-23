@@ -1,0 +1,80 @@
+{
+  "library_id": "agent5-deep_learning-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Deep Learning RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "AR": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "CE": [
+      "monitoring",
+      "regression"
+    ],
+    "DR": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "EI": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "FB": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "LG": [
+      "monitoring",
+      "regression"
+    ],
+    "MP": [
+      "monitoring",
+      "regression"
+    ],
+    "PM": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "TS": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "AR-01": [
+      "adversarial"
+    ],
+    "AR-02": [
+      "adversarial"
+    ],
+    "AR-03": [
+      "adversarial"
+    ],
+    "AR-04": [
+      "adversarial"
+    ],
+    "AR-05": [
+      "adversarial"
+    ]
+  }
+}

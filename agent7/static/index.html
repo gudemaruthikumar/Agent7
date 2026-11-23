@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrustLensAI — Assurance Revalidation</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <aside class="rail">
+      <div class="wordmark">TRUST<br>LENS<br>AI</div>
+      <p class="agent-label">AGENT 07 / ASSURANCE REVALIDATION</p>
+      <div class="product-selector" style="margin: 1.5rem 1.5rem 0.5rem 1.5rem;">
+        <label for="product-switch" class="caption" style="display:block; margin-bottom: 0.25rem;">Active Product</label>
+        <select id="product-switch" style="width: 100%; padding: 0.5rem; background: var(--bg-surface); border: 1px solid var(--border); color: var(--fg); border-radius: 4px;">
+          <option value="rag-demo">RAG Demo</option>
+          <option value="askmd-rewards">AskMD Rewards</option>
+          <option value="agentic-summariser">Agentic Summariser</option>
+          <option value="multimodal-classifier">Multimodal Classifier</option>
+        </select>
+      </div>
+      <nav>
+        <a href="#/dashboard">01 Dashboard</a>
+        <a href="#/registry">02 AI Registry</a>
+        <a href="#/changes">03 Changes</a>
+        <a href="#/packs">04 Evidence Packs</a>
+        <a href="#/notifications">05 Notifications</a>
+      </nav>
+      <section class="control-block">
+        <label class="kill-control">
+          <input id="kill-switch" type="checkbox">
+          <span><strong>Kill switch</strong></span>
+        </label>
+        <button id="reset-btn" class="text-button" type="button">Reset synthetic data</button>
+      </section>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <button id="bell" class="bell" type="button" aria-expanded="false" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 3a5 5 0 0 0-5 5v4l-2 3h14l-2-3V8a5 5 0 0 0-5-5Z" />
+            <path d="M10 18a2 2 0 0 0 4 0" />
+          </svg>
+          <span id="bell-count" class="bell-count" hidden>0</span>
+        </button>
+        <div id="bell-panel" class="bell-panel" hidden>
+          <p class="kicker">Notifications</p>
+          <div id="bell-list" class="bell-list"></div>
+          <a class="link-button" href="#/notifications">Open all notifications</a>
+        </div>
+      </header>
+      <main id="app" aria-live="polite"></main>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

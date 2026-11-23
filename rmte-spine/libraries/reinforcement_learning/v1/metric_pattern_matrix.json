@@ -1,0 +1,402 @@
+{
+  "library_id": "tlai-rmte-reinforcement_learning-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_ReinforcementLearning_Logs_Layers_Formulas.xlsx — sheet 'Reinforcement RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "contextual_bandits",
+    "model_free_policy_grad",
+    "model_based_rl",
+    "multi_agent_rl",
+    "sim_to_real_transfer",
+    "offline__batch_rl",
+    "All patterns (perspective-level)"
+  ],
+  "family_defaults": {
+    "PP": {
+      "contextual_bandits": "STRENGTH: Regret-based analysis. Cumulative regret vs oracle",
+      "model_free_policy_grad": "Standard: Episode return. Average over evaluation episodes.",
+      "model_based_rl": "Standard: Planning-based return. Model-estimated vs actual r",
+      "multi_agent_rl": "CRITICAL: Per-agent return + team return. Individual vs coll",
+      "sim_to_real_transfer": "CRITICAL: Sim return vs real return comparison. Gap is prima",
+      "offline__batch_rl": "Standard: Evaluated via OPE or limited online deployment. OP"
+    },
+    "RA": {
+      "contextual_bandits": "Standard: Reward = click/conversion/engagement. Clear but ma",
+      "model_free_policy_grad": "CRITICAL: Reward engineering is hardest RL problem. Misspeci",
+      "model_based_rl": "Standard: Reward model learned. Must validate that learned r",
+      "multi_agent_rl": "CRITICAL: Individual reward vs team reward misalignment. Fre",
+      "sim_to_real_transfer": "Standard: Sim reward must match real-world reward definition",
+      "offline__batch_rl": "Standard: Reward in logged data. Historical reward may not r"
+    },
+    "ES": {
+      "contextual_bandits": "CRITICAL: Showing bad content/prices to users during explora",
+      "model_free_policy_grad": "CRITICAL: Catastrophic actions during exploration (robot fal",
+      "model_based_rl": "MODERATE: Exploration in model reduces real-world exploratio",
+      "multi_agent_rl": "▲ AMPLIFIED: N agents exploring simultaneously = N× explorat",
+      "sim_to_real_transfer": "STRENGTH: Exploration in sim is free. No real-world explorat",
+      "offline__batch_rl": "★ STRENGTH: No exploration at all. Learns from logged data o"
+    },
+    "EF": {
+      "contextual_bandits": "N/A: Bandits operate in real environment directly.",
+      "model_free_policy_grad": "MODERATE: Training environment vs production environment gap",
+      "model_based_rl": "MODERATE: Dynamics model accuracy vs real environment.",
+      "multi_agent_rl": "MODERATE: Multi-agent simulation vs multi-agent reality.",
+      "sim_to_real_transfer": "CRITICAL: PRIMARY transfer metric. Gap often 20–50%. Drives",
+      "offline__batch_rl": "N/A: Offline RL uses real logged data, no simulation."
+    },
+    "EX": {
+      "contextual_bandits": "STRENGTH: Feature importance for action selection. LinUCB co",
+      "model_free_policy_grad": "Significant gap: Neural policy is black box. SHAP/LIME per-d",
+      "model_based_rl": "STRENGTH: Planning trace shows reasoning. \"Chose this becaus",
+      "multi_agent_rl": "CRITICAL: Per-agent rationale + interaction rationale. \"Why",
+      "sim_to_real_transfer": "MODERATE: Sim-trained policy rationale. Can replay sim episo",
+      "offline__batch_rl": "MODERATE: Constrained near data. \"This is what the logged po"
+    },
+    "FE": {
+      "contextual_bandits": "CRITICAL: Recommendation quality equity across demographics.",
+      "model_free_policy_grad": "MODERATE: Control performance equity across operating condit",
+      "model_based_rl": "Standard: Planning quality equity across scenarios.",
+      "multi_agent_rl": "CRITICAL: Per-agent reward equity. Are some agents systemati",
+      "sim_to_real_transfer": "Standard: Transfer performance equity across environments.",
+      "offline__batch_rl": "CRITICAL: Data collection bias → policy bias. Historical dat"
+    },
+    "PD": {
+      "contextual_bandits": "Standard: User context data PII. Interaction logs contain us",
+      "model_free_policy_grad": "MODERATE: State observations may contain PII (sensor data wi",
+      "model_based_rl": "Standard: Model training data PII.",
+      "multi_agent_rl": "MODERATE: Multi-agent interaction data. Communication logs.",
+      "sim_to_real_transfer": "Standard: Sim data typically synthetic (no real PII).",
+      "offline__batch_rl": "CRITICAL: Logged data from real users/systems. Interaction t"
+    },
+    "OS": {
+      "contextual_bandits": "STRENGTH: Fast convergence. Bandit algorithms converge in th",
+      "model_free_policy_grad": "SLOWEST: Millions of timesteps. Weeks of training. GPU-inten",
+      "model_based_rl": "MODERATE: Faster than model-free but model training adds ove",
+      "multi_agent_rl": "SLOWEST: N agents × model-free convergence. Non-stationarity",
+      "sim_to_real_transfer": "MODERATE: Sim training fast but transfer validation adds tim",
+      "offline__batch_rl": "STRENGTH: Single pass through dataset. No iterative environm"
+    },
+    "LG": {
+      "contextual_bandits": "Standard: Reward definition (click/conversion). Business ali",
+      "model_free_policy_grad": "CRITICAL: Reward engineering is fundamental. Misspecified re",
+      "model_based_rl": "Standard: Reward model governance + dynamics model governanc",
+      "multi_agent_rl": "CRITICAL: Per-agent reward + team reward + interaction incen",
+      "sim_to_real_transfer": "Standard: Sim reward function governance + real reward mappi",
+      "offline__batch_rl": "Standard: Historical reward definition governance."
+    }
+  },
+  "metric_overrides": {
+    "PP-01": {
+      "contextual_bandits": "STRENGTH: Regret-based analysis. Cumulative regret vs oracle",
+      "model_free_policy_grad": "Standard: Episode return. Average over evaluation episodes.",
+      "model_based_rl": "Standard: Planning-based return. Model-estimated vs actual r",
+      "multi_agent_rl": "CRITICAL: Per-agent return + team return. Individual vs coll",
+      "sim_to_real_transfer": "CRITICAL: Sim return vs real return comparison. Gap is prima",
+      "offline__batch_rl": "Standard: Evaluated via OPE or limited online deployment. OP"
+    },
+    "PP-02": {
+      "contextual_bandits": "STRENGTH: Regret bounds well-established (O(√T)). Primary ba",
+      "model_free_policy_grad": "Standard: Suboptimality gap vs known-good policy or oracle.",
+      "model_based_rl": "Standard: Planning suboptimality. Model-based planning shoul",
+      "multi_agent_rl": "CRITICAL: Per-agent regret + system-level regret. Fairness:",
+      "sim_to_real_transfer": "Standard: Regret in real environment vs what sim policy woul",
+      "offline__batch_rl": "Standard: Regret vs behavior policy (logging policy). Improv"
+    },
+    "PP-03": {
+      "contextual_bandits": "Standard: Action consistency for similar contexts. Low varia",
+      "model_free_policy_grad": "CRITICAL: Policy gradient high variance → unstable action se",
+      "model_based_rl": "MODERATE: Model-based planning may produce stable actions if",
+      "multi_agent_rl": "CRITICAL: Non-stationarity causes constant policy shifts. St",
+      "sim_to_real_transfer": "Standard: Policy stability comparison between sim and real e",
+      "offline__batch_rl": "STRENGTH: Offline-learned policy is static once deployed. Mo"
+    },
+    "PP-04": {
+      "contextual_bandits": "STRENGTH: Highest sample efficiency. Linear models converge",
+      "model_free_policy_grad": "LOWEST: Millions of interactions typical. PPO/SAC require ex",
+      "model_based_rl": "STRENGTH: 10–100x more sample efficient than model-free. Lea",
+      "multi_agent_rl": "LOWEST: N agents × model-free interactions = N× sample cost.",
+      "sim_to_real_transfer": "STRENGTH: Infinite sim interactions available (but transfer",
+      "offline__batch_rl": "STRENGTH: No online interactions needed. Uses existing logge"
+    },
+    "PP-05": {
+      "contextual_bandits": "Standard: Online performance vs offline evaluation. Small ga",
+      "model_free_policy_grad": "MODERATE: Training performance may not transfer to productio",
+      "model_based_rl": "CRITICAL: Model-based performance depends on model accuracy",
+      "multi_agent_rl": "CRITICAL: Training performance in isolated training may not",
+      "sim_to_real_transfer": "CRITICAL: Sim-to-real performance drop is primary metric. Ga",
+      "offline__batch_rl": "CRITICAL: OPE estimate vs actual deployment performance. OPE"
+    },
+    "RA-01": {
+      "contextual_bandits": "Standard: Reward = click/conversion/engagement. Clear but ma",
+      "model_free_policy_grad": "CRITICAL: Reward engineering is hardest RL problem. Misspeci",
+      "model_based_rl": "Standard: Reward model learned. Must validate that learned r",
+      "multi_agent_rl": "CRITICAL: Individual reward vs team reward misalignment. Fre",
+      "sim_to_real_transfer": "Standard: Sim reward must match real-world reward definition",
+      "offline__batch_rl": "Standard: Reward in logged data. Historical reward may not r"
+    },
+    "RA-02": {
+      "contextual_bandits": "MODERATE: Limited scope for reward hacking in single-step de",
+      "model_free_policy_grad": "CRITICAL: Agent finds unintended reward shortcuts (gaming th",
+      "model_based_rl": "CRITICAL: Agent exploits model errors to find high-reward pl",
+      "multi_agent_rl": "▲ AMPLIFIED: Multi-agent reward hacking can involve collusio",
+      "sim_to_real_transfer": "MODERATE: Sim-specific reward hacking that doesn't transfer",
+      "offline__batch_rl": "MODERATE: Constrained to logged data distribution. Limited h"
+    },
+    "RA-03": {
+      "contextual_bandits": "Standard: Action constraints (budget, inventory limits). Sim",
+      "model_free_policy_grad": "CRITICAL: Joint constraints (speed limits + lane keeping + c",
+      "model_based_rl": "Standard: Planning can enforce constraints during planning p",
+      "multi_agent_rl": "CRITICAL: Per-agent constraints + system-level constraints.",
+      "sim_to_real_transfer": "CRITICAL: Physical safety constraints during transfer. Hard",
+      "offline__batch_rl": "Standard: Constraints from data. Policy constrained to near-"
+    },
+    "RA-04": {
+      "contextual_bandits": "MODERATE: Single-step decisions have limited long-term impac",
+      "model_free_policy_grad": "Standard: Discount factor γ controls long-term weighting. Lo",
+      "model_based_rl": "STRENGTH: Model enables explicit long-term planning and impa",
+      "multi_agent_rl": "CRITICAL: Multi-agent long-term dynamics. Emergent macro-lev",
+      "sim_to_real_transfer": "Standard: Long-term physical system impact assessment.",
+      "offline__batch_rl": "MODERATE: Historical data shows long-term impact of past pol"
+    },
+    "ES-01": {
+      "contextual_bandits": "CRITICAL: Showing bad content/prices to users during explora",
+      "model_free_policy_grad": "CRITICAL: Catastrophic actions during exploration (robot fal",
+      "model_based_rl": "MODERATE: Exploration in model reduces real-world exploratio",
+      "multi_agent_rl": "▲ AMPLIFIED: N agents exploring simultaneously = N× explorat",
+      "sim_to_real_transfer": "STRENGTH: Exploration in sim is free. No real-world explorat",
+      "offline__batch_rl": "★ STRENGTH: No exploration at all. Learns from logged data o"
+    },
+    "ES-02": {
+      "contextual_bandits": "Standard: Action space constraints during exploration. Budge",
+      "model_free_policy_grad": "CRITICAL: Physical constraint violations during exploration",
+      "model_based_rl": "MODERATE: Planning constrains exploration to model-valid reg",
+      "multi_agent_rl": "CRITICAL: Multi-agent constraint violations during concurren",
+      "sim_to_real_transfer": "CRITICAL: Physical safety violations during sim-to-real tran",
+      "offline__batch_rl": "★ STRENGTH: No exploration = no constraint violations during"
+    },
+    "ES-03": {
+      "contextual_bandits": "Standard: Safe exploration via constrained action space.",
+      "model_free_policy_grad": "Standard: Safe RL methods (CPO, SafePPO). Safety layer over",
+      "model_based_rl": "STRENGTH: Planning enables safe exploration by simulating co",
+      "multi_agent_rl": "MODERATE: Per-agent safety layers. Coordination safety const",
+      "sim_to_real_transfer": "CRITICAL: Physical safety layer during real-world deployment",
+      "offline__batch_rl": "★ STRENGTH: No online exploration. Inherently safe learning."
+    },
+    "ES-04": {
+      "contextual_bandits": "CRITICAL: Exploration impact should be equitable across user",
+      "model_free_policy_grad": "MODERATE: Exploration fairness less applicable for physical",
+      "model_based_rl": "MODERATE: Planning-based exploration less directly affects f",
+      "multi_agent_rl": "CRITICAL: Per-agent exploration fairness. Are some agents su",
+      "sim_to_real_transfer": "N/A: Exploration in sim doesn't affect real users/agents.",
+      "offline__batch_rl": "★ STRENGTH: No exploration = no fairness concern during lear"
+    },
+    "ES-05": {
+      "contextual_bandits": "Standard: Epsilon decay schedule. Thompson Sampling naturall",
+      "model_free_policy_grad": "Standard: Training convergence criteria. Evaluation performa",
+      "model_based_rl": "Standard: Model accuracy convergence. Planning quality plate",
+      "multi_agent_rl": "CRITICAL: Multi-agent convergence criteria poorly defined. W",
+      "sim_to_real_transfer": "Standard: Transfer validation criteria. When is sim policy r",
+      "offline__batch_rl": "N/A: No exploration phase. Deployment criteria based on OPE."
+    },
+    "EF-01": {
+      "contextual_bandits": "N/A: Bandits operate in real environment directly.",
+      "model_free_policy_grad": "MODERATE: Training environment vs production environment gap",
+      "model_based_rl": "MODERATE: Dynamics model accuracy vs real environment.",
+      "multi_agent_rl": "MODERATE: Multi-agent simulation vs multi-agent reality.",
+      "sim_to_real_transfer": "CRITICAL: PRIMARY transfer metric. Gap often 20–50%. Drives",
+      "offline__batch_rl": "N/A: Offline RL uses real logged data, no simulation."
+    },
+    "EF-02": {
+      "contextual_bandits": "Standard: Context distribution drift. User preferences chang",
+      "model_free_policy_grad": "MODERATE: Environment dynamics drift (wear, seasonal, behavi",
+      "model_based_rl": "CRITICAL: Dynamics model staleness. Real environment evolves",
+      "multi_agent_rl": "CRITICAL: Multi-agent non-stationarity is inherent. Other ag",
+      "sim_to_real_transfer": "MODERATE: Real-world environment changes vs sim assumptions.",
+      "offline__batch_rl": "CRITICAL: Deployment environment may differ from data collec"
+    },
+    "EF-03": {
+      "contextual_bandits": "N/A: Real environment, no sim.",
+      "model_free_policy_grad": "N/A: Typically real environment or fixed sim.",
+      "model_based_rl": "N/A: Model learned from real data.",
+      "multi_agent_rl": "MODERATE: Multi-agent simulation parameter coverage.",
+      "sim_to_real_transfer": "CRITICAL: Domain randomization must cover real-world variati",
+      "offline__batch_rl": "N/A: No simulation."
+    },
+    "EF-04": {
+      "contextual_bandits": "N/A",
+      "model_free_policy_grad": "MODERATE: Training environment validation.",
+      "model_based_rl": "CRITICAL: Dynamics model validation against real trajectorie",
+      "multi_agent_rl": "MODERATE: Multi-agent sim validation. Interaction dynamics v",
+      "sim_to_real_transfer": "CRITICAL: Simulator validation against real-world physics/dy",
+      "offline__batch_rl": "N/A: Uses real logged data."
+    },
+    "EX-01": {
+      "contextual_bandits": "STRENGTH: Feature importance for action selection. LinUCB co",
+      "model_free_policy_grad": "Significant gap: Neural policy is black box. SHAP/LIME per-d",
+      "model_based_rl": "STRENGTH: Planning trace shows reasoning. \"Chose this becaus",
+      "multi_agent_rl": "CRITICAL: Per-agent rationale + interaction rationale. \"Why",
+      "sim_to_real_transfer": "MODERATE: Sim-trained policy rationale. Can replay sim episo",
+      "offline__batch_rl": "MODERATE: Constrained near data. \"This is what the logged po"
+    },
+    "EX-02": {
+      "contextual_bandits": "Standard: Context feature importance for action selection. W",
+      "model_free_policy_grad": "MODERATE: State feature attribution via gradient/SHAP. Atten",
+      "model_based_rl": "Standard: State importance from model — which state features",
+      "multi_agent_rl": "CRITICAL: Per-agent state attention + shared state attributi",
+      "sim_to_real_transfer": "MODERATE: State attribution in sim vs real comparison. Featu",
+      "offline__batch_rl": "Standard: State importance in logged data context."
+    },
+    "EX-03": {
+      "contextual_bandits": "STRENGTH: Counterfactuals natural for bandits: \"If user were",
+      "model_free_policy_grad": "MODERATE: Counterfactual rollouts possible but expensive. \"I",
+      "model_based_rl": "STRENGTH: Model-based planning enables natural counterfactua",
+      "multi_agent_rl": "CRITICAL: Multi-agent counterfactuals: \"If agent B had chose",
+      "sim_to_real_transfer": "MODERATE: Sim enables counterfactual analysis.",
+      "offline__batch_rl": "MODERATE: Historical data enables counterfactual comparison"
+    },
+    "EX-04": {
+      "contextual_bandits": "Standard: Bandit policy documentation. Action space, context",
+      "model_free_policy_grad": "Standard: Policy documentation + training procedure + hyperp",
+      "model_based_rl": "Standard + dynamics model documentation + planning horizon +",
+      "multi_agent_rl": "CRITICAL: Per-agent policy documentation + interaction proto",
+      "sim_to_real_transfer": "Standard + simulator documentation + transfer procedure + do",
+      "offline__batch_rl": "Standard + data collection policy documentation + OPE method"
+    },
+    "FE-01": {
+      "contextual_bandits": "CRITICAL: Recommendation quality equity across demographics.",
+      "model_free_policy_grad": "MODERATE: Control performance equity across operating condit",
+      "model_based_rl": "Standard: Planning quality equity across scenarios.",
+      "multi_agent_rl": "CRITICAL: Per-agent reward equity. Are some agents systemati",
+      "sim_to_real_transfer": "Standard: Transfer performance equity across environments.",
+      "offline__batch_rl": "CRITICAL: Data collection bias → policy bias. Historical dat"
+    },
+    "FE-02": {
+      "contextual_bandits": "CRITICAL: Are disadvantaged users disproportionately subject",
+      "model_free_policy_grad": "MODERATE: Exploration impact less directly affects fairness",
+      "model_based_rl": "MODERATE: Model-based exploration is less impactful on users",
+      "multi_agent_rl": "CRITICAL: Are some agents given more risky assignments durin",
+      "sim_to_real_transfer": "N/A: Exploration in sim.",
+      "offline__batch_rl": "★ STRENGTH: No exploration impact."
+    },
+    "FE-03": {
+      "contextual_bandits": "MODERATE: Historical interaction data bias. Past user behavi",
+      "model_free_policy_grad": "Standard: Training environment may encode biases.",
+      "model_based_rl": "Standard: Dynamics model learned from potentially biased dat",
+      "multi_agent_rl": "MODERATE: Historical interaction patterns between agents enc",
+      "sim_to_real_transfer": "MODERATE: Sim may encode human designer biases.",
+      "offline__batch_rl": "CRITICAL: PRIMARY offline RL fairness risk. Logged data = hi"
+    },
+    "FE-04": {
+      "contextual_bandits": "CRITICAL: Cumulative recommendation effects on group engagem",
+      "model_free_policy_grad": "Standard: Long-term control equity.",
+      "model_based_rl": "Standard: Long-term planning equity.",
+      "multi_agent_rl": "CRITICAL: Multi-agent emergent macro-level fairness effects.",
+      "sim_to_real_transfer": "Standard: Long-term physical system equity.",
+      "offline__batch_rl": "MODERATE: Counterfactual long-term fairness analysis possibl"
+    },
+    "PD-01": {
+      "contextual_bandits": "Standard: User context data PII. Interaction logs contain us",
+      "model_free_policy_grad": "MODERATE: State observations may contain PII (sensor data wi",
+      "model_based_rl": "Standard: Model training data PII.",
+      "multi_agent_rl": "MODERATE: Multi-agent interaction data. Communication logs.",
+      "sim_to_real_transfer": "Standard: Sim data typically synthetic (no real PII).",
+      "offline__batch_rl": "CRITICAL: Logged data from real users/systems. Interaction t"
+    },
+    "PD-02": {
+      "contextual_bandits": "Standard: Bandit policy memorization risk low (simple models",
+      "model_free_policy_grad": "MODERATE: Neural policy may memorize specific training episo",
+      "model_based_rl": "MODERATE: Dynamics model may memorize specific state transit",
+      "multi_agent_rl": "MODERATE: Multi-agent policies may memorize interaction patt",
+      "sim_to_real_transfer": "Standard: Sim-trained policies learn from synthetic data.",
+      "offline__batch_rl": "INCREASED: Offline RL policies trained on real logged data."
+    },
+    "PD-03": {
+      "contextual_bandits": "CRITICAL: Reward signals (clicks, purchases, health outcomes",
+      "model_free_policy_grad": "Standard: Reward signals from environment sensors.",
+      "model_based_rl": "Standard: Reward model training data privacy.",
+      "multi_agent_rl": "MODERATE: Per-agent reward signals in multi-agent settings.",
+      "sim_to_real_transfer": "Standard: Sim reward signals (synthetic).",
+      "offline__batch_rl": "CRITICAL: Historical reward data from real users. Health out"
+    },
+    "PD-04": {
+      "contextual_bandits": "Standard: Centralized bandit. Federated bandits emerging.",
+      "model_free_policy_grad": "MODERATE: Distributed policy training. Parameter server priv",
+      "model_based_rl": "Standard: Model sharing across agents.",
+      "multi_agent_rl": "CRITICAL: Multi-agent communication data. Shared observation",
+      "sim_to_real_transfer": "Standard: Sim is centralized.",
+      "offline__batch_rl": "MODERATE: Distributed offline RL across data silos."
+    },
+    "OS-01": {
+      "contextual_bandits": "STRENGTH: Fast convergence. Bandit algorithms converge in th",
+      "model_free_policy_grad": "SLOWEST: Millions of timesteps. Weeks of training. GPU-inten",
+      "model_based_rl": "MODERATE: Faster than model-free but model training adds ove",
+      "multi_agent_rl": "SLOWEST: N agents × model-free convergence. Non-stationarity",
+      "sim_to_real_transfer": "MODERATE: Sim training fast but transfer validation adds tim",
+      "offline__batch_rl": "STRENGTH: Single pass through dataset. No iterative environm"
+    },
+    "OS-02": {
+      "contextual_bandits": "LOWEST: Linear model → sub-millisecond. Neural bandit <10ms.",
+      "model_free_policy_grad": "Standard: Neural policy forward pass. 1–50ms depending on ar",
+      "model_based_rl": "INCREASED: Planning adds latency. MPC: 10–100ms. Tree search",
+      "multi_agent_rl": "INCREASED: Per-agent inference + communication overhead. Sca",
+      "sim_to_real_transfer": "Standard: Same as model-free (policy forward pass). But safe",
+      "offline__batch_rl": "Standard: Neural policy forward pass. Similar to model-free."
+    },
+    "OS-03": {
+      "contextual_bandits": "Standard: Gradual policy updates via bandit parameter update",
+      "model_free_policy_grad": "CRITICAL: Policy gradient updates can cause catastrophic per",
+      "model_based_rl": "MODERATE: Model updates may cause planning quality changes.",
+      "multi_agent_rl": "CRITICAL: One agent's policy update can destabilize the enti",
+      "sim_to_real_transfer": "Standard: Policy updates require re-validation against real",
+      "offline__batch_rl": "★ STRENGTH: Policy learned once from static data. No continu"
+    },
+    "OS-04": {
+      "contextual_bandits": "STRENGTH: Simple model swap. Sub-second rollback.",
+      "model_free_policy_grad": "Standard: Model version swap. Serving layer rollback.",
+      "model_based_rl": "Standard: Model + dynamics model version swap.",
+      "multi_agent_rl": "CRITICAL: Multi-agent rollback requires coordinated rollback",
+      "sim_to_real_transfer": "Standard: Policy version swap. Safety layer preserved.",
+      "offline__batch_rl": "Standard: Policy version swap."
+    },
+    "LG-01": {
+      "contextual_bandits": "Standard: Reward definition (click/conversion). Business ali",
+      "model_free_policy_grad": "CRITICAL: Reward engineering is fundamental. Misspecified re",
+      "model_based_rl": "Standard: Reward model governance + dynamics model governanc",
+      "multi_agent_rl": "CRITICAL: Per-agent reward + team reward + interaction incen",
+      "sim_to_real_transfer": "Standard: Sim reward function governance + real reward mappi",
+      "offline__batch_rl": "Standard: Historical reward definition governance."
+    },
+    "LG-02": {
+      "contextual_bandits": "Standard: Action space constraints. Budget/inventory limits.",
+      "model_free_policy_grad": "CRITICAL: Physical safety constraints. Joint limits, speed l",
+      "model_based_rl": "Standard: Planning constraints. Model-validated safety.",
+      "multi_agent_rl": "CRITICAL: Per-agent + system-level constraints. Constraint c",
+      "sim_to_real_transfer": "CRITICAL: Physical safety protocol. Emergency stop. Human ov",
+      "offline__batch_rl": "Standard: Policy constraints (stay near data distribution)."
+    },
+    "LG-03": {
+      "contextual_bandits": "Standard: Regret analysis + fairness + reward alignment + A/",
+      "model_free_policy_grad": "Standard: Reward hacking + exploration safety + constraint s",
+      "model_based_rl": "Standard: Model validation + exploitation + planning horizon",
+      "multi_agent_rl": "CRITICAL: Per-agent tests + interaction tests + emergent beh",
+      "sim_to_real_transfer": "CRITICAL: Sim validation + domain randomization + transfer g",
+      "offline__batch_rl": "Standard: Data coverage + OPE validation + distributional sh"
+    },
+    "LG-04": {
+      "contextual_bandits": "N/A: Real environment.",
+      "model_free_policy_grad": "MODERATE: Training environment documentation.",
+      "model_based_rl": "Standard: Dynamics model versioning and validation.",
+      "multi_agent_rl": "MODERATE: Multi-agent environment versioning.",
+      "sim_to_real_transfer": "CRITICAL: Simulator as governed artifact. Physics engine ver",
+      "offline__batch_rl": "N/A: No simulator."
+    },
+    "LG-05": {
+      "contextual_bandits": "Standard: A/B testing regulation. Consumer protection for re",
+      "model_free_policy_grad": "Standard: Safety regulation for control systems. Industrial",
+      "model_based_rl": "Standard: Safety regulation. Model validation requirements.",
+      "multi_agent_rl": "CRITICAL: Multi-agent system regulation emerging. Autonomous",
+      "sim_to_real_transfer": "CRITICAL: Autonomous system regulation. Robotics safety stan",
+      "offline__batch_rl": "Standard: Healthcare treatment optimization regulation. Clin"
+    }
+  }
+}

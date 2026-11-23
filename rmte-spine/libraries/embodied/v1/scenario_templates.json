@@ -1,0 +1,1029 @@
+{
+  "library_id": "agent5-embodied-scenario-templates",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions aligned to TrustLensAI Embodied RMTE test suites",
+  "templates": {
+    "CA": {
+      "positive": {
+        "title": "Healthy Collision & Hazard Avoidance measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Collision & Hazard Avoidance",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Collision & Hazard Avoidance",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Collision & Hazard Avoidance",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Collision & Hazard Avoidance",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Collision & Hazard Avoidance from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Collision & Hazard Avoidance",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "CT": {
+      "positive": {
+        "title": "Healthy Control & Actuation measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Control & Actuation",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Control & Actuation",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Control & Actuation",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Control & Actuation",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Control & Actuation from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Control & Actuation",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "EX": {
+      "positive": {
+        "title": "Healthy Explainability & Accountability measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Explainability & Accountability",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Explainability & Accountability",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Explainability & Accountability",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Explainability & Accountability",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Explainability & Accountability from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Explainability & Accountability",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "FS": {
+      "positive": {
+        "title": "Healthy Functional Safety measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Functional Safety",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Functional Safety",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Functional Safety",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Functional Safety",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Functional Safety from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Functional Safety",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "HO": {
+      "positive": {
+        "title": "Healthy Human Oversight measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Human Oversight",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Human Oversight",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Human Oversight",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Human Oversight",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Human Oversight from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Human Oversight",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "HR": {
+      "positive": {
+        "title": "Healthy Human-Robot Interaction Safety measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Human-Robot Interaction Safety",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Human-Robot Interaction Safety",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Human-Robot Interaction Safety",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Human-Robot Interaction Safety",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Human-Robot Interaction Safety from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Human-Robot Interaction Safety",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "LG": {
+      "positive": {
+        "title": "Healthy Lifecycle measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Lifecycle",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Lifecycle",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Lifecycle",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Lifecycle",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Lifecycle from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Lifecycle",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "OD": {
+      "positive": {
+        "title": "Healthy Operational Design Domain measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Operational Design Domain",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Operational Design Domain",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Operational Design Domain",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Operational Design Domain",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Operational Design Domain from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Operational Design Domain",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "OP": {
+      "positive": {
+        "title": "Healthy Operational measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Operational",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Operational",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Operational",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Operational",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Operational from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Operational",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "PC": {
+      "positive": {
+        "title": "Healthy Perception measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Perception",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Perception",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Perception",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Perception",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Perception from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Perception",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "PL": {
+      "positive": {
+        "title": "Healthy Planning & Decision measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Planning & Decision",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Planning & Decision",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Planning & Decision",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Planning & Decision",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Planning & Decision from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Planning & Decision",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "PV": {
+      "positive": {
+        "title": "Healthy Privacy measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Privacy",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Privacy",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Privacy",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Privacy",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Privacy from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Privacy",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "RS": {
+      "positive": {
+        "title": "Healthy Robustness & Adversarial measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Robustness & Adversarial",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Robustness & Adversarial",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Robustness & Adversarial",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Robustness & Adversarial",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Robustness & Adversarial from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Robustness & Adversarial",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "SR": {
+      "positive": {
+        "title": "Healthy Sim-to-Real & Validation measurement",
+        "intent": "Measure {metric_name} on a well-behaved Embodied run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Embodied product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Sim-to-Real & Validation",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Sim-to-Real & Validation",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Sim-to-Real & Validation",
+        "intent": "An adversarial input tries to break {metric_id} on a Embodied product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Sim-to-Real & Validation",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Sim-to-Real & Validation from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Sim-to-Real & Validation",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    }
+  }
+}

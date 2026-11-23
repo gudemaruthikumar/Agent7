@@ -1,0 +1,391 @@
+{
+  "library_id": "tlai-rmte-embodied-risks",
+  "version": "v1",
+  "source": "TrustLensAI_Embodied_Logs_Layers_Formulas.xlsx — sheet 'Embodied RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "reconstruction": true,
+  "notes": {
+    "compliance": "TrustLensAI produces evidence; it does not certify compliance."
+  },
+  "risks": [
+    {
+      "risk_id": "EMB-01",
+      "name": "Perception fails to detect a safety-critical object (pedestrian / obstacle / human)",
+      "description": "Perception fails to detect a safety-critical object (pedestrian / obstacle / human)",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Perception fails to detect a safety-critical object (pedestrian / obst arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — physical harm / safety incident / regulatory & reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-02",
+      "name": "Sensor-fusion inconsistency yields a wrong world model",
+      "description": "Sensor-fusion inconsistency yields a wrong world model",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Sensor-fusion inconsistency yields a wrong world model arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — degraded metric / failed safety assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-03",
+      "name": "Localization / pose error causes mispositioning",
+      "description": "Localization / pose error causes mispositioning",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Localization / pose error causes mispositioning arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — degraded metric / failed safety assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-04",
+      "name": "Motion plan is invalid / infeasible / collision-prone",
+      "description": "Motion plan is invalid / infeasible / collision-prone",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Motion plan is invalid / infeasible / collision-prone arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — physical harm / safety incident / regulatory & reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-05",
+      "name": "Safety envelope / constraint violated (speed, zone, force)",
+      "description": "Safety envelope / constraint violated (speed, zone, force)",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Safety envelope / constraint violated (speed, zone, force) arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — physical harm / safety incident / regulatory & reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-06",
+      "name": "Control-loop deadline miss / instability causes unsafe motion",
+      "description": "Control-loop deadline miss / instability causes unsafe motion",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Control-loop deadline miss / instability causes unsafe motion arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — physical harm / safety incident / regulatory & reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-07",
+      "name": "System fails to reach a safe state on fault (no fail-operational behaviour)",
+      "description": "System fails to reach a safe state on fault (no fail-operational behaviour)",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — System fails to reach a safe state on fault (no fail-operational behav arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — physical harm / safety incident / regulatory & reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-08",
+      "name": "Emergency stop ineffective or too slow",
+      "description": "Emergency stop ineffective or too slow",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Emergency stop ineffective or too slow arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — physical harm / safety incident / regulatory & reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-09",
+      "name": "Insufficient diagnostic coverage; latent faults undetected",
+      "description": "Insufficient diagnostic coverage; latent faults undetected",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Insufficient diagnostic coverage; latent faults undetected arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — degraded metric / failed safety assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-10",
+      "name": "Collision with objects, environment, or humans",
+      "description": "Collision with objects, environment, or humans",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Collision with objects, environment, or humans arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — physical harm / safety incident / regulatory & reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-11",
+      "name": "Unsafe human-robot interaction (speed / separation / force breach)",
+      "description": "Unsafe human-robot interaction (speed / separation / force breach)",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Unsafe human-robot interaction (speed / separation / force breach) arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — physical harm / safety incident / regulatory & reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-12",
+      "name": "Human unable to override / take over control in time",
+      "description": "Human unable to override / take over control in time",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Human Oversight",
+      "trust_attributes": [
+        "Human Oversight"
+      ],
+      "hla_primary_trust_attribute": "Human Control",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Human unable to override / take over control in time arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — physical harm / safety incident / regulatory & reputational harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Human Control (7-TA taxonomy); pillar Govern. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-13",
+      "name": "Operation outside validated ODD; boundary not detected",
+      "description": "Operation outside validated ODD; boundary not detected",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Operation outside validated ODD; boundary not detected arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — physical harm / safety incident / regulatory & reputational harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-14",
+      "name": "Sensor spoofing / adversarial attack causes misperception",
+      "description": "Sensor spoofing / adversarial attack causes misperception",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Security",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Sensor spoofing / adversarial attack causes misperception arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — degraded metric / failed safety assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Security (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-15",
+      "name": "Cyber-physical attack hijacks communications or actuators",
+      "description": "Cyber-physical attack hijacks communications or actuators",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Security",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Cyber-physical attack hijacks communications or actuators arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — degraded metric / failed safety assurance check",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Security (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-16",
+      "name": "Sim-to-real gap: validated behaviour fails in the field",
+      "description": "Sim-to-real gap: validated behaviour fails in the field",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Sim-to-real gap: validated behaviour fails in the field arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — unvalidated / unreconstructable defect reaches field",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-17",
+      "name": "Insufficient safety-scenario coverage / verification",
+      "description": "Insufficient safety-scenario coverage / verification",
+      "category": "Delivery",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Insufficient safety-scenario coverage / verification arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — unvalidated / unreconstructable defect reaches field",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-18",
+      "name": "Incident not reconstructable (missing black-box evidence)",
+      "description": "Incident not reconstructable (missing black-box evidence)",
+      "category": "Delivery",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Explainability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Incident not reconstructable (missing black-box evidence) arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — unvalidated / unreconstructable defect reaches field",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Explainability (7-TA taxonomy); pillar Prove. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-19",
+      "name": "Bystander privacy captured; sensor data over-retained",
+      "description": "Bystander privacy captured; sensor data over-retained",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Bystander privacy captured; sensor data over-retained arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — degraded metric / failed safety assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Privacy (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "EMB-20",
+      "name": "Governance gaps: unversioned firmware/models, unsafe OTA, no rollback, standards non-compliance",
+      "description": "Governance gaps: unversioned firmware/models, unsafe OTA, no rollback, standards non-compliance",
+      "category": "Delivery",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Explainability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Governance gaps: unversioned firmware/models, unsafe OTA, no rollback, arising in embodied / cyber-physical execution",
+      "impact": "Net-new (derived) — unvalidated / unreconstructable defect reaches field",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Embodied / Cyber-Physical / Robotics (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Embodied / Cyber-Physical / Robotics RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); functional-safety references (ISO 26262/IEC 61508/ISO 13849/ISO 15066/ISO 10218) are indicative and must be confirmed with a qualified safety assessor. Primary trust attribute Explainability (7-TA taxonomy); pillar Prove. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    }
+  ]
+}

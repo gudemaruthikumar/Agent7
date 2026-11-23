@@ -1,0 +1,417 @@
+{
+  "library_id": "hla-a1-agentic-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_Agentic_Logs_Layers_Formulas.xlsx — Agentic RMTE (Master) column 'Pattern Applicability', merged with HLA Appendix A1 pattern notes",
+  "patterns": [
+    "simple_tool_use",
+    "react",
+    "plan_and_execute",
+    "multi_agent",
+    "hitl",
+    "autonomous"
+  ],
+  "family_defaults": {
+    "PD": {
+      "simple_tool_use": "N/A — no planning phase",
+      "react": "Baseline: implicit plan via Thought steps",
+      "plan_and_execute": "PRIMARY: Explicit plan is auditable and scorable",
+      "multi_agent": "Per-agent plan quality + orchestrator routing accuracy",
+      "hitl": "Plan proposed to human — human validates plan quality",
+      "autonomous": "CRITICAL: Plan quality determines autonomous execution path"
+    },
+    "TE": {
+      "simple_tool_use": "Baseline: single tool call success",
+      "react": "Per-iteration tool success tracking",
+      "plan_and_execute": "Per-step tool success vs plan expectation",
+      "multi_agent": "Per-agent tool success + inter-agent tool delegation success",
+      "hitl": "Post-approval tool execution success",
+      "autonomous": "CRITICAL: Autonomous tool chain failures cascade"
+    },
+    "AP": {
+      "simple_tool_use": "Baseline: permission check per tool call",
+      "react": "Per-iteration permission validation",
+      "plan_and_execute": "Plan pre-validated against permission matrix",
+      "multi_agent": "CRITICAL: Per-agent permissions + delegation authority valid",
+      "hitl": "STRENGTH: Human approves scope explicitly",
+      "autonomous": "CRITICAL: Autonomous scope may expand beyond initial authori"
+    },
+    "TO": {
+      "simple_tool_use": "Baseline: tool call + result logged",
+      "react": "STRENGTH: Thought+Action+Observation naturally complete",
+      "plan_and_execute": "Plan + per-step execution trace",
+      "multi_agent": "CRITICAL: Distributed trace assembly across agents",
+      "hitl": "STRENGTH: Approval trace adds governance evidence",
+      "autonomous": "CRITICAL: Long-running autonomous trace may fragment or over"
+    },
+    "GT": {
+      "simple_tool_use": "Baseline: single task completion",
+      "react": "Iterative task completion with retries",
+      "plan_and_execute": "Plan completion rate — all steps completed",
+      "multi_agent": "Compound task completion across agents",
+      "hitl": "Task completion with human validation",
+      "autonomous": "CRITICAL: Autonomous goal completion without quality check"
+    },
+    "RA": {
+      "simple_tool_use": "Baseline: input injection defense",
+      "react": "Per-iteration injection defense + reasoning injection",
+      "plan_and_execute": "Plan-level injection (manipulate planning phase)",
+      "multi_agent": "CRITICAL: Inter-agent injection — one agent poisons another",
+      "hitl": "Human catches injected content in approval",
+      "autonomous": "CRITICAL: Autonomous agent maximum injection surface + no hu"
+    },
+    "HO": {
+      "simple_tool_use": "Baseline: escalation for errors",
+      "react": "Per-iteration escalation for uncertainty",
+      "plan_and_execute": "Plan identifies escalation points in advance",
+      "multi_agent": "Per-agent escalation + orchestrator escalation",
+      "hitl": "PRIMARY: Core metric — correct escalation = system purpose",
+      "autonomous": "CRITICAL: Autonomous agent may not escalate when it should"
+    },
+    "RC": {
+      "simple_tool_use": "LOWEST: Single tool call latency",
+      "react": "Iteration-multiplied latency",
+      "plan_and_execute": "Plan creation + execution latency",
+      "multi_agent": "Agent coordination + parallel execution latency",
+      "hitl": "INCREASED: Human approval wait time added",
+      "autonomous": "HIGHEST: Long-running autonomous execution (hours/days)"
+    },
+    "LC": {
+      "simple_tool_use": "Baseline: standard drift tracking",
+      "react": "Per-iteration drift + reasoning quality drift",
+      "plan_and_execute": "Plan quality drift + execution quality drift",
+      "multi_agent": "Per-agent drift + inter-agent coordination drift",
+      "hitl": "Approval pattern drift + human fatigue drift",
+      "autonomous": "CRITICAL: Goal drift + capability drift + memory drift compo"
+    }
+  },
+  "metric_overrides": {
+    "PD-01": {
+      "simple_tool_use": "N/A — no planning phase",
+      "react": "Baseline: implicit plan via Thought steps",
+      "plan_and_execute": "PRIMARY: Explicit plan is auditable and scorable",
+      "multi_agent": "Per-agent plan quality + orchestrator routing accuracy",
+      "hitl": "Plan proposed to human — human validates plan quality",
+      "autonomous": "CRITICAL: Plan quality determines autonomous execution path"
+    },
+    "PD-02": {
+      "simple_tool_use": "Baseline: single tool decision point",
+      "react": "Per-iteration tool selection accuracy",
+      "plan_and_execute": "Per-step tool selection vs plan specification",
+      "multi_agent": "Per-agent tool selection + cross-agent delegation accuracy",
+      "hitl": "Tool selection proposed → human validates",
+      "autonomous": "CRITICAL: Autonomous tool selection without validation"
+    },
+    "PD-03": {
+      "simple_tool_use": "Baseline: parameter validation for single call",
+      "react": "Per-iteration parameter accuracy",
+      "plan_and_execute": "Per-step parameter validation against plan",
+      "multi_agent": "Per-agent parameter isolation — no cross-agent parameter lea",
+      "hitl": "Parameters visible in approval request",
+      "autonomous": "CRITICAL: Wrong parameters in autonomous execution = irrever"
+    },
+    "PD-04": {
+      "simple_tool_use": "Baseline: tool selection rationale logged",
+      "react": "STRENGTH: Thought steps ARE justification — naturally audita",
+      "plan_and_execute": "Plan document IS justification artifact",
+      "multi_agent": "Orchestrator routing justification + per-agent decision logs",
+      "hitl": "STRENGTH: Approval request includes justification",
+      "autonomous": "CRITICAL: Autonomous decisions must self-document rationale"
+    },
+    "PD-05": {
+      "simple_tool_use": "N/A — no re-planning",
+      "react": "Implicit: re-retrieval/re-reasoning in loop",
+      "plan_and_execute": "PRIMARY: Explicit re-plan triggers tracked",
+      "multi_agent": "Cascading re-plans across agents",
+      "hitl": "Re-plan proposed to human for re-approval",
+      "autonomous": "CRITICAL: Autonomous re-planning may diverge from original g"
+    },
+    "TE-01": {
+      "simple_tool_use": "Baseline: single tool call success",
+      "react": "Per-iteration tool success tracking",
+      "plan_and_execute": "Per-step tool success vs plan expectation",
+      "multi_agent": "Per-agent tool success + inter-agent tool delegation success",
+      "hitl": "Post-approval tool execution success",
+      "autonomous": "CRITICAL: Autonomous tool chain failures cascade"
+    },
+    "TE-02": {
+      "simple_tool_use": "Baseline: flag irreversible actions",
+      "react": "Flag per iteration before action execution",
+      "plan_and_execute": "Plan identifies irreversible steps in advance",
+      "multi_agent": "Cross-agent irreversible action coordination",
+      "hitl": "PRIMARY: Irreversible = mandatory human approval",
+      "autonomous": "CRITICAL: Autonomous irreversible actions without detection"
+    },
+    "TE-03": {
+      "simple_tool_use": "Baseline: max call limit",
+      "react": "CRITICAL: Iteration loop detection essential",
+      "plan_and_execute": "Plan execution timeout + step budget",
+      "multi_agent": "Per-agent circuit breakers + cascade breaker",
+      "hitl": "Human can interrupt at any approval point",
+      "autonomous": "CRITICAL: Kill switch must work for long-running autonomous"
+    },
+    "TE-04": {
+      "simple_tool_use": "Baseline: retry safety for single tool",
+      "react": "Retry safety across iterations",
+      "plan_and_execute": "Re-execution of failed plan steps must be idempotent",
+      "multi_agent": "Cross-agent retry coordination — no duplicate actions",
+      "hitl": "Human confirms retry is safe",
+      "autonomous": "CRITICAL: Autonomous retries may create duplicates at scale"
+    },
+    "TE-05": {
+      "simple_tool_use": "Baseline: output schema validation",
+      "react": "Per-iteration output validation",
+      "plan_and_execute": "Per-step output validation against plan expectations",
+      "multi_agent": "Inter-agent output sanitization — prevent injection",
+      "hitl": "Tool output visible in approval context",
+      "autonomous": "CRITICAL: Autonomous agent trusts tool outputs — validation"
+    },
+    "AP-01": {
+      "simple_tool_use": "Baseline: permission check per tool call",
+      "react": "Per-iteration permission validation",
+      "plan_and_execute": "Plan pre-validated against permission matrix",
+      "multi_agent": "CRITICAL: Per-agent permissions + delegation authority valid",
+      "hitl": "STRENGTH: Human approves scope explicitly",
+      "autonomous": "CRITICAL: Autonomous scope may expand beyond initial authori"
+    },
+    "AP-02": {
+      "simple_tool_use": "Baseline: approval workflow for flagged actions",
+      "react": "Approval required per high-risk iteration step",
+      "plan_and_execute": "Plan-level approval + step-level for critical steps",
+      "multi_agent": "Orchestrator approval + agent-level approval chains",
+      "hitl": "PRIMARY: Core metric — all approvals enforced",
+      "autonomous": "CRITICAL: Autonomous agent may bypass or auto-approve"
+    },
+    "AP-03": {
+      "simple_tool_use": "Baseline: scope boundary check",
+      "react": "Per-iteration scope monitoring",
+      "plan_and_execute": "Plan-level scope validation",
+      "multi_agent": "CRITICAL: Agent-to-agent delegation may escalate privileges",
+      "hitl": "Escalation requests visible to human",
+      "autonomous": "CRITICAL: Autonomous agent may self-escalate privileges"
+    },
+    "AP-04": {
+      "simple_tool_use": "Baseline: output data scope check",
+      "react": "Per-iteration data boundary validation",
+      "plan_and_execute": "Plan specifies data boundaries per step",
+      "multi_agent": "CRITICAL: Inter-agent data sharing may violate boundaries",
+      "hitl": "Data egress visible in approval context",
+      "autonomous": "CRITICAL: Autonomous agent data access is broadest"
+    },
+    "TO-01": {
+      "simple_tool_use": "Baseline: tool call + result logged",
+      "react": "STRENGTH: Thought+Action+Observation naturally complete",
+      "plan_and_execute": "Plan + per-step execution trace",
+      "multi_agent": "CRITICAL: Distributed trace assembly across agents",
+      "hitl": "STRENGTH: Approval trace adds governance evidence",
+      "autonomous": "CRITICAL: Long-running autonomous trace may fragment or over"
+    },
+    "TO-02": {
+      "simple_tool_use": "Baseline: single decision audit",
+      "react": "Per-iteration decision trail",
+      "plan_and_execute": "Plan decisions + execution decisions",
+      "multi_agent": "Orchestrator + per-agent decision trails",
+      "hitl": "Approval decisions add strongest audit trail",
+      "autonomous": "CRITICAL: Autonomous decisions must self-audit"
+    },
+    "TO-03": {
+      "simple_tool_use": "Baseline: standard log schema",
+      "react": "Iteration-aware log schema",
+      "plan_and_execute": "Plan + step + re-plan log schema",
+      "multi_agent": "Per-agent log schema + inter-agent message logs",
+      "hitl": "Approval event log schema",
+      "autonomous": "CRITICAL: Highest log volume + most complex schema"
+    },
+    "TO-04": {
+      "simple_tool_use": "Baseline: simple reconstruction",
+      "react": "Iteration sequence reconstruction",
+      "plan_and_execute": "Plan → step → result reconstruction",
+      "multi_agent": "CRITICAL: Distributed trace reconstruction across agents",
+      "hitl": "STRENGTH: Approval checkpoints anchor reconstruction",
+      "autonomous": "CRITICAL: Long-running traces may lose continuity"
+    },
+    "TO-05": {
+      "simple_tool_use": "Baseline: tool call monitoring",
+      "react": "Iteration monitoring + reasoning signals",
+      "plan_and_execute": "Plan execution progress monitoring",
+      "multi_agent": "Per-agent monitoring + orchestrator health",
+      "hitl": "Approval queue monitoring",
+      "autonomous": "CRITICAL: All autonomous components must emit signals"
+    },
+    "GT-01": {
+      "simple_tool_use": "Baseline: single task completion",
+      "react": "Iterative task completion with retries",
+      "plan_and_execute": "Plan completion rate — all steps completed",
+      "multi_agent": "Compound task completion across agents",
+      "hitl": "Task completion with human validation",
+      "autonomous": "CRITICAL: Autonomous goal completion without quality check"
+    },
+    "GT-02": {
+      "simple_tool_use": "Baseline: single-step alignment",
+      "react": "Per-iteration alignment tracking — should converge",
+      "plan_and_execute": "Plan-to-goal alignment + execution-to-plan alignment",
+      "multi_agent": "Cross-agent goal consistency — no conflicting outcomes",
+      "hitl": "Human validates goal alignment explicitly",
+      "autonomous": "CRITICAL: Autonomous goal drift over long-running execution"
+    },
+    "GT-03": {
+      "simple_tool_use": "Baseline: single output quality",
+      "react": "Quality convergence across iterations",
+      "plan_and_execute": "Plan specifies quality criteria per step",
+      "multi_agent": "Per-agent output quality + assembled quality",
+      "hitl": "Human assesses quality at approval",
+      "autonomous": "CRITICAL: Autonomous quality without human calibration"
+    },
+    "GT-04": {
+      "simple_tool_use": "Baseline: single action side effects",
+      "react": "Per-iteration side effect monitoring",
+      "plan_and_execute": "Plan-level side effect analysis",
+      "multi_agent": "CRITICAL: Cross-agent side effects hardest to detect",
+      "hitl": "STRENGTH: Human reviews for side effects",
+      "autonomous": "CRITICAL: Autonomous cascading side effects"
+    },
+    "RA-01": {
+      "simple_tool_use": "Baseline: input injection defense",
+      "react": "Per-iteration injection defense + reasoning injection",
+      "plan_and_execute": "Plan-level injection (manipulate planning phase)",
+      "multi_agent": "CRITICAL: Inter-agent injection — one agent poisons another",
+      "hitl": "Human catches injected content in approval",
+      "autonomous": "CRITICAL: Autonomous agent maximum injection surface + no hu"
+    },
+    "RA-02": {
+      "simple_tool_use": "Baseline: output sanitization",
+      "react": "Per-iteration output validation",
+      "plan_and_execute": "Step-level output validation against plan",
+      "multi_agent": "Inter-agent output sanitization — cross-agent injection defe",
+      "hitl": "Tool output visible in approval context",
+      "autonomous": "CRITICAL: Autonomous agent processes tool outputs without va"
+    },
+    "RA-03": {
+      "simple_tool_use": "N/A — no persistent goal",
+      "react": "MODERATE: Goal maintained across iterations",
+      "plan_and_execute": "Plan integrity validation against manipulation",
+      "multi_agent": "Orchestrator goal integrity + agent goal consistency",
+      "hitl": "Human validates goal hasn't been manipulated",
+      "autonomous": "CRITICAL: Autonomous goal manipulation = highest impact"
+    },
+    "RA-04": {
+      "simple_tool_use": "N/A — no persistent memory",
+      "react": "N/A — iteration context only",
+      "plan_and_execute": "Plan is memory artifact — validate plan integrity",
+      "multi_agent": "Shared state integrity validation across agents",
+      "hitl": "Approval history as validated memory",
+      "autonomous": "CRITICAL: Persistent memory = persistent attack surface"
+    },
+    "RA-05": {
+      "simple_tool_use": "Baseline: single tool failure isolation",
+      "react": "Iteration failure doesn't cascade",
+      "plan_and_execute": "Step failure contained — re-plan rather than cascade",
+      "multi_agent": "CRITICAL: Agent failure cascades to dependent agents",
+      "hitl": "Human intervention breaks cascade",
+      "autonomous": "CRITICAL: Autonomous cascading failures without human interv"
+    },
+    "HO-01": {
+      "simple_tool_use": "Baseline: escalation for errors",
+      "react": "Per-iteration escalation for uncertainty",
+      "plan_and_execute": "Plan identifies escalation points in advance",
+      "multi_agent": "Per-agent escalation + orchestrator escalation",
+      "hitl": "PRIMARY: Core metric — correct escalation = system purpose",
+      "autonomous": "CRITICAL: Autonomous agent may not escalate when it should"
+    },
+    "HO-02": {
+      "simple_tool_use": "Baseline: bypass detection",
+      "react": "Per-iteration bypass monitoring",
+      "plan_and_execute": "Plan-level bypass detection",
+      "multi_agent": "Inter-agent delegation bypass — agent A delegates to bypass",
+      "hitl": "PRIMARY: Must be 0% — core design principle",
+      "autonomous": "CRITICAL: Autonomous agent designed to minimize human involv"
+    },
+    "HO-03": {
+      "simple_tool_use": "Baseline: action context provided",
+      "react": "Iteration context + reasoning trace in request",
+      "plan_and_execute": "Plan + step context in approval request",
+      "multi_agent": "Per-agent context + cross-agent impact in request",
+      "hitl": "PRIMARY: Quality of approval request determines oversight qu",
+      "autonomous": "REDUCED: Fewer approval points → less human context"
+    },
+    "HO-04": {
+      "simple_tool_use": "Baseline: override tracking",
+      "react": "Override per-iteration with improvement tracking",
+      "plan_and_execute": "Plan-level overrides tracked",
+      "multi_agent": "Per-agent overrides + system-level overrides",
+      "hitl": "PRIMARY: Override effectiveness validates HITL value",
+      "autonomous": "N/A or MINIMAL: Few human intervention points"
+    },
+    "RC-01": {
+      "simple_tool_use": "LOWEST: Single tool call latency",
+      "react": "Iteration-multiplied latency",
+      "plan_and_execute": "Plan creation + execution latency",
+      "multi_agent": "Agent coordination + parallel execution latency",
+      "hitl": "INCREASED: Human approval wait time added",
+      "autonomous": "HIGHEST: Long-running autonomous execution (hours/days)"
+    },
+    "RC-02": {
+      "simple_tool_use": "LOWEST: Single LLM call + tool call",
+      "react": "2-10× Simple (per-iteration LLM calls)",
+      "plan_and_execute": "Planning LLM + execution LLM costs",
+      "multi_agent": "Per-agent costs × number of agents",
+      "hitl": "MODERATE: Agent cost + human time cost",
+      "autonomous": "HIGHEST: Continuous LLM + tool costs over extended execution"
+    },
+    "RC-03": {
+      "simple_tool_use": "Baseline: max call limit",
+      "react": "CRITICAL: Iteration loops drive explosion",
+      "plan_and_execute": "Per-step budget with plan-level cap",
+      "multi_agent": "Aggregate tool calls across all agents",
+      "hitl": "Budget visible in approval context",
+      "autonomous": "CRITICAL: Autonomous execution without cost controls"
+    },
+    "RC-04": {
+      "simple_tool_use": "Baseline: most calls useful",
+      "react": "Wasted iterations reduce efficiency",
+      "plan_and_execute": "Plan efficiency — minimal redundant steps",
+      "multi_agent": "Cross-agent redundancy — duplicate work detection",
+      "hitl": "Approval overhead reduces pure efficiency",
+      "autonomous": "MODERATE: Self-directed efficiency varies by goal complexity"
+    },
+    "LC-01": {
+      "simple_tool_use": "Baseline: standard drift tracking",
+      "react": "Per-iteration drift + reasoning quality drift",
+      "plan_and_execute": "Plan quality drift + execution quality drift",
+      "multi_agent": "Per-agent drift + inter-agent coordination drift",
+      "hitl": "Approval pattern drift + human fatigue drift",
+      "autonomous": "CRITICAL: Goal drift + capability drift + memory drift compo"
+    },
+    "LC-02": {
+      "simple_tool_use": "Baseline: tool failure incidents",
+      "react": "Loop incidents + reasoning failures",
+      "plan_and_execute": "Plan failures + re-plan incidents",
+      "multi_agent": "Cascading incidents + inter-agent failures",
+      "hitl": "Approval workflow failures",
+      "autonomous": "HIGHEST: Autonomous incidents may compound before detection"
+    },
+    "LC-03": {
+      "simple_tool_use": "Standard: tool permission + safety suites",
+      "react": "Iteration tests + loop tests + reasoning validation",
+      "plan_and_execute": "Plan quality tests + execution tests + re-plan tests",
+      "multi_agent": "Per-agent suites + inter-agent interaction suites",
+      "hitl": "Approval workflow tests + bypass tests",
+      "autonomous": "Most complex: all above + memory integrity + goal drift + ki"
+    },
+    "LC-04": {
+      "simple_tool_use": "Standard: tool registry + permissions",
+      "react": "Reasoning pattern docs + iteration bounds",
+      "plan_and_execute": "Planning methodology + re-plan policy docs",
+      "multi_agent": "Agent architecture + interaction protocol + delegation polic",
+      "hitl": "Approval policy + escalation criteria + threshold rationale",
+      "autonomous": "Most extensive: all above + goal specification + memory poli"
+    },
+    "LC-05": {
+      "simple_tool_use": "Baseline compliance",
+      "react": "Standard compliance + iteration audit trail",
+      "plan_and_execute": "Plan auditability supports compliance",
+      "multi_agent": "CRITICAL: Multi-agent = multi-compliance scope",
+      "hitl": "STRENGTH: Human oversight supports EU AI Act high-risk compl",
+      "autonomous": "CRITICAL: Autonomous agents face highest regulatory scrutiny"
+    }
+  }
+}

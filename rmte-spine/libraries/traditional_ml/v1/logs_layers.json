@@ -1,0 +1,270 @@
+{
+  "library_id": "tlai-rmte-traditional_ml-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_TraditionalML_Logs_Layers_Formulas.xlsx — sheet 'Traditional ML RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Traditional ML pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Data Ingestion",
+      "logs_telemetry": "Ingestion log",
+      "key_fields": "raw records, source, schema, timestamps",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Data Quality"
+      ],
+      "notes": "Source-of-record for training/eval data"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Data Quality / Validation",
+      "logs_telemetry": "Data-quality log",
+      "key_fields": "completeness, consistency, accuracy, uniqueness, freshness, lineage",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Data Quality"
+      ],
+      "notes": "Feeds DQ-01/03/04"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Feature Engineering",
+      "logs_telemetry": "Feature log",
+      "key_fields": "engineered features, transformations, feature importance inputs",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Explainability",
+        "Fairness"
+      ],
+      "notes": "Feeds FB-04 proxy-feature audit"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Model Training",
+      "logs_telemetry": "Training log",
+      "key_fields": "hyperparameters, training run, retraining cadence, DP ε/δ",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Robustness",
+        "Privacy"
+      ],
+      "notes": "Feeds RS-04, PC-03, OP-04"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Model / Inference",
+      "logs_telemetry": "Inference log",
+      "key_fields": "predictions, scores, confusion counts, per-subgroup outputs",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Predictive Performance",
+        "Fairness"
+      ],
+      "notes": "Core log for PP, FB families"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Calibration / Uncertainty",
+      "logs_telemetry": "Calibration log",
+      "key_fields": "confidence bins, ECE inputs, uncertainty estimates, OOD flags",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Calibration"
+      ],
+      "notes": "Feeds CU-01..04"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Explainability / Attribution",
+      "logs_telemetry": "Explainability log",
+      "key_fields": "global (SHAP/permutation) & local (LIME) importance, counterfactuals",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Explainability"
+      ],
+      "notes": "Feeds EI-01/02/03"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Fairness / Bias Check",
+      "logs_telemetry": "Fairness log",
+      "key_fields": "group predictions/confusion, parity metrics, proxy-feature audit",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Fairness"
+      ],
+      "notes": "Feeds FB-01/02/03/05"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Privacy Controls",
+      "logs_telemetry": "Privacy log",
+      "key_fields": "PII detection, membership inference, DP accountant",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PC-01/02/03"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Robustness / Drift Detection",
+      "logs_telemetry": "Robustness log",
+      "key_fields": "data/concept drift, adversarial outcomes, version churn",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability",
+      "related_metric_families": [
+        "Robustness"
+      ],
+      "notes": "Feeds RS-01/02/03/04"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Serving & API",
+      "logs_telemetry": "Serving telemetry",
+      "key_fields": "latency (p50/95/99), throughput, model size, cost, retraining reliability",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Operational"
+      ],
+      "notes": "Feeds OP-01..05"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Monitoring & Lifecycle",
+      "logs_telemetry": "Monitoring telemetry",
+      "key_fields": "drift, feedback-loop bias, incidents & MTTR, staleness",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle",
+        "Fairness"
+      ],
+      "notes": "Feeds LG-04, FB-05, DQ-04"
+    },
+    {
+      "index": 13,
+      "architecture": "AI Product (Traditional ML)",
+      "layer": "Governance / Model Registry",
+      "logs_telemetry": "Governance log",
+      "key_fields": "registry, champion/challenger, model card, audit trail, retirement, TEVV",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle",
+        "Explainability"
+      ],
+      "notes": "Feeds LG-01/02/05, EI-04/05"
+    },
+    {
+      "index": 14,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered ML models, data connectors, tenancy, model registry & lineage",
+      "ingested_by": "Anchors identity, model registry & tenancy for all logs",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Model registry origin (LG-01)"
+    },
+    {
+      "index": 15,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized ML spans/events, redaction, event-bus refs",
+      "ingested_by": "Consumes all ML product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Raw records redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed pipeline traces, dependency views, time-series (drift)",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Robustness",
+        "Lifecycle"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator outputs, task metrics, calibration, fairness, explainability scores",
+      "ingested_by": "Consumes inference/calibration/fairness logs + gold sets",
+      "related_metric_families": [
+        "Predictive Performance",
+        "Calibration",
+        "Fairness"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, gold sets & baselines, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the ML RMTE metric corpus"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "fairness, privacy, data-governance decisions, risk register, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Fairness",
+        "Privacy",
+        "Data Quality"
+      ],
+      "notes": "Gates 0–4; champion/challenger"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 21,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

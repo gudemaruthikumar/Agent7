@@ -1,0 +1,232 @@
+{
+  "product": {
+    "id": "rag-demo",
+    "name": "Support Knowledge Assistant",
+    "archetype": "Naive RAG",
+    "criticality": "high",
+    "active_version": "approved-v1",
+    "product_version": "rag-product-v1",
+    "prompt_version": "prompt-v1",
+    "corpus_version": "corpus-v1",
+    "dataset": {
+      "id": "rag-demo-golden",
+      "version": "dataset-v1",
+      "hash": "sha256:dataset-8f231c"
+    },
+    "memory_snapshot_hash": "sha256:memory-42b719",
+    "baseline_pack_id": "pack_baseline_v1",
+    "baseline_pack_hash": "sha256:baseline-f127aa",
+    "baseline_score_ref": "q6://score/policy-v1"
+  },
+  "registry": {
+    "prompt": {
+      "from": "prompt-v1",
+      "to": "prompt-v2",
+      "summary": "System prompt now asks the model to answer even when retrieval is empty."
+    },
+    "corpus": {
+      "from": "corpus-v1",
+      "to": "corpus-v2",
+      "summary": "48 policy documents replaced; 12 expired articles removed from the knowledge base."
+    }
+  },
+  "risks": {
+    "RAG-01": {
+      "name": "Hallucinated claims",
+      "category": "Generation",
+      "trust_attributes": ["Accuracy", "Safety", "Explainability"]
+    },
+    "RAG-02": {
+      "name": "Retrieval failure",
+      "category": "Retrieval",
+      "trust_attributes": ["Accuracy", "Reliability"]
+    },
+    "RAG-03": {
+      "name": "Corpus staleness",
+      "category": "Freshness",
+      "trust_attributes": ["Reliability", "Accuracy"]
+    },
+    "RAG-04": {
+      "name": "Embedding drift",
+      "category": "Drift",
+      "trust_attributes": ["Reliability"]
+    }
+  },
+  "metrics": {
+    "M20": {
+      "name": "Grounded Answer Rate",
+      "category": "Groundedness",
+      "threshold": {"value": 0.85, "comparison": "gte"},
+      "approved_test_ids": ["RAG-S1"],
+      "risk_ids": ["RAG-01"]
+    },
+    "M21": {
+      "name": "Hallucination Rate",
+      "category": "Groundedness",
+      "threshold": {"value": 0.05, "comparison": "lt"},
+      "approved_test_ids": ["RAG-S1"],
+      "risk_ids": ["RAG-01"]
+    },
+    "M24": {
+      "name": "Citation Coverage Rate",
+      "category": "Attribution",
+      "threshold": {"value": 0.85, "comparison": "gte"},
+      "approved_test_ids": ["RAG-S1"],
+      "risk_ids": ["RAG-01"]
+    },
+    "M06": {
+      "name": "Recall@K",
+      "category": "Retrieval",
+      "threshold": {"value": 0.85, "comparison": "gte"},
+      "approved_test_ids": ["RAG-S5"],
+      "risk_ids": ["RAG-02"]
+    },
+    "M07": {
+      "name": "MRR",
+      "category": "Retrieval",
+      "threshold": {"value": 0.85, "comparison": "gte"},
+      "approved_test_ids": ["RAG-S5"],
+      "risk_ids": ["RAG-02"]
+    },
+    "M08": {
+      "name": "NDCG",
+      "category": "Retrieval",
+      "threshold": {"value": 0.85, "comparison": "gte"},
+      "approved_test_ids": ["RAG-S5"],
+      "risk_ids": ["RAG-02"]
+    },
+    "M09": {
+      "name": "Retrieval Success Rate",
+      "category": "Retrieval",
+      "threshold": {"value": 0.85, "comparison": "gte"},
+      "approved_test_ids": ["RAG-S5"],
+      "risk_ids": ["RAG-02"]
+    },
+    "M01": {
+      "name": "Corpus Freshness Score",
+      "category": "Corpus & Data",
+      "threshold": {"value": 0.85, "comparison": "gte"},
+      "approved_test_ids": ["RAG-S6"],
+      "risk_ids": ["RAG-03"]
+    },
+    "M05": {
+      "name": "Staleness Risk Indicator",
+      "category": "Corpus & Data",
+      "threshold": {"value": 0.05, "comparison": "lt"},
+      "approved_test_ids": ["RAG-S6"],
+      "risk_ids": ["RAG-03"]
+    },
+    "M10": {
+      "name": "Embedding Drift Score",
+      "category": "Retrieval",
+      "threshold": {"value": 0.1, "comparison": "lt"},
+      "approved_test_ids": ["RAG-S6"],
+      "risk_ids": ["RAG-04"]
+    },
+    "M41": {
+      "name": "Drift Detection Signals",
+      "category": "Lifecycle",
+      "threshold": {"value": 0.0, "comparison": "lte"},
+      "approved_test_ids": ["RAG-S6"],
+      "risk_ids": ["RAG-04"]
+    }
+  },
+  "tests": {
+    "RAG-S1": {
+      "name": "Grounding Validation",
+      "metric_ids": ["M20", "M21", "M24"],
+      "version": "1.2.0",
+      "hash": "sha256:test-rag-s1",
+      "g2_approved": true,
+      "estimated_cost": 1.2,
+      "estimated_duration_seconds": 40
+    },
+    "RAG-S5": {
+      "name": "Retrieval Robustness",
+      "metric_ids": ["M06", "M07", "M08", "M09"],
+      "version": "1.1.0",
+      "hash": "sha256:test-rag-s5",
+      "g2_approved": true,
+      "estimated_cost": 1.4,
+      "estimated_duration_seconds": 50
+    },
+    "RAG-S6": {
+      "name": "Staleness & Regression",
+      "metric_ids": ["M01", "M05", "M10", "M41"],
+      "version": "1.0.0",
+      "hash": "sha256:test-rag-s6",
+      "g2_approved": true,
+      "estimated_cost": 1.1,
+      "estimated_duration_seconds": 35
+    }
+  },
+  "impacts": {
+    "TD-06": {
+      "risk_ids": ["RAG-01"],
+      "metric_ids": ["M20", "M21", "M24"],
+      "test_ids": ["RAG-S1"]
+    },
+    "TD-11": {
+      "risk_ids": ["RAG-02", "RAG-03", "RAG-04"],
+      "metric_ids": ["M06", "M07", "M08", "M09", "M01", "M05", "M10", "M41"],
+      "test_ids": ["RAG-S5", "RAG-S6"]
+    }
+  },
+  "baseline_scores": {
+    "M20": 0.97,
+    "M21": 0.02,
+    "M24": 0.96,
+    "M06": 0.91,
+    "M07": 0.78,
+    "M08": 0.88,
+    "M09": 0.94,
+    "M01": 0.98,
+    "M05": 0.02,
+    "M10": 0.04,
+    "M41": 0.0
+  },
+  "evaluation": {
+    "pass_values": {
+      "M20": 0.96,
+      "M21": 0.03,
+      "M24": 0.95,
+      "M06": 0.89,
+      "M07": 0.76,
+      "M08": 0.87,
+      "M09": 0.93,
+      "M01": 0.97,
+      "M05": 0.03,
+      "M10": 0.05,
+      "M41": 0.0
+    },
+    "fail_values": {
+      "M20": 0.81,
+      "M21": 0.12,
+      "M24": 0.74,
+      "M06": 0.61,
+      "M07": 0.58,
+      "M08": 0.58,
+      "M09": 0.67,
+      "M01": 0.71,
+      "M05": 0.18,
+      "M10": 0.22,
+      "M41": 1.0
+    }
+  },
+  "seed_changes": [
+    {
+      "name": "prompt.changed",
+      "resource_version": "prompt-v2",
+      "product_version": "rag-product-v1",
+      "simulation": "pass",
+      "detail": "System prompt now asks the model to answer even when retrieval is empty."
+    },
+    {
+      "name": "retrieval.corpus_updated",
+      "resource_version": "corpus-v2",
+      "product_version": "rag-product-v1",
+      "simulation": "pass",
+      "detail": "48 policy documents replaced and 12 expired articles removed."
+    }
+  ]
+}

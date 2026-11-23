@@ -1,0 +1,81 @@
+{
+  "library_id": "agent5-traditional_ml-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Traditional ML RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "CU": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "DQ": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "EI": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "FB": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "LG": [
+      "monitoring",
+      "regression"
+    ],
+    "OP": [
+      "monitoring",
+      "regression"
+    ],
+    "PC": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "PP": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "RS": [
+      "adversarial",
+      "security",
+      "negative"
+    ]
+  },
+  "mvp_extra": {
+    "RS-01": [
+      "adversarial"
+    ],
+    "RS-02": [
+      "adversarial"
+    ],
+    "RS-03": [
+      "adversarial"
+    ],
+    "RS-04": [
+      "adversarial"
+    ],
+    "RS-05": [
+      "adversarial"
+    ]
+  }
+}

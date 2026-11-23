@@ -1,0 +1,426 @@
+{
+  "library_id": "tlai-rmte-multimodal-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_Multimodal_Logs_Layers_Formulas.xlsx — sheet 'Multimodal RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "vision__language",
+    "text_to__imagevideo",
+    "speech_recognition",
+    "text_to__speech",
+    "document_understanding",
+    "multimodal_embedding",
+    "All patterns (perspective-level)"
+  ],
+  "family_defaults": {
+    "CA": {
+      "vision__language": "CRITICAL: Text response alignment with image content. Visual",
+      "text_to__imagevideo": "CRITICAL: Generated image alignment with text prompt. Text a",
+      "speech_recognition": "Standard: Transcript alignment with spoken audio. WER as pri",
+      "text_to__speech": "Standard: Generated speech alignment with text input. Pronun",
+      "document_understanding": "CRITICAL: Extracted text/structure alignment with document i",
+      "multimodal_embedding": "CRITICAL: Embedding alignment across modalities. Foundation"
+    },
+    "MQ": {
+      "vision__language": "N/A: VLM doesn't generate images.",
+      "text_to__imagevideo": "CRITICAL: FID, IS have known limitations. Human MOS essentia",
+      "speech_recognition": "N/A: ASR doesn't generate images.",
+      "text_to__speech": "N/A",
+      "document_understanding": "N/A",
+      "multimodal_embedding": "N/A"
+    },
+    "FG": {
+      "vision__language": "CRITICAL: Core VLM faithfulness metric. Every claim about im",
+      "text_to__imagevideo": "Standard: Generated image must ground to text prompt element",
+      "speech_recognition": "N/A",
+      "text_to__speech": "N/A",
+      "document_understanding": "CRITICAL: Extracted information must be grounded in document",
+      "multimodal_embedding": "Standard: Retrieved items must be grounded in query intent."
+    },
+    "SP": {
+      "vision__language": "Standard: Text response safety. Similar to chat assistant sa",
+      "text_to__imagevideo": "CRITICAL: Generated images may be NSFW despite safety filter",
+      "speech_recognition": "Standard: Transcription of harmful speech content.",
+      "text_to__speech": "Standard: TTS reading harmful text content aloud.",
+      "document_understanding": "Standard: Document content safety classification.",
+      "multimodal_embedding": "Standard: Retrieval of harmful content."
+    },
+    "CR": {
+      "vision__language": "CRITICAL: Low-res images, blurry photos, poor lighting. VLM",
+      "text_to__imagevideo": "Standard: Prompt perturbation robustness.",
+      "speech_recognition": "CRITICAL: Background noise, reverb, poor microphone quality.",
+      "text_to__speech": "Standard: Malformed input text handling.",
+      "document_understanding": "CRITICAL: Low-quality scans, faded documents, skewed images.",
+      "multimodal_embedding": "Standard: Noisy input embedding robustness."
+    },
+    "PC": {
+      "vision__language": "CRITICAL: Facial data in images. Biometric processing withou",
+      "text_to__imagevideo": "CRITICAL: Face generation. Biometric PII in training data. I",
+      "speech_recognition": "CRITICAL: Voiceprint as biometric. Speaker identification wi",
+      "text_to__speech": "CRITICAL: Voice cloning creates biometric data. Voice likene",
+      "document_understanding": "CRITICAL: Document PII (SSN, passport, signatures). Handwrit",
+      "multimodal_embedding": "MODERATE: Facial/voice embeddings as biometric identifiers."
+    },
+    "FR": {
+      "vision__language": "N/A: VLM doesn't generate people images.",
+      "text_to__imagevideo": "CRITICAL: \"A doctor\" generates predominantly white males. Sk",
+      "speech_recognition": "N/A: ASR doesn't generate people.",
+      "text_to__speech": "Standard: Default voice gender/accent selection.",
+      "document_understanding": "N/A: Document understanding doesn't generate people.",
+      "multimodal_embedding": "Standard: Embedding bias in person-related queries."
+    },
+    "OP": {
+      "vision__language": "MODERATE: Image encoding + LLM generation. 1–5s typical.",
+      "text_to__imagevideo": "HIGH: Diffusion model denoising. 5–30s per image. Video: min",
+      "speech_recognition": "CRITICAL: Streaming ASR must be <200ms for real-time. Batch:",
+      "text_to__speech": "CRITICAL: Streaming TTS must be <300ms first-byte. Interacti",
+      "document_understanding": "Standard: Document processing 1–10s per page.",
+      "multimodal_embedding": "Standard: Embedding computation <100ms."
+    },
+    "LG": {
+      "vision__language": "Standard: Vision encoder + LLM versions tracked.",
+      "text_to__imagevideo": "CRITICAL: Text encoder + diffusion model + safety filter + w",
+      "speech_recognition": "Standard: ASR model + diarization model versions.",
+      "text_to__speech": "Standard: TTS model + vocoder + voice embeddings versions.",
+      "document_understanding": "Standard: OCR + layout + extraction + LLM versions.",
+      "multimodal_embedding": "Standard: Per-modal encoder + fusion model versions."
+    }
+  },
+  "metric_overrides": {
+    "CA-01": {
+      "vision__language": "CRITICAL: Text response alignment with image content. Visual",
+      "text_to__imagevideo": "CRITICAL: Generated image alignment with text prompt. Text a",
+      "speech_recognition": "Standard: Transcript alignment with spoken audio. WER as pri",
+      "text_to__speech": "Standard: Generated speech alignment with text input. Pronun",
+      "document_understanding": "CRITICAL: Extracted text/structure alignment with document i",
+      "multimodal_embedding": "CRITICAL: Embedding alignment across modalities. Foundation"
+    },
+    "CA-02": {
+      "vision__language": "CRITICAL: Fabricated visual details not in image. Objects th",
+      "text_to__imagevideo": "MODERATE: \"Hallucinated\" visual elements not matching prompt",
+      "speech_recognition": "Standard: Hallucinated words not in audio (insertion errors)",
+      "text_to__speech": "N/A: TTS doesn't hallucinate content (text is input).",
+      "document_understanding": "CRITICAL: OCR hallucination — text that isn't in document. L",
+      "multimodal_embedding": "MODERATE: Cross-modal retrieval returns plausible but factua"
+    },
+    "CA-03": {
+      "vision__language": "Per-image-type accuracy: photos vs charts vs diagrams vs scr",
+      "text_to__imagevideo": "Per-content-type quality: faces vs landscapes vs text-heavy",
+      "speech_recognition": "CRITICAL: Per-language WER. Per-accent WER. Per-noise-level",
+      "text_to__speech": "Per-language naturalness. Per-voice MOS. Per-domain pronunci",
+      "document_understanding": "Per-document-type accuracy: invoices vs contracts vs forms v",
+      "multimodal_embedding": "Per-modality retrieval accuracy: text→image vs image→text vs"
+    },
+    "CA-04": {
+      "vision__language": "CRITICAL: \"Red car left of blue building\" — attribute bindin",
+      "text_to__imagevideo": "CRITICAL: \"Three cats on a red sofa\" — object count + attrib",
+      "speech_recognition": "N/A: ASR doesn't involve compositional visual understanding.",
+      "text_to__speech": "N/A: TTS doesn't involve compositional understanding.",
+      "document_understanding": "MODERATE: Table structure + cross-reference compositional un",
+      "multimodal_embedding": "CRITICAL: Winoground, ARO benchmarks. CLIP fails extensively"
+    },
+    "CA-05": {
+      "vision__language": "MODERATE: Video understanding frame-to-frame consistency. Sc",
+      "text_to__imagevideo": "CRITICAL: Video generation temporal coherence. Object persis",
+      "speech_recognition": "CRITICAL: Streaming ASR word-by-word consistency. No retroac",
+      "text_to__speech": "Standard: Speech prosody consistency across long utterances.",
+      "document_understanding": "Standard: Multi-page document consistency across pages.",
+      "multimodal_embedding": "Standard: Embedding consistency for sequential inputs."
+    },
+    "MQ-01": {
+      "vision__language": "N/A: VLM doesn't generate images.",
+      "text_to__imagevideo": "CRITICAL: FID, IS have known limitations. Human MOS essentia",
+      "speech_recognition": "N/A: ASR doesn't generate images.",
+      "text_to__speech": "N/A",
+      "document_understanding": "N/A",
+      "multimodal_embedding": "N/A"
+    },
+    "MQ-02": {
+      "vision__language": "N/A",
+      "text_to__imagevideo": "N/A",
+      "speech_recognition": "N/A: ASR quality is WER, not MOS.",
+      "text_to__speech": "CRITICAL: Core TTS quality metric. Naturalness, intelligibil",
+      "document_understanding": "N/A",
+      "multimodal_embedding": "N/A"
+    },
+    "MQ-03": {
+      "vision__language": "N/A",
+      "text_to__imagevideo": "N/A",
+      "speech_recognition": "CRITICAL: Primary ASR metric. WER by language, accent, noise",
+      "text_to__speech": "N/A: TTS quality is MOS, not WER.",
+      "document_understanding": "Standard: OCR character/word error rate on extracted text.",
+      "multimodal_embedding": "N/A"
+    },
+    "MQ-04": {
+      "vision__language": "MODERATE: Vision encoder OCR as input to reasoning. OCR erro",
+      "text_to__imagevideo": "N/A",
+      "speech_recognition": "N/A",
+      "text_to__speech": "N/A",
+      "document_understanding": "CRITICAL: Primary document understanding prerequisite. Chara",
+      "multimodal_embedding": "N/A"
+    },
+    "MQ-05": {
+      "vision__language": "N/A",
+      "text_to__imagevideo": "Standard: Perceptual quality of generated images. LPIPS for",
+      "speech_recognition": "N/A",
+      "text_to__speech": "Standard: PESQ/POLQA for speech perceptual quality.",
+      "document_understanding": "N/A",
+      "multimodal_embedding": "N/A"
+    },
+    "FG-01": {
+      "vision__language": "CRITICAL: Core VLM faithfulness metric. Every claim about im",
+      "text_to__imagevideo": "Standard: Generated image must ground to text prompt element",
+      "speech_recognition": "N/A",
+      "text_to__speech": "N/A",
+      "document_understanding": "CRITICAL: Extracted information must be grounded in document",
+      "multimodal_embedding": "Standard: Retrieved items must be grounded in query intent."
+    },
+    "FG-02": {
+      "vision__language": "CRITICAL: Which image region drives each text claim? Spatial",
+      "text_to__imagevideo": "Standard: Which prompt elements drive each generated region?",
+      "speech_recognition": "Standard: Which audio segment drives each transcribed word?",
+      "text_to__speech": "N/A: TTS input is deterministic text.",
+      "document_understanding": "CRITICAL: Which document region drives each extracted field?",
+      "multimodal_embedding": "Standard: Which modal input drives embedding similarity rank"
+    },
+    "FG-03": {
+      "vision__language": "CRITICAL: Text says \"red car\" but image shows blue car. Cros",
+      "text_to__imagevideo": "MODERATE: Generated image contradicts text prompt specificat",
+      "speech_recognition": "Standard: Transcript contradicts audio content.",
+      "text_to__speech": "Standard: Generated speech contradicts text semantics (wrong",
+      "document_understanding": "Standard: Extracted data contradicts visible document conten",
+      "multimodal_embedding": "MODERATE: Cross-modal retrieval contradictions."
+    },
+    "FG-04": {
+      "vision__language": "CRITICAL: VLMs notoriously fail at spatial reasoning. \"What",
+      "text_to__imagevideo": "MODERATE: Spatial layout in generated images. Object placeme",
+      "speech_recognition": "Standard: Temporal word order in transcription.",
+      "text_to__speech": "N/A",
+      "document_understanding": "CRITICAL: Reading order, table row/column relationships, doc",
+      "multimodal_embedding": "MODERATE: Spatial relationships in cross-modal retrieval."
+    },
+    "SP-01": {
+      "vision__language": "Standard: Text response safety. Similar to chat assistant sa",
+      "text_to__imagevideo": "CRITICAL: Generated images may be NSFW despite safety filter",
+      "speech_recognition": "Standard: Transcription of harmful speech content.",
+      "text_to__speech": "Standard: TTS reading harmful text content aloud.",
+      "document_understanding": "Standard: Document content safety classification.",
+      "multimodal_embedding": "Standard: Retrieval of harmful content."
+    },
+    "SP-02": {
+      "vision__language": "N/A: VLM doesn't generate synthetic media.",
+      "text_to__imagevideo": "CRITICAL: Generated images must be detectable as synthetic.",
+      "speech_recognition": "N/A",
+      "text_to__speech": "CRITICAL: Cloned voice must be detectable. Audio deepfake de",
+      "document_understanding": "N/A",
+      "multimodal_embedding": "N/A"
+    },
+    "SP-03": {
+      "vision__language": "N/A",
+      "text_to__imagevideo": "CRITICAL: Watermark survives JPEG compression, resizing, cro",
+      "speech_recognition": "N/A",
+      "text_to__speech": "CRITICAL: Audio watermark survives format conversion, compre",
+      "document_understanding": "N/A",
+      "multimodal_embedding": "N/A"
+    },
+    "SP-04": {
+      "vision__language": "CRITICAL: Adversarial text embedded in images instructs VLM",
+      "text_to__imagevideo": "MODERATE: Adversarial text in conditioning images.",
+      "speech_recognition": "MODERATE: Adversarial audio designed to produce specific tra",
+      "text_to__speech": "N/A",
+      "document_understanding": "MODERATE: Adversarial document content designed to manipulat",
+      "multimodal_embedding": "MODERATE: Adversarial inputs to manipulate embedding space."
+    },
+    "SP-05": {
+      "vision__language": "Standard: Text output copyright compliance.",
+      "text_to__imagevideo": "CRITICAL: Generated images may reproduce copyrighted trainin",
+      "speech_recognition": "N/A: Transcription is input, not generation.",
+      "text_to__speech": "Standard: Voice likeness IP compliance.",
+      "document_understanding": "Standard: Document content IP handling.",
+      "multimodal_embedding": "Standard: Embedding training data IP."
+    },
+    "CR-01": {
+      "vision__language": "CRITICAL: Low-res images, blurry photos, poor lighting. VLM",
+      "text_to__imagevideo": "Standard: Prompt perturbation robustness.",
+      "speech_recognition": "CRITICAL: Background noise, reverb, poor microphone quality.",
+      "text_to__speech": "Standard: Malformed input text handling.",
+      "document_understanding": "CRITICAL: Low-quality scans, faded documents, skewed images.",
+      "multimodal_embedding": "Standard: Noisy input embedding robustness."
+    },
+    "CR-02": {
+      "vision__language": "CRITICAL: Adversarial image patches. Imperceptible perturbat",
+      "text_to__imagevideo": "Standard: Adversarial prompt attacks for generation.",
+      "speech_recognition": "MODERATE: Adversarial audio attacks (audio adversarial examp",
+      "text_to__speech": "N/A: Text input not adversarially complex.",
+      "document_understanding": "MODERATE: Adversarial document layouts designed to confuse e",
+      "multimodal_embedding": "CRITICAL: Adversarial inputs to manipulate embedding distanc"
+    },
+    "CR-03": {
+      "vision__language": "MODERATE: What happens when image is corrupted but text is p",
+      "text_to__imagevideo": "N/A: Text-to-image has single input modality.",
+      "speech_recognition": "Standard: Audio dropout handling (packet loss in streaming).",
+      "text_to__speech": "N/A: Single input modality.",
+      "document_understanding": "MODERATE: Missing pages, corrupted regions in documents.",
+      "multimodal_embedding": "CRITICAL: Performance when one modality is missing in multim"
+    },
+    "CR-04": {
+      "vision__language": "Standard: VLM performance across languages for text output.",
+      "text_to__imagevideo": "Standard: Prompt-to-image across languages.",
+      "speech_recognition": "CRITICAL: Per-language WER variation. Low-resource languages",
+      "text_to__speech": "CRITICAL: Per-language TTS naturalness. Multi-language voice",
+      "document_understanding": "CRITICAL: Per-script OCR accuracy (Latin vs CJK vs Arabic vs",
+      "multimodal_embedding": "Standard: Cross-lingual embedding quality."
+    },
+    "CR-05": {
+      "vision__language": "MODERATE: Real-time video understanding quality.",
+      "text_to__imagevideo": "N/A: Generation is typically not real-time constrained.",
+      "speech_recognition": "CRITICAL: Streaming ASR quality under latency constraints. Q",
+      "text_to__speech": "CRITICAL: Streaming TTS quality. Latency for interactive voi",
+      "document_understanding": "Standard: Batch processing, not typically real-time.",
+      "multimodal_embedding": "Standard: Embedding computation latency."
+    },
+    "PC-01": {
+      "vision__language": "CRITICAL: Facial data in images. Biometric processing withou",
+      "text_to__imagevideo": "CRITICAL: Face generation. Biometric PII in training data. I",
+      "speech_recognition": "CRITICAL: Voiceprint as biometric. Speaker identification wi",
+      "text_to__speech": "CRITICAL: Voice cloning creates biometric data. Voice likene",
+      "document_understanding": "CRITICAL: Document PII (SSN, passport, signatures). Handwrit",
+      "multimodal_embedding": "MODERATE: Facial/voice embeddings as biometric identifiers."
+    },
+    "PC-02": {
+      "vision__language": "Standard: Facial images in VLM input. Consent for processing",
+      "text_to__imagevideo": "CRITICAL: Training data face consent. Generated face consent",
+      "speech_recognition": "CRITICAL: Recording consent for all parties. Wiretap law com",
+      "text_to__speech": "CRITICAL: Voice cloning consent. Whose voice is being cloned",
+      "document_understanding": "Standard: Document signer consent for processing.",
+      "multimodal_embedding": "Standard: Biometric embedding consent."
+    },
+    "PC-03": {
+      "vision__language": "MODERATE: PII in images (license plates, addresses, faces).",
+      "text_to__imagevideo": "MODERATE: PII in generated images (identifiable faces, addre",
+      "speech_recognition": "MODERATE: PII in transcribed text (spoken names, numbers).",
+      "text_to__speech": "MODERATE: PII in generated speech (reading PII aloud).",
+      "document_understanding": "CRITICAL: PII in documents at scale. Names, SSN, addresses,",
+      "multimodal_embedding": "MODERATE: PII in embeddings (biometric quasi-identifiers)."
+    },
+    "PC-04": {
+      "vision__language": "Standard: VLM training data privacy. Image-text pair consent",
+      "text_to__imagevideo": "CRITICAL: Text-to-image training data contains millions of i",
+      "speech_recognition": "Standard: ASR training audio consent.",
+      "text_to__speech": "CRITICAL: TTS training voice consent. Speaker identity right",
+      "document_understanding": "Standard: Document training data privacy.",
+      "multimodal_embedding": "Standard: Embedding training data privacy."
+    },
+    "PC-05": {
+      "vision__language": "MODERATE: Image PII leaking into text description.",
+      "text_to__imagevideo": "MODERATE: Prompt PII appearing in generated image metadata.",
+      "speech_recognition": "MODERATE: Audio PII appearing in transcript shared beyond au",
+      "text_to__speech": "Standard: Text PII read aloud in uncontrolled environment.",
+      "document_understanding": "MODERATE: Document PII leaking into extraction output beyond",
+      "multimodal_embedding": "MODERATE: Embeddings encoding PII from one modality accessib"
+    },
+    "FR-01": {
+      "vision__language": "N/A: VLM doesn't generate people images.",
+      "text_to__imagevideo": "CRITICAL: \"A doctor\" generates predominantly white males. Sk",
+      "speech_recognition": "N/A: ASR doesn't generate people.",
+      "text_to__speech": "Standard: Default voice gender/accent selection.",
+      "document_understanding": "N/A: Document understanding doesn't generate people.",
+      "multimodal_embedding": "Standard: Embedding bias in person-related queries."
+    },
+    "FR-02": {
+      "vision__language": "N/A",
+      "text_to__imagevideo": "N/A",
+      "speech_recognition": "CRITICAL: WER for AAVE, Indian English, Nigerian English etc",
+      "text_to__speech": "MODERATE: TTS quality for non-standard accent generation.",
+      "document_understanding": "N/A",
+      "multimodal_embedding": "N/A"
+    },
+    "FR-03": {
+      "vision__language": "Standard: Cultural sensitivity in image descriptions.",
+      "text_to__imagevideo": "CRITICAL: Cultural stereotypes in generated images. Religiou",
+      "speech_recognition": "MODERATE: Cultural context in transcription (code-switching,",
+      "text_to__speech": "MODERATE: Cultural prosody appropriateness.",
+      "document_understanding": "Standard: Cultural document conventions.",
+      "multimodal_embedding": "Standard: Cultural bias in embedding associations."
+    },
+    "FR-04": {
+      "vision__language": "Standard: Image description quality for visually impaired us",
+      "text_to__imagevideo": "Standard: Alt-text generation quality.",
+      "speech_recognition": "CRITICAL: ASR quality for hearing-impaired accessibility. Re",
+      "text_to__speech": "CRITICAL: TTS quality for visually impaired users. Screen re",
+      "document_understanding": "Standard: Document accessibility (screen reader compatible o",
+      "multimodal_embedding": "Standard: Cross-modal accessibility."
+    },
+    "OP-01": {
+      "vision__language": "MODERATE: Image encoding + LLM generation. 1–5s typical.",
+      "text_to__imagevideo": "HIGH: Diffusion model denoising. 5–30s per image. Video: min",
+      "speech_recognition": "CRITICAL: Streaming ASR must be <200ms for real-time. Batch:",
+      "text_to__speech": "CRITICAL: Streaming TTS must be <300ms first-byte. Interacti",
+      "document_understanding": "Standard: Document processing 1–10s per page.",
+      "multimodal_embedding": "Standard: Embedding computation <100ms."
+    },
+    "OP-02": {
+      "vision__language": "MODERATE: Vision encoding + LLM inference. Higher than text-",
+      "text_to__imagevideo": "HIGHEST: Diffusion model inference. Multiple denoising steps",
+      "speech_recognition": "MODERATE: Audio processing + model inference.",
+      "text_to__speech": "MODERATE: Neural vocoder inference.",
+      "document_understanding": "Standard: OCR + layout + LLM. Moderate.",
+      "multimodal_embedding": "Standard: Embedding computation. Low per-query."
+    },
+    "OP-03": {
+      "vision__language": "Standard: Vision encoder + LLM pipeline reliability.",
+      "text_to__imagevideo": "Standard: Text encoder + diffusion + safety filter pipeline.",
+      "speech_recognition": "Standard: Audio preprocessing + ASR + post-processing pipeli",
+      "text_to__speech": "Standard: Text normalization + acoustic model + vocoder pipe",
+      "document_understanding": "CRITICAL: OCR + layout + extraction + LLM. Most pipeline sta",
+      "multimodal_embedding": "Standard: Per-modal encoding + fusion pipeline."
+    },
+    "OP-04": {
+      "vision__language": "MODERATE: Image processing bottleneck. Lower than text-only.",
+      "text_to__imagevideo": "LOWEST: Diffusion model throughput. Seconds per image.",
+      "speech_recognition": "MODERATE: Real-time streaming limits concurrent sessions.",
+      "text_to__speech": "MODERATE: Real-time TTS streaming limits concurrent sessions",
+      "document_understanding": "Standard: Batch document processing throughput.",
+      "multimodal_embedding": "Standard: Embedding throughput high."
+    },
+    "LG-01": {
+      "vision__language": "Standard: Vision encoder + LLM versions tracked.",
+      "text_to__imagevideo": "CRITICAL: Text encoder + diffusion model + safety filter + w",
+      "speech_recognition": "Standard: ASR model + diarization model versions.",
+      "text_to__speech": "Standard: TTS model + vocoder + voice embeddings versions.",
+      "document_understanding": "Standard: OCR + layout + extraction + LLM versions.",
+      "multimodal_embedding": "Standard: Per-modal encoder + fusion model versions."
+    },
+    "LG-02": {
+      "vision__language": "Standard: Visual hallucination + injection + spatial reasoni",
+      "text_to__imagevideo": "CRITICAL: Deepfake + copyright + demographic + NSFW + waterm",
+      "speech_recognition": "Standard: WER + accent/dialect + noise + diarization + conse",
+      "text_to__speech": "Standard: MOS + voice cloning + consent + watermark + pronun",
+      "document_understanding": "Standard: OCR + layout + PII + multi-page + document-type te",
+      "multimodal_embedding": "Standard: Alignment + compositional + bias + retrieval tests"
+    },
+    "LG-03": {
+      "vision__language": "Standard: Image processing regulation. GDPR for facial data.",
+      "text_to__imagevideo": "CRITICAL: EU AI Act Art 52 (synthetic disclosure). Deepfake",
+      "speech_recognition": "CRITICAL: Recording consent laws (wiretap, GDPR). Accessibil",
+      "text_to__speech": "CRITICAL: Voice likeness rights. Deepfake regulation. Identi",
+      "document_understanding": "Standard: Document processing regulation. PII/GDPR complianc",
+      "multimodal_embedding": "Standard: Embedding/biometric regulation."
+    },
+    "LG-04": {
+      "vision__language": "Standard: Image understanding ethical use.",
+      "text_to__imagevideo": "CRITICAL: Deepfake prevention. Synthetic identity governance",
+      "speech_recognition": "Standard: Recording ethics. Surveillance assessment.",
+      "text_to__speech": "CRITICAL: Voice cloning governance. Impersonation prevention",
+      "document_understanding": "Standard: Document processing ethics.",
+      "multimodal_embedding": "Standard: Embedding ethics."
+    },
+    "LG-05": {
+      "vision__language": "Standard: VLM injection incident response.",
+      "text_to__imagevideo": "CRITICAL: Deepfake takedown. Content provenance verification",
+      "speech_recognition": "CRITICAL: Consent violation incident. Recording deletion. Le",
+      "text_to__speech": "CRITICAL: Voice clone fraud incident. Identity protection. F",
+      "document_understanding": "Standard: PII exposure incident response.",
+      "multimodal_embedding": "Standard: Embedding-based incident response."
+    }
+  }
+}

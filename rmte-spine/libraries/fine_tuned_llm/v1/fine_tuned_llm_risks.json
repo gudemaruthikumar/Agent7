@@ -1,0 +1,492 @@
+{
+  "library_id": "tlai-rmte-fine_tuned_llm-risks",
+  "version": "v1",
+  "source": "TrustLensAI_FineTunedLLM_Logs_Layers_Formulas.xlsx — sheet 'Fine-Tuned LLM RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "reconstruction": true,
+  "notes": {
+    "compliance": "TrustLensAI produces evidence; it does not certify compliance."
+  },
+  "risks": [
+    {
+      "risk_id": "CPT-01",
+      "name": "Domain corpus quality is existential — toxic/biased corpus poisons model",
+      "description": "Domain corpus quality is existential — toxic/biased corpus poisons model",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Accuracy"
+      ],
+      "cause": "Derived — Domain corpus quality is existential — toxic/biased corpus poisons mod arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accuracy; Original HLA primary TA: Accountability (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CPT-04",
+      "name": "Domain corpus copyright/licensing at pre-training scale",
+      "description": "Domain corpus copyright/licensing at pre-training scale",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Domain corpus copyright/licensing at pre-training scale arising in Fine-Tuned LLM execution",
+      "impact": "Derived — Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Privacy; Original HLA primary TA: Accountability (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "DIST-01",
+      "name": "Knowledge loss at compression — student misses teacher nuance",
+      "description": "Knowledge loss at compression — student misses teacher nuance",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Knowledge loss at compression — student misses teacher nuance arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "DIST-03",
+      "name": "Capability cliff at high compression — sudden quality drop",
+      "description": "Capability cliff at high compression — sudden quality drop",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Capability cliff at high compression — sudden quality drop arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "DIST-04",
+      "name": "Edge deployment governance gap — deployed models hard to monitor/update",
+      "description": "Edge deployment governance gap — deployed models hard to monitor/update",
+      "category": "Deployment",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Edge deployment governance gap — deployed models hard to monitor/updat arising in Fine-Tuned LLM execution",
+      "impact": "Derived — production runtime diverges from validated behaviour",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Robustness; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FT-01",
+      "name": "Domain adaptation fails to meet performance targets",
+      "description": "Domain adaptation fails to meet performance targets",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Domain adaptation fails to meet performance targets arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Fine-Tuned LLM); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FT-02",
+      "name": "Catastrophic forgetting of base model capabilities",
+      "description": "Catastrophic forgetting of base model capabilities",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Catastrophic forgetting of base model capabilities arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Fine-Tuned LLM); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accuracy (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FT-03",
+      "name": "Safety behavior degradation after fine-tuning",
+      "description": "Safety behavior degradation after fine-tuning",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Safety behavior degradation after fine-tuning arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Fine-Tuned LLM); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability; Original HLA primary TA: Robustness (normalised to Safety); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FT-04",
+      "name": "Training data quality, licensing, or governance failures",
+      "description": "Training data quality, licensing, or governance failures",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Accuracy"
+      ],
+      "cause": "Derived — Training data quality, licensing, or governance failures arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Fine-Tuned LLM); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accuracy; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FT-05",
+      "name": "Bias amplification or introduction through fine-tuning data",
+      "description": "Bias amplification or introduction through fine-tuning data",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Accuracy"
+      ],
+      "cause": "Derived — Bias amplification or introduction through fine-tuning data arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Fine-Tuned LLM); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accuracy; Original HLA primary TA: Fairness (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FT-06",
+      "name": "Training data memorization / privacy leakage",
+      "description": "Training data memorization / privacy leakage",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [],
+      "cause": "Derived — Training data memorization / privacy leakage arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "High (Derived)",
+      "priority": "P2",
+      "source_section": "Appendix A1 — Metric Library (Fine-Tuned LLM); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; Original HLA primary TA: Accuracy (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FT-07",
+      "name": "Base model dependency creates version lock-in and supply chain risk",
+      "description": "Base model dependency creates version lock-in and supply chain risk",
+      "category": "Delivery",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Base model dependency creates version lock-in and supply chain risk arising in Fine-Tuned LLM execution",
+      "impact": "Derived — undetected defect reaches release",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Fine-Tuned LLM); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FT-08",
+      "name": "Model governance complexity exceeds organizational capability",
+      "description": "Model governance complexity exceeds organizational capability",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Model governance complexity exceeds organizational capability arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FULL-01",
+      "name": "Catastrophic forgetting erases critical base capabilities",
+      "description": "Catastrophic forgetting erases critical base capabilities",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Catastrophic forgetting erases critical base capabilities arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Robustness; Original HLA primary TA: Accuracy (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "LORA-01",
+      "name": "Rank selection sensitivity — wrong rank degrades performance",
+      "description": "Rank selection sensitivity — wrong rank degrades performance",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Rank selection sensitivity — wrong rank degrades performance arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "LORA-02",
+      "name": "Limited adaptation depth — adapter cannot capture deep domain shifts",
+      "description": "Limited adaptation depth — adapter cannot capture deep domain shifts",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Limited adaptation depth — adapter cannot capture deep domain shifts arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "MT-01",
+      "name": "Task interference / negative transfer — improving Task A degrades Task B",
+      "description": "Task interference / negative transfer — improving Task A degrades Task B",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Task interference / negative transfer — improving Task A degrades Task arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "MT-02",
+      "name": "Task weighting sensitivity — small weight changes cause large shifts",
+      "description": "Task weighting sensitivity — small weight changes cause large shifts",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Task weighting sensitivity — small weight changes cause large shifts arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "MT-04",
+      "name": "Minority task regression — dominant tasks overpower smaller tasks",
+      "description": "Minority task regression — dominant tasks overpower smaller tasks",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Minority task regression — dominant tasks overpower smaller tasks arising in Fine-Tuned LLM execution",
+      "impact": "Derived — undetected defect reaches release",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RLHF-01",
+      "name": "Reward model misalignment — RM does not reflect true human preferences",
+      "description": "Reward model misalignment — RM does not reflect true human preferences",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Transparency",
+      "secondary_trust_attributes": [
+        "Fairness"
+      ],
+      "cause": "Derived — Reward model misalignment — RM does not reflect true human preferences arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Fine-Tuned LLM); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Fairness; Original HLA primary TA: Transparency (normalised to Safety); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RLHF-02",
+      "name": "Reward hacking — model exploits reward signal without actual quality",
+      "description": "Reward hacking — model exploits reward signal without actual quality",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Transparency",
+      "secondary_trust_attributes": [
+        "Fairness"
+      ],
+      "cause": "Derived — Reward hacking — model exploits reward signal without actual quality arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Fine-Tuned LLM); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Fairness; Original HLA primary TA: Transparency (normalised to Safety); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RLHF-03",
+      "name": "Preference data bias reflects annotator demographics, not diverse users",
+      "description": "Preference data bias reflects annotator demographics, not diverse users",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Preference data bias reflects annotator demographics, not diverse user arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Fairness (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RLHF-04",
+      "name": "Alignment tax — safety/alignment training reduces raw capability",
+      "description": "Alignment tax — safety/alignment training reduces raw capability",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Alignment tax — safety/alignment training reduces raw capability arising in Fine-Tuned LLM execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Fine-Tuned LLM)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Robustness; Original HLA primary TA: Accuracy (normalised to Safety); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    }
+  ]
+}

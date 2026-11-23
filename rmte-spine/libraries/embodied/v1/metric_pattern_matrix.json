@@ -1,0 +1,540 @@
+{
+  "library_id": "tlai-rmte-embodied-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_Embodied_Logs_Layers_Formulas.xlsx — sheet 'Embodied RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "industrial_robot_arm",
+    "collaborative_robot_cobot",
+    "autonomous_mobile_robot_amragv",
+    "autonomous_vehicle",
+    "drone__uav",
+    "humanoid__legged",
+    "fixed_automation__plc_integrated"
+  ],
+  "family_defaults": {
+    "PC": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PL": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "CT": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "FS": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "CA": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "HR": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "HO": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "OD": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "RS": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "SR": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "EX": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PV": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "OP": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "LG": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    }
+  },
+  "metric_overrides": {
+    "PC-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PC-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PC-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PC-04": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PL-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PL-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PL-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "CT-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "CT-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "FS-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "FS-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "FS-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "FS-04": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "FS-05": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "CA-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "CA-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "CA-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "HR-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "HR-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "HR-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "HO-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "HO-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "HO-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "OD-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "OD-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "RS-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "RS-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "RS-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "SR-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "SR-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "SR-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "EX-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "EX-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "EX-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PV-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PV-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "PV-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "OP-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "OP-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "LG-01": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "LG-02": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "LG-03": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "LG-04": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    },
+    "LG-05": {
+      "industrial_arm": "applies (scope to platform / duty-cycle specifics)",
+      "cobot": "applies (scope to platform / duty-cycle specifics)",
+      "amragv": "applies (scope to platform / duty-cycle specifics)",
+      "autonomous_vehicle": "applies (scope to platform / duty-cycle specifics)",
+      "droneuav": "applies (scope to platform / duty-cycle specifics)",
+      "humanoidlegged": "applies (scope to platform / duty-cycle specifics)",
+      "fixed_automation": "applies (scope to platform / duty-cycle specifics)"
+    }
+  }
+}

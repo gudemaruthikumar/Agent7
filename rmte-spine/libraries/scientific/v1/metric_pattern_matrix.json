@@ -1,0 +1,549 @@
+{
+  "library_id": "tlai-rmte-scientific-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_Scientific_Logs_Layers_Formulas.xlsx — sheet 'Scientific RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "structure_prediction_proteinmaterials",
+    "property_prediction__qsar",
+    "generative_design_moleculesmaterials",
+    "physics_simulation_surrogate",
+    "weatherclimate_emulation",
+    "genomics__sequence_model",
+    "symbolic_regression__equation_discovery"
+  ],
+  "family_defaults": {
+    "SA": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "PP": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "UQ": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "GE": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "EV": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DK": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DU": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "RS": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "EX": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DQ": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "LG": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "OP": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "FE": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "PV": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    }
+  },
+  "metric_overrides": {
+    "SA-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "SA-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "SA-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "PP-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "PP-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "PP-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "PP-04": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "UQ-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "UQ-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "UQ-04": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "GE-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "GE-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "GE-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "EV-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "EV-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "EV-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "EV-04": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DK-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DK-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DK-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DK-04": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DU-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DU-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DU-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DU-04": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DU-05": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "RS-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "RS-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "EX-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "EX-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "EX-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DQ-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DQ-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "DQ-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "LG-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "LG-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "LG-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "LG-04": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "OP-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "OP-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "OP-03": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "FE-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "FE-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "PV-01": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    },
+    "PV-02": {
+      "structure_prediction": "applies (scope to domain specifics)",
+      "propertyqsar": "applies (scope to domain specifics)",
+      "generative_design": "applies (scope to domain specifics)",
+      "physics_surrogate": "applies (scope to domain specifics)",
+      "weatherclimate": "applies (scope to domain specifics)",
+      "genomicssequence": "applies (scope to domain specifics)",
+      "symbolic_regression": "applies (scope to domain specifics)"
+    }
+  }
+}

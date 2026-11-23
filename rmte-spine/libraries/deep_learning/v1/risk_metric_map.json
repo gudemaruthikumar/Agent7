@@ -1,0 +1,989 @@
+{
+  "library_id": "tlai-rmte-deep_learning-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_DeepLearning_Logs_Layers_Formulas.xlsx — sheet 'Deep Learning RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "AE-04",
+      "metric_ids": [
+        "MP-01"
+      ]
+    },
+    {
+      "risk_id": "CNN-01",
+      "metric_ids": [
+        "AR-05"
+      ]
+    },
+    {
+      "risk_id": "CNN-03",
+      "metric_ids": [
+        "FB-01",
+        "FB-04"
+      ]
+    },
+    {
+      "risk_id": "DL-01",
+      "metric_ids": [
+        "DR-02",
+        "EI-05",
+        "LG-03",
+        "MP-01",
+        "MP-02",
+        "MP-03",
+        "MP-05"
+      ]
+    },
+    {
+      "risk_id": "DL-02",
+      "metric_ids": [
+        "MP-02"
+      ]
+    },
+    {
+      "risk_id": "DL-03",
+      "metric_ids": [
+        "AR-01",
+        "AR-02",
+        "AR-03",
+        "AR-04",
+        "DR-03"
+      ]
+    },
+    {
+      "risk_id": "DL-04",
+      "metric_ids": [
+        "EI-01",
+        "EI-02",
+        "EI-03",
+        "EI-04"
+      ]
+    },
+    {
+      "risk_id": "DL-05",
+      "metric_ids": [
+        "DR-04",
+        "FB-01",
+        "FB-02",
+        "FB-03",
+        "FB-04",
+        "LG-04",
+        "MP-04"
+      ]
+    },
+    {
+      "risk_id": "DL-06",
+      "metric_ids": [
+        "MP-02",
+        "TS-01",
+        "TS-02",
+        "TS-04"
+      ]
+    },
+    {
+      "risk_id": "DL-07",
+      "metric_ids": [
+        "DR-01",
+        "DR-04",
+        "FB-04"
+      ]
+    },
+    {
+      "risk_id": "DL-08",
+      "metric_ids": [
+        "PM-01",
+        "PM-02",
+        "PM-03",
+        "PM-04"
+      ]
+    },
+    {
+      "risk_id": "DL-09",
+      "metric_ids": [
+        "CE-01",
+        "CE-02",
+        "CE-03",
+        "CE-05"
+      ]
+    },
+    {
+      "risk_id": "DL-10",
+      "metric_ids": [
+        "CE-01",
+        "LG-03"
+      ]
+    },
+    {
+      "risk_id": "GAN-01",
+      "metric_ids": [
+        "DR-04",
+        "MP-01"
+      ]
+    },
+    {
+      "risk_id": "GAN-02",
+      "metric_ids": [
+        "LG-04"
+      ]
+    },
+    {
+      "risk_id": "GAN-03",
+      "metric_ids": [
+        "DR-01",
+        "FB-04"
+      ]
+    },
+    {
+      "risk_id": "GAN-04",
+      "metric_ids": [
+        "TS-03"
+      ]
+    },
+    {
+      "risk_id": "GNN-01",
+      "metric_ids": [
+        "AR-01"
+      ]
+    },
+    {
+      "risk_id": "GNN-02",
+      "metric_ids": [
+        "MP-01"
+      ]
+    },
+    {
+      "risk_id": "GNN-04",
+      "metric_ids": [
+        "PM-01",
+        "PM-04"
+      ]
+    },
+    {
+      "risk_id": "RNN-01",
+      "metric_ids": [
+        "TS-03"
+      ]
+    },
+    {
+      "risk_id": "TF-05",
+      "metric_ids": [
+        "CE-04"
+      ]
+    }
+  ],
+  "derived_perspectives": [
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Model Registry Coverage (Deep Learning)",
+      "description": "Lifecycle failure detected by Model Registry Coverage (Deep Learning)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LG-01"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by TEVV Coverage Index (Deep Learning)",
+      "description": "Lifecycle failure detected by TEVV Coverage Index (Deep Learning)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LG-02"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Regulatory Compliance (Deep Learning)",
+      "description": "Lifecycle failure detected by Regulatory Compliance (Deep Learning)",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "LG-05"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy, Fairness; Original HLA primary TA: Accountability (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "description": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "metric_ids": [
+        "MP-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Reliability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "description": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "metric_ids": [
+        "MP-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Privacy failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Security compromise causes data / financial loss and reputational damage",
+      "description": "Security compromise causes data / financial loss and reputational damage",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "metric_ids": [
+        "AR-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Security failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "description": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "category": "Business",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "EI-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Explainability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "description": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "DR-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Fairness & Policy Consistency failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    }
+  ],
+  "rmte_links": [
+    {
+      "metric_id": "MP-01",
+      "risk_id": "DL-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Model performance degradation below acceptable thresholds",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MP-02",
+      "risk_id": "DL-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Model performance degradation below acceptable thresholds",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MP-02",
+      "risk_id": "DL-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Training instability / non-convergence",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MP-03",
+      "risk_id": "DL-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Model performance degradation below acceptable thresholds",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MP-04",
+      "risk_id": "DL-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias in model behavior",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MP-05",
+      "risk_id": "DL-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Model performance degradation below acceptable thresholds",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AR-01",
+      "risk_id": "DL-03",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial input attacks cause incorrect predictions",
+      "test_suite_id": "TS-DL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AR-02",
+      "risk_id": "DL-03",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial input attacks cause incorrect predictions",
+      "test_suite_id": "TS-DL-02",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AR-03",
+      "risk_id": "DL-03",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial input attacks cause incorrect predictions",
+      "test_suite_id": "TS-DL-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AR-04",
+      "risk_id": "DL-03",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial input attacks cause incorrect predictions",
+      "test_suite_id": "TS-DL-03",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AR-05",
+      "risk_id": "CNN-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial pixel attacks cause misclassification with imperceptible perturbations",
+      "test_suite_id": "TS-DL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EI-01",
+      "risk_id": "DL-04",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Black-box opacity — model decisions cannot be explained",
+      "test_suite_id": "TS-DL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EI-02",
+      "risk_id": "DL-04",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Black-box opacity — model decisions cannot be explained",
+      "test_suite_id": "TS-DL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EI-03",
+      "risk_id": "DL-04",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Black-box opacity — model decisions cannot be explained",
+      "test_suite_id": "TS-DL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EI-04",
+      "risk_id": "DL-04",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Black-box opacity — model decisions cannot be explained",
+      "test_suite_id": "TS-DL-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EI-05",
+      "risk_id": "DL-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Model performance degradation below acceptable thresholds",
+      "test_suite_id": "TS-DL-04",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "TS-01",
+      "risk_id": "DL-06",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Training instability / non-convergence",
+      "test_suite_id": "TS-DL-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TS-02",
+      "risk_id": "DL-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Training instability / non-convergence",
+      "test_suite_id": "TS-DL-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TS-03",
+      "risk_id": "RNN-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Vanishing/exploding gradients limit training and long-range learning",
+      "test_suite_id": "TS-DL-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TS-03",
+      "risk_id": "GAN-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Stability failure detected by Gradient Health (Deep Learning)",
+      "test_suite_id": "TS-DL-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TS-04",
+      "risk_id": "DL-06",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Training instability / non-convergence",
+      "test_suite_id": "TS-DL-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DR-01",
+      "risk_id": "DL-07",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Training data quality issues",
+      "test_suite_id": "TS-DL-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DR-02",
+      "risk_id": "DL-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Model performance degradation below acceptable thresholds",
+      "test_suite_id": "TS-DL-06",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "DR-03",
+      "risk_id": "DL-03",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial input attacks cause incorrect predictions",
+      "test_suite_id": "TS-DL-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DR-04",
+      "risk_id": "DL-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias in model behavior",
+      "test_suite_id": "TS-DL-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DR-04",
+      "risk_id": "DL-07",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Training data quality issues",
+      "test_suite_id": "TS-DL-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PM-01",
+      "risk_id": "DL-08",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy leakage through memorization / inference attacks",
+      "test_suite_id": "TS-DL-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PM-02",
+      "risk_id": "DL-08",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy leakage through memorization / inference attacks",
+      "test_suite_id": "TS-DL-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PM-03",
+      "risk_id": "DL-08",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy leakage through memorization / inference attacks",
+      "test_suite_id": "TS-DL-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PM-04",
+      "risk_id": "DL-08",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy leakage through memorization / inference attacks",
+      "test_suite_id": "TS-DL-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FB-01",
+      "risk_id": "DL-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias in model behavior",
+      "test_suite_id": "TS-DL-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FB-02",
+      "risk_id": "DL-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias in model behavior",
+      "test_suite_id": "TS-DL-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FB-03",
+      "risk_id": "DL-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias in model behavior",
+      "test_suite_id": "TS-DL-08",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FB-04",
+      "risk_id": "DL-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias in model behavior",
+      "test_suite_id": "TS-DL-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FB-04",
+      "risk_id": "DL-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Training data quality issues",
+      "test_suite_id": "TS-DL-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CE-01",
+      "risk_id": "DL-09",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Excessive compute cost / carbon footprint",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CE-02",
+      "risk_id": "DL-09",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Excessive compute cost / carbon footprint",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CE-03",
+      "risk_id": "DL-09",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Excessive compute cost / carbon footprint",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CE-04",
+      "risk_id": "TF-05",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Transformer training carbon footprint exceeds responsible AI budgets",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CE-05",
+      "risk_id": "DL-09",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Excessive compute cost / carbon footprint",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LG-01",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Model Registry Coverage (Deep Learning)",
+      "test_suite_id": "TS-DL-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by TEVV Coverage Index (Deep Learning)",
+      "test_suite_id": "TS-DL-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-03",
+      "risk_id": "DL-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Model performance degradation below acceptable thresholds",
+      "test_suite_id": "TS-DL-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "DL-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias in model behavior",
+      "test_suite_id": "TS-DL-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "GAN-02",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Deepfake generation enables misinformation, fraud, and identity theft",
+      "test_suite_id": "TS-DL-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LG-05",
+      "risk_id": null,
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Regulatory Compliance (Deep Learning)",
+      "test_suite_id": "TS-DL-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MP-02",
+      "risk_id": "DL-02",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Overfitting — model memorizes training data, poor generalization",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CE-01",
+      "risk_id": "DL-10",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Deployment",
+      "risk": "Pipeline and infrastructure failures",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LG-03",
+      "risk_id": "DL-10",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Deployment",
+      "risk": "Pipeline and infrastructure failures",
+      "test_suite_id": "TS-DL-09",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FB-01",
+      "risk_id": "CNN-03",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias in facial/body recognition systems",
+      "test_suite_id": "TS-DL-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FB-04",
+      "risk_id": "CNN-03",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias in facial/body recognition systems",
+      "test_suite_id": "TS-DL-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MP-01",
+      "risk_id": "GAN-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Mode collapse — generator produces limited variety of outputs",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DR-04",
+      "risk_id": "GAN-01",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Mode collapse — generator produces limited variety of outputs",
+      "test_suite_id": "TS-DL-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DR-01",
+      "risk_id": "GAN-03",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Synthetic data quality assurance — generated data may encode training biases",
+      "test_suite_id": "TS-DL-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FB-04",
+      "risk_id": "GAN-03",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Synthetic data quality assurance — generated data may encode training biases",
+      "test_suite_id": "TS-DL-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MP-01",
+      "risk_id": "AE-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Anomaly detection threshold sensitivity — small threshold changes = large alert rate changes",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AR-01",
+      "risk_id": "GNN-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Graph structure attacks — adversarial edge addition/deletion flips predictions",
+      "test_suite_id": "TS-DL-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MP-01",
+      "risk_id": "GNN-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Over-smoothing — deep GNNs make all node representations similar",
+      "test_suite_id": "TS-DL-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PM-01",
+      "risk_id": "GNN-04",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Social network privacy inference — GNN reveals private attributes from graph structure",
+      "test_suite_id": "TS-DL-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PM-04",
+      "risk_id": "GNN-04",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Social network privacy inference — GNN reveals private attributes from graph structure",
+      "test_suite_id": "TS-DL-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "MP-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "test_suite_id": "TS-DL-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "MP-04",
+      "risk_id": "(derived)",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "test_suite_id": "TS-DL-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "AR-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Security compromise causes data / financial loss and reputational damage",
+      "test_suite_id": "TS-DL-03",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EI-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Business",
+      "risk": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "test_suite_id": "TS-DL-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "DR-04",
+      "risk_id": "(derived)",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "test_suite_id": "TS-DL-06",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    }
+  ]
+}

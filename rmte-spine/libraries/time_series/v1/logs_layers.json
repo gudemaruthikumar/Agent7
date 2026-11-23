@@ -1,0 +1,302 @@
+{
+  "library_id": "tlai-rmte-time_series-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_TimeSeries_Logs_Layers_Formulas.xlsx — sheet 'Time-Series RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Time-Series pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Time-Series Data Ingestion",
+      "logs_telemetry": "Ingestion log",
+      "key_fields": "streams/batch series, timestamps, source, sensor/meter IDs",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Data Quality & Lineage"
+      ],
+      "notes": "Source-of-record for series"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Data Quality & Timestamp Validation",
+      "logs_telemetry": "Data-quality log",
+      "key_fields": "completeness, gap rate, duplicate/irregular timestamps, freshness, lineage",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Data Quality & Lineage"
+      ],
+      "notes": "Feeds DQ-01/02/03"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Preprocessing",
+      "logs_telemetry": "Preprocessing log",
+      "key_fields": "resampling, imputation of gaps, outlier handling, normalization",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Robustness & Data Issues"
+      ],
+      "notes": "Feeds RS-01/02"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Feature Engineering",
+      "logs_telemetry": "Feature log",
+      "key_fields": "lags, rolling windows, calendar features, point-in-time (as-of) snapshots",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Data Quality & Lineage"
+      ],
+      "notes": "Feeds DQ-04 (leakage control)"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Model Training / Fitting",
+      "logs_telemetry": "Training log",
+      "key_fields": "fit parameters, hyperparameters, retraining cadence, DP ε/δ",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Operational"
+      ],
+      "notes": "Feeds OP-02"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Backtesting & Temporal Validation",
+      "logs_telemetry": "Backtest log",
+      "key_fields": "walk-forward folds, embargo/gap, leakage checks, OOS vs IS",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Temporal Validation Integrity"
+      ],
+      "notes": "Feeds TV-01..05 (distinctive)"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Forecasting / Inference",
+      "logs_telemetry": "Forecast log",
+      "key_fields": "point forecasts, realized actuals, errors, horizon",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Point Forecast Accuracy"
+      ],
+      "notes": "Feeds FA-01..04"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Calibration & Uncertainty",
+      "logs_telemetry": "Calibration / interval log",
+      "key_fields": "prediction intervals, quantiles, predictive distribution",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Probabilistic & Uncertainty"
+      ],
+      "notes": "Feeds PU-01..04"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Anomaly Scoring & Thresholding",
+      "logs_telemetry": "Anomaly-scoring log",
+      "key_fields": "anomaly scores, thresholds, detections, onset/detect timestamps",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Anomaly Detection Performance"
+      ],
+      "notes": "Feeds AD-01..04, RS-03"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Regime / Drift Monitoring",
+      "logs_telemetry": "Drift-monitor log",
+      "key_fields": "structural-break flags, concept-drift signals, distribution shift",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Regime & Drift Robustness"
+      ],
+      "notes": "Feeds RD-01..03"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Explainability / Decomposition",
+      "logs_telemetry": "Explainability log",
+      "key_fields": "trend/seasonality/residual decomposition, driver attribution, anomaly reasons",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Explainability"
+      ],
+      "notes": "Feeds EX-01..03"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Privacy Controls",
+      "logs_telemetry": "Privacy log",
+      "key_fields": "series-PII detection, membership inference, re-identification, DP",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PV-01..03"
+    },
+    {
+      "index": 13,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Fairness / Segment Analysis",
+      "logs_telemetry": "Segment-evaluation log",
+      "key_fields": "per-segment accuracy, anomaly flag-rate by group, allocation impact",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Segment Fairness"
+      ],
+      "notes": "Feeds FE-01..03"
+    },
+    {
+      "index": 14,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Alerting & Serving",
+      "logs_telemetry": "Serving telemetry + alert log",
+      "key_fields": "forecasts/alerts served, latency, throughput, cost, alert dispatch",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Operational"
+      ],
+      "notes": "Feeds OP-01/03"
+    },
+    {
+      "index": 15,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Monitoring & Lifecycle",
+      "logs_telemetry": "Monitoring telemetry",
+      "key_fields": "backtest-live gap, drift, incidents/MTTR, retraining reliability",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Operational",
+        "Temporal Validation Integrity"
+      ],
+      "notes": "Feeds TV-05, OP-02"
+    },
+    {
+      "index": 16,
+      "architecture": "AI Product (Time-Series)",
+      "layer": "Governance / Model Registry & Backtest Records",
+      "logs_telemetry": "Governance log",
+      "key_fields": "registry, lineage, archived backtests, champion/challenger, model-risk docs, TEVV",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle",
+        "Explainability"
+      ],
+      "notes": "Feeds LG-01..04, EX-04"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered TS models, stream/feature-store connectors, tenancy, registry",
+      "ingested_by": "Anchors identity, model registry & tenancy for all logs",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Model & series registry origin (LG-01)"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized TS spans/events, PII redaction, event-bus refs",
+      "ingested_by": "Consumes all TS product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Series PII redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed pipeline traces, dependency views, time-series (drift)",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Regime & Drift Robustness"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator outputs, accuracy/interval/backtest/anomaly/fairness scores",
+      "ingested_by": "Consumes forecast/backtest/anomaly logs + labels & holdouts",
+      "related_metric_families": [
+        "Point Forecast Accuracy",
+        "Temporal Validation Integrity",
+        "Anomaly Detection Performance"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 21,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, naive baselines & holdouts, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the TS RMTE metric corpus (net-new)"
+    },
+    {
+      "index": 22,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "leakage, safety, privacy, fairness, model-risk decisions, risk register, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Temporal Validation Integrity",
+        "Privacy",
+        "Segment Fairness"
+      ],
+      "notes": "Gates 0–4; leakage & model-risk controls"
+    },
+    {
+      "index": 23,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 24,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

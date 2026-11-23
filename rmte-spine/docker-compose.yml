@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: trustlens
+      POSTGRES_PASSWORD: trustlens
+      POSTGRES_DB: rmte_spine
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trustlens -d rmte_spine"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - rmte_pg:/var/lib/postgresql/data
+
+volumes:
+  rmte_pg:

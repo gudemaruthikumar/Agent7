@@ -1,0 +1,638 @@
+{
+  "library_id": "tlai-rmte-federated_learning-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_FederatedLearning_Logs_Layers_Formulas.xlsx — sheet 'Federated RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "FED-01",
+      "metric_ids": [
+        "GP-01",
+        "GP-02",
+        "GP-04"
+      ]
+    },
+    {
+      "risk_id": "FED-02",
+      "metric_ids": [
+        "CH-01",
+        "CH-03",
+        "CH-04"
+      ]
+    },
+    {
+      "risk_id": "FED-03",
+      "metric_ids": [
+        "CH-02",
+        "GP-03"
+      ]
+    },
+    {
+      "risk_id": "FED-04",
+      "metric_ids": [
+        "CE-01",
+        "CE-02",
+        "CE-03",
+        "CE-04",
+        "OP-01",
+        "OP-02"
+      ]
+    },
+    {
+      "risk_id": "FED-05",
+      "metric_ids": [
+        "PV-01"
+      ]
+    },
+    {
+      "risk_id": "FED-06",
+      "metric_ids": [
+        "PV-02"
+      ]
+    },
+    {
+      "risk_id": "FED-07",
+      "metric_ids": [
+        "PV-03"
+      ]
+    },
+    {
+      "risk_id": "FED-08",
+      "metric_ids": [
+        "PV-04"
+      ]
+    },
+    {
+      "risk_id": "FED-09",
+      "metric_ids": [
+        "PV-05"
+      ]
+    },
+    {
+      "risk_id": "FED-10",
+      "metric_ids": [
+        "BR-01",
+        "BR-02"
+      ]
+    },
+    {
+      "risk_id": "FED-11",
+      "metric_ids": [
+        "BR-03"
+      ]
+    },
+    {
+      "risk_id": "FED-12",
+      "metric_ids": [
+        "BR-04"
+      ]
+    },
+    {
+      "risk_id": "FED-13",
+      "metric_ids": [
+        "BR-05"
+      ]
+    },
+    {
+      "risk_id": "FED-14",
+      "metric_ids": [
+        "OP-03",
+        "SH-01",
+        "SH-02",
+        "SH-04"
+      ]
+    },
+    {
+      "risk_id": "FED-15",
+      "metric_ids": [
+        "OP-04",
+        "SH-03"
+      ]
+    },
+    {
+      "risk_id": "FED-16",
+      "metric_ids": [
+        "PZ-01",
+        "PZ-02",
+        "PZ-03"
+      ]
+    },
+    {
+      "risk_id": "FED-17",
+      "metric_ids": [
+        "CF-01",
+        "CF-02",
+        "CF-03"
+      ]
+    },
+    {
+      "risk_id": "FED-18",
+      "metric_ids": [
+        "EX-01",
+        "EX-02",
+        "LG-02"
+      ]
+    },
+    {
+      "risk_id": "FED-19",
+      "metric_ids": [
+        "EX-03",
+        "LG-01",
+        "LG-03"
+      ]
+    },
+    {
+      "risk_id": "FED-20",
+      "metric_ids": [
+        "LG-04",
+        "LG-05"
+      ]
+    }
+  ],
+  "derived_perspectives": [],
+  "rmte_links": [
+    {
+      "metric_id": "GP-01",
+      "risk_id": "FED-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Global model underperforms centralized baseline / fails to converge",
+      "test_suite_id": "TS-FED-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "GP-02",
+      "risk_id": "FED-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Global model underperforms centralized baseline / fails to converge",
+      "test_suite_id": "TS-FED-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "GP-03",
+      "risk_id": "FED-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Client drift causes divergence / catastrophic interference",
+      "test_suite_id": "TS-FED-01",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "GP-04",
+      "risk_id": "FED-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Global model underperforms centralized baseline / fails to converge",
+      "test_suite_id": "TS-FED-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CH-01",
+      "risk_id": "FED-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Non-IID client data degrades or destabilizes the global model",
+      "test_suite_id": "TS-FED-02",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CH-02",
+      "risk_id": "FED-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Client drift causes divergence / catastrophic interference",
+      "test_suite_id": "TS-FED-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CH-03",
+      "risk_id": "FED-02",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Non-IID client data degrades or destabilizes the global model",
+      "test_suite_id": "TS-FED-02",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CH-04",
+      "risk_id": "FED-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Non-IID client data degrades or destabilizes the global model",
+      "test_suite_id": "TS-FED-02",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CE-01",
+      "risk_id": "FED-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Communication cost makes federated training impractical at scale",
+      "test_suite_id": "TS-FED-03",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CE-02",
+      "risk_id": "FED-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Communication cost makes federated training impractical at scale",
+      "test_suite_id": "TS-FED-03",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CE-03",
+      "risk_id": "FED-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Communication cost makes federated training impractical at scale",
+      "test_suite_id": "TS-FED-03",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CE-04",
+      "risk_id": "FED-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Communication cost makes federated training impractical at scale",
+      "test_suite_id": "TS-FED-03",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PV-01",
+      "risk_id": "FED-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Differential-privacy budget exhausted or mis-accounted (ε too high)",
+      "test_suite_id": "TS-FED-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-02",
+      "risk_id": "FED-06",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Model updates leak private data (gradient reconstruction / inversion)",
+      "test_suite_id": "TS-FED-04",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PV-03",
+      "risk_id": "FED-07",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Membership inference reveals client data participation",
+      "test_suite_id": "TS-FED-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-04",
+      "risk_id": "FED-08",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Secure aggregation absent / broken; server sees individual updates",
+      "test_suite_id": "TS-FED-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-05",
+      "risk_id": "FED-09",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Raw client data egresses (residency / non-egress guarantee violated)",
+      "test_suite_id": "TS-FED-04",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "BR-01",
+      "risk_id": "FED-10",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Malicious client poisons the model (model / data poisoning)",
+      "test_suite_id": "TS-FED-05",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "BR-02",
+      "risk_id": "FED-10",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Malicious client poisons the model (model / data poisoning)",
+      "test_suite_id": "TS-FED-05",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "BR-03",
+      "risk_id": "FED-11",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Backdoor implanted via crafted client updates",
+      "test_suite_id": "TS-FED-05",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "BR-04",
+      "risk_id": "FED-12",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Byzantine clients corrupt the aggregation",
+      "test_suite_id": "TS-FED-05",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "BR-05",
+      "risk_id": "FED-13",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Sybil / fake clients manipulate the federation",
+      "test_suite_id": "TS-FED-05",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SH-01",
+      "risk_id": "FED-14",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Stragglers / dropouts stall or bias training rounds",
+      "test_suite_id": "TS-FED-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SH-02",
+      "risk_id": "FED-14",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Stragglers / dropouts stall or bias training rounds",
+      "test_suite_id": "TS-FED-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SH-03",
+      "risk_id": "FED-15",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Device heterogeneity excludes weaker clients (unfair participation)",
+      "test_suite_id": "TS-FED-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SH-04",
+      "risk_id": "FED-14",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Stragglers / dropouts stall or bias training rounds",
+      "test_suite_id": "TS-FED-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PZ-01",
+      "risk_id": "FED-16",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Personalization-vs-global tradeoff harms some clients",
+      "test_suite_id": "TS-FED-07",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PZ-02",
+      "risk_id": "FED-16",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Personalization-vs-global tradeoff harms some clients",
+      "test_suite_id": "TS-FED-07",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PZ-03",
+      "risk_id": "FED-16",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Personalization-vs-global tradeoff harms some clients",
+      "test_suite_id": "TS-FED-07",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CF-01",
+      "risk_id": "FED-17",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Benefit / contribution inequity across clients (free-riding, unfairness)",
+      "test_suite_id": "TS-FED-08",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CF-02",
+      "risk_id": "FED-17",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Benefit / contribution inequity across clients (free-riding, unfairness)",
+      "test_suite_id": "TS-FED-08",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CF-03",
+      "risk_id": "FED-17",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Benefit / contribution inequity across clients (free-riding, unfairness)",
+      "test_suite_id": "TS-FED-08",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EX-01",
+      "risk_id": "FED-18",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Aggregation not auditable / round lineage missing",
+      "test_suite_id": "TS-FED-09",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EX-02",
+      "risk_id": "FED-18",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Aggregation not auditable / round lineage missing",
+      "test_suite_id": "TS-FED-09",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EX-03",
+      "risk_id": "FED-19",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Client onboarding / attestation gaps admit untrusted participants",
+      "test_suite_id": "TS-FED-09",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-01",
+      "risk_id": "FED-19",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Client onboarding / attestation gaps admit untrusted participants",
+      "test_suite_id": "TS-FED-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": "FED-18",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Aggregation not auditable / round lineage missing",
+      "test_suite_id": "TS-FED-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-03",
+      "risk_id": "FED-19",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Client onboarding / attestation gaps admit untrusted participants",
+      "test_suite_id": "TS-FED-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "FED-20",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Data-residency / regulatory (GDPR, localization) non-compliance",
+      "test_suite_id": "TS-FED-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-05",
+      "risk_id": "FED-20",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Data-residency / regulatory (GDPR, localization) non-compliance",
+      "test_suite_id": "TS-FED-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "OP-01",
+      "risk_id": "FED-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Communication cost makes federated training impractical at scale",
+      "test_suite_id": "TS-FED-11",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-02",
+      "risk_id": "FED-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Communication cost makes federated training impractical at scale",
+      "test_suite_id": "TS-FED-11",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-03",
+      "risk_id": "FED-14",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Stragglers / dropouts stall or bias training rounds",
+      "test_suite_id": "TS-FED-11",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-04",
+      "risk_id": "FED-15",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Device heterogeneity excludes weaker clients (unfair participation)",
+      "test_suite_id": "TS-FED-11",
+      "severity": "Medium",
+      "priority": "P3"
+    }
+  ]
+}

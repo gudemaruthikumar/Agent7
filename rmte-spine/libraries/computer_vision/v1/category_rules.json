@@ -1,0 +1,77 @@
+{
+  "library_id": "agent5-computer_vision-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Computer Vision RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "AR": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "DE": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "DP": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "ER": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "ET": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "LR": [
+      "monitoring",
+      "regression"
+    ],
+    "OP": [
+      "monitoring",
+      "regression"
+    ],
+    "PB": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "SC": [
+      "monitoring",
+      "regression"
+    ]
+  },
+  "mvp_extra": {
+    "AR-01": [
+      "adversarial"
+    ],
+    "AR-02": [
+      "adversarial"
+    ],
+    "AR-03": [
+      "adversarial"
+    ],
+    "AR-04": [
+      "adversarial"
+    ]
+  }
+}

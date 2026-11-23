@@ -1,0 +1,273 @@
+{
+  "library_id": "tlai-rmte-reinforcement_learning-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_ReinforcementLearning_Logs_Layers_Formulas.xlsx — sheet 'Reinforcement RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Reinforcement Learning pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (RL)",
+      "layer": "Environment / Simulator",
+      "logs_telemetry": "Environment log",
+      "key_fields": "environment dynamics, sim vs real, domain-randomization params, versions",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Environment Fidelity"
+      ],
+      "notes": "Feeds EF-01..04"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (RL)",
+      "layer": "State / Observation",
+      "logs_telemetry": "State log",
+      "key_fields": "observed states, state features, observation timestamps",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Explainability"
+      ],
+      "notes": "Feeds EX-02 state importance"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (RL)",
+      "layer": "Reward Model / Specification",
+      "logs_telemetry": "Reward log",
+      "key_fields": "reward signal, reward-function spec, reward-hacking flags",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Reward Alignment",
+        "Privacy"
+      ],
+      "notes": "Feeds RA-01/02, PD-03"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (RL)",
+      "layer": "Policy Network",
+      "logs_telemetry": "Policy log",
+      "key_fields": "action distribution, policy value Vπ, action consistency",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Policy Performance",
+        "Fairness"
+      ],
+      "notes": "Feeds PP-01/02/03, FE-01"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (RL)",
+      "layer": "Action Selection / Exploration",
+      "logs_telemetry": "Exploration log",
+      "key_fields": "chosen actions, exploration steps, exploration cost, constraint checks",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Exploration Safety"
+      ],
+      "notes": "Feeds ES-01..05"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (RL)",
+      "layer": "Training / Policy Update",
+      "logs_telemetry": "Training log",
+      "key_fields": "episodes/timesteps, sample efficiency, convergence, update stability",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Policy Performance",
+        "Operational"
+      ],
+      "notes": "Feeds PP-04, OS-01/03"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (RL)",
+      "layer": "Constraint / Safety Enforcement",
+      "logs_telemetry": "Constraint log",
+      "key_fields": "hard/soft constraint satisfaction, violations, safe-action verdicts",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Reward Alignment",
+        "Exploration Safety"
+      ],
+      "notes": "Feeds RA-03, ES-02/03"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (RL)",
+      "layer": "Explainability / Rationale",
+      "logs_telemetry": "Explainability log",
+      "key_fields": "action rationale, state attribution, counterfactual analysis",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Explainability"
+      ],
+      "notes": "Feeds EX-01/02/03"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (RL)",
+      "layer": "Privacy Controls (trajectory)",
+      "logs_telemetry": "Privacy log",
+      "key_fields": "trajectory PII detection, policy memorization, reward-signal privacy, DP/federated",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PD-01..04"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (RL)",
+      "layer": "Evaluation / Sim-to-Real",
+      "logs_telemetry": "Evaluation log",
+      "key_fields": "sim & real return, regret vs oracle, long-term impact, subgroup reward",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance (AAJ)",
+      "related_metric_families": [
+        "Policy Performance",
+        "Environment Fidelity",
+        "Fairness"
+      ],
+      "notes": "Feeds PP-02/05, EF-01, FE-01"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (RL)",
+      "layer": "Serving / Deployment",
+      "logs_telemetry": "Serving telemetry",
+      "key_fields": "action-selection latency, deployed return, rollback time",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Operational",
+        "Policy Performance"
+      ],
+      "notes": "Feeds OS-02/04, PP-05"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (RL)",
+      "layer": "Monitoring & Drift",
+      "logs_telemetry": "Monitoring telemetry",
+      "key_fields": "environment stationarity/drift, incidents, long-term fairness",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Environment Fidelity",
+        "Fairness"
+      ],
+      "notes": "Feeds EF-02, FE-04"
+    },
+    {
+      "index": 13,
+      "architecture": "AI Product (RL)",
+      "layer": "Governance / Lifecycle",
+      "logs_telemetry": "Governance log",
+      "key_fields": "reward-function & constraint governance, simulator governance, policy docs, TEVV",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle",
+        "Explainability"
+      ],
+      "notes": "Feeds LG-01..05, EX-04"
+    },
+    {
+      "index": 14,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered RL policies, simulator/env registry, tenancy, lineage",
+      "ingested_by": "Anchors identity, policy/simulator registry & tenancy",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Simulator & policy registry origin"
+    },
+    {
+      "index": 15,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized trajectory spans/events (s,a,r), redaction, event-bus refs",
+      "ingested_by": "Consumes all RL product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trajectory PII redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed episode traces, dependency views, time-series (drift)",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Environment Fidelity"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator outputs, return/regret, sim-to-real, constraint & fairness scores",
+      "ingested_by": "Consumes policy/exploration/eval logs + oracle/gold",
+      "related_metric_families": [
+        "Policy Performance",
+        "Reward Alignment",
+        "Fairness"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, oracle/reference returns, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the RL RMTE metric corpus"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "reward, safety-constraint, exploration decisions, risk register, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Reward Alignment",
+        "Exploration Safety",
+        "Privacy"
+      ],
+      "notes": "Gates 0–4; hard-constraint controls"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 21,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

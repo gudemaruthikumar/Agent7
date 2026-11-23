@@ -1,0 +1,788 @@
+{
+  "library_id": "trustlensai-rag-formula-inputs",
+  "version": "v1",
+  "source": "TrustLensAI_RAG_Logs_Layers_Formulas.xlsx — sheet 'Logs ↔ Formula Inputs'",
+  "notes": "For every RAG metric, each variable its formula consumes is traced to the log / reference dataset / config that supplies it, and the layer that emits it.",
+  "inputs": [
+    {
+      "metric_id": "CQ-01",
+      "term": "|C_i ∩ C_{i+1}|",
+      "meaning": "overlapping tokens between adjacent chunks",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Chunking log",
+      "ai_product_layer": "Preprocessing & Chunking",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CQ-01",
+      "term": "|C_i|",
+      "meaning": "chunk-i token set",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Chunking log",
+      "ai_product_layer": "Preprocessing & Chunking",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CQ-02",
+      "term": "Σ len(C_i)",
+      "meaning": "total chunk length",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Chunking log",
+      "ai_product_layer": "Preprocessing & Chunking",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CQ-02",
+      "term": "n",
+      "meaning": "number of chunks",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Chunking log",
+      "ai_product_layer": "Preprocessing & Chunking",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CQ-03",
+      "term": "|unretrieved|",
+      "meaning": "chunks never retrieved",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Retrieval log + index stats",
+      "ai_product_layer": "Preprocessing & Chunking",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CQ-03",
+      "term": "|total|",
+      "meaning": "total chunks in corpus",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Index / corpus registry",
+      "ai_product_layer": "Preprocessing & Chunking",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CQ-04",
+      "term": "|relevant in top-k|",
+      "meaning": "relevant docs within top-k",
+      "source_type": "Mixed",
+      "log_or_dataset": "Retrieval log ∩ relevance labels",
+      "ai_product_layer": "Preprocessing & Chunking",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "CQ-04",
+      "term": "|total relevant|",
+      "meaning": "all relevant docs for query",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Gold relevance labels",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "RE-01",
+      "term": "|relevant in top-k|",
+      "meaning": "relevant docs in top-k",
+      "source_type": "Mixed",
+      "log_or_dataset": "Retrieval log ∩ relevance labels",
+      "ai_product_layer": "Retrieval",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "RE-01",
+      "term": "k",
+      "meaning": "cutoff rank",
+      "source_type": "Config",
+      "log_or_dataset": "Retrieval config",
+      "ai_product_layer": "— (product / model config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "RE-02",
+      "term": "|relevant in top-k|",
+      "meaning": "relevant docs in top-k",
+      "source_type": "Mixed",
+      "log_or_dataset": "Retrieval log ∩ relevance labels",
+      "ai_product_layer": "Retrieval",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "RE-02",
+      "term": "|total relevant|",
+      "meaning": "all relevant docs",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Gold relevance labels",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "RE-03",
+      "term": "any relevant in top-k",
+      "meaning": "≥1 relevant retrieved",
+      "source_type": "Mixed",
+      "log_or_dataset": "Retrieval log ∩ relevance labels",
+      "ai_product_layer": "Retrieval",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "RE-04",
+      "term": "rank of first relevant",
+      "meaning": "position of first relevant doc",
+      "source_type": "Mixed",
+      "log_or_dataset": "Retrieval log ∩ relevance labels",
+      "ai_product_layer": "Retrieval",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "RE-05",
+      "term": "DCG@k",
+      "meaning": "discounted cumulative gain",
+      "source_type": "Mixed",
+      "log_or_dataset": "Retrieval log ∩ graded relevance",
+      "ai_product_layer": "Retrieval",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "RE-05",
+      "term": "IDCG@k",
+      "meaning": "ideal DCG",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Gold graded relevance",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "RE-06",
+      "term": "avg pairwise similarity",
+      "meaning": "similarity among retrieved items",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Retrieval log + embeddings",
+      "ai_product_layer": "Retrieval",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RE-07",
+      "term": "|unique sources|",
+      "meaning": "distinct sources retrieved",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Retrieval log",
+      "ai_product_layer": "Retrieval",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RE-07",
+      "term": "|total|",
+      "meaning": "total retrieved",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Retrieval log",
+      "ai_product_layer": "Retrieval",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CS-01",
+      "term": "|relevant selected|",
+      "meaning": "relevant chunks in context",
+      "source_type": "Mixed",
+      "log_or_dataset": "Context log ∩ relevance labels",
+      "ai_product_layer": "Context Assembly",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "CS-01",
+      "term": "|selected|",
+      "meaning": "chunks placed in context",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Context assembly log",
+      "ai_product_layer": "Context Assembly",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CS-02",
+      "term": "|relevant selected|",
+      "meaning": "relevant chunks in context",
+      "source_type": "Mixed",
+      "log_or_dataset": "Context log ∩ relevance labels",
+      "ai_product_layer": "Context Assembly",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "CS-02",
+      "term": "|total relevant|",
+      "meaning": "all relevant chunks",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Gold relevance labels",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "CS-03",
+      "term": "avg pairwise similarity",
+      "meaning": "redundancy among selected chunks",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Context assembly log + embeddings",
+      "ai_product_layer": "Context Assembly",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CS-04",
+      "term": "|novel|",
+      "meaning": "selected chunks not in cache",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Context assembly + cache log",
+      "ai_product_layer": "Context Assembly",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CS-04",
+      "term": "|selected|",
+      "meaning": "selected chunks",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Context assembly log",
+      "ai_product_layer": "Context Assembly",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CS-05",
+      "term": "|used|",
+      "meaning": "context referenced in answer",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Generation log (attribution)",
+      "ai_product_layer": "Context Assembly",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "CS-05",
+      "term": "|selected|",
+      "meaning": "context supplied",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Context assembly log",
+      "ai_product_layer": "Context Assembly",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AQ-01",
+      "term": "pred",
+      "meaning": "generated answer",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Generation log",
+      "ai_product_layer": "Generation (LLM)",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AQ-01",
+      "term": "gold",
+      "meaning": "reference answer",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Gold answers",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "AQ-02",
+      "term": "P, R (tokens)",
+      "meaning": "token precision/recall vs gold",
+      "source_type": "Mixed",
+      "log_or_dataset": "Generation log ∩ gold answers",
+      "ai_product_layer": "Generation (LLM)",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "AQ-03",
+      "term": "pred_emb",
+      "meaning": "embedding of prediction",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Generation log + embedder",
+      "ai_product_layer": "Generation (LLM)",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AQ-03",
+      "term": "gold_emb",
+      "meaning": "embedding of reference",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Gold answers + embedder",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "AQ-04",
+      "term": "|answerable|",
+      "meaning": "queries answered vs abstained",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Generation log",
+      "ai_product_layer": "Generation (LLM)",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AQ-04",
+      "term": "|total|",
+      "meaning": "total queries",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Query log",
+      "ai_product_layer": "Generation (LLM)",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GH-01",
+      "term": "|supported claims|",
+      "meaning": "claims supported by context",
+      "source_type": "Runtime log (judge)",
+      "log_or_dataset": "AAJ evaluation log",
+      "ai_product_layer": "Generation (LLM) → AAJ evaluation",
+      "platform_layer": "L3 · Evaluation & Assurance (AAJ) → L4 · Metric Library → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GH-01",
+      "term": "|total claims|",
+      "meaning": "claims extracted from answer",
+      "source_type": "Runtime log (judge)",
+      "log_or_dataset": "AAJ evaluation log",
+      "ai_product_layer": "Generation (LLM) → AAJ evaluation",
+      "platform_layer": "L3 · Evaluation & Assurance (AAJ) → L4 · Metric Library → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GH-02",
+      "term": "|hallucinated|",
+      "meaning": "claims unsupported by context",
+      "source_type": "Runtime log (judge)",
+      "log_or_dataset": "AAJ evaluation log",
+      "ai_product_layer": "Generation (LLM) → AAJ evaluation",
+      "platform_layer": "L3 · Evaluation & Assurance (AAJ) → L4 · Metric Library → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GH-02",
+      "term": "|total claims|",
+      "meaning": "claims extracted",
+      "source_type": "Runtime log (judge)",
+      "log_or_dataset": "AAJ evaluation log",
+      "ai_product_layer": "Generation (LLM) → AAJ evaluation",
+      "platform_layer": "L3 · Evaluation & Assurance (AAJ) → L4 · Metric Library → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GH-03",
+      "term": "|contradictory|",
+      "meaning": "claims contradicting context",
+      "source_type": "Runtime log (judge)",
+      "log_or_dataset": "AAJ evaluation log",
+      "ai_product_layer": "Generation (LLM) → AAJ evaluation",
+      "platform_layer": "L3 · Evaluation & Assurance (AAJ) → L4 · Metric Library → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GH-03",
+      "term": "|total claims|",
+      "meaning": "claims extracted",
+      "source_type": "Runtime log (judge)",
+      "log_or_dataset": "AAJ evaluation log",
+      "ai_product_layer": "Generation (LLM) → AAJ evaluation",
+      "platform_layer": "L3 · Evaluation & Assurance (AAJ) → L4 · Metric Library → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GH-04",
+      "term": "cosine_sim(ans, ctx)",
+      "meaning": "answer–context embedding similarity",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Generation log + context log",
+      "ai_product_layer": "Generation (LLM)",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AE-01",
+      "term": "correct",
+      "meaning": "citations resolving to support",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Citation log",
+      "ai_product_layer": "Citation / Post-processing",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AE-01",
+      "term": "cited",
+      "meaning": "citations produced",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Citation log",
+      "ai_product_layer": "Citation / Post-processing",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AE-01",
+      "term": "gold",
+      "meaning": "ground-truth citations",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Gold citations",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "AE-02",
+      "term": "|supported tokens|",
+      "meaning": "answer tokens with citation support",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Citation + generation log",
+      "ai_product_layer": "Citation / Post-processing",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AE-02",
+      "term": "|total|",
+      "meaning": "answer tokens",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Generation log",
+      "ai_product_layer": "Citation / Post-processing",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AE-03",
+      "term": "|over-cited|",
+      "meaning": "passages cited but unused",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Citation log",
+      "ai_product_layer": "Citation / Post-processing",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AE-03",
+      "term": "|total passages|",
+      "meaning": "passages",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Retrieval / context log",
+      "ai_product_layer": "Citation / Post-processing",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AE-04",
+      "term": "citation + reasoning trace",
+      "meaning": "composite explainability signals",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Citation log + reasoning trace",
+      "ai_product_layer": "Citation / Post-processing",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RS-01",
+      "term": "|safe outputs|",
+      "meaning": "outputs resisting injection",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Guardrail / red-team log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RS-01",
+      "term": "|adversarial prompts|",
+      "meaning": "injection attempts",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Red-team suite",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "RS-02",
+      "term": "|adv success|",
+      "meaning": "successful adversarial retrievals",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Red-team log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RS-02",
+      "term": "|adv queries|",
+      "meaning": "adversarial queries",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Red-team suite",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "RS-03",
+      "term": "error_group1, error_group2",
+      "meaning": "per-group error rates",
+      "source_type": "Mixed",
+      "log_or_dataset": "Evaluation log ∩ group labels",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "RS-04",
+      "term": "|toxic outputs|",
+      "meaning": "toxic responses",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Safety-classifier log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RS-04",
+      "term": "|total|",
+      "meaning": "total outputs",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Generation log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RS-05",
+      "term": "|PII outputs|",
+      "meaning": "responses leaking PII",
+      "source_type": "Runtime log",
+      "log_or_dataset": "PII-detector log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RS-05",
+      "term": "|total|",
+      "meaning": "total outputs",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Generation log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "EO-01",
+      "term": "total_time",
+      "meaning": "sum of query latencies",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Serving telemetry",
+      "ai_product_layer": "Serving & Infrastructure",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "EO-01",
+      "term": "num_queries",
+      "meaning": "query count",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Serving telemetry",
+      "ai_product_layer": "Serving & Infrastructure",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "EO-02",
+      "term": "total_cost",
+      "meaning": "sum of query cost",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Serving / cost telemetry",
+      "ai_product_layer": "Serving & Infrastructure",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "EO-02",
+      "term": "num_queries",
+      "meaning": "query count",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Serving telemetry",
+      "ai_product_layer": "Serving & Infrastructure",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "EO-03",
+      "term": "num_queries",
+      "meaning": "queries served",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Serving telemetry",
+      "ai_product_layer": "Serving & Infrastructure",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "EO-03",
+      "term": "total_time",
+      "meaning": "elapsed time",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Serving telemetry",
+      "ai_product_layer": "Serving & Infrastructure",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "EO-04",
+      "term": "cache_hits",
+      "meaning": "served from cache",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Cache log",
+      "ai_product_layer": "Serving & Infrastructure",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "EO-04",
+      "term": "total_queries",
+      "meaning": "queries",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Serving telemetry",
+      "ai_product_layer": "Serving & Infrastructure",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "EO-05",
+      "term": "tokens_used",
+      "meaning": "context tokens used",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Generation log",
+      "ai_product_layer": "Serving & Infrastructure",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "EO-05",
+      "term": "max_available",
+      "meaning": "context-window size",
+      "source_type": "Config",
+      "log_or_dataset": "Model config",
+      "ai_product_layer": "— (product / model config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "LC-01",
+      "term": "Δ consecutive values",
+      "meaning": "change between metric snapshots",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Monitoring telemetry",
+      "ai_product_layer": "Monitoring & Lifecycle",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-02",
+      "term": "incidents",
+      "meaning": "incident count",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Incident log",
+      "ai_product_layer": "Monitoring & Lifecycle",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-02",
+      "term": "time_periods",
+      "meaning": "monitoring windows",
+      "source_type": "Config",
+      "log_or_dataset": "Monitoring config",
+      "ai_product_layer": "— (product / model config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "LC-03",
+      "term": "tests_executed",
+      "meaning": "tests run",
+      "source_type": "Runtime log",
+      "log_or_dataset": "TEVV / test-harness log",
+      "ai_product_layer": "Monitoring & Lifecycle",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-03",
+      "term": "tests_planned",
+      "meaning": "planned tests",
+      "source_type": "Config",
+      "log_or_dataset": "Test plan",
+      "ai_product_layer": "— (product / model config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "LC-04",
+      "term": "completed",
+      "meaning": "completed doc items",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Governance log",
+      "ai_product_layer": "Monitoring & Lifecycle",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-04",
+      "term": "total items",
+      "meaning": "required items",
+      "source_type": "Config",
+      "log_or_dataset": "Governance checklist",
+      "ai_product_layer": "— (product / model config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "LC-05",
+      "term": "valid_logs",
+      "meaning": "schema-valid logs",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Log-completeness telemetry",
+      "ai_product_layer": "Monitoring & Lifecycle",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-05",
+      "term": "total_logs",
+      "meaning": "all logs",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Log-completeness telemetry",
+      "ai_product_layer": "Monitoring & Lifecycle",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    }
+  ]
+}

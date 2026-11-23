@@ -1,0 +1,294 @@
+{
+  "library_id": "tlai-rmte-federated_learning-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_FederatedLearning_Logs_Layers_Formulas.xlsx — sheet 'Federated RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Federated Learning pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Federated)",
+      "layer": "Client Onboarding & Attestation",
+      "logs_telemetry": "Onboarding / attestation log",
+      "key_fields": "client identity, attestation, trust checks, device tier, data-governance decl.",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Explainability & Auditability",
+        "System Heterogeneity"
+      ],
+      "notes": "Feeds LG-01, EX-03, SH-03 (trust boundary)"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Federated)",
+      "layer": "Client Data & Local Preprocessing",
+      "logs_telemetry": "Local-data log (metadata only)",
+      "key_fields": "on-device data stats, preprocessing (NO raw egress), non-egress attestation",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy",
+        "Operational"
+      ],
+      "notes": "Feeds PV-05 (raw data never leaves client)"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Federated)",
+      "layer": "Local Training / Update Computation",
+      "logs_telemetry": "Local-update log",
+      "key_fields": "local update refs, local loss, on-device compute/energy",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Client Heterogeneity",
+        "Operational"
+      ],
+      "notes": "Update refs only; raw data in-perimeter (on device)"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Federated)",
+      "layer": "Update Protection",
+      "logs_telemetry": "Update-protection log",
+      "key_fields": "DP clipping/noise, encryption, update masking",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PV-01/02/03"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Federated)",
+      "layer": "Secure Aggregation / Communication",
+      "logs_telemetry": "Communication log",
+      "key_fields": "secure-agg protocol, round payloads, bandwidth, compression",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Communication Efficiency",
+        "Privacy"
+      ],
+      "notes": "Feeds CE-01..04, PV-04"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Federated)",
+      "layer": "Server Aggregation",
+      "logs_telemetry": "Aggregation log",
+      "key_fields": "aggregation (FedAvg/robust), global-model metrics, contributing updates",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Global Model Performance"
+      ],
+      "notes": "Feeds GP-01/04"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Federated)",
+      "layer": "Byzantine / Poisoning Defense",
+      "logs_telemetry": "Defense log",
+      "key_fields": "poisoning/backdoor/byzantine/sybil detection, robust-aggregation actions",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Poisoning & Byzantine Robustness"
+      ],
+      "notes": "Feeds BR-01..05 (untrusted-client threat)"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Federated)",
+      "layer": "Global Model Update & Distribution",
+      "logs_telemetry": "Global-model log",
+      "key_fields": "global-model version, distribution to clients, round lineage",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Global Model Performance"
+      ],
+      "notes": "Round-to-round model provenance"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Federated)",
+      "layer": "Convergence & Round Orchestration",
+      "logs_telemetry": "Orchestration log",
+      "key_fields": "round scheduling, stragglers, dropout, drift, non-IID stats, completion",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability",
+      "related_metric_families": [
+        "Client Heterogeneity",
+        "System Heterogeneity",
+        "Global Model Performance"
+      ],
+      "notes": "Feeds GP-02/03, CH-*, SH-*"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Federated)",
+      "layer": "Personalization Layer",
+      "logs_telemetry": "Personalization log",
+      "key_fields": "per-client global vs local performance, personalization gain",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Personalization"
+      ],
+      "notes": "Feeds PZ-01..03"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Federated)",
+      "layer": "Client Contribution / Incentive Accounting",
+      "logs_telemetry": "Contribution log",
+      "key_fields": "per-client contribution, benefit, free-rider / incentive signals",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Client Fairness & Contribution"
+      ],
+      "notes": "Feeds CF-01..03"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (Federated)",
+      "layer": "Privacy Accounting (DP Ledger)",
+      "logs_telemetry": "Privacy-ledger log",
+      "key_fields": "cumulative DP ε/δ per client & federation, budget state",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PV-01 (ε accounting)"
+    },
+    {
+      "index": 13,
+      "architecture": "AI Product (Federated)",
+      "layer": "Aggregation Audit & Round Lineage",
+      "logs_telemetry": "Aggregation-audit log",
+      "key_fields": "which updates contributed, aggregator config, per-round provenance",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Explainability & Auditability"
+      ],
+      "notes": "Feeds EX-01/02"
+    },
+    {
+      "index": 14,
+      "architecture": "AI Product (Federated)",
+      "layer": "Serving / Round Orchestration",
+      "logs_telemetry": "Serving telemetry",
+      "key_fields": "round latency, participation rate, aggregation throughput",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Operational"
+      ],
+      "notes": "Feeds OP-01..03"
+    },
+    {
+      "index": 15,
+      "architecture": "AI Product (Federated)",
+      "layer": "Governance / Registry & Residency",
+      "logs_telemetry": "Governance log",
+      "key_fields": "onboarding coverage, registry & round lineage, residency, regulatory",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Feeds LG-01..05 (data-residency critical)"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered federation, client registry & attestation, tenancy, residency zones",
+      "ingested_by": "Anchors identity, client registry & residency for all logs",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Client & residency registry origin (LG-01/04)"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized FL spans/events (update refs, not raw data), redaction, event-bus",
+      "ingested_by": "Consumes all FL product logs; normalizes; raw data never ingested",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Only metadata/update refs leave client (in-perimeter)"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed round/orchestration traces, dependency views, time-series",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "System Heterogeneity",
+        "Client Heterogeneity"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator outputs, global/convergence/personalization/robustness scores",
+      "ingested_by": "Consumes aggregation/defense/personalization logs + baselines & attack sets",
+      "related_metric_families": [
+        "Global Model Performance",
+        "Poisoning & Byzantine Robustness"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, centralized baselines & attack sets, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the FL RMTE overlay corpus (net-new)"
+    },
+    {
+      "index": 21,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "DP-budget, secure-agg, poisoning, residency, attestation decisions, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Privacy",
+        "Poisoning & Byzantine Robustness",
+        "Lifecycle"
+      ],
+      "notes": "Gates 0–4; DP-budget & residency controls"
+    },
+    {
+      "index": 22,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 23,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

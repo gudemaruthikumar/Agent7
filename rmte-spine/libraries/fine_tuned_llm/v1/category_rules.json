@@ -1,0 +1,93 @@
+{
+  "library_id": "agent5-fine_tuned_llm-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Fine-Tuned LLM RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "BP": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "DA": [
+      "monitoring",
+      "regression"
+    ],
+    "EP": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "MG": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "OE": [
+      "monitoring",
+      "regression"
+    ],
+    "PM": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "RA": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "SA": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "TG": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "RA-01": [
+      "adversarial"
+    ],
+    "RA-02": [
+      "adversarial"
+    ],
+    "RA-03": [
+      "adversarial"
+    ],
+    "RA-04": [
+      "adversarial"
+    ],
+    "SA-01": [
+      "adversarial"
+    ],
+    "SA-02": [
+      "adversarial"
+    ],
+    "SA-03": [
+      "adversarial"
+    ],
+    "SA-04": [
+      "adversarial"
+    ],
+    "SA-05": [
+      "adversarial"
+    ]
+  }
+}

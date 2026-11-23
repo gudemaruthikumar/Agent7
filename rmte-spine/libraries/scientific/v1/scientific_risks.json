@@ -1,0 +1,391 @@
+{
+  "library_id": "tlai-rmte-scientific-risks",
+  "version": "v1",
+  "source": "TrustLensAI_Scientific_Logs_Layers_Formulas.xlsx — sheet 'Scientific RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "reconstruction": true,
+  "notes": {
+    "compliance": "TrustLensAI produces evidence; it does not certify compliance."
+  },
+  "risks": [
+    {
+      "risk_id": "SCI-01",
+      "name": "Predictions inaccurate versus experimental ground truth",
+      "description": "Predictions inaccurate versus experimental ground truth",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Predictions inaccurate versus experimental ground truth arising in AI-for-science execution",
+      "impact": "Net-new (derived) — invalid or physically-implausible result / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-02",
+      "name": "Outputs physically implausible / violate conservation laws",
+      "description": "Outputs physically implausible / violate conservation laws",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Outputs physically implausible / violate conservation laws arising in AI-for-science execution",
+      "impact": "Net-new (derived) — invalid or physically-implausible result / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-03",
+      "name": "Symmetry / invariance violated (non-equivariant errors)",
+      "description": "Symmetry / invariance violated (non-equivariant errors)",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Symmetry / invariance violated (non-equivariant errors) arising in AI-for-science execution",
+      "impact": "Net-new (derived) — invalid or physically-implausible result / failed assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-04",
+      "name": "Thermodynamically unstable / infeasible structures proposed",
+      "description": "Thermodynamically unstable / infeasible structures proposed",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Thermodynamically unstable / infeasible structures proposed arising in AI-for-science execution",
+      "impact": "Net-new (derived) — invalid or physically-implausible result / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-05",
+      "name": "Overconfident predictions mislead costly experiments (miscalibrated UQ)",
+      "description": "Overconfident predictions mislead costly experiments (miscalibrated UQ)",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Overconfident predictions mislead costly experiments (miscalibrated UQ arising in AI-for-science execution",
+      "impact": "Net-new (derived) — safety / dual-use / regulatory / reputational harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-06",
+      "name": "Model fails to generalize / extrapolate beyond training domain",
+      "description": "Model fails to generalize / extrapolate beyond training domain",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Model fails to generalize / extrapolate beyond training domain arising in AI-for-science execution",
+      "impact": "Net-new (derived) — invalid or physically-implausible result / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-07",
+      "name": "Predictions not confirmed by wet-lab / prospective experiment",
+      "description": "Predictions not confirmed by wet-lab / prospective experiment",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Predictions not confirmed by wet-lab / prospective experiment arising in AI-for-science execution",
+      "impact": "Net-new (derived) — safety / dual-use / regulatory / reputational harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-08",
+      "name": "Low screening hit-rate wastes experimental resources",
+      "description": "Low screening hit-rate wastes experimental resources",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Low screening hit-rate wastes experimental resources arising in AI-for-science execution",
+      "impact": "Net-new (derived) — safety / dual-use / regulatory / reputational harm",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-09",
+      "name": "Output contradicts established theory / known constraints undetected",
+      "description": "Output contradicts established theory / known constraints undetected",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Output contradicts established theory / known constraints undetected arising in AI-for-science execution",
+      "impact": "Net-new (derived) — invalid or physically-implausible result / failed assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-10",
+      "name": "Hazardous output enables bio / chem / toxic harm (dual-use)",
+      "description": "Hazardous output enables bio / chem / toxic harm (dual-use)",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Hazardous output enables bio / chem / toxic harm (dual-use) arising in AI-for-science execution",
+      "impact": "Net-new (derived) — safety / dual-use / regulatory / reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-11",
+      "name": "Weaponizable / gain-of-function capability ungated",
+      "description": "Weaponizable / gain-of-function capability ungated",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Weaponizable / gain-of-function capability ungated arising in AI-for-science execution",
+      "impact": "Net-new (derived) — safety / dual-use / regulatory / reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-12",
+      "name": "Controlled-agent / select-agent sequence or structure generated",
+      "description": "Controlled-agent / select-agent sequence or structure generated",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Controlled-agent / select-agent sequence or structure generated arising in AI-for-science execution",
+      "impact": "Net-new (derived) — safety / dual-use / regulatory / reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-13",
+      "name": "High-risk capability accessed without authorization / KYC",
+      "description": "High-risk capability accessed without authorization / KYC",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Human Oversight",
+      "trust_attributes": [
+        "Human Oversight"
+      ],
+      "hla_primary_trust_attribute": "Human Control",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — High-risk capability accessed without authorization / KYC arising in AI-for-science execution",
+      "impact": "Net-new (derived) — safety / dual-use / regulatory / reputational harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Human Control (7-TA taxonomy); pillar Govern. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-14",
+      "name": "Misuse attempt undetected",
+      "description": "Misuse attempt undetected",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Security",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Misuse attempt undetected arising in AI-for-science execution",
+      "impact": "Net-new (derived) — invalid or physically-implausible result / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Security (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-15",
+      "name": "Adversarial input fools scientific prediction",
+      "description": "Adversarial input fools scientific prediction",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Adversarial input fools scientific prediction arising in AI-for-science execution",
+      "impact": "Net-new (derived) — invalid or physically-implausible result / failed assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-16",
+      "name": "Population / cohort generalization inequity (e.g. ancestry bias in genomics)",
+      "description": "Population / cohort generalization inequity (e.g. ancestry bias in genomics)",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness & Policy Consistency",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Population / cohort generalization inequity (e.g. ancestry bias in gen arising in AI-for-science execution",
+      "impact": "Net-new (derived) — safety / dual-use / regulatory / reputational harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Fairness & Policy Consistency (7-TA taxonomy); pillar Govern. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-17",
+      "name": "Sensitive biomedical / genomic data exposed; consent / use non-compliant",
+      "description": "Sensitive biomedical / genomic data exposed; consent / use non-compliant",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Sensitive biomedical / genomic data exposed; consent / use non-complia arising in AI-for-science execution",
+      "impact": "Net-new (derived) — safety / dual-use / regulatory / reputational harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Privacy (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-18",
+      "name": "Benchmark contamination / data leakage inflates reported performance",
+      "description": "Benchmark contamination / data leakage inflates reported performance",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Benchmark contamination / data leakage inflates reported performance arising in AI-for-science execution",
+      "impact": "Net-new (derived) — irreproducible / contaminated result reaches publication or use",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-19",
+      "name": "Results not reproducible (non-determinism, missing provenance)",
+      "description": "Results not reproducible (non-determinism, missing provenance)",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Results not reproducible (non-determinism, missing provenance) arising in AI-for-science execution",
+      "impact": "Net-new (derived) — irreproducible / contaminated result reaches publication or use",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SCI-20",
+      "name": "Governance gaps: unversioned models/benchmarks, missing lineage / documentation",
+      "description": "Governance gaps: unversioned models/benchmarks, missing lineage / documentation",
+      "category": "Delivery",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Explainability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Governance gaps: unversioned models/benchmarks, missing lineage / docu arising in AI-for-science execution",
+      "impact": "Net-new (derived) — irreproducible / contaminated result reaches publication or use",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Scientific / AI-for-Science (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Scientific / AI-for-Science RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA); dual-use / biosecurity controls (DU-*) are indicative and MUST be designed with qualified biosecurity & export-control experts. Primary trust attribute Explainability (7-TA taxonomy); pillar Prove. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    }
+  ]
+}

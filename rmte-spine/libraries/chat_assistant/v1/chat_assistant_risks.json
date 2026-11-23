@@ -1,0 +1,414 @@
+{
+  "library_id": "tlai-rmte-chat_assistant-risks",
+  "version": "v1",
+  "source": "TrustLensAI_ChatAssistant_Logs_Layers_Formulas.xlsx — sheet 'Chat Assistant RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "reconstruction": true,
+  "notes": {
+    "compliance": "TrustLensAI produces evidence; it does not certify compliance."
+  },
+  "risks": [
+    {
+      "risk_id": "CH-01",
+      "name": "Incorrect answers presented as facts (hallucination)",
+      "description": "Incorrect answers presented as facts (hallucination)",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Incorrect answers presented as facts (hallucination) arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Chat Assistant); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CH-02",
+      "name": "Unsafe or disallowed responses",
+      "description": "Unsafe or disallowed responses",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability",
+        "Fairness"
+      ],
+      "cause": "Derived — Unsafe or disallowed responses arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Chat Assistant); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability, Fairness; Original HLA primary TA: Robustness (normalised to Safety); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CH-03",
+      "name": "Over-refusal (blocks legitimate requests)",
+      "description": "Over-refusal (blocks legitimate requests)",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Accuracy",
+        "Robustness"
+      ],
+      "cause": "Derived — Over-refusal (blocks legitimate requests) arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Chat Assistant); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accuracy, Robustness; Original HLA primary TA: Fairness (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CH-04",
+      "name": "Under-refusal (allows disallowed content)",
+      "description": "Under-refusal (allows disallowed content)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Under-refusal (allows disallowed content) arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (Chat Assistant); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accountability (normalised to Safety); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CH-05",
+      "name": "Jailbreak success",
+      "description": "Jailbreak success",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Jailbreak success arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (Chat Assistant); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CONV-01",
+      "name": "Context manipulation via conversation history",
+      "description": "Context manipulation via conversation history",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Context manipulation via conversation history arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "High (Derived)",
+      "priority": "P2",
+      "source_section": "Appendix A1 — Metric Library (Chat Assistant); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CONV-02",
+      "name": "PII accumulation across conversation turns",
+      "description": "PII accumulation across conversation turns",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — PII accumulation across conversation turns arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Chat Assistant); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Privacy (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CONV-03",
+      "name": "History poisoning (inject malicious content in earlier turns)",
+      "description": "History poisoning (inject malicious content in earlier turns)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — History poisoning (inject malicious content in earlier turns) arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "High (Derived)",
+      "priority": "P2",
+      "source_section": "Appendix A1 — Metric Library (Chat Assistant); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy; Original HLA primary TA: Accuracy (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CONV-04",
+      "name": "Context overflow quality degradation",
+      "description": "Context overflow quality degradation",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Context overflow quality degradation arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "High (Derived)",
+      "priority": "P2",
+      "source_section": "Appendix A1 — Metric Library (Chat Assistant); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "MM-01",
+      "name": "Image-based injection (inject instructions via image)",
+      "description": "Image-based injection (inject instructions via image)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Image-based injection (inject instructions via image) arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Chat Assistant)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Privacy; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "MM-02",
+      "name": "Cross-modal hallucination (incorrect image/voice description)",
+      "description": "Cross-modal hallucination (incorrect image/voice description)",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Cross-modal hallucination (incorrect image/voice description) arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Chat Assistant)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "MM-03",
+      "name": "Modal-specific safety (NSFW images, harmful audio)",
+      "description": "Modal-specific safety (NSFW images, harmful audio)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability",
+        "Fairness"
+      ],
+      "cause": "Derived — Modal-specific safety (NSFW images, harmful audio) arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Chat Assistant)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability, Fairness; Original HLA primary TA: Robustness (normalised to Safety); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "MM-05",
+      "name": "Modal fairness gap (different quality per modality)",
+      "description": "Modal fairness gap (different quality per modality)",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Modal fairness gap (different quality per modality) arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Chat Assistant)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Fairness (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "PER-01",
+      "name": "Persona jailbreak (trick character out of role)",
+      "description": "Persona jailbreak (trick character out of role)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Persona jailbreak (trick character out of role) arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Chat Assistant)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Privacy; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "PER-02",
+      "name": "Persona drift over conversation",
+      "description": "Persona drift over conversation",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Persona drift over conversation arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Chat Assistant)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Robustness; Original HLA primary TA: Accuracy (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "PER-03",
+      "name": "Character inconsistency under edge cases",
+      "description": "Character inconsistency under edge cases",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Character inconsistency under edge cases arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Chat Assistant)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Robustness; Original HLA primary TA: Accuracy (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "PER-04",
+      "name": "Brand compliance violation",
+      "description": "Brand compliance violation",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Brand compliance violation arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Chat Assistant)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Robustness; Original HLA primary TA: Accountability (normalised to Safety); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SAFE-01",
+      "name": "Filter bypass via adversarial techniques",
+      "description": "Filter bypass via adversarial techniques",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Filter bypass via adversarial techniques arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "High (Derived)",
+      "priority": "P2",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Chat Assistant)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "SAFE-02",
+      "name": "Filter-LLM inconsistency (filter passes but LLM unsafe)",
+      "description": "Filter-LLM inconsistency (filter passes but LLM unsafe)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability",
+        "Fairness"
+      ],
+      "cause": "Derived — Filter-LLM inconsistency (filter passes but LLM unsafe) arising in Chat Assistant execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Chat Assistant)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability, Fairness; Original HLA primary TA: Robustness (normalised to Safety); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    }
+  ]
+}

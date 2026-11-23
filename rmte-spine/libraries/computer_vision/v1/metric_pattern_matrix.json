@@ -1,0 +1,426 @@
+{
+  "library_id": "tlai-rmte-computer_vision-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_ComputerVision_Logs_Layers_Formulas.xlsx — sheet 'Computer Vision RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "image_classification",
+    "object_detect__tracking",
+    "segmentation",
+    "facial_recog__biometrics",
+    "medical_imaging",
+    "autonomous_perception",
+    "All patterns (perspective-level)"
+  ],
+  "family_defaults": {
+    "DP": {
+      "image_classification": "STRENGTH: F1, AUC-ROC well-established. Confusion matrix sta",
+      "object_detect__tracking": "mAP@0.5, mAP@0.5:0.95. Per-class AP. Small/medium/large obje",
+      "segmentation": "mIoU, per-class IoU. Boundary F1. Panoptic Quality (PQ = SQ",
+      "facial_recog__biometrics": "CRITICAL: TAR@FAR (True Accept Rate at False Accept Rate). 1",
+      "medical_imaging": "CRITICAL: Sensitivity (miss nothing) and specificity (false",
+      "autonomous_perception": "CRITICAL: mAP-3D, BEV mAP. Per-class detection at distance."
+    },
+    "ER": {
+      "image_classification": "Standard: Indoor lighting variation. Flash/no-flash. Shadow",
+      "object_detect__tracking": "CRITICAL: Low-light detection. Backlit subjects. Shadow-indu",
+      "segmentation": "Standard: Lighting effects on boundary detection.",
+      "facial_recog__biometrics": "CRITICAL: Low-light face recognition. IR fallback. Backlit f",
+      "medical_imaging": "MODERATE: Medical imaging has controlled lighting. Scanner v",
+      "autonomous_perception": "CRITICAL: Day/night transition. Direct sun glare. Tunnel ent"
+    },
+    "AR": {
+      "image_classification": "Standard: Pixel perturbation attacks well-studied. Adversari",
+      "object_detect__tracking": "Standard: Detection adversarial attacks. Patch-based attacks",
+      "segmentation": "Standard: Adversarial segmentation attacks.",
+      "facial_recog__biometrics": "CRITICAL: Adversarial perturbation causes misidentification.",
+      "medical_imaging": "CRITICAL: Adversarial medical images could cause misdiagnosi",
+      "autonomous_perception": "CRITICAL: Adversarial examples on traffic signs. Imperceptib"
+    },
+    "ET": {
+      "image_classification": "Standard: GradCAM, Integrated Gradients. \"Model focused on t",
+      "object_detect__tracking": "Standard: Detection attention map. \"Model focused on this re",
+      "segmentation": "STRENGTH: Segmentation output IS spatial explanation. Per-pi",
+      "facial_recog__biometrics": "Standard: Face region attention. Which facial features drive",
+      "medical_imaging": "CRITICAL: GradCAM showing which image region drives diagnosi",
+      "autonomous_perception": "Standard: Perception attention maps. Which sensor regions dr"
+    },
+    "DE": {
+      "image_classification": "MODERATE: Per-demographic classification accuracy. Less crit",
+      "object_detect__tracking": "MODERATE: Per-demographic detection accuracy. Person detecti",
+      "segmentation": "MODERATE: Per-demographic segmentation accuracy.",
+      "facial_recog__biometrics": "CRITICAL: HIGHEST FAIRNESS CONCERN. Race/gender/age accuracy",
+      "medical_imaging": "CRITICAL: Per-demographic diagnostic accuracy. Training data",
+      "autonomous_perception": "CRITICAL: Pedestrian detection per-demographic. Darker skin"
+    },
+    "PB": {
+      "image_classification": "N/A: No biometric data in general classification.",
+      "object_detect__tracking": "MODERATE: Person tracking data as quasi-biometric.",
+      "segmentation": "N/A: No biometric data in general segmentation.",
+      "facial_recog__biometrics": "CRITICAL: Biometric templates MUST be encrypted. Cancelable",
+      "medical_imaging": "MODERATE: Patient medical images as sensitive health data.",
+      "autonomous_perception": "MODERATE: Pedestrian tracking data. Vehicle identification."
+    },
+    "SC": {
+      "image_classification": "MODERATE: General classification miss rate. Not typically sa",
+      "object_detect__tracking": "CRITICAL: Pedestrian miss rate. Obstacle miss rate. Cyclist",
+      "segmentation": "Standard: Safety-relevant region miss rate.",
+      "facial_recog__biometrics": "MODERATE: Security-critical miss rate (authorized person den",
+      "medical_imaging": "CRITICAL: Cancer/tumor/fracture miss rate. Delayed diagnosis",
+      "autonomous_perception": "CRITICAL: HIGHEST safety criticality. Pedestrian miss = pote"
+    },
+    "OP": {
+      "image_classification": "Standard: MobileNet <10ms, ResNet <50ms, ViT <100ms. Efficie",
+      "object_detect__tracking": "Standard: YOLO <30ms. Faster R-CNN <100ms. Real-time critica",
+      "segmentation": "INCREASED: Dense prediction slower. U-Net <100ms. DeepLab <2",
+      "facial_recog__biometrics": "Standard: Face detection + alignment + embedding <100ms comb",
+      "medical_imaging": "MODERATE: Not typically real-time. Batch processing acceptab",
+      "autonomous_perception": "CRITICAL: HARD real-time constraint <100ms for full percepti"
+    },
+    "LR": {
+      "image_classification": "Standard: Classification model registry. Well-established pr",
+      "object_detect__tracking": "Standard: Detection + tracking model registry. Multi-model p",
+      "segmentation": "Standard: Segmentation model registry.",
+      "facial_recog__biometrics": "CRITICAL: Biometric model registry + template database gover",
+      "medical_imaging": "CRITICAL: Medical device model registry. FDA 510(k) predicat",
+      "autonomous_perception": "CRITICAL: Autonomous perception registry. Per-sensor model t"
+    }
+  },
+  "metric_overrides": {
+    "DP-01": {
+      "image_classification": "STRENGTH: F1, AUC-ROC well-established. Confusion matrix sta",
+      "object_detect__tracking": "mAP@0.5, mAP@0.5:0.95. Per-class AP. Small/medium/large obje",
+      "segmentation": "mIoU, per-class IoU. Boundary F1. Panoptic Quality (PQ = SQ",
+      "facial_recog__biometrics": "CRITICAL: TAR@FAR (True Accept Rate at False Accept Rate). 1",
+      "medical_imaging": "CRITICAL: Sensitivity (miss nothing) and specificity (false",
+      "autonomous_perception": "CRITICAL: mAP-3D, BEV mAP. Per-class detection at distance."
+    },
+    "DP-02": {
+      "image_classification": "Standard: Per-lighting, per-angle, per-background performanc",
+      "object_detect__tracking": "CRITICAL: Per-distance (near/far), per-occlusion level, per-",
+      "segmentation": "Standard: Per-image-quality, per-object-size performance.",
+      "facial_recog__biometrics": "CRITICAL: Per-lighting, per-pose (frontal/profile/angled), p",
+      "medical_imaging": "CRITICAL: Per-imaging-equipment, per-clinical-site, per-imag",
+      "autonomous_perception": "CRITICAL: Per-weather (rain/fog/snow/sun), per-lighting (day"
+    },
+    "DP-03": {
+      "image_classification": "Standard: Temperature scaling. Calibrated probabilities for",
+      "object_detect__tracking": "Standard: Detection confidence calibration. NMS confidence d",
+      "segmentation": "MODERATE: Per-pixel confidence calibration. Boundary uncerta",
+      "facial_recog__biometrics": "CRITICAL: Similarity score calibration. FAR/FRR threshold de",
+      "medical_imaging": "CRITICAL: Clinical-grade calibration essential. Overconfiden",
+      "autonomous_perception": "CRITICAL: Confidence calibration critical for planning decis"
+    },
+    "DP-04": {
+      "image_classification": "Standard: Missed classification rate. Depends on threshold s",
+      "object_detect__tracking": "CRITICAL: Missed objects (pedestrians, obstacles) in safety-",
+      "segmentation": "Standard: Missed regions in segmentation.",
+      "facial_recog__biometrics": "Standard: False Reject Rate (FRR) = legitimate user denied.",
+      "medical_imaging": "CRITICAL: Missed disease = delayed treatment. HIGHEST conseq",
+      "autonomous_perception": "CRITICAL: Missed pedestrian/vehicle = potential collision. F"
+    },
+    "DP-05": {
+      "image_classification": "Standard: False alarm rate. Threshold trade-off with recall.",
+      "object_detect__tracking": "Standard: False detections in clean scenes. Phantom objects.",
+      "segmentation": "Standard: Falsely labeled pixels/regions.",
+      "facial_recog__biometrics": "Standard: False Accept Rate (FAR) = impostor accepted. Secur",
+      "medical_imaging": "CRITICAL: False positive = unnecessary biopsy/procedure. Pat",
+      "autonomous_perception": "CRITICAL: Phantom braking from false detections. Passenger d"
+    },
+    "ER-01": {
+      "image_classification": "Standard: Indoor lighting variation. Flash/no-flash. Shadow",
+      "object_detect__tracking": "CRITICAL: Low-light detection. Backlit subjects. Shadow-indu",
+      "segmentation": "Standard: Lighting effects on boundary detection.",
+      "facial_recog__biometrics": "CRITICAL: Low-light face recognition. IR fallback. Backlit f",
+      "medical_imaging": "MODERATE: Medical imaging has controlled lighting. Scanner v",
+      "autonomous_perception": "CRITICAL: Day/night transition. Direct sun glare. Tunnel ent"
+    },
+    "ER-02": {
+      "image_classification": "MODERATE: Outdoor classification in weather. Indoor less aff",
+      "object_detect__tracking": "CRITICAL: Rain, fog, snow degrade detection. Partial occlusi",
+      "segmentation": "Standard: Occlusion handling in segmentation.",
+      "facial_recog__biometrics": "MODERATE: Face occlusion (masks, sunglasses, scarves). Makeu",
+      "medical_imaging": "N/A: Controlled medical imaging environment.",
+      "autonomous_perception": "CRITICAL: Rain/fog/snow dramatically reduce camera + LiDAR p"
+    },
+    "ER-03": {
+      "image_classification": "Standard: Cross-camera model robustness. Resolution variatio",
+      "object_detect__tracking": "Standard: Camera model variation. Focal length differences.",
+      "segmentation": "Standard: Cross-sensor performance.",
+      "facial_recog__biometrics": "CRITICAL: Cross-camera enrollment vs verification. Different",
+      "medical_imaging": "CRITICAL: Cross-equipment variation (GE vs Siemens vs Philip",
+      "autonomous_perception": "CRITICAL: Multi-sensor calibration. Camera-LiDAR alignment."
+    },
+    "ER-04": {
+      "image_classification": "MODERATE: Motion blur in handheld photography.",
+      "object_detect__tracking": "CRITICAL: Fast-moving objects. Camera ego-motion. Rolling sh",
+      "segmentation": "Standard: Blur effects on boundary precision.",
+      "facial_recog__biometrics": "MODERATE: Face motion blur. Walking subjects.",
+      "medical_imaging": "MODERATE: Patient motion in long-exposure modalities (MRI).",
+      "autonomous_perception": "CRITICAL: High-speed driving. Oncoming traffic. Vibration-in"
+    },
+    "ER-05": {
+      "image_classification": "CRITICAL: Novel objects not in training classes. Anomalous i",
+      "object_detect__tracking": "CRITICAL: Unknown object categories. Novel scene configurati",
+      "segmentation": "Standard: Unknown class handling in segmentation.",
+      "facial_recog__biometrics": "CRITICAL: Unknown persons (not in gallery). Presentation att",
+      "medical_imaging": "CRITICAL: Novel pathology not in training. Different imaging",
+      "autonomous_perception": "CRITICAL: Construction zones, emergency vehicles, unusual ob"
+    },
+    "AR-01": {
+      "image_classification": "Standard: Pixel perturbation attacks well-studied. Adversari",
+      "object_detect__tracking": "Standard: Detection adversarial attacks. Patch-based attacks",
+      "segmentation": "Standard: Adversarial segmentation attacks.",
+      "facial_recog__biometrics": "CRITICAL: Adversarial perturbation causes misidentification.",
+      "medical_imaging": "CRITICAL: Adversarial medical images could cause misdiagnosi",
+      "autonomous_perception": "CRITICAL: Adversarial examples on traffic signs. Imperceptib"
+    },
+    "AR-02": {
+      "image_classification": "MODERATE: Physical patches on objects. Less practical for ge",
+      "object_detect__tracking": "CRITICAL: Adversarial patches on road signs. Stickers on sto",
+      "segmentation": "MODERATE: Physical adversarial effects on segmentation.",
+      "facial_recog__biometrics": "CRITICAL: Adversarial glasses/makeup fool facial recognition",
+      "medical_imaging": "MODERATE: Physical adversarial attacks less relevant in cont",
+      "autonomous_perception": "CRITICAL: Physical adversarial attacks on traffic infrastruc"
+    },
+    "AR-03": {
+      "image_classification": "N/A: Classification doesn't involve identity spoofing.",
+      "object_detect__tracking": "N/A: Object detection doesn't involve identity spoofing.",
+      "segmentation": "N/A",
+      "facial_recog__biometrics": "CRITICAL: Photo attack, video replay, 3D mask, silicone face",
+      "medical_imaging": "N/A",
+      "autonomous_perception": "N/A"
+    },
+    "AR-04": {
+      "image_classification": "Standard: Randomized smoothing. Formal verification for smal",
+      "object_detect__tracking": "MODERATE: Certified detection emerging.",
+      "segmentation": "MODERATE: Certified segmentation emerging.",
+      "facial_recog__biometrics": "MODERATE: Certified face recognition robustness.",
+      "medical_imaging": "Standard: Certified robustness for medical imaging models.",
+      "autonomous_perception": "CRITICAL: Formal verification most needed but hardest for co"
+    },
+    "ET-01": {
+      "image_classification": "Standard: GradCAM, Integrated Gradients. \"Model focused on t",
+      "object_detect__tracking": "Standard: Detection attention map. \"Model focused on this re",
+      "segmentation": "STRENGTH: Segmentation output IS spatial explanation. Per-pi",
+      "facial_recog__biometrics": "Standard: Face region attention. Which facial features drive",
+      "medical_imaging": "CRITICAL: GradCAM showing which image region drives diagnosi",
+      "autonomous_perception": "Standard: Perception attention maps. Which sensor regions dr"
+    },
+    "ET-02": {
+      "image_classification": "Standard: GradCAM faithfulness testing. Deletion test AUC.",
+      "object_detect__tracking": "Standard: Detection explanation faithfulness.",
+      "segmentation": "Standard: Segmentation inherently faithful (output is explan",
+      "facial_recog__biometrics": "Standard: Face matching explanation faithfulness.",
+      "medical_imaging": "CRITICAL: Medical explanation MUST be faithful. Misleading e",
+      "autonomous_perception": "CRITICAL: Autonomous explanation must be faithful. Wrong exp"
+    },
+    "ET-03": {
+      "image_classification": "Standard: TCAV (concept activation vectors). Prototypical ex",
+      "object_detect__tracking": "MODERATE: Object-level concept explanations.",
+      "segmentation": "MODERATE: Region-level concept explanations.",
+      "facial_recog__biometrics": "MODERATE: Which facial features (eyes, nose, jawline) drive",
+      "medical_imaging": "CRITICAL: \"Model detected tumor because of irregular boundar",
+      "autonomous_perception": "CRITICAL: \"Vehicle detected because of headlight pattern and"
+    },
+    "ET-04": {
+      "image_classification": "Standard: Confidence score communication. Threshold-based ab",
+      "object_detect__tracking": "Standard: Detection confidence per bounding box. Low-confide",
+      "segmentation": "Standard: Per-pixel confidence maps.",
+      "facial_recog__biometrics": "Standard: Similarity score threshold. \"Low confidence match\"",
+      "medical_imaging": "CRITICAL: Clinical uncertainty must be communicated. \"Uncert",
+      "autonomous_perception": "CRITICAL: Perception uncertainty fed to planning. \"Uncertain"
+    },
+    "ET-05": {
+      "image_classification": "Standard: Known failure modes documented. Edge cases catalog",
+      "object_detect__tracking": "Standard: Detection failure mode catalog. Small objects, occ",
+      "segmentation": "Standard: Segmentation failure mode catalog. Boundaries, sma",
+      "facial_recog__biometrics": "Standard: Face recognition failure modes. Pose, lighting, ag",
+      "medical_imaging": "CRITICAL: Clinical failure mode catalog with examples. \"Mode",
+      "autonomous_perception": "CRITICAL: Autonomous failure mode catalog. \"Fails in heavy r"
+    },
+    "DE-01": {
+      "image_classification": "MODERATE: Per-demographic classification accuracy. Less crit",
+      "object_detect__tracking": "MODERATE: Per-demographic detection accuracy. Person detecti",
+      "segmentation": "MODERATE: Per-demographic segmentation accuracy.",
+      "facial_recog__biometrics": "CRITICAL: HIGHEST FAIRNESS CONCERN. Race/gender/age accuracy",
+      "medical_imaging": "CRITICAL: Per-demographic diagnostic accuracy. Training data",
+      "autonomous_perception": "CRITICAL: Pedestrian detection per-demographic. Darker skin"
+    },
+    "DE-02": {
+      "image_classification": "MODERATE: Skin tone impact on image classification.",
+      "object_detect__tracking": "MODERATE: Person detection by skin tone.",
+      "segmentation": "MODERATE: Person segmentation by skin tone.",
+      "facial_recog__biometrics": "CRITICAL: Face verification/identification accuracy by skin",
+      "medical_imaging": "CRITICAL: Dermatology AI performance by skin tone. Training",
+      "autonomous_perception": "CRITICAL: Pedestrian detection by skin tone. Safety-critical"
+    },
+    "DE-03": {
+      "image_classification": "Standard: Age group classification equity.",
+      "object_detect__tracking": "MODERATE: Child vs adult detection (height, proportion diffe",
+      "segmentation": "Standard: Age group segmentation equity.",
+      "facial_recog__biometrics": "CRITICAL: Child face recognition. Elderly face recognition.",
+      "medical_imaging": "CRITICAL: Pediatric vs adult diagnostic performance. Elderly",
+      "autonomous_perception": "CRITICAL: Child pedestrian detection (smaller, unpredictable"
+    },
+    "DE-04": {
+      "image_classification": "Standard: Gender classification equity.",
+      "object_detect__tracking": "Standard: Person detection gender equity.",
+      "segmentation": "Standard: Person segmentation gender equity.",
+      "facial_recog__biometrics": "CRITICAL: Gender classification accuracy. Non-binary present",
+      "medical_imaging": "MODERATE: Gender-specific diagnostic performance (mammograph",
+      "autonomous_perception": "MODERATE: Pedestrian detection gender equity."
+    },
+    "DE-05": {
+      "image_classification": "Standard: Cross-geography image variation.",
+      "object_detect__tracking": "MODERATE: Cultural variation in objects, signage, vehicles.",
+      "segmentation": "Standard: Cross-geography segmentation.",
+      "facial_recog__biometrics": "CRITICAL: Cross-ethnicity face recognition. Global deploymen",
+      "medical_imaging": "MODERATE: Cross-population clinical validation. Different di",
+      "autonomous_perception": "CRITICAL: Country-specific traffic rules, signage, driving b"
+    },
+    "PB-01": {
+      "image_classification": "N/A: No biometric data in general classification.",
+      "object_detect__tracking": "MODERATE: Person tracking data as quasi-biometric.",
+      "segmentation": "N/A: No biometric data in general segmentation.",
+      "facial_recog__biometrics": "CRITICAL: Biometric templates MUST be encrypted. Cancelable",
+      "medical_imaging": "MODERATE: Patient medical images as sensitive health data.",
+      "autonomous_perception": "MODERATE: Pedestrian tracking data. Vehicle identification."
+    },
+    "PB-02": {
+      "image_classification": "Standard: Image collection consent.",
+      "object_detect__tracking": "CRITICAL: Video surveillance consent. Public space monitorin",
+      "segmentation": "Standard: Image collection consent.",
+      "facial_recog__biometrics": "CRITICAL: Biometric enrollment consent. Opt-in required in B",
+      "medical_imaging": "CRITICAL: Patient consent for AI-assisted diagnosis. IRB app",
+      "autonomous_perception": "MODERATE: Vehicle/pedestrian data collection consent. Dashca"
+    },
+    "PB-03": {
+      "image_classification": "N/A: Classification typically not surveillance.",
+      "object_detect__tracking": "CRITICAL: Continuous tracking = surveillance. Privacy impact",
+      "segmentation": "N/A",
+      "facial_recog__biometrics": "CRITICAL: Facial recognition deployment PIA. Mass surveillan",
+      "medical_imaging": "N/A: Medical imaging not surveillance.",
+      "autonomous_perception": "MODERATE: Autonomous vehicle data collection PIA. Dashcam +"
+    },
+    "PB-04": {
+      "image_classification": "Standard: Image data retention.",
+      "object_detect__tracking": "CRITICAL: Video retention policies. Automated deletion. Stor",
+      "segmentation": "Standard: Image data retention.",
+      "facial_recog__biometrics": "CRITICAL: Biometric template retention. Right to deletion. G",
+      "medical_imaging": "CRITICAL: Medical image retention (often 7–10 years regulato",
+      "autonomous_perception": "Standard: Autonomous perception data retention. Incident dat"
+    },
+    "PB-05": {
+      "image_classification": "Standard: Image training data consent and licensing.",
+      "object_detect__tracking": "Standard: Video training data consent.",
+      "segmentation": "Standard: Segmentation training data consent.",
+      "facial_recog__biometrics": "CRITICAL: Face dataset consent. Clearview AI litigation. LFW",
+      "medical_imaging": "CRITICAL: Patient medical image consent. HIPAA/GDPR de-ident",
+      "autonomous_perception": "Standard: Autonomous driving dataset consent. Public road da"
+    },
+    "SC-01": {
+      "image_classification": "MODERATE: General classification miss rate. Not typically sa",
+      "object_detect__tracking": "CRITICAL: Pedestrian miss rate. Obstacle miss rate. Cyclist",
+      "segmentation": "Standard: Safety-relevant region miss rate.",
+      "facial_recog__biometrics": "MODERATE: Security-critical miss rate (authorized person den",
+      "medical_imaging": "CRITICAL: Cancer/tumor/fracture miss rate. Delayed diagnosis",
+      "autonomous_perception": "CRITICAL: HIGHEST safety criticality. Pedestrian miss = pote"
+    },
+    "SC-02": {
+      "image_classification": "MODERATE: False alarm impact low for general classification.",
+      "object_detect__tracking": "MODERATE: Phantom detections may cause unnecessary responses",
+      "segmentation": "Standard: False segmentation in safety regions.",
+      "facial_recog__biometrics": "MODERATE: False accept (impostor accepted) is security-criti",
+      "medical_imaging": "CRITICAL: False positive → unnecessary biopsy/surgery. Patie",
+      "autonomous_perception": "CRITICAL: Phantom braking. False obstacle detection. Passeng"
+    },
+    "SC-03": {
+      "image_classification": "N/A: No formal ODD for classification.",
+      "object_detect__tracking": "MODERATE: Deployment condition specification.",
+      "segmentation": "N/A",
+      "facial_recog__biometrics": "Standard: Deployment condition specification.",
+      "medical_imaging": "CRITICAL: Clinical deployment conditions specified (imaging",
+      "autonomous_perception": "CRITICAL: ODD = formal specification of where system operate"
+    },
+    "SC-04": {
+      "image_classification": "N/A: General classification not safety-critical.",
+      "object_detect__tracking": "MODERATE: Safety integrity for safety-relevant detection.",
+      "segmentation": "N/A",
+      "facial_recog__biometrics": "N/A",
+      "medical_imaging": "CRITICAL: Medical device safety classification (FDA Class I/",
+      "autonomous_perception": "CRITICAL: ASIL B–D for autonomous driving. Highest functiona"
+    },
+    "OP-01": {
+      "image_classification": "Standard: MobileNet <10ms, ResNet <50ms, ViT <100ms. Efficie",
+      "object_detect__tracking": "Standard: YOLO <30ms. Faster R-CNN <100ms. Real-time critica",
+      "segmentation": "INCREASED: Dense prediction slower. U-Net <100ms. DeepLab <2",
+      "facial_recog__biometrics": "Standard: Face detection + alignment + embedding <100ms comb",
+      "medical_imaging": "MODERATE: Not typically real-time. Batch processing acceptab",
+      "autonomous_perception": "CRITICAL: HARD real-time constraint <100ms for full percepti"
+    },
+    "OP-02": {
+      "image_classification": "STRENGTH: MobileNet, EfficientNet designed for edge. TensorR",
+      "object_detect__tracking": "Standard: YOLO edge deployment mature. TensorRT optimization",
+      "segmentation": "MODERATE: Dense prediction models larger. U-Net edge deploym",
+      "facial_recog__biometrics": "Standard: Face detection + embedding on edge devices. Mobile",
+      "medical_imaging": "MODERATE: Medical imaging typically server-based. Edge for p",
+      "autonomous_perception": "CRITICAL: Automotive-grade edge compute (NVIDIA Orin). Power"
+    },
+    "OP-03": {
+      "image_classification": "HIGHEST: Simple models process hundreds of FPS.",
+      "object_detect__tracking": "Standard: YOLO 30–100+ FPS. Real-time video processing.",
+      "segmentation": "LOWEST: Dense prediction per-pixel is computationally expens",
+      "facial_recog__biometrics": "Standard: Face processing 10–50 FPS depending on pipeline.",
+      "medical_imaging": "Standard: Batch processing throughput. Not typically FPS-con",
+      "autonomous_perception": "CRITICAL: Multi-camera processing. 6–12 cameras × 30 FPS = 1"
+    },
+    "OP-04": {
+      "image_classification": "Standard: Model version management. A/B testing.",
+      "object_detect__tracking": "Standard: Detection model updates. Video processing pipeline",
+      "segmentation": "Standard: Segmentation model updates.",
+      "facial_recog__biometrics": "CRITICAL: Biometric model updates require re-validation of F",
+      "medical_imaging": "CRITICAL: Medical model updates require re-validation and po",
+      "autonomous_perception": "CRITICAL: Autonomous model OTA updates. Fleet-wide rollout g"
+    },
+    "LR-01": {
+      "image_classification": "Standard: Classification model registry. Well-established pr",
+      "object_detect__tracking": "Standard: Detection + tracking model registry. Multi-model p",
+      "segmentation": "Standard: Segmentation model registry.",
+      "facial_recog__biometrics": "CRITICAL: Biometric model registry + template database gover",
+      "medical_imaging": "CRITICAL: Medical device model registry. FDA 510(k) predicat",
+      "autonomous_perception": "CRITICAL: Autonomous perception registry. Per-sensor model t"
+    },
+    "LR-02": {
+      "image_classification": "Standard: Classification annotation quality. Inter-annotator",
+      "object_detect__tracking": "Standard: Bounding box annotation quality. IoU between annot",
+      "segmentation": "CRITICAL: HIGHEST annotation cost and quality concern. Per-p",
+      "facial_recog__biometrics": "Standard: Face annotation quality. Identity verification for",
+      "medical_imaging": "CRITICAL: Medical annotation by board-certified radiologists",
+      "autonomous_perception": "CRITICAL: 3D annotation (LiDAR point cloud labeling). Multi-"
+    },
+    "LR-03": {
+      "image_classification": "Standard: Accuracy + adversarial + environmental + fairness",
+      "object_detect__tracking": "Standard + tracking + small object + occlusion + surveillanc",
+      "segmentation": "Standard + boundary + small region + annotation quality test",
+      "facial_recog__biometrics": "CRITICAL: Demographic + spoofing + PAD + consent + BIPA + te",
+      "medical_imaging": "CRITICAL: Clinical validation + per-demographic + per-equipm",
+      "autonomous_perception": "CRITICAL: Weather/lighting matrix + edge cases + sensor fusi"
+    },
+    "LR-04": {
+      "image_classification": "Standard: General AI regulation (EU AI Act).",
+      "object_detect__tracking": "CRITICAL: Surveillance regulation. GDPR for video. Public sp",
+      "segmentation": "Standard: General AI regulation.",
+      "facial_recog__biometrics": "CRITICAL: BIPA ($1000–$5000/violation). GDPR Article 9 (biom",
+      "medical_imaging": "CRITICAL: FDA 510(k) or De Novo. CE marking (EU MDR). IEC 62",
+      "autonomous_perception": "CRITICAL: ISO 26262 (functional safety). SOTIF (ISO 21448)."
+    },
+    "LR-05": {
+      "image_classification": "Standard: Model monitoring. Drift detection.",
+      "object_detect__tracking": "Standard: Detection quality monitoring. False alarm tracking",
+      "segmentation": "Standard: Segmentation quality monitoring.",
+      "facial_recog__biometrics": "CRITICAL: Biometric system incident response. Identity breac",
+      "medical_imaging": "CRITICAL: Medical device post-market surveillance (21 CFR 80",
+      "autonomous_perception": "CRITICAL: Autonomous vehicle incident reporting. NHTSA Stand"
+    }
+  }
+}

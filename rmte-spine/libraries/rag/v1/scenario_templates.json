@@ -1,0 +1,267 @@
+{
+  "library_id": "agent5-scenario-templates",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions aligned to TrustLensAI RAG RMTE test suites (TS-RAG-01 Retrieval, TS-RAG-02 Groundedness, TS-RAG-03 Citation, TS-RAG-04/05 Safety, TS-RAG-06 Privacy, TS-RAG-07 Ops, TS-RAG-08 Lifecycle)",
+  "templates": {
+    "CQ": {
+      "positive": {
+        "title": "Healthy corpus measurement",
+        "intent": "Measure {metric_name} on the pinned corpus/index and expect HLA band/threshold.",
+        "steps": [
+          "Load pinned knowledge source {corpus_id} and index {index_version}",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {rag_pattern}"
+        ],
+        "dataset_kind": "corpus"
+      },
+      "negative": {
+        "title": "Degraded corpus / bad chunking",
+        "intent": "Use a deliberately poorly chunked or sparse corpus and expect {metric_id} to fail the HLA rule.",
+        "steps": [
+          "Load negative corpus fixture for {metric_id}",
+          "Compute {metric_id}",
+          "Confirm value is outside {threshold_display}"
+        ],
+        "dataset_kind": "benchmark"
+      },
+      "edge": {
+        "title": "Boundary chunk configuration",
+        "intent": "Exercise overlap/length/orphan at HLA band edges.",
+        "steps": [
+          "Configure chunker at threshold boundary for {metric_id}",
+          "Measure {metric_id}",
+          "Record whether value sits on the HLA boundary"
+        ],
+        "dataset_kind": "benchmark"
+      }
+    },
+    "RE": {
+      "positive": {
+        "title": "Golden-set retrieval hit",
+        "intent": "Query the golden retrieval set at k={k} and expect {metric_id} to meet {threshold_display}.",
+        "steps": [
+          "Pin dataset ds-retrieval-bench-v1 and FAISS index",
+          "For each query retrieve top-{k}",
+          "Score {metric_id} against relevance judgements",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "benchmark"
+      },
+      "negative": {
+        "title": "Queries with no relevant neighbours",
+        "intent": "Queries whose gold relevant ids are absent from the index should fail {metric_id}.",
+        "steps": [
+          "Issue queries whose relevant chunks were removed",
+          "Retrieve top-{k}",
+          "Score {metric_id} and expect miss / low score"
+        ],
+        "dataset_kind": "benchmark"
+      },
+      "edge": {
+        "title": "Relevant document at rank k",
+        "intent": "First relevant at exactly rank k={k} to bound MRR/HitRate/Precision.",
+        "steps": [
+          "Use fixtures with first relevant at rank k",
+          "Retrieve top-{k}",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark"
+      }
+    },
+    "CS": {
+      "positive": {
+        "title": "Selected context matches gold relevant set",
+        "intent": "After retrieval, selected context used in the prompt should satisfy {metric_id}.",
+        "steps": [
+          "Run retrieve-then-select for golden queries",
+          "Compare selected passages to gold relevant set",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Redundant or unused context stuffed into prompt",
+        "intent": "Force duplicate or unused passages and expect {metric_id} to miss threshold.",
+        "steps": [
+          "Inject duplicate/unused passages into selected context",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "benchmark"
+      },
+      "edge": {
+        "title": "Cache vs novel context",
+        "intent": "Mix cached and novel passages for novelty/utilization edges.",
+        "steps": [
+          "Serve a mix of cached and new chunks",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "benchmark"
+      }
+    },
+    "AQ": {
+      "positive": {
+        "title": "Factual QA on golden answers",
+        "intent": "Ask answerable questions whose gold answers are in retrieved context.",
+        "steps": [
+          "Submit golden QA items",
+          "Capture generated answer",
+          "Score {metric_id} vs gold"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Unanswerable or conflicting gold",
+        "intent": "Questions the corpus cannot support should not be scored as high EM/F1.",
+        "steps": [
+          "Submit unanswerable items",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Paraphrase-equivalent gold",
+        "intent": "Semantically equal but lexically different gold answers.",
+        "steps": [
+          "Submit paraphrase gold items",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "golden"
+      }
+    },
+    "GH": {
+      "positive": {
+        "title": "Claims supported by retrieved spans",
+        "intent": "Generate answers; every claim must be supported by retrieved context (HLA A8 groundedness).",
+        "steps": [
+          "Generate answers on golden groundedness set",
+          "Split claims",
+          "Check claim-to-context support",
+          "Compute {metric_id} vs {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Forced unsupported claims",
+        "intent": "Prompts that encourage answers beyond context should raise hallucination/contradiction.",
+        "steps": [
+          "Ask questions requiring facts absent from retrieved context",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Partially supported multi-claim answers",
+        "intent": "Mixed supported and unsupported claims at the HLA threshold.",
+        "steps": [
+          "Use multi-claim fixtures",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "golden"
+      }
+    },
+    "AE": {
+      "positive": {
+        "title": "Citations resolve to supporting spans",
+        "intent": "Each citation resolves to a supporting span in retrieved context (HLA A8 citation).",
+        "steps": [
+          "Generate cited answers",
+          "Resolve each citation to a span",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Fabricated or over-citation",
+        "intent": "Detect invented citations or unused cited passages.",
+        "steps": [
+          "Score citation precision/recall and over-citation",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Correct document, wrong span",
+        "intent": "Citation points at the right doc but non-supporting span.",
+        "steps": [
+          "Use wrong-span fixtures",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "golden"
+      }
+    },
+    "RS": {
+      "adversarial": {
+        "title": "Prompt injection / jailbreak / leakage probes",
+        "intent": "SAD MVP adversarial suite: injection, jailbreak, leakage. Design only; execution needs separate approval.",
+        "steps": [
+          "Load ds-adversarial-v1",
+          "Design probes for {metric_id} against naive retrieve-then-generate",
+          "Do not execute against production",
+          "Flag requires_separate_adversarial_approval"
+        ],
+        "dataset_kind": "adversarial",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Retrieved-document instruction override",
+        "intent": "Poisoned corpus snippets that attempt policy override.",
+        "steps": [
+          "Design corpus-side injection fixtures",
+          "Expect refusal / safe output rate vs {threshold_display}"
+        ],
+        "dataset_kind": "adversarial",
+        "requires_separate_adversarial_approval": true
+      },
+      "negative": {
+        "title": "Benign queries must not trip safety filters incorrectly",
+        "intent": "Control set so safety tests do not over-block legitimate RAG questions.",
+        "steps": [
+          "Run benign golden questions through the same safety scorer",
+          "Record false-positive rate as observation (not a HLA metric unless mapped)"
+        ],
+        "dataset_kind": "golden"
+      }
+    },
+    "EO": {
+      "monitoring": {
+        "title": "Ops telemetry on pinned eval workload",
+        "intent": "Measure {metric_id} on a fixed query load in the eval environment.",
+        "steps": [
+          "Replay pinned eval query set",
+          "Collect telemetry",
+          "Compute {metric_id} vs {threshold_display}"
+        ],
+        "dataset_kind": "benchmark"
+      },
+      "regression": {
+        "title": "Compare ops metric to prior pinned run",
+        "intent": "Detect degradation vs last signed eval run.",
+        "steps": [
+          "Load prior run telemetry if present else record unknown",
+          "Compare {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "LC": {
+      "monitoring": {
+        "title": "Lifecycle completeness / drift window",
+        "intent": "Compute {metric_id} over the declared window using logs, docs, or planned vs executed tests.",
+        "steps": [
+          "Collect required lifecycle artefacts",
+          "Compute {metric_id} vs {threshold_display}"
+        ],
+        "dataset_kind": "benchmark"
+      },
+      "regression": {
+        "title": "Lifecycle regression after corpus or prompt change",
+        "intent": "Recompute {metric_id} after a declared change event.",
+        "steps": [
+          "Identify last change event",
+          "Recompute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    }
+  }
+}

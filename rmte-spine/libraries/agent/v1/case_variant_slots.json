@@ -1,0 +1,493 @@
+{
+  "library_id": "agent5-agentic-case-variant-slots",
+  "version": "v1",
+  "note": "Each extra test case under a scenario must occupy a different slot. Code never synthesises clones.",
+  "generic_extras": [
+    {
+      "slot_id": "short_utterance",
+      "focus": "A one-sentence user request that still has a gold outcome."
+    },
+    {
+      "slot_id": "multi_step_goal",
+      "focus": "The goal requires more than one tool call."
+    },
+    {
+      "slot_id": "irreversible_action",
+      "focus": "The planned action has a side effect that needs confirmation."
+    },
+    {
+      "slot_id": "empty_tool_result",
+      "focus": "A tool returns empty or error and the agent must recover."
+    }
+  ],
+  "by_family": {
+    "AP": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family AP."
+        },
+        {
+          "slot_id": "multi_tool_path",
+          "focus": "The task needs more than one authorised tool."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_step",
+          "focus": "A required plan or tool step is omitted."
+        },
+        {
+          "slot_id": "wrong_tool_choice",
+          "focus": "The agent selects a plausible but incorrect tool."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "prompt_injection_tool",
+          "focus": "A prompt tries to force an unregistered or out-of-scope tool."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "privilege_escalation",
+          "focus": "The agent attempts a tool outside the pinned permission scope."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "GT": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family GT."
+        },
+        {
+          "slot_id": "multi_tool_path",
+          "focus": "The task needs more than one authorised tool."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_step",
+          "focus": "A required plan or tool step is omitted."
+        },
+        {
+          "slot_id": "wrong_tool_choice",
+          "focus": "The agent selects a plausible but incorrect tool."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "prompt_injection_tool",
+          "focus": "A prompt tries to force an unregistered or out-of-scope tool."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "privilege_escalation",
+          "focus": "The agent attempts a tool outside the pinned permission scope."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "HO": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family HO."
+        },
+        {
+          "slot_id": "multi_tool_path",
+          "focus": "The task needs more than one authorised tool."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_step",
+          "focus": "A required plan or tool step is omitted."
+        },
+        {
+          "slot_id": "wrong_tool_choice",
+          "focus": "The agent selects a plausible but incorrect tool."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "prompt_injection_tool",
+          "focus": "A prompt tries to force an unregistered or out-of-scope tool."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "privilege_escalation",
+          "focus": "The agent attempts a tool outside the pinned permission scope."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "LC": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family LC."
+        },
+        {
+          "slot_id": "multi_tool_path",
+          "focus": "The task needs more than one authorised tool."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_step",
+          "focus": "A required plan or tool step is omitted."
+        },
+        {
+          "slot_id": "wrong_tool_choice",
+          "focus": "The agent selects a plausible but incorrect tool."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "prompt_injection_tool",
+          "focus": "A prompt tries to force an unregistered or out-of-scope tool."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "privilege_escalation",
+          "focus": "The agent attempts a tool outside the pinned permission scope."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "PD": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family PD."
+        },
+        {
+          "slot_id": "multi_tool_path",
+          "focus": "The task needs more than one authorised tool."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_step",
+          "focus": "A required plan or tool step is omitted."
+        },
+        {
+          "slot_id": "wrong_tool_choice",
+          "focus": "The agent selects a plausible but incorrect tool."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "prompt_injection_tool",
+          "focus": "A prompt tries to force an unregistered or out-of-scope tool."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "privilege_escalation",
+          "focus": "The agent attempts a tool outside the pinned permission scope."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "RA": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family RA."
+        },
+        {
+          "slot_id": "multi_tool_path",
+          "focus": "The task needs more than one authorised tool."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_step",
+          "focus": "A required plan or tool step is omitted."
+        },
+        {
+          "slot_id": "wrong_tool_choice",
+          "focus": "The agent selects a plausible but incorrect tool."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "prompt_injection_tool",
+          "focus": "A prompt tries to force an unregistered or out-of-scope tool."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "privilege_escalation",
+          "focus": "The agent attempts a tool outside the pinned permission scope."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "RC": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family RC."
+        },
+        {
+          "slot_id": "multi_tool_path",
+          "focus": "The task needs more than one authorised tool."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_step",
+          "focus": "A required plan or tool step is omitted."
+        },
+        {
+          "slot_id": "wrong_tool_choice",
+          "focus": "The agent selects a plausible but incorrect tool."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "prompt_injection_tool",
+          "focus": "A prompt tries to force an unregistered or out-of-scope tool."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "privilege_escalation",
+          "focus": "The agent attempts a tool outside the pinned permission scope."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "TE": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family TE."
+        },
+        {
+          "slot_id": "multi_tool_path",
+          "focus": "The task needs more than one authorised tool."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_step",
+          "focus": "A required plan or tool step is omitted."
+        },
+        {
+          "slot_id": "wrong_tool_choice",
+          "focus": "The agent selects a plausible but incorrect tool."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "prompt_injection_tool",
+          "focus": "A prompt tries to force an unregistered or out-of-scope tool."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "privilege_escalation",
+          "focus": "The agent attempts a tool outside the pinned permission scope."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    },
+    "TO": {
+      "positive": [
+        {
+          "slot_id": "canonical_happy_path",
+          "focus": "A canonical in-scope task for family TO."
+        },
+        {
+          "slot_id": "multi_tool_path",
+          "focus": "The task needs more than one authorised tool."
+        }
+      ],
+      "negative": [
+        {
+          "slot_id": "missing_required_step",
+          "focus": "A required plan or tool step is omitted."
+        },
+        {
+          "slot_id": "wrong_tool_choice",
+          "focus": "The agent selects a plausible but incorrect tool."
+        }
+      ],
+      "edge": [
+        {
+          "slot_id": "threshold_boundary",
+          "focus": "The score sits on the pinned HLA boundary."
+        }
+      ],
+      "adversarial": [
+        {
+          "slot_id": "prompt_injection_tool",
+          "focus": "A prompt tries to force an unregistered or out-of-scope tool."
+        }
+      ],
+      "security": [
+        {
+          "slot_id": "privilege_escalation",
+          "focus": "The agent attempts a tool outside the pinned permission scope."
+        }
+      ],
+      "monitoring": [
+        {
+          "slot_id": "replay_window",
+          "focus": "Score the pinned Observe window without a new invoke."
+        }
+      ],
+      "regression": [
+        {
+          "slot_id": "frozen_prior_run",
+          "focus": "Re-score a frozen prior evaluation window."
+        }
+      ]
+    }
+  }
+}

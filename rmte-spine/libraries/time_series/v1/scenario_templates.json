@@ -1,0 +1,883 @@
+{
+  "library_id": "agent5-time_series-scenario-templates",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions aligned to TrustLensAI Time-Series RMTE test suites",
+  "templates": {
+    "AD": {
+      "positive": {
+        "title": "Healthy Anomaly Detection Performance measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Anomaly Detection Performance",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Anomaly Detection Performance",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Anomaly Detection Performance",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Anomaly Detection Performance",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Anomaly Detection Performance from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Anomaly Detection Performance",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "DQ": {
+      "positive": {
+        "title": "Healthy Data Quality & Lineage measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Data Quality & Lineage",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Data Quality & Lineage",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Data Quality & Lineage",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Data Quality & Lineage",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Data Quality & Lineage from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Data Quality & Lineage",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "EX": {
+      "positive": {
+        "title": "Healthy Explainability measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Explainability",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Explainability",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Explainability",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Explainability",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Explainability from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Explainability",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "FA": {
+      "positive": {
+        "title": "Healthy Point Forecast Accuracy measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Point Forecast Accuracy",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Point Forecast Accuracy",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Point Forecast Accuracy",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Point Forecast Accuracy",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Point Forecast Accuracy from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Point Forecast Accuracy",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "FE": {
+      "positive": {
+        "title": "Healthy Segment Fairness measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Segment Fairness",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Segment Fairness",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Segment Fairness",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Segment Fairness",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Segment Fairness from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Segment Fairness",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "LG": {
+      "positive": {
+        "title": "Healthy Lifecycle measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Lifecycle",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Lifecycle",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Lifecycle",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Lifecycle",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Lifecycle from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Lifecycle",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "OP": {
+      "positive": {
+        "title": "Healthy Operational measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Operational",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Operational",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Operational",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Operational",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Operational from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Operational",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "PU": {
+      "positive": {
+        "title": "Healthy Probabilistic & Uncertainty measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Probabilistic & Uncertainty",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Probabilistic & Uncertainty",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Probabilistic & Uncertainty",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Probabilistic & Uncertainty",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Probabilistic & Uncertainty from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Probabilistic & Uncertainty",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "PV": {
+      "positive": {
+        "title": "Healthy Privacy measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Privacy",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Privacy",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Privacy",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Privacy",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Privacy from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Privacy",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "RD": {
+      "positive": {
+        "title": "Healthy Regime & Drift Robustness measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Regime & Drift Robustness",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Regime & Drift Robustness",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Regime & Drift Robustness",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Regime & Drift Robustness",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Regime & Drift Robustness from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Regime & Drift Robustness",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "RS": {
+      "positive": {
+        "title": "Healthy Robustness & Data Issues measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Robustness & Data Issues",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Robustness & Data Issues",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Robustness & Data Issues",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Robustness & Data Issues",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Robustness & Data Issues from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Robustness & Data Issues",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    },
+    "TV": {
+      "positive": {
+        "title": "Healthy Temporal Validation Integrity measurement",
+        "intent": "Measure {metric_name} on a well-behaved Time-Series run and expect HLA threshold {threshold_display}.",
+        "steps": [
+          "Pin the Time-Series product registry and golden/reference set",
+          "Obtain the run (Observe traces, or the execution engine submits the prompt — Agent 5 does not invoke)",
+          "Compute {metric_id} with formula {formula}",
+          "Compare to threshold {threshold_display} for pattern {execution_pattern}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "negative": {
+        "title": "Degraded Temporal Validation Integrity",
+        "intent": "Use a fixture whose run should fail {metric_id} against {threshold_display}.",
+        "steps": [
+          "Load the negative fixture for {metric_id}",
+          "Collect the designed observations",
+          "Score {metric_id} and expect it to violate {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "edge": {
+        "title": "Boundary Temporal Validation Integrity",
+        "intent": "Exercise {metric_id} at the HLA threshold boundary.",
+        "steps": [
+          "Use a fixture that sits on the threshold for {metric_id}",
+          "Score {metric_id}",
+          "Record whether the value sits on {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "adversarial": {
+        "title": "Adversarial probe of Temporal Validation Integrity",
+        "intent": "An adversarial input tries to break {metric_id} on a Time-Series product.",
+        "steps": [
+          "Submit the adversarial fixture only after separate approval",
+          "Collect the designed observations",
+          "Score {metric_id}"
+        ],
+        "dataset_kind": "benchmark",
+        "requires_separate_adversarial_approval": true
+      },
+      "security": {
+        "title": "Out-of-scope Temporal Validation Integrity",
+        "intent": "The product attempts an action outside the pinned policy or permission scope.",
+        "steps": [
+          "Pin the policy / permission set",
+          "Collect authorization and runtime evidence",
+          "Score {metric_id} against {threshold_display}"
+        ],
+        "dataset_kind": "golden"
+      },
+      "monitoring": {
+        "title": "Replay Temporal Validation Integrity from Observe traces",
+        "intent": "Score {metric_id} on existing traces without a new invocation.",
+        "steps": [
+          "Join spans for the pinned product window",
+          "Compute {metric_id}"
+        ],
+        "dataset_kind": "production-replay"
+      },
+      "regression": {
+        "title": "Regression window for Temporal Validation Integrity",
+        "intent": "Re-score {metric_id} on a frozen prior window and compare to the pinned threshold.",
+        "steps": [
+          "Load the pinned regression trace window",
+          "Compute {metric_id}",
+          "Apply {threshold_display}"
+        ],
+        "dataset_kind": "production-replay"
+      }
+    }
+  }
+}

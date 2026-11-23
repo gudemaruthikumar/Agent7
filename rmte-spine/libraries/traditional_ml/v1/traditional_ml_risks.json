@@ -1,0 +1,558 @@
+{
+  "library_id": "tlai-rmte-traditional_ml-risks",
+  "version": "v1",
+  "source": "TrustLensAI_TraditionalML_Logs_Layers_Formulas.xlsx — sheet 'Traditional ML RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "reconstruction": true,
+  "notes": {
+    "compliance": "TrustLensAI produces evidence; it does not certify compliance."
+  },
+  "risks": [
+    {
+      "risk_id": "ANOM-01",
+      "name": "Alert fatigue — excessive false positives overwhelm investigators",
+      "description": "Alert fatigue — excessive false positives overwhelm investigators",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Fairness"
+      ],
+      "cause": "Derived — Alert fatigue — excessive false positives overwhelm investigators arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Fairness; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ANOM-02",
+      "name": "Normal behavior baseline drift — what's \"normal\" changes over time",
+      "description": "Normal behavior baseline drift — what's \"normal\" changes over time",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Normal behavior baseline drift — what's \"normal\" changes over time arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Robustness (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ANOM-03",
+      "name": "Adversarial evasion — attackers stay within \"normal\" to avoid detection",
+      "description": "Adversarial evasion — attackers stay within \"normal\" to avoid detection",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Adversarial evasion — attackers stay within \"normal\" to avoid detectio arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Privacy; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CV-01",
+      "name": "Adversarial image attacks — pixel perturbation causes misclassification",
+      "description": "Adversarial image attacks — pixel perturbation causes misclassification",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Adversarial image attacks — pixel perturbation causes misclassificatio arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Privacy; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CV-02",
+      "name": "Environmental robustness failure — lighting, angle, weather degrade performance",
+      "description": "Environmental robustness failure — lighting, angle, weather degrade performance",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accuracy"
+      ],
+      "cause": "Derived — Environmental robustness failure — lighting, angle, weather degrade pe arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accuracy; Original HLA primary TA: Robustness (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CV-03",
+      "name": "Demographic bias in face/body recognition — race, gender, age accuracy gaps",
+      "description": "Demographic bias in face/body recognition — race, gender, age accuracy gaps",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Demographic bias in face/body recognition — race, gender, age accuracy arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Fairness (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "CV-05",
+      "name": "Biometric privacy — facial recognition and gait analysis PII exposure",
+      "description": "Biometric privacy — facial recognition and gait analysis PII exposure",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Biometric privacy — facial recognition and gait analysis PII exposure arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Privacy (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ML-01",
+      "name": "Model performance degradation below acceptable thresholds",
+      "description": "Model performance degradation below acceptable thresholds",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Model performance degradation below acceptable thresholds arising in Traditional ML execution",
+      "impact": "Derived — undetected defect reaches release",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (Traditional ML); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ML-02",
+      "name": "Data drift — input feature distribution shifts from training data",
+      "description": "Data drift — input feature distribution shifts from training data",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Data drift — input feature distribution shifts from training data arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (Traditional ML); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Robustness (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ML-03",
+      "name": "Concept drift — P(Y|X) relationship changes",
+      "description": "Concept drift — P(Y|X) relationship changes",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accuracy"
+      ],
+      "cause": "Derived — Concept drift — P(Y|X) relationship changes arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Traditional ML); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accuracy; Original HLA primary TA: Robustness (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ML-04",
+      "name": "Training label quality issues (noisy, biased, or incorrect labels)",
+      "description": "Training label quality issues (noisy, biased, or incorrect labels)",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Training label quality issues (noisy, biased, or incorrect labels) arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Traditional ML); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ML-05",
+      "name": "Feature leakage — information from future or target leaks into features",
+      "description": "Feature leakage — information from future or target leaks into features",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Feature leakage — information from future or target leaks into feature arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ML-06",
+      "name": "Class imbalance / representation bias in training data",
+      "description": "Class imbalance / representation bias in training data",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Fairness"
+      ],
+      "cause": "Derived — Class imbalance / representation bias in training data arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Traditional ML); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Fairness; Original HLA primary TA: Accuracy (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ML-07",
+      "name": "Proxy variable bias — features that encode protected attributes indirectly",
+      "description": "Proxy variable bias — features that encode protected attributes indirectly",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Accuracy",
+        "Accountability"
+      ],
+      "cause": "Derived — Proxy variable bias — features that encode protected attributes indire arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Traditional ML); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accuracy, Accountability; Original HLA primary TA: Fairness (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ML-08",
+      "name": "Adversarial input attacks — crafted inputs that cause misclassification",
+      "description": "Adversarial input attacks — crafted inputs that cause misclassification",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Adversarial input attacks — crafted inputs that cause misclassificatio arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Traditional ML); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ML-09",
+      "name": "Overfitting — model memorizes training data, poor generalization",
+      "description": "Overfitting — model memorizes training data, poor generalization",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Overfitting — model memorizes training data, poor generalization arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Traditional ML); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accuracy (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ML-10",
+      "name": "Pipeline failure — feature engineering, retraining, or serving pipeline breaks",
+      "description": "Pipeline failure — feature engineering, retraining, or serving pipeline breaks",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Pipeline failure — feature engineering, retraining, or serving pipelin arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (Traditional ML); Risk: Appendix A2 — Archetype Risk Registers",
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "NLP-01",
+      "name": "Linguistic bias — models perform worse on non-standard dialects/languages",
+      "description": "Linguistic bias — models perform worse on non-standard dialects/languages",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Linguistic bias — models perform worse on non-standard dialects/langua arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Fairness (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "NLP-02",
+      "name": "Adversarial text attacks — character substitution bypasses classifiers",
+      "description": "Adversarial text attacks — character substitution bypasses classifiers",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Adversarial text attacks — character substitution bypasses classifiers arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Privacy; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-01",
+      "name": "Filter bubble / echo chamber — recommendations reduce exposure diversity",
+      "description": "Filter bubble / echo chamber — recommendations reduce exposure diversity",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Filter bubble / echo chamber — recommendations reduce exposure diversi arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Robustness; Original HLA primary TA: Fairness (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-02",
+      "name": "Popularity bias — popular items recommended disproportionately",
+      "description": "Popularity bias — popular items recommended disproportionately",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Popularity bias — popular items recommended disproportionately arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Fairness (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-03",
+      "name": "Cold-start unfairness — new users/items receive poor quality",
+      "description": "Cold-start unfairness — new users/items receive poor quality",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Cold-start unfairness — new users/items receive poor quality arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Fairness (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-04",
+      "name": "Manipulation/gaming — fake interactions to boost recommendations",
+      "description": "Manipulation/gaming — fake interactions to boost recommendations",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy"
+      ],
+      "cause": "Derived — Manipulation/gaming — fake interactions to boost recommendations arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Privacy; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REG-01",
+      "name": "Temporal drift — time-series relationships degrade over time",
+      "description": "Temporal drift — time-series relationships degrade over time",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Temporal drift — time-series relationships degrade over time arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Robustness (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REG-02",
+      "name": "Forecast horizon degradation — accuracy drops exponentially with horizon",
+      "description": "Forecast horizon degradation — accuracy drops exponentially with horizon",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Forecast horizon degradation — accuracy drops exponentially with horiz arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REG-03",
+      "name": "Stationarity assumption violation",
+      "description": "Stationarity assumption violation",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Stationarity assumption violation arising in Traditional ML execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A2 — Archetype Risk Registers (Traditional ML)",
+      "notes": "Row from risk-register Key-Metrics leg (pattern-specific risk not in any metric risk-map); HLA secondary TA(s): Accountability; Original HLA primary TA: Robustness (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    }
+  ]
+}

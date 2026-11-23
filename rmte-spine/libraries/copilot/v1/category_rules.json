@@ -1,0 +1,81 @@
+{
+  "library_id": "agent5-copilot-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Enterprise Copilot RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "AP": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "CU": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "EP": [
+      "monitoring",
+      "regression"
+    ],
+    "LG": [
+      "monitoring",
+      "regression"
+    ],
+    "PD": [
+      "positive",
+      "negative",
+      "security"
+    ],
+    "RA": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "SC": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "SQ": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "UI": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "RA-01": [
+      "adversarial"
+    ],
+    "RA-02": [
+      "adversarial"
+    ],
+    "RA-03": [
+      "adversarial"
+    ],
+    "RA-04": [
+      "adversarial"
+    ],
+    "RA-05": [
+      "adversarial"
+    ]
+  }
+}

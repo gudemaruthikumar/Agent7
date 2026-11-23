@@ -1,0 +1,513 @@
+{
+  "library_id": "tlai-rmte-federated_learning-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_FederatedLearning_Logs_Layers_Formulas.xlsx — sheet 'Federated RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "cross_device_fl",
+    "cross_silo_fl",
+    "horizontal_fl",
+    "vertical_fl",
+    "federated_transfer_learning",
+    "personalized_fl",
+    "split_learning"
+  ],
+  "family_defaults": {
+    "GP": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CH": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CE": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "PV": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "BR": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "SH": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "PZ": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CF": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "EX": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "LG": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "OP": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    }
+  },
+  "metric_overrides": {
+    "GP-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "GP-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "GP-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "GP-04": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CH-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CH-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CH-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CH-04": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CE-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CE-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CE-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CE-04": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "PV-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "PV-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "PV-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "PV-04": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "PV-05": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "BR-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "BR-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "BR-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "BR-04": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "BR-05": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "SH-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "SH-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "SH-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "SH-04": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "PZ-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "PZ-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "PZ-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CF-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CF-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "CF-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "EX-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "EX-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "EX-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "LG-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "LG-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "LG-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "LG-04": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "LG-05": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "OP-01": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "OP-02": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "OP-03": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    },
+    "OP-04": {
+      "cross_device": "applies (scope to topology specifics)",
+      "cross_silo": "applies (scope to topology specifics)",
+      "horizontal": "applies (scope to topology specifics)",
+      "vertical": "applies (scope to topology specifics)",
+      "fed_transfer": "applies (scope to topology specifics)",
+      "personalized_fl": "applies (scope to topology specifics)",
+      "split_learning": "applies (scope to topology specifics)"
+    }
+  }
+}

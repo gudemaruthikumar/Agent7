@@ -1,0 +1,81 @@
+{
+  "library_id": "agent5-chat_assistant-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Chat Assistant RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "AD": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "CA": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "EO": [
+      "monitoring",
+      "regression"
+    ],
+    "FA": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "LC": [
+      "monitoring",
+      "regression"
+    ],
+    "PV": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "RF": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "RQ": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "SC": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "AD-01": [
+      "adversarial"
+    ],
+    "AD-02": [
+      "adversarial"
+    ],
+    "AD-03": [
+      "adversarial"
+    ],
+    "AD-04": [
+      "adversarial"
+    ],
+    "AD-05": [
+      "adversarial"
+    ]
+  }
+}

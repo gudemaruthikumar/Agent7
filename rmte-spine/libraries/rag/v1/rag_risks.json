@@ -1,0 +1,379 @@
+{
+  "library_id": "hla-a2-rag-risks",
+  "version": "v1",
+  "source": "TrustLensAI_RAG_Logs_Layers_Formulas.xlsx — sheet 'RAG RMTE (Master)'. Risks derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2).",
+  "reconstruction": true,
+  "notes": {
+    "compliance": "TrustLensAI produces evidence; it does not certify compliance.",
+    "derived_perspectives": "Business-perspective rows with Risk ID '(derived)' live on risk_metric_map.derived_perspectives."
+  },
+  "risks": [
+    {
+      "risk_id": "RAG-01",
+      "name": "Retrieval fails to surface the context needed to answer the query",
+      "description": "Retrieval fails to surface the context needed to answer the query",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability",
+        "Robustness",
+        "Accountability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness",
+        "Accountability"
+      ],
+      "cause": "Derived — Retrieval fails to surface the context needed to answer the query arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness, Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-02",
+      "name": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "description": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability",
+        "Transparency"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Generated answer contains claims not supported by or attributable to r arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "High (Derived)",
+      "priority": "P2",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-03",
+      "name": "Citations are fabricated, wrong, or do not resolve to the supporting span",
+      "description": "Citations are fabricated, wrong, or do not resolve to the supporting span",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability",
+        "Transparency"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Citations are fabricated, wrong, or do not resolve to the supporting s arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accuracy (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-04",
+      "name": "Sensitive or personal information is leaked through retrieved context or generated output",
+      "description": "Sensitive or personal information is leaked through retrieved context or generated output",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy",
+        "Robustness",
+        "Accountability"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [
+        "Robustness",
+        "Accountability"
+      ],
+      "cause": "Derived — Sensitive or personal information is leaked through retrieved context  arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness, Accountability; Original HLA primary TA: Privacy (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-05",
+      "name": "Context or data leaks across tenant / user isolation boundaries",
+      "description": "Context or data leaks across tenant / user isolation boundaries",
+      "category": "Deployment",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy",
+        "Robustness",
+        "Accountability"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [
+        "Robustness",
+        "Accountability"
+      ],
+      "cause": "Derived — Context or data leaks across tenant / user isolation boundaries arising in RAG execution",
+      "impact": "Derived — production runtime diverges from validated behaviour",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness, Accountability; Original HLA primary TA: Privacy (normalised to Privacy); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-06",
+      "name": "Corpus coverage gaps cause unanswerable queries or retrieval from out-of-scope content",
+      "description": "Corpus coverage gaps cause unanswerable queries or retrieval from out-of-scope content",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability",
+        "Robustness",
+        "Accountability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness",
+        "Accountability"
+      ],
+      "cause": "Derived — Corpus coverage gaps cause unanswerable queries or retrieval from out- arising in RAG execution",
+      "impact": "Derived — undetected defect reaches release",
+      "severity": "High (Derived)",
+      "priority": "P2",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness, Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-07",
+      "name": "Adversarial or malicious corpus/query content manipulates behaviour (prompt injection)",
+      "description": "Adversarial or malicious corpus/query content manipulates behaviour (prompt injection)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security",
+        "Privacy",
+        "Accountability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy",
+        "Accountability"
+      ],
+      "cause": "Derived — Adversarial or malicious corpus/query content manipulates behaviour (p arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy, Accountability; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-08",
+      "name": "Retrieval bias or low source diversity skews answers and enables manipulation",
+      "description": "Retrieval bias or low source diversity skews answers and enables manipulation",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency",
+        "Robustness"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Retrieval bias or low source diversity skews answers and enables manip arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accuracy (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-09",
+      "name": "System is not robust to jailbreak or adversarial prompting despite retrieval",
+      "description": "System is not robust to jailbreak or adversarial prompting despite retrieval",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security",
+        "Privacy",
+        "Accountability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Privacy",
+        "Accountability"
+      ],
+      "cause": "Derived — System is not robust to jailbreak or adversarial prompting despite ret arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy, Accountability; Original HLA primary TA: Robustness (normalised to Security); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-10",
+      "name": "Corpus governance gaps (orphaned, stale, unversioned content) undermine reproducibility and lineage",
+      "description": "Corpus governance gaps (orphaned, stale, unversioned content) undermine reproducibility and lineage",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability",
+        "Robustness",
+        "Accountability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness",
+        "Accountability"
+      ],
+      "cause": "Derived — Corpus governance gaps (orphaned, stale, unversioned content) undermin arising in RAG execution",
+      "impact": "Derived — undetected defect reaches release",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness, Accountability; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-11",
+      "name": "Stale cached or non-fresh knowledge is served as current",
+      "description": "Stale cached or non-fresh knowledge is served as current",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability",
+        "Accountability"
+      ],
+      "hla_primary_trust_attribute": "Robustness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Stale cached or non-fresh knowledge is served as current arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability; Original HLA primary TA: Robustness (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-12",
+      "name": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "description": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability",
+        "Robustness"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Inefficient context construction inflates cost/latency and wastes cont arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-13",
+      "name": "Incomplete answers due to poor chunking, low hit-rate, or unused context",
+      "description": "Incomplete answers due to poor chunking, low hit-rate, or unused context",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability",
+        "Robustness"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness"
+      ],
+      "cause": "Derived — Incomplete answers due to poor chunking, low hit-rate, or unused conte arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accuracy (normalised to Reliability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-14",
+      "name": "Contradictory or hallucinated content, especially damaging in regulated / high-risk domains",
+      "description": "Contradictory or hallucinated content, especially damaging in regulated / high-risk domains",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency",
+        "Robustness",
+        "Accountability"
+      ],
+      "hla_primary_trust_attribute": "Accuracy",
+      "secondary_trust_attributes": [
+        "Robustness",
+        "Accountability"
+      ],
+      "cause": "Derived — Contradictory or hallucinated content, especially damaging in regulate arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Critical (Derived)",
+      "priority": "P1",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness, Accountability; Original HLA primary TA: Accuracy (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "RAG-15",
+      "name": "Toxic, biased, or drifting outputs emerge over the corpus/model lifecycle",
+      "description": "Toxic, biased, or drifting outputs emerge over the corpus/model lifecycle",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety",
+        "Accountability"
+      ],
+      "hla_primary_trust_attribute": "Fairness",
+      "secondary_trust_attributes": [
+        "Accountability"
+      ],
+      "cause": "Derived — Toxic, biased, or drifting outputs emerge over the corpus/model lifecy arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "High (Derived)",
+      "priority": "P2",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Accountability; Original HLA primary TA: Fairness (normalised to Safety); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "ALL",
+      "name": "Lifecycle failure detected by Test Coverage (TEVV) (RAG)",
+      "description": "Lifecycle failure detected by Test Coverage (TEVV) (RAG)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Accountability",
+      "secondary_trust_attributes": [
+        "Transparency"
+      ],
+      "cause": "Derived — Lifecycle failure mode arising in RAG execution",
+      "impact": "Derived — degraded metric / failed assurance check",
+      "severity": "Medium (Derived)",
+      "priority": "P3",
+      "source_section": "Appendix A1 — Metric Library (RAG); Risk: derived from HLA A1 risk-map + A8 (RAG register not tabulated in A2)",
+      "notes": "Blank Risk ID on the RMTE master sheet for LC-03/LC-04/LC-05; encoded as ALL. Risk description derived from HLA A1 risk-map + A8; Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    }
+  ]
+}

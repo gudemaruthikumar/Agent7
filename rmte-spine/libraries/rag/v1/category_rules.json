@@ -1,0 +1,34 @@
+{
+  "library_id": "agent5-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI RAG RMTE test-suite routing (TS-RAG-01..08)",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs (step 2 on the architecture slide, 'Positive, Negative, Edge, etc.'); the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "CQ": ["positive", "negative", "edge"],
+    "RE": ["positive", "negative", "edge"],
+    "CS": ["positive", "negative", "edge"],
+    "AQ": ["positive", "negative", "edge"],
+    "GH": ["positive", "negative", "edge"],
+    "AE": ["positive", "negative", "edge"],
+    "RS": ["adversarial", "security", "negative"],
+    "EO": ["monitoring", "regression"],
+    "LC": ["monitoring", "regression"]
+  },
+  "mvp_extra": {
+    "RS-01": ["adversarial"],
+    "RS-02": ["adversarial"]
+  }
+}

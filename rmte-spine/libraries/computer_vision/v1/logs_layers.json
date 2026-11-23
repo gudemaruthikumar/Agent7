@@ -1,0 +1,269 @@
+{
+  "library_id": "tlai-rmte-computer_vision-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_ComputerVision_Logs_Layers_Formulas.xlsx — sheet 'Computer Vision RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Computer Vision pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Image / Video Capture & Ingestion",
+      "logs_telemetry": "Ingestion log",
+      "key_fields": "frames/images, camera/sensor model, resolution, timestamps, geo",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Environmental",
+        "Privacy"
+      ],
+      "notes": "Sensor metadata for ER-03"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Preprocessing / Augmentation",
+      "logs_telemetry": "Preprocessing log",
+      "key_fields": "resize/normalize, augmentation, denoise, condition tags",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Environmental"
+      ],
+      "notes": "Feeds ER-01/02/04"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Encoding / Feature Extraction",
+      "logs_telemetry": "Feature log",
+      "key_fields": "learned features/embeddings (refs), backbone version",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Performance"
+      ],
+      "notes": "Vector refs only; raw media in-perimeter"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Model / Inference",
+      "logs_telemetry": "Inference log",
+      "key_fields": "predictions (boxes/masks/labels), scores, per-condition/subgroup outputs",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Performance",
+        "Demographic Equity"
+      ],
+      "notes": "Core log for DP, DE families"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Postprocessing (NMS / thresholding)",
+      "logs_telemetry": "Postprocess log",
+      "key_fields": "NMS output, thresholds, final detections, FP/FN outcomes",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Performance",
+        "Safety"
+      ],
+      "notes": "Feeds DP-04/05, SC-01/02"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Calibration / Uncertainty",
+      "logs_telemetry": "Calibration log",
+      "key_fields": "confidence bins, ECE inputs, uncertainty estimates",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Performance",
+        "Explainability"
+      ],
+      "notes": "Feeds DP-03, ET-04"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Explainability / Saliency",
+      "logs_telemetry": "Explainability log",
+      "key_fields": "GradCAM/attention/saliency maps, deletion/insertion tests, concepts",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Explainability"
+      ],
+      "notes": "Feeds ET-01/02/03"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Robustness / Adversarial Defense",
+      "logs_telemetry": "Robustness log",
+      "key_fields": "OOD detection, digital/physical adversarial outcomes, certified radius",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Adversarial",
+        "Environmental"
+      ],
+      "notes": "Feeds AR-01/02/04, ER-05"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Presentation-Attack / Liveness",
+      "logs_telemetry": "PAD log",
+      "key_fields": "spoof/liveness verdicts (APCER/BPCER), presentation-attack detection",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Adversarial"
+      ],
+      "notes": "Feeds AR-03 (ISO 30107-3)"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Privacy & Biometric Handling",
+      "logs_telemetry": "Privacy log",
+      "key_fields": "biometric encryption, consent chain, PIA, retention, redaction",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PB-01..05 (consent zero-tolerance)"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Safety / ODD Validation",
+      "logs_telemetry": "Safety log",
+      "key_fields": "safety-critical miss/false-alarm, ODD coverage, ASIL/SIL validation",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Safety"
+      ],
+      "notes": "Feeds SC-01..04 (ISO 26262)"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Serving & Edge Deployment",
+      "logs_telemetry": "Serving telemetry",
+      "key_fields": "latency (p50/95/99), fps throughput, post-compression accuracy, OTA updates",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Operational"
+      ],
+      "notes": "Feeds OP-01..04"
+    },
+    {
+      "index": 13,
+      "architecture": "AI Product (Computer Vision)",
+      "layer": "Monitoring & Lifecycle",
+      "logs_telemetry": "Monitoring telemetry",
+      "key_fields": "drift, model registry, annotation IAA, incidents, post-market surveillance",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Feeds LR-01..05 (continuous)"
+    },
+    {
+      "index": 14,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered CV models, camera/sensor connectors, tenancy, model registry & provenance",
+      "ingested_by": "Anchors identity, model registry & tenancy for all logs",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Model registry origin (LR-01)"
+    },
+    {
+      "index": 15,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized CV spans/events, image redaction, event-bus refs",
+      "ingested_by": "Consumes all CV product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Raw imagery redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed inference traces, dependency views, time-series (drift)",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator outputs, task metrics, calibration, robustness, saliency scores",
+      "ingested_by": "Consumes inference/postprocess/robustness logs + gold sets",
+      "related_metric_families": [
+        "Performance",
+        "Adversarial",
+        "Explainability"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, gold annotations & benchmarks, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the CV RMTE metric corpus"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "safety (ISO 26262), privacy/consent, fairness decisions, risk register, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Safety",
+        "Privacy",
+        "Demographic Equity"
+      ],
+      "notes": "Gates 0–4; safety-critical controls"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 21,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

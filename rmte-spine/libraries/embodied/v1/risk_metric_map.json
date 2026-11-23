@@ -1,0 +1,638 @@
+{
+  "library_id": "tlai-rmte-embodied-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_Embodied_Logs_Layers_Formulas.xlsx — sheet 'Embodied RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "EMB-01",
+      "metric_ids": [
+        "PC-02"
+      ]
+    },
+    {
+      "risk_id": "EMB-02",
+      "metric_ids": [
+        "PC-01",
+        "PC-03",
+        "RS-02"
+      ]
+    },
+    {
+      "risk_id": "EMB-03",
+      "metric_ids": [
+        "PC-04"
+      ]
+    },
+    {
+      "risk_id": "EMB-04",
+      "metric_ids": [
+        "PL-01"
+      ]
+    },
+    {
+      "risk_id": "EMB-05",
+      "metric_ids": [
+        "PL-02"
+      ]
+    },
+    {
+      "risk_id": "EMB-06",
+      "metric_ids": [
+        "CT-01",
+        "CT-02",
+        "PL-03"
+      ]
+    },
+    {
+      "risk_id": "EMB-07",
+      "metric_ids": [
+        "FS-01",
+        "FS-03",
+        "FS-05"
+      ]
+    },
+    {
+      "risk_id": "EMB-08",
+      "metric_ids": [
+        "FS-02"
+      ]
+    },
+    {
+      "risk_id": "EMB-09",
+      "metric_ids": [
+        "FS-04",
+        "OP-02"
+      ]
+    },
+    {
+      "risk_id": "EMB-10",
+      "metric_ids": [
+        "CA-01",
+        "CA-02",
+        "CA-03"
+      ]
+    },
+    {
+      "risk_id": "EMB-11",
+      "metric_ids": [
+        "HR-01",
+        "HR-02",
+        "HR-03"
+      ]
+    },
+    {
+      "risk_id": "EMB-12",
+      "metric_ids": [
+        "HO-01",
+        "HO-02",
+        "HO-03"
+      ]
+    },
+    {
+      "risk_id": "EMB-13",
+      "metric_ids": [
+        "OD-01",
+        "OD-02"
+      ]
+    },
+    {
+      "risk_id": "EMB-14",
+      "metric_ids": [
+        "RS-01"
+      ]
+    },
+    {
+      "risk_id": "EMB-15",
+      "metric_ids": [
+        "PV-03",
+        "RS-03"
+      ]
+    },
+    {
+      "risk_id": "EMB-16",
+      "metric_ids": [
+        "OP-01",
+        "SR-01"
+      ]
+    },
+    {
+      "risk_id": "EMB-17",
+      "metric_ids": [
+        "LG-03",
+        "SR-02",
+        "SR-03"
+      ]
+    },
+    {
+      "risk_id": "EMB-18",
+      "metric_ids": [
+        "EX-01",
+        "EX-02",
+        "LG-04"
+      ]
+    },
+    {
+      "risk_id": "EMB-19",
+      "metric_ids": [
+        "PV-01",
+        "PV-02"
+      ]
+    },
+    {
+      "risk_id": "EMB-20",
+      "metric_ids": [
+        "EX-03",
+        "LG-01",
+        "LG-02",
+        "LG-05"
+      ]
+    }
+  ],
+  "derived_perspectives": [],
+  "rmte_links": [
+    {
+      "metric_id": "PC-01",
+      "risk_id": "EMB-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Sensor-fusion inconsistency yields a wrong world model",
+      "test_suite_id": "TS-EMB-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PC-02",
+      "risk_id": "EMB-01",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Perception fails to detect a safety-critical object (pedestrian / obstacle / human)",
+      "test_suite_id": "TS-EMB-01",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PC-03",
+      "risk_id": "EMB-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Sensor-fusion inconsistency yields a wrong world model",
+      "test_suite_id": "TS-EMB-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PC-04",
+      "risk_id": "EMB-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Localization / pose error causes mispositioning",
+      "test_suite_id": "TS-EMB-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PL-01",
+      "risk_id": "EMB-04",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Motion plan is invalid / infeasible / collision-prone",
+      "test_suite_id": "TS-EMB-02",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PL-02",
+      "risk_id": "EMB-05",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Safety envelope / constraint violated (speed, zone, force)",
+      "test_suite_id": "TS-EMB-02",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PL-03",
+      "risk_id": "EMB-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Control-loop deadline miss / instability causes unsafe motion",
+      "test_suite_id": "TS-EMB-02",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CT-01",
+      "risk_id": "EMB-06",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Control-loop deadline miss / instability causes unsafe motion",
+      "test_suite_id": "TS-EMB-03",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CT-02",
+      "risk_id": "EMB-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Control-loop deadline miss / instability causes unsafe motion",
+      "test_suite_id": "TS-EMB-03",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FS-01",
+      "risk_id": "EMB-07",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "System fails to reach a safe state on fault (no fail-operational behaviour)",
+      "test_suite_id": "TS-EMB-04",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FS-02",
+      "risk_id": "EMB-08",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Emergency stop ineffective or too slow",
+      "test_suite_id": "TS-EMB-04",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FS-03",
+      "risk_id": "EMB-07",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "System fails to reach a safe state on fault (no fail-operational behaviour)",
+      "test_suite_id": "TS-EMB-04",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "FS-04",
+      "risk_id": "EMB-09",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Insufficient diagnostic coverage; latent faults undetected",
+      "test_suite_id": "TS-EMB-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FS-05",
+      "risk_id": "EMB-07",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "System fails to reach a safe state on fault (no fail-operational behaviour)",
+      "test_suite_id": "TS-EMB-04",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-01",
+      "risk_id": "EMB-10",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Collision with objects, environment, or humans",
+      "test_suite_id": "TS-EMB-05",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-02",
+      "risk_id": "EMB-10",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Collision with objects, environment, or humans",
+      "test_suite_id": "TS-EMB-05",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "CA-03",
+      "risk_id": "EMB-10",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Collision with objects, environment, or humans",
+      "test_suite_id": "TS-EMB-05",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "HR-01",
+      "risk_id": "EMB-11",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Unsafe human-robot interaction (speed / separation / force breach)",
+      "test_suite_id": "TS-EMB-06",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "HR-02",
+      "risk_id": "EMB-11",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Unsafe human-robot interaction (speed / separation / force breach)",
+      "test_suite_id": "TS-EMB-06",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "HR-03",
+      "risk_id": "EMB-11",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Unsafe human-robot interaction (speed / separation / force breach)",
+      "test_suite_id": "TS-EMB-06",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "HO-01",
+      "risk_id": "EMB-12",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Human unable to override / take over control in time",
+      "test_suite_id": "TS-EMB-07",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "HO-02",
+      "risk_id": "EMB-12",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Human unable to override / take over control in time",
+      "test_suite_id": "TS-EMB-07",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "HO-03",
+      "risk_id": "EMB-12",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Human unable to override / take over control in time",
+      "test_suite_id": "TS-EMB-07",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "OD-01",
+      "risk_id": "EMB-13",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Operation outside validated ODD; boundary not detected",
+      "test_suite_id": "TS-EMB-08",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "OD-02",
+      "risk_id": "EMB-13",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Operation outside validated ODD; boundary not detected",
+      "test_suite_id": "TS-EMB-08",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RS-01",
+      "risk_id": "EMB-14",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Sensor spoofing / adversarial attack causes misperception",
+      "test_suite_id": "TS-EMB-09",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RS-02",
+      "risk_id": "EMB-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Sensor-fusion inconsistency yields a wrong world model",
+      "test_suite_id": "TS-EMB-09",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RS-03",
+      "risk_id": "EMB-15",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Cyber-physical attack hijacks communications or actuators",
+      "test_suite_id": "TS-EMB-09",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SR-01",
+      "risk_id": "EMB-16",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Sim-to-real gap: validated behaviour fails in the field",
+      "test_suite_id": "TS-EMB-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SR-02",
+      "risk_id": "EMB-17",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Delivery",
+      "risk": "Insufficient safety-scenario coverage / verification",
+      "test_suite_id": "TS-EMB-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SR-03",
+      "risk_id": "EMB-17",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Insufficient safety-scenario coverage / verification",
+      "test_suite_id": "TS-EMB-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EX-01",
+      "risk_id": "EMB-18",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Incident not reconstructable (missing black-box evidence)",
+      "test_suite_id": "TS-EMB-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EX-02",
+      "risk_id": "EMB-18",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Incident not reconstructable (missing black-box evidence)",
+      "test_suite_id": "TS-EMB-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EX-03",
+      "risk_id": "EMB-20",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned firmware/models, unsafe OTA, no rollback, standards non-compliance",
+      "test_suite_id": "TS-EMB-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-01",
+      "risk_id": "EMB-19",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Bystander privacy captured; sensor data over-retained",
+      "test_suite_id": "TS-EMB-12",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PV-02",
+      "risk_id": "EMB-19",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Bystander privacy captured; sensor data over-retained",
+      "test_suite_id": "TS-EMB-12",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PV-03",
+      "risk_id": "EMB-15",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Cyber-physical attack hijacks communications or actuators",
+      "test_suite_id": "TS-EMB-12",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OP-01",
+      "risk_id": "EMB-16",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Sim-to-real gap: validated behaviour fails in the field",
+      "test_suite_id": "TS-EMB-13",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "OP-02",
+      "risk_id": "EMB-09",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Insufficient diagnostic coverage; latent faults undetected",
+      "test_suite_id": "TS-EMB-13",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-01",
+      "risk_id": "EMB-20",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned firmware/models, unsafe OTA, no rollback, standards non-compliance",
+      "test_suite_id": "TS-EMB-14",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": "EMB-20",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned firmware/models, unsafe OTA, no rollback, standards non-compliance",
+      "test_suite_id": "TS-EMB-14",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-03",
+      "risk_id": "EMB-17",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Insufficient safety-scenario coverage / verification",
+      "test_suite_id": "TS-EMB-14",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "EMB-18",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Incident not reconstructable (missing black-box evidence)",
+      "test_suite_id": "TS-EMB-14",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-05",
+      "risk_id": "EMB-20",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned firmware/models, unsafe OTA, no rollback, standards non-compliance",
+      "test_suite_id": "TS-EMB-14",
+      "severity": "High",
+      "priority": "P2"
+    }
+  ]
+}

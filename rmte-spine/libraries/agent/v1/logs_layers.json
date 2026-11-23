@@ -1,0 +1,280 @@
+{
+  "library_id": "trustlensai-agentic-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_Agentic_Logs_Layers_Formulas.xlsx — sheet 'Logs ↔ Architecture Layers'",
+  "notes": "Each agent pipeline stage emits telemetry; TrustLensAI platform layers (L0–L9) ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Input / Goal Interpretation",
+      "logs_telemetry": "Goal log",
+      "key_fields": "user request, parsed goal, constraints, success criteria",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Goal Achievement"
+      ],
+      "notes": "Anchors goal-alignment (GT-02)"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Planning & Task Decomposition",
+      "logs_telemetry": "Planning log",
+      "key_fields": "plan steps, decomposition, re-plans, decision rationale",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Planning Quality"
+      ],
+      "notes": "Feeds PD-01/04/05"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Memory & Context",
+      "logs_telemetry": "Memory log",
+      "key_fields": "memory reads/writes, integrity checks, isolation, validation",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Adversarial"
+      ],
+      "notes": "Feeds RA-04 memory integrity"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Tool Registry / Discovery",
+      "logs_telemetry": "Tool-registry log",
+      "key_fields": "available tools, permission scopes, schemas, versions",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Authorization",
+        "Planning Quality"
+      ],
+      "notes": "Permission source-of-record"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Tool Selection",
+      "logs_telemetry": "Tool-selection log",
+      "key_fields": "chosen tool, alternatives, selection rationale, parameters",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Planning Quality"
+      ],
+      "notes": "Feeds PD-02/03"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Tool Execution",
+      "logs_telemetry": "Tool-call trace",
+      "key_fields": "invocation, arguments, output, retries, success/failure, idempotency",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Tool Execution"
+      ],
+      "notes": "Core log for TE-01..05"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Orchestration & Loop Control",
+      "logs_telemetry": "Orchestration log",
+      "key_fields": "step sequence, loop counts, circuit-breaker, budget",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Goal Achievement",
+        "Efficiency"
+      ],
+      "notes": "Runaway-loop control (TE-03, RC-03)"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Authorization / Policy Enforcement",
+      "logs_telemetry": "Authorization log",
+      "key_fields": "permission checks, scope, privilege, data-egress decisions",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Authorization"
+      ],
+      "notes": "Feeds AP-01..04 (zero-tolerance)"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Human-in-the-Loop / Approval",
+      "logs_telemetry": "Approval log",
+      "key_fields": "approval requests, provided context, human decision, bypass events",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Human Oversight"
+      ],
+      "notes": "Feeds HO-01..04, AP-02"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Reasoning / Decision Trace",
+      "logs_telemetry": "Reasoning trace",
+      "key_fields": "decision rationale (where permitted), evidence links, justifications",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability",
+      "related_metric_families": [
+        "Traceability"
+      ],
+      "notes": "Feeds TO-01..05, PD-04"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Multi-Agent Coordination",
+      "logs_telemetry": "Coordination log",
+      "key_fields": "agent-to-agent messages, delegation, shared/isolated memory",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Adversarial",
+        "Traceability"
+      ],
+      "notes": "Delegation & isolation evidence"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Output Synthesis",
+      "logs_telemetry": "Output log",
+      "key_fields": "final result, goal-alignment, rubric quality, side effects",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance (AAJ)",
+      "related_metric_families": [
+        "Goal Achievement"
+      ],
+      "notes": "Feeds GT-01..04"
+    },
+    {
+      "index": 13,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Guardrails / Safety",
+      "logs_telemetry": "Guardrail log",
+      "key_fields": "injection verdict, tool-output validation, side-effect, containment",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Adversarial"
+      ],
+      "notes": "Feeds RA-01..05, TE-05"
+    },
+    {
+      "index": 14,
+      "architecture": "AI Product (Agentic)",
+      "layer": "Serving & Monitoring",
+      "logs_telemetry": "Serving / monitoring telemetry",
+      "key_fields": "latency, cost, tool-call budget, drift, incidents, log-completeness",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Efficiency",
+        "Lifecycle"
+      ],
+      "notes": "Feeds RC-01..04, LC-01..05"
+    },
+    {
+      "index": 15,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered agent product, tool connectors, tenancy, permission registry",
+      "ingested_by": "Anchors identity, tool permissions & tenancy for all logs",
+      "related_metric_families": [
+        "Authorization"
+      ],
+      "notes": "Tool-permission registry origin"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized agent spans/events, redaction applied, event-bus refs",
+      "ingested_by": "Consumes all agent product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Raw content redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed session traces, dependency views, time-series",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Traceability",
+        "Lifecycle"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator/judge outputs, goal-alignment, plan scoring, metric scores",
+      "ingested_by": "Consumes plan/tool/output logs + golden tasks",
+      "related_metric_families": [
+        "Planning Quality",
+        "Goal Achievement"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, golden tasks, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the Agentic RMTE metric corpus"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "authorization & approval decisions, risk register, gate status, scorecards",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Authorization",
+        "Human Oversight",
+        "Adversarial"
+      ],
+      "notes": "Gates 0–4; zero-tolerance controls"
+    },
+    {
+      "index": 21,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 22,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

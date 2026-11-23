@@ -1,0 +1,662 @@
+{
+  "library_id": "tlai-rmte-time_series-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_TimeSeries_Logs_Layers_Formulas.xlsx — sheet 'Time-Series RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "TSF-01",
+      "metric_ids": [
+        "FA-01",
+        "FA-02",
+        "FA-03",
+        "FA-04",
+        "TV-04"
+      ]
+    },
+    {
+      "risk_id": "TSF-02",
+      "metric_ids": [
+        "PU-01",
+        "PU-02",
+        "PU-03",
+        "PU-04"
+      ]
+    },
+    {
+      "risk_id": "TSF-03",
+      "metric_ids": [
+        "DQ-04",
+        "TV-02"
+      ]
+    },
+    {
+      "risk_id": "TSF-04",
+      "metric_ids": [
+        "LG-02",
+        "TV-05"
+      ]
+    },
+    {
+      "risk_id": "TSF-05",
+      "metric_ids": [
+        "TV-01",
+        "TV-03",
+        "TV-04"
+      ]
+    },
+    {
+      "risk_id": "TSF-06",
+      "metric_ids": [
+        "AD-01",
+        "AD-02"
+      ]
+    },
+    {
+      "risk_id": "TSF-07",
+      "metric_ids": [
+        "AD-04"
+      ]
+    },
+    {
+      "risk_id": "TSF-08",
+      "metric_ids": [
+        "AD-03"
+      ]
+    },
+    {
+      "risk_id": "TSF-09",
+      "metric_ids": [
+        "RD-01"
+      ]
+    },
+    {
+      "risk_id": "TSF-10",
+      "metric_ids": [
+        "RD-02",
+        "RD-03"
+      ]
+    },
+    {
+      "risk_id": "TSF-11",
+      "metric_ids": [
+        "RS-01",
+        "RS-02"
+      ]
+    },
+    {
+      "risk_id": "TSF-12",
+      "metric_ids": [
+        "RS-03"
+      ]
+    },
+    {
+      "risk_id": "TSF-13",
+      "metric_ids": [
+        "FE-01",
+        "FE-02"
+      ]
+    },
+    {
+      "risk_id": "TSF-14",
+      "metric_ids": [
+        "FE-03"
+      ]
+    },
+    {
+      "risk_id": "TSF-15",
+      "metric_ids": [
+        "EX-01",
+        "EX-02",
+        "EX-03"
+      ]
+    },
+    {
+      "risk_id": "TSF-16",
+      "metric_ids": [
+        "PV-01",
+        "PV-02",
+        "PV-03"
+      ]
+    },
+    {
+      "risk_id": "TSF-17",
+      "metric_ids": [
+        "DQ-01"
+      ]
+    },
+    {
+      "risk_id": "TSF-18",
+      "metric_ids": [
+        "DQ-02"
+      ]
+    },
+    {
+      "risk_id": "TSF-19",
+      "metric_ids": [
+        "DQ-03",
+        "EX-04",
+        "LG-01",
+        "LG-02",
+        "LG-03",
+        "LG-04",
+        "OP-02"
+      ]
+    },
+    {
+      "risk_id": "TSF-20",
+      "metric_ids": [
+        "OP-01",
+        "OP-03"
+      ]
+    }
+  ],
+  "derived_perspectives": [],
+  "rmte_links": [
+    {
+      "metric_id": "FA-01",
+      "risk_id": "TSF-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Forecasts inaccurate / exceed acceptable error for the decision they inform",
+      "test_suite_id": "TS-TSF-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FA-02",
+      "risk_id": "TSF-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Forecasts inaccurate / exceed acceptable error for the decision they inform",
+      "test_suite_id": "TS-TSF-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FA-03",
+      "risk_id": "TSF-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Forecasts inaccurate / exceed acceptable error for the decision they inform",
+      "test_suite_id": "TS-TSF-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FA-04",
+      "risk_id": "TSF-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Forecasts inaccurate / exceed acceptable error for the decision they inform",
+      "test_suite_id": "TS-TSF-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PU-01",
+      "risk_id": "TSF-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Prediction intervals miscalibrated (over- or under-confident)",
+      "test_suite_id": "TS-TSF-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PU-02",
+      "risk_id": "TSF-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Prediction intervals miscalibrated (over- or under-confident)",
+      "test_suite_id": "TS-TSF-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PU-03",
+      "risk_id": "TSF-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Prediction intervals miscalibrated (over- or under-confident)",
+      "test_suite_id": "TS-TSF-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PU-04",
+      "risk_id": "TSF-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Prediction intervals miscalibrated (over- or under-confident)",
+      "test_suite_id": "TS-TSF-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "TV-01",
+      "risk_id": "TSF-05",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Improper temporal validation (random split, no embargo) yields invalid evaluation",
+      "test_suite_id": "TS-TSF-03",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "TV-02",
+      "risk_id": "TSF-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Look-ahead bias / data leakage inflates backtest performance",
+      "test_suite_id": "TS-TSF-03",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TV-03",
+      "risk_id": "TSF-05",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Improper temporal validation (random split, no embargo) yields invalid evaluation",
+      "test_suite_id": "TS-TSF-03",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "TV-04",
+      "risk_id": "TSF-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Forecasts inaccurate / exceed acceptable error for the decision they inform",
+      "test_suite_id": "TS-TSF-03",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "TV-04",
+      "risk_id": "TSF-05",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Improper temporal validation (random split, no embargo) yields invalid evaluation",
+      "test_suite_id": "TS-TSF-03",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "TV-05",
+      "risk_id": "TSF-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Backtest performance not reproduced in production (backtest-live gap)",
+      "test_suite_id": "TS-TSF-03",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "AD-01",
+      "risk_id": "TSF-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Anomaly detector misses critical events (false negatives)",
+      "test_suite_id": "TS-TSF-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "AD-02",
+      "risk_id": "TSF-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Anomaly detector misses critical events (false negatives)",
+      "test_suite_id": "TS-TSF-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "AD-03",
+      "risk_id": "TSF-08",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Missed safety-critical anomaly causes physical / operational / financial harm",
+      "test_suite_id": "TS-TSF-04",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AD-04",
+      "risk_id": "TSF-07",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Excessive false alarms cause alert fatigue / desensitization",
+      "test_suite_id": "TS-TSF-04",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RD-01",
+      "risk_id": "TSF-09",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Model fails to adapt to regime change / structural break",
+      "test_suite_id": "TS-TSF-05",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RD-02",
+      "risk_id": "TSF-10",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Concept drift / non-stationarity degrades performance silently",
+      "test_suite_id": "TS-TSF-05",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RD-03",
+      "risk_id": "TSF-10",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Concept drift / non-stationarity degrades performance silently",
+      "test_suite_id": "TS-TSF-05",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RS-01",
+      "risk_id": "TSF-11",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Missing data, outliers, or noise degrade forecasts / detection",
+      "test_suite_id": "TS-TSF-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RS-02",
+      "risk_id": "TSF-11",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Missing data, outliers, or noise degrade forecasts / detection",
+      "test_suite_id": "TS-TSF-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RS-03",
+      "risk_id": "TSF-12",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial manipulation of time-series inputs evades detection or biases forecasts",
+      "test_suite_id": "TS-TSF-06",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FE-01",
+      "risk_id": "TSF-13",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Forecast accuracy or anomaly flagging is disparate across segments / groups",
+      "test_suite_id": "TS-TSF-07",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FE-02",
+      "risk_id": "TSF-13",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Forecast accuracy or anomaly flagging is disparate across segments / groups",
+      "test_suite_id": "TS-TSF-07",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FE-03",
+      "risk_id": "TSF-14",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Forecast-driven allocation / decisions create inequitable downstream impact",
+      "test_suite_id": "TS-TSF-07",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EX-01",
+      "risk_id": "TSF-15",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Forecasts / anomalies are unexplainable to operators and auditors",
+      "test_suite_id": "TS-TSF-08",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EX-02",
+      "risk_id": "TSF-15",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Forecasts / anomalies are unexplainable to operators and auditors",
+      "test_suite_id": "TS-TSF-08",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EX-03",
+      "risk_id": "TSF-15",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Forecasts / anomalies are unexplainable to operators and auditors",
+      "test_suite_id": "TS-TSF-08",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EX-04",
+      "risk_id": "TSF-19",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing model-risk documentation",
+      "test_suite_id": "TS-TSF-08",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "DQ-01",
+      "risk_id": "TSF-17",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Time-series data quality issues (gaps, duplicate / irregular timestamps) undermine results",
+      "test_suite_id": "TS-TSF-09",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "DQ-02",
+      "risk_id": "TSF-18",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Stale / delayed data makes forecasts / detection unfit for real-time use",
+      "test_suite_id": "TS-TSF-09",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "DQ-03",
+      "risk_id": "TSF-19",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing model-risk documentation",
+      "test_suite_id": "TS-TSF-09",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "DQ-04",
+      "risk_id": "TSF-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Look-ahead bias / data leakage inflates backtest performance",
+      "test_suite_id": "TS-TSF-09",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PV-01",
+      "risk_id": "TSF-16",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Series-level PII / sensitive patterns exposed or re-identifiable",
+      "test_suite_id": "TS-TSF-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-02",
+      "risk_id": "TSF-16",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Series-level PII / sensitive patterns exposed or re-identifiable",
+      "test_suite_id": "TS-TSF-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-03",
+      "risk_id": "TSF-16",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Series-level PII / sensitive patterns exposed or re-identifiable",
+      "test_suite_id": "TS-TSF-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "OP-01",
+      "risk_id": "TSF-20",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Serving latency / scale failure prevents timely forecasts / alerts",
+      "test_suite_id": "TS-TSF-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "OP-02",
+      "risk_id": "TSF-19",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing model-risk documentation",
+      "test_suite_id": "TS-TSF-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "OP-03",
+      "risk_id": "TSF-20",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Serving latency / scale failure prevents timely forecasts / alerts",
+      "test_suite_id": "TS-TSF-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-01",
+      "risk_id": "TSF-19",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing model-risk documentation",
+      "test_suite_id": "TS-TSF-12",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": "TSF-04",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Backtest performance not reproduced in production (backtest-live gap)",
+      "test_suite_id": "TS-TSF-12",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": "TSF-19",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing model-risk documentation",
+      "test_suite_id": "TS-TSF-12",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-03",
+      "risk_id": "TSF-19",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing model-risk documentation",
+      "test_suite_id": "TS-TSF-12",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "TSF-19",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing model-risk documentation",
+      "test_suite_id": "TS-TSF-12",
+      "severity": "High",
+      "priority": "P2"
+    }
+  ]
+}

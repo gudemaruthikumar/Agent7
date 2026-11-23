@@ -1,0 +1,277 @@
+{
+  "library_id": "trustlensai-rag-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_RAG_Logs_Layers_Formulas.xlsx — sheet 'Logs ↔ Architecture Layers'",
+  "notes": "Each RAG pipeline stage emits telemetry; TrustLensAI platform layers (L0–L9) ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (RAG)",
+      "layer": "Data Ingestion",
+      "logs_telemetry": "Ingestion log",
+      "key_fields": "source document IDs, connector, tenant, ingest timestamps, doc versions",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Corpus Quality"
+      ],
+      "notes": "Provenance & lineage of source content"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (RAG)",
+      "layer": "Preprocessing & Chunking",
+      "logs_telemetry": "Chunking log",
+      "key_fields": "chunk IDs, chunk sizes, overlap, parent-doc mapping",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Corpus Quality"
+      ],
+      "notes": "Feeds CQ-01/02/03"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (RAG)",
+      "layer": "Embedding",
+      "logs_telemetry": "Embedding log",
+      "key_fields": "embedding vectors (refs), embedder model & version",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Corpus Quality",
+        "Retrieval Effectiveness"
+      ],
+      "notes": "Vector refs only; raw content stays in-perimeter"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (RAG)",
+      "layer": "Vector Index / Knowledge Store",
+      "logs_telemetry": "Index log",
+      "key_fields": "index config, shard, coverage, orphan stats",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Corpus Quality"
+      ],
+      "notes": "Feeds CQ-03 orphan rate"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (RAG)",
+      "layer": "Query Understanding",
+      "logs_telemetry": "Query log",
+      "key_fields": "raw query, transformed/expanded query, query embedding ref",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Retrieval Effectiveness"
+      ],
+      "notes": "Query transformation trail"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (RAG)",
+      "layer": "Retrieval",
+      "logs_telemetry": "Retrieval & ranking log",
+      "key_fields": "retrieved chunk IDs, retrieval scores, top-k, rank order",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Retrieval Effectiveness"
+      ],
+      "notes": "Core log for RE-01..07"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (RAG)",
+      "layer": "Reranking",
+      "logs_telemetry": "Reranker log",
+      "key_fields": "reranked order, reranker scores, model version",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Retrieval Effectiveness",
+        "Context Selection"
+      ],
+      "notes": "Post-retrieval ordering"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (RAG)",
+      "layer": "Context Assembly",
+      "logs_telemetry": "Context log",
+      "key_fields": "selected context, utilization, redundancy, novelty vs cache",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Context Selection"
+      ],
+      "notes": "Feeds CS-01..05"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (RAG)",
+      "layer": "Prompt Orchestration",
+      "logs_telemetry": "Prompt log",
+      "key_fields": "prompt, system-prompt version, template, assembled context ref",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Answer Quality",
+        "Groundedness"
+      ],
+      "notes": "Prompt/version governance"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (RAG)",
+      "layer": "Generation (LLM)",
+      "logs_telemetry": "Generation log",
+      "key_fields": "prompt, context, response, extracted claims, tokens, model version",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance (AAJ)",
+      "related_metric_families": [
+        "Answer Quality",
+        "Groundedness"
+      ],
+      "notes": "Core log for AQ & GH families"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (RAG)",
+      "layer": "Citation / Post-processing",
+      "logs_telemetry": "Citation log",
+      "key_fields": "citations, resolved source spans, citation-to-span match",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Attribution"
+      ],
+      "notes": "Feeds AE-01..04"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (RAG)",
+      "layer": "Guardrails / Safety",
+      "logs_telemetry": "Guardrail log",
+      "key_fields": "policy decision, safety-classifier output, PII-detector output, injection verdict",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Robustness & Safety"
+      ],
+      "notes": "PII/toxicity/injection evidence; in-perimeter"
+    },
+    {
+      "index": 13,
+      "architecture": "AI Product (RAG)",
+      "layer": "Serving & Infrastructure",
+      "logs_telemetry": "Serving telemetry",
+      "key_fields": "latency, tokens, cost, throughput, cache hits",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Efficiency & Ops"
+      ],
+      "notes": "Feeds EO-01..05"
+    },
+    {
+      "index": 14,
+      "architecture": "AI Product (RAG)",
+      "layer": "Monitoring & Lifecycle",
+      "logs_telemetry": "Monitoring telemetry",
+      "key_fields": "metric snapshots, drift, incidents, versions, log-completeness",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Feeds LC-01..05 (continuous)"
+    },
+    {
+      "index": 15,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered product, connector, tenancy, asset registry",
+      "ingested_by": "Consumes onboarding config; anchors identity for all logs",
+      "related_metric_families": [],
+      "notes": "Endpoint discovery per onboarding wizard"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized spans/events, redaction applied, event bus refs",
+      "ingested_by": "Consumes all product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Raw content redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed traces, dependency & activity views, time-series",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator/judge outputs, claim-support, metric scores, eval traces",
+      "ingested_by": "Consumes generation/retrieval/citation logs + gold datasets",
+      "related_metric_families": [
+        "Groundedness",
+        "Answer Quality",
+        "Attribution"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, gold datasets, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the RMTE metric corpus"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "policy & authorization decisions, risk register, gate status, scorecards",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Robustness & Safety",
+        "Lifecycle"
+      ],
+      "notes": "Gates 0–4"
+    },
+    {
+      "index": 21,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 22,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

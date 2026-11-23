@@ -1,0 +1,391 @@
+{
+  "library_id": "tlai-rmte-federated_learning-risks",
+  "version": "v1",
+  "source": "TrustLensAI_FederatedLearning_Logs_Layers_Formulas.xlsx — sheet 'Federated RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "reconstruction": true,
+  "notes": {
+    "compliance": "TrustLensAI produces evidence; it does not certify compliance."
+  },
+  "risks": [
+    {
+      "risk_id": "FED-01",
+      "name": "Global model underperforms centralized baseline / fails to converge",
+      "description": "Global model underperforms centralized baseline / fails to converge",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Global model underperforms centralized baseline / fails to converge arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-02",
+      "name": "Non-IID client data degrades or destabilizes the global model",
+      "description": "Non-IID client data degrades or destabilizes the global model",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Non-IID client data degrades or destabilizes the global model arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-03",
+      "name": "Client drift causes divergence / catastrophic interference",
+      "description": "Client drift causes divergence / catastrophic interference",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Client drift causes divergence / catastrophic interference arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-04",
+      "name": "Communication cost makes federated training impractical at scale",
+      "description": "Communication cost makes federated training impractical at scale",
+      "category": "Deployment",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Communication cost makes federated training impractical at scale arising in federated-learning topology",
+      "impact": "Net-new (derived) — federation reliability / scalability impact",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-05",
+      "name": "Differential-privacy budget exhausted or mis-accounted (ε too high)",
+      "description": "Differential-privacy budget exhausted or mis-accounted (ε too high)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Differential-privacy budget exhausted or mis-accounted (ε too high) arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Privacy (7-TA taxonomy); pillar Secure. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-06",
+      "name": "Model updates leak private data (gradient reconstruction / inversion)",
+      "description": "Model updates leak private data (gradient reconstruction / inversion)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Model updates leak private data (gradient reconstruction / inversion) arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Privacy (7-TA taxonomy); pillar Secure. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-07",
+      "name": "Membership inference reveals client data participation",
+      "description": "Membership inference reveals client data participation",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Membership inference reveals client data participation arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Privacy (7-TA taxonomy); pillar Secure. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-08",
+      "name": "Secure aggregation absent / broken; server sees individual updates",
+      "description": "Secure aggregation absent / broken; server sees individual updates",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Security",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Secure aggregation absent / broken; server sees individual updates arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Security (7-TA taxonomy); pillar Secure. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-09",
+      "name": "Raw client data egresses (residency / non-egress guarantee violated)",
+      "description": "Raw client data egresses (residency / non-egress guarantee violated)",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Raw client data egresses (residency / non-egress guarantee violated) arising in federated-learning topology",
+      "impact": "Net-new (derived) — privacy / regulatory / reputational / commercial harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Privacy (7-TA taxonomy); pillar Secure. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-10",
+      "name": "Malicious client poisons the model (model / data poisoning)",
+      "description": "Malicious client poisons the model (model / data poisoning)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Security",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Malicious client poisons the model (model / data poisoning) arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Security (7-TA taxonomy); pillar Secure. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-11",
+      "name": "Backdoor implanted via crafted client updates",
+      "description": "Backdoor implanted via crafted client updates",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Security",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Backdoor implanted via crafted client updates arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Security (7-TA taxonomy); pillar Secure. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-12",
+      "name": "Byzantine clients corrupt the aggregation",
+      "description": "Byzantine clients corrupt the aggregation",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Security",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Byzantine clients corrupt the aggregation arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Security (7-TA taxonomy); pillar Secure. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-13",
+      "name": "Sybil / fake clients manipulate the federation",
+      "description": "Sybil / fake clients manipulate the federation",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Security",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Sybil / fake clients manipulate the federation arising in federated-learning topology",
+      "impact": "Net-new (derived) — degraded global model / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Security (7-TA taxonomy); pillar Secure. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-14",
+      "name": "Stragglers / dropouts stall or bias training rounds",
+      "description": "Stragglers / dropouts stall or bias training rounds",
+      "category": "Deployment",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Stragglers / dropouts stall or bias training rounds arising in federated-learning topology",
+      "impact": "Net-new (derived) — federation reliability / scalability impact",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-15",
+      "name": "Device heterogeneity excludes weaker clients (unfair participation)",
+      "description": "Device heterogeneity excludes weaker clients (unfair participation)",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness & Policy Consistency",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Device heterogeneity excludes weaker clients (unfair participation) arising in federated-learning topology",
+      "impact": "Net-new (derived) — privacy / regulatory / reputational / commercial harm",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Fairness & Policy Consistency (7-TA taxonomy); pillar Govern. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-16",
+      "name": "Personalization-vs-global tradeoff harms some clients",
+      "description": "Personalization-vs-global tradeoff harms some clients",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Personalization-vs-global tradeoff harms some clients arising in federated-learning topology",
+      "impact": "Net-new (derived) — privacy / regulatory / reputational / commercial harm",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-17",
+      "name": "Benefit / contribution inequity across clients (free-riding, unfairness)",
+      "description": "Benefit / contribution inequity across clients (free-riding, unfairness)",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness & Policy Consistency",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Benefit / contribution inequity across clients (free-riding, unfairnes arising in federated-learning topology",
+      "impact": "Net-new (derived) — privacy / regulatory / reputational / commercial harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Fairness & Policy Consistency (7-TA taxonomy); pillar Govern. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-18",
+      "name": "Aggregation not auditable / round lineage missing",
+      "description": "Aggregation not auditable / round lineage missing",
+      "category": "Delivery",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Explainability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Aggregation not auditable / round lineage missing arising in federated-learning topology",
+      "impact": "Net-new (derived) — unauditable / untrusted federation reaches production",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Explainability (7-TA taxonomy); pillar Prove. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-19",
+      "name": "Client onboarding / attestation gaps admit untrusted participants",
+      "description": "Client onboarding / attestation gaps admit untrusted participants",
+      "category": "Delivery",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Explainability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Client onboarding / attestation gaps admit untrusted participants arising in federated-learning topology",
+      "impact": "Net-new (derived) — unauditable / untrusted federation reaches production",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Explainability (7-TA taxonomy); pillar Prove. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "FED-20",
+      "name": "Data-residency / regulatory (GDPR, localization) non-compliance",
+      "description": "Data-residency / regulatory (GDPR, localization) non-compliance",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness & Policy Consistency",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Data-residency / regulatory (GDPR, localization) non-compliance arising in federated-learning topology",
+      "impact": "Net-new (derived) — privacy / regulatory / reputational / commercial harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW cross-cutting OVERLAY — Federated Learning (proposed HLA appendix: deployment-topology overlay module)",
+      "notes": "NET-NEW cross-cutting OVERLAY — Federated Learning is a deployment-topology overlay, NOT a standalone base archetype. It layers these federation-specific metrics/risks on top of the base archetype being federated (e.g. federated CV / NLP / Time-Series). Not in HLA v1. Illustrative TrustLensAI draft; true-up and add to HLA appendix before external use. OVERLAY: compose with the base archetype's RMTE (this sheet adds federation-specific concerns; it does not replace base metrics). Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Fairness & Policy Consistency (7-TA taxonomy); pillar Govern. No Safety/Human-Control rows by design — those inherit from the base archetype. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    }
+  ]
+}

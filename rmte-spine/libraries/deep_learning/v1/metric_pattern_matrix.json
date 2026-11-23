@@ -1,0 +1,418 @@
+{
+  "library_id": "tlai-rmte-deep_learning-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_DeepLearning_Logs_Layers_Formulas.xlsx — sheet 'Deep Learning RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "cnn",
+    "rnnlstm_gru",
+    "transformer_non_gen",
+    "gan",
+    "autoencoder__vae",
+    "gnn",
+    "All patterns (perspective-level)"
+  ],
+  "family_defaults": {
+    "MP": {
+      "cnn": "STRENGTH: mAP, IoU, per-class accuracy. Most mature DL evalu",
+      "rnnlstm_gru": "Standard: Sequence-level accuracy, RMSE for forecasting. Tim",
+      "transformer_non_gen": "STRENGTH: F1, AUC-ROC for encoding tasks. GLUE/SuperGLUE ben",
+      "gan": "CRITICAL: FID, IS have known limitations. No single reliable",
+      "autoencoder__vae": "Standard: Reconstruction error (MSE, SSIM). Anomaly detectio",
+      "gnn": "Standard: Node/edge/graph-level accuracy. Domain-specific be"
+    },
+    "AR": {
+      "cnn": "CRITICAL: FGSM, PGD, CW attacks flip classifications with im",
+      "rnnlstm_gru": "MODERATE: Adversarial sequence perturbation. Less studied th",
+      "transformer_non_gen": "Standard: Adversarial input embedding perturbation.",
+      "gan": "MODERATE: Adversarial noise in GAN input space. Discriminato",
+      "autoencoder__vae": "Standard: Adversarial inputs designed to avoid anomaly detec",
+      "gnn": "CRITICAL: Graph structure attacks — adding/removing edges fl"
+    },
+    "EI": {
+      "cnn": "CRITICAL: GradCAM, Integrated Gradients, SHAP for images. Sp",
+      "rnnlstm_gru": "MODERATE: Hidden state visualization. Gate activation analys",
+      "transformer_non_gen": "Standard: Attention head visualization. Token-level attentio",
+      "gan": "CRITICAL: GAN generation process nearly opaque. Latent space",
+      "autoencoder__vae": "STRENGTH: Reconstruction difference IS the explanation for a",
+      "gnn": "MODERATE: Node attention (GAT). Subgraph importance. Message"
+    },
+    "TS": {
+      "cnn": "Standard: CNN convergence well-understood. Learning rate sch",
+      "rnnlstm_gru": "MODERATE: LSTM convergence sensitive to learning rate. Gradi",
+      "transformer_non_gen": "Standard: Transformer convergence with warmup + cosine sched",
+      "gan": "CRITICAL: GAN convergence NOT guaranteed. Non-convergent by",
+      "autoencoder__vae": "Standard: Autoencoder convergence generally stable. VAE KL a",
+      "gnn": "Standard: GNN convergence generally stable. Message passing"
+    },
+    "DR": {
+      "cnn": "CRITICAL: Annotation quality (bounding boxes, masks). Augmen",
+      "rnnlstm_gru": "Standard: Sequence data quality. Temporal coverage. Missing",
+      "transformer_non_gen": "Standard: Text/image data quality. Pre-training corpus quali",
+      "gan": "CRITICAL: Training data quality directly determines generati",
+      "autoencoder__vae": "Standard: Training data quality for reconstruction learning.",
+      "gnn": "CRITICAL: Graph construction quality. Edge definition. Node"
+    },
+    "PM": {
+      "cnn": "Standard: CNN memorization through model inversion attacks.",
+      "rnnlstm_gru": "Standard: Sequence memorization through output probing.",
+      "transformer_non_gen": "INCREASED: Large Transformers memorize training data. Member",
+      "gan": "CRITICAL: GANs can memorize and regenerate training images v",
+      "autoencoder__vae": "Standard: Autoencoder memorization through reconstruction pr",
+      "gnn": "CRITICAL: GNN can memorize graph structure. Social network s"
+    },
+    "FB": {
+      "cnn": "CRITICAL: Facial recognition racial/gender accuracy gaps. Mo",
+      "rnnlstm_gru": "Standard: Subgroup prediction parity for time-series.",
+      "transformer_non_gen": "Standard: Classification parity across demographics.",
+      "gan": "CRITICAL: Generated content demographic representation. Skin",
+      "autoencoder__vae": "Standard: Reconstruction quality parity across subgroups.",
+      "gnn": "CRITICAL: Node classification parity. Graph topology bias —"
+    },
+    "CE": {
+      "cnn": "Standard: CNN training moderate (hours–days on single GPU).",
+      "rnnlstm_gru": "LOWEST: RNN training typically fast (hours). Single GPU suff",
+      "transformer_non_gen": "HIGHEST: Transformer pre-training massive (weeks on GPU clus",
+      "gan": "HIGH: GAN training expensive and unpredictable. Training tim",
+      "autoencoder__vae": "Standard: Autoencoder training moderate.",
+      "gnn": "Standard: GNN training moderate. Large graph sampling adds o"
+    },
+    "LG": {
+      "cnn": "Standard: CNN model registry well-established. MLflow, W&B s",
+      "rnnlstm_gru": "Standard: RNN model registry.",
+      "transformer_non_gen": "Standard: Transformer model registry. Pre-trained backbone v",
+      "gan": "CRITICAL: GAN model registry + ethical use tracking + deepfa",
+      "autoencoder__vae": "Standard: Autoencoder model registry. Anomaly threshold vers",
+      "gnn": "Standard: GNN model registry. Graph construction version tra"
+    }
+  },
+  "metric_overrides": {
+    "MP-01": {
+      "cnn": "STRENGTH: mAP, IoU, per-class accuracy. Most mature DL evalu",
+      "rnnlstm_gru": "Standard: Sequence-level accuracy, RMSE for forecasting. Tim",
+      "transformer_non_gen": "STRENGTH: F1, AUC-ROC for encoding tasks. GLUE/SuperGLUE ben",
+      "gan": "CRITICAL: FID, IS have known limitations. No single reliable",
+      "autoencoder__vae": "Standard: Reconstruction error (MSE, SSIM). Anomaly detectio",
+      "gnn": "Standard: Node/edge/graph-level accuracy. Domain-specific be"
+    },
+    "MP-02": {
+      "cnn": "Standard: Train/val/test gap. Data augmentation reduces gap.",
+      "rnnlstm_gru": "Standard: Overfitting to training sequences. Dropout regular",
+      "transformer_non_gen": "MODERATE: Large Transformers overfit easily without sufficie",
+      "gan": "CRITICAL: GAN generalization hard to measure — no validation",
+      "autoencoder__vae": "Standard: Reconstruction error gap between train and test da",
+      "gnn": "MODERATE: Transductive vs inductive gap. Generalization to u"
+    },
+    "MP-03": {
+      "cnn": "CRITICAL: CNN classification confidence must be calibrated.",
+      "rnnlstm_gru": "Standard: Sequence model calibration. Confidence per timeste",
+      "transformer_non_gen": "Standard: Transformer output calibration. Temperature scalin",
+      "gan": "N/A: GAN doesn't output probabilities for classification. Di",
+      "autoencoder__vae": "Standard: Reconstruction confidence. Anomaly score calibrati",
+      "gnn": "Standard: Node classification calibration."
+    },
+    "MP-04": {
+      "cnn": "CRITICAL: Per-demographic accuracy (race, gender, age). Faci",
+      "rnnlstm_gru": "Standard: Per-segment time-series accuracy. Operational cond",
+      "transformer_non_gen": "Standard: Per-demographic/language classification parity.",
+      "gan": "CRITICAL: Generated image quality parity across demographics",
+      "autoencoder__vae": "Standard: Reconstruction quality parity across data subgroup",
+      "gnn": "CRITICAL: Node-level performance parity. Graph topology bias"
+    },
+    "MP-05": {
+      "cnn": "STRENGTH: ImageNet pre-training → domain task transfer well-",
+      "rnnlstm_gru": "MODERATE: Limited transfer learning for RNN. Task-specific t",
+      "transformer_non_gen": "STRENGTH: Pre-trained Transformer transfer dominant (BERT, V",
+      "gan": "MODERATE: GAN transfer learning possible but less establishe",
+      "autoencoder__vae": "MODERATE: Autoencoder transfer learning for similar data dom",
+      "gnn": "MODERATE: GNN transfer learning emerging. Pre-trained GNN ba"
+    },
+    "AR-01": {
+      "cnn": "CRITICAL: FGSM, PGD, CW attacks flip classifications with im",
+      "rnnlstm_gru": "MODERATE: Adversarial sequence perturbation. Less studied th",
+      "transformer_non_gen": "Standard: Adversarial input embedding perturbation.",
+      "gan": "MODERATE: Adversarial noise in GAN input space. Discriminato",
+      "autoencoder__vae": "Standard: Adversarial inputs designed to avoid anomaly detec",
+      "gnn": "CRITICAL: Graph structure attacks — adding/removing edges fl"
+    },
+    "AR-02": {
+      "cnn": "STRENGTH: Adversarial training well-studied for CNNs. PGD-AT",
+      "rnnlstm_gru": "MODERATE: Adversarial training applicable but less common.",
+      "transformer_non_gen": "MODERATE: Adversarial training for Transformers emerging.",
+      "gan": "N/A: Adversarial training IS the GAN training process (gener",
+      "autoencoder__vae": "Standard: Adversarial training for robust autoencoders.",
+      "gnn": "MODERATE: Graph adversarial training emerging. GNN-AT."
+    },
+    "AR-03": {
+      "cnn": "CRITICAL: Environmental noise — camera noise, lighting chang",
+      "rnnlstm_gru": "Standard: Sequence noise robustness. Missing timesteps. Sens",
+      "transformer_non_gen": "Standard: Input embedding noise robustness.",
+      "gan": "MODERATE: GAN output quality under input noise.",
+      "autoencoder__vae": "Standard: Noisy input reconstruction quality.",
+      "gnn": "MODERATE: Graph noise robustness. Missing node features."
+    },
+    "AR-04": {
+      "cnn": "STRENGTH: Certified robustness well-studied for CNNs. Random",
+      "rnnlstm_gru": "MODERATE: Certified robustness for sequential models less es",
+      "transformer_non_gen": "MODERATE: Certified robustness for Transformers emerging.",
+      "gan": "N/A: Certified robustness not applicable to generative model",
+      "autoencoder__vae": "MODERATE: Certified anomaly detection bounds emerging.",
+      "gnn": "MODERATE: Certified robustness for GNNs emerging (graph smoo"
+    },
+    "AR-05": {
+      "cnn": "CRITICAL: Physical adversarial patches on stop signs, eyegla",
+      "rnnlstm_gru": "N/A: Physical attacks not applicable to sequential data.",
+      "transformer_non_gen": "N/A: Physical attacks primarily for vision.",
+      "gan": "N/A: Physical attacks not applicable to generated content.",
+      "autoencoder__vae": "N/A: Physical attacks not applicable.",
+      "gnn": "N/A: Physical attacks not applicable to graph data."
+    },
+    "EI-01": {
+      "cnn": "CRITICAL: GradCAM, Integrated Gradients, SHAP for images. Sp",
+      "rnnlstm_gru": "MODERATE: Hidden state visualization. Gate activation analys",
+      "transformer_non_gen": "Standard: Attention head visualization. Token-level attentio",
+      "gan": "CRITICAL: GAN generation process nearly opaque. Latent space",
+      "autoencoder__vae": "STRENGTH: Reconstruction difference IS the explanation for a",
+      "gnn": "MODERATE: Node attention (GAT). Subgraph importance. Message"
+    },
+    "EI-02": {
+      "cnn": "CRITICAL: GradCAM highlights may not reflect true decision f",
+      "rnnlstm_gru": "MODERATE: Hidden state attribution faithfulness.",
+      "transformer_non_gen": "CRITICAL: Attention weights are NOT faithful explanations (w",
+      "gan": "N/A: Generation explanations inherently unfaithful — latent",
+      "autoencoder__vae": "Standard: Reconstruction-based explanation inherently faithf",
+      "gnn": "MODERATE: Subgraph explanation faithfulness testing."
+    },
+    "EI-03": {
+      "cnn": "CRITICAL: Pixel attribution insufficient. TCAV (concept acti",
+      "rnnlstm_gru": "MODERATE: Sequence concept explanations. Pattern-level attri",
+      "transformer_non_gen": "Standard: Layer-wise concept representation. Probing tasks f",
+      "gan": "MODERATE: Disentangled latent dimensions as concept explanat",
+      "autoencoder__vae": "MODERATE: Latent space disentanglement as concept explanatio",
+      "gnn": "MODERATE: Subgraph motif explanations. Graph concept attribu"
+    },
+    "EI-04": {
+      "cnn": "Standard: CNN architecture well-documented. Standard model c",
+      "rnnlstm_gru": "Standard: RNN architecture documentation. Gate mechanism doc",
+      "transformer_non_gen": "Standard: Transformer architecture well-documented. Attentio",
+      "gan": "CRITICAL: GAN architecture documentation + ethical use state",
+      "autoencoder__vae": "Standard: Autoencoder architecture + latent space documentat",
+      "gnn": "Standard: GNN architecture + graph construction methodology"
+    },
+    "EI-05": {
+      "cnn": "Standard: MC Dropout, Deep Ensembles. Epistemic vs aleatoric",
+      "rnnlstm_gru": "Standard: Sequence prediction uncertainty. Hidden state unce",
+      "transformer_non_gen": "Standard: Transformer uncertainty via MC Dropout, ensemble d",
+      "gan": "MODERATE: GAN uncertainty through latent space sampling dive",
+      "autoencoder__vae": "STRENGTH: VAE provides native probabilistic uncertainty. Rec",
+      "gnn": "MODERATE: GNN uncertainty via MC Dropout. Neighborhood sampl"
+    },
+    "TS-01": {
+      "cnn": "Standard: CNN convergence well-understood. Learning rate sch",
+      "rnnlstm_gru": "MODERATE: LSTM convergence sensitive to learning rate. Gradi",
+      "transformer_non_gen": "Standard: Transformer convergence with warmup + cosine sched",
+      "gan": "CRITICAL: GAN convergence NOT guaranteed. Non-convergent by",
+      "autoencoder__vae": "Standard: Autoencoder convergence generally stable. VAE KL a",
+      "gnn": "Standard: GNN convergence generally stable. Message passing"
+    },
+    "TS-02": {
+      "cnn": "Standard: CNN training relatively stable. Data augmentation",
+      "rnnlstm_gru": "MODERATE: RNN training stability sensitive to initialization",
+      "transformer_non_gen": "Standard: Transformer training relatively stable with proper",
+      "gan": "CRITICAL: GAN training highly unstable. Mode collapse. Oscil",
+      "autoencoder__vae": "Standard: Autoencoder training generally stable.",
+      "gnn": "MODERATE: GNN training stability varies with graph structure"
+    },
+    "TS-03": {
+      "cnn": "Standard: Batch normalization stabilizes gradients. Skip con",
+      "rnnlstm_gru": "CRITICAL: Vanishing/exploding gradients are PRIMARY RNN risk",
+      "transformer_non_gen": "Standard: Layer normalization + residual connections stabili",
+      "gan": "CRITICAL: Generator and discriminator gradient imbalance. Sp",
+      "autoencoder__vae": "Standard: Autoencoder gradients generally well-behaved.",
+      "gnn": "MODERATE: Over-smoothing causes gradient vanishing in deep G"
+    },
+    "TS-04": {
+      "cnn": "Standard: CNN training reasonably reproducible. GPU non-dete",
+      "rnnlstm_gru": "Standard: RNN reproducibility with fixed seeds. GPU non-dete",
+      "transformer_non_gen": "Standard: Transformer reproducibility with fixed seeds.",
+      "gan": "CRITICAL: GAN reproducibility extremely poor. Training dynam",
+      "autoencoder__vae": "Standard: Autoencoder reproducibility reasonable.",
+      "gnn": "MODERATE: GNN reproducibility depends on graph sampling stra"
+    },
+    "DR-01": {
+      "cnn": "CRITICAL: Annotation quality (bounding boxes, masks). Augmen",
+      "rnnlstm_gru": "Standard: Sequence data quality. Temporal coverage. Missing",
+      "transformer_non_gen": "Standard: Text/image data quality. Pre-training corpus quali",
+      "gan": "CRITICAL: Training data quality directly determines generati",
+      "autoencoder__vae": "Standard: Training data quality for reconstruction learning.",
+      "gnn": "CRITICAL: Graph construction quality. Edge definition. Node"
+    },
+    "DR-02": {
+      "cnn": "Standard: CNN feature quality measurable via linear probes.",
+      "rnnlstm_gru": "Standard: Hidden state quality for downstream tasks.",
+      "transformer_non_gen": "STRENGTH: Transformer representations extensively studied. P",
+      "gan": "MODERATE: GAN latent space quality. Disentanglement. Interpo",
+      "autoencoder__vae": "MODERATE: Latent space quality. Disentanglement metrics (DCI",
+      "gnn": "Standard: Node embedding quality. Graph-level representation"
+    },
+    "DR-03": {
+      "cnn": "CRITICAL: Data augmentation essential for CNN robustness. Ra",
+      "rnnlstm_gru": "MODERATE: Sequence augmentation (time warping, noise injecti",
+      "transformer_non_gen": "Standard: Text augmentation (synonym replacement, back-trans",
+      "gan": "N/A: GANs generate augmentation data themselves.",
+      "autoencoder__vae": "Standard: Denoising AE uses augmentation (noise injection) a",
+      "gnn": "MODERATE: Graph augmentation (node dropping, edge perturbati"
+    },
+    "DR-04": {
+      "cnn": "CRITICAL: Environmental conditions, demographics, object typ",
+      "rnnlstm_gru": "Standard: Temporal coverage. Operating condition diversity.",
+      "transformer_non_gen": "Standard: Language, domain, task distribution coverage.",
+      "gan": "CRITICAL: GAN mode collapse = distribution coverage failure.",
+      "autoencoder__vae": "Standard: Training data distribution coverage for reconstruc",
+      "gnn": "Standard: Graph topology diversity. Homogeneous vs heterogen"
+    },
+    "PM-01": {
+      "cnn": "Standard: CNN memorization through model inversion attacks.",
+      "rnnlstm_gru": "Standard: Sequence memorization through output probing.",
+      "transformer_non_gen": "INCREASED: Large Transformers memorize training data. Member",
+      "gan": "CRITICAL: GANs can memorize and regenerate training images v",
+      "autoencoder__vae": "Standard: Autoencoder memorization through reconstruction pr",
+      "gnn": "CRITICAL: GNN can memorize graph structure. Social network s"
+    },
+    "PM-02": {
+      "cnn": "Standard: CNN membership inference well-studied. Overfitted",
+      "rnnlstm_gru": "Standard: Sequence model membership inference.",
+      "transformer_non_gen": "INCREASED: Transformer membership inference well-studied. La",
+      "gan": "CRITICAL: GAN membership inference — can attacker determine",
+      "autoencoder__vae": "Standard: Autoencoder membership inference.",
+      "gnn": "INCREASED: GNN membership inference — node-level and graph-l"
+    },
+    "PM-03": {
+      "cnn": "CRITICAL: Model inversion can reconstruct faces from facial",
+      "rnnlstm_gru": "MODERATE: Model inversion for sequence models less practical",
+      "transformer_non_gen": "MODERATE: Transformer model inversion through embedding anal",
+      "gan": "CRITICAL: GAN model inversion — generator network itself ena",
+      "autoencoder__vae": "CRITICAL: Decoder network IS an inversion mechanism. AE inhe",
+      "gnn": "MODERATE: GNN model inversion through graph structure infere"
+    },
+    "PM-04": {
+      "cnn": "Standard: DP-SGD applicable. Privacy-accuracy trade-off docu",
+      "rnnlstm_gru": "Standard: DP-SGD for recurrent models.",
+      "transformer_non_gen": "Standard: DP-SGD for Transformer fine-tuning. DP at pre-trai",
+      "gan": "CRITICAL: DP-GAN is active research area. PATE-GAN, DP-WGAN.",
+      "autoencoder__vae": "Standard: DP-VAE applicable. Private representation learning",
+      "gnn": "CRITICAL: Graph DP complex — node-level vs edge-level vs gra"
+    },
+    "FB-01": {
+      "cnn": "CRITICAL: Facial recognition racial/gender accuracy gaps. Mo",
+      "rnnlstm_gru": "Standard: Subgroup prediction parity for time-series.",
+      "transformer_non_gen": "Standard: Classification parity across demographics.",
+      "gan": "CRITICAL: Generated content demographic representation. Skin",
+      "autoencoder__vae": "Standard: Reconstruction quality parity across subgroups.",
+      "gnn": "CRITICAL: Node classification parity. Graph topology bias —"
+    },
+    "FB-02": {
+      "cnn": "CRITICAL: CNN features encode demographic attributes. Probin",
+      "rnnlstm_gru": "MODERATE: Sequence embeddings may encode demographic proxies",
+      "transformer_non_gen": "CRITICAL: Transformer embeddings encode extensive demographi",
+      "gan": "CRITICAL: GAN latent space encodes demographic attributes. S",
+      "autoencoder__vae": "MODERATE: Autoencoder latent space may encode demographic at",
+      "gnn": "CRITICAL: Node embeddings encode graph community structure →"
+    },
+    "FB-03": {
+      "cnn": "Standard: Well-studied fairness-accuracy trade-off for CNN c",
+      "rnnlstm_gru": "Standard: Fairness-accuracy trade-off for sequential models.",
+      "transformer_non_gen": "Standard: Well-studied for Transformer classifiers.",
+      "gan": "MODERATE: Fairness constraints on GAN generation quality imp",
+      "autoencoder__vae": "Standard: Fairness constraints on reconstruction quality.",
+      "gnn": "MODERATE: Fairness constraints on GNN node classification."
+    },
+    "FB-04": {
+      "cnn": "CRITICAL: Image dataset demographic audit. CelebA, ImageNet",
+      "rnnlstm_gru": "Standard: Sequence data demographic audit.",
+      "transformer_non_gen": "Standard: Pre-training corpus demographic audit (at scale).",
+      "gan": "CRITICAL: GAN training data determines generation diversity.",
+      "autoencoder__vae": "Standard: Training data representation audit.",
+      "gnn": "CRITICAL: Graph construction includes/excludes populations."
+    },
+    "CE-01": {
+      "cnn": "Standard: CNN training moderate (hours–days on single GPU).",
+      "rnnlstm_gru": "LOWEST: RNN training typically fast (hours). Single GPU suff",
+      "transformer_non_gen": "HIGHEST: Transformer pre-training massive (weeks on GPU clus",
+      "gan": "HIGH: GAN training expensive and unpredictable. Training tim",
+      "autoencoder__vae": "Standard: Autoencoder training moderate.",
+      "gnn": "Standard: GNN training moderate. Large graph sampling adds o"
+    },
+    "CE-02": {
+      "cnn": "Standard: CNN inference efficient (MobileNet <10ms, ResNet <",
+      "rnnlstm_gru": "MODERATE: Sequential processing — latency proportional to se",
+      "transformer_non_gen": "MODERATE: Transformer inference moderate. Attention O(n²) fo",
+      "gan": "MODERATE: Generator inference moderate. Single forward pass.",
+      "autoencoder__vae": "Standard: Autoencoder inference fast. Single forward pass th",
+      "gnn": "MODERATE: GNN inference depends on graph size. Neighbor samp"
+    },
+    "CE-03": {
+      "cnn": "STRENGTH: Efficient architectures (MobileNet, EfficientNet).",
+      "rnnlstm_gru": "STRENGTH: RNNs have fewer parameters than Transformers for s",
+      "transformer_non_gen": "LOWEST efficiency: Transformers have most parameters. BERT-b",
+      "gan": "MODERATE: Generator + discriminator parameter overhead. But",
+      "autoencoder__vae": "Standard: Autoencoder moderate parameters. Bottleneck archit",
+      "gnn": "Standard: GNN moderate parameters. Scalability is graph size"
+    },
+    "CE-04": {
+      "cnn": "Standard: CNN training moderate carbon footprint.",
+      "rnnlstm_gru": "LOWEST: RNN training low carbon footprint.",
+      "transformer_non_gen": "CRITICAL: Transformer pre-training highest carbon footprint",
+      "gan": "HIGH: GAN training high carbon due to instability + re-train",
+      "autoencoder__vae": "Standard: Autoencoder training moderate.",
+      "gnn": "Standard: GNN training moderate."
+    },
+    "CE-05": {
+      "cnn": "STRENGTH: CNN edge deployment most mature. TensorRT, ONNX, C",
+      "rnnlstm_gru": "Standard: RNN edge deployment feasible. Smaller models.",
+      "transformer_non_gen": "MODERATE: Transformer edge deployment challenging. DistilBER",
+      "gan": "MODERATE: Generator-only deployment. Model compression for e",
+      "autoencoder__vae": "Standard: Autoencoder edge deployment feasible. Compact arch",
+      "gnn": "MODERATE: GNN edge deployment limited by graph size at infer"
+    },
+    "LG-01": {
+      "cnn": "Standard: CNN model registry well-established. MLflow, W&B s",
+      "rnnlstm_gru": "Standard: RNN model registry.",
+      "transformer_non_gen": "Standard: Transformer model registry. Pre-trained backbone v",
+      "gan": "CRITICAL: GAN model registry + ethical use tracking + deepfa",
+      "autoencoder__vae": "Standard: Autoencoder model registry. Anomaly threshold vers",
+      "gnn": "Standard: GNN model registry. Graph construction version tra"
+    },
+    "LG-02": {
+      "cnn": "Standard: Adversarial robustness + demographic fairness + en",
+      "rnnlstm_gru": "Standard: Gradient health + sequence length + convergence st",
+      "transformer_non_gen": "Standard: Attention analysis + transfer validation + calibra",
+      "gan": "CRITICAL: Mode collapse + deepfake + quality + diversity + e",
+      "autoencoder__vae": "Standard: Reconstruction quality + anomaly detection + thres",
+      "gnn": "Standard: Graph adversarial + over-smoothing + scalability +"
+    },
+    "LG-03": {
+      "cnn": "Standard: Model version rollback. Serving layer swap.",
+      "rnnlstm_gru": "Standard: Model version rollback.",
+      "transformer_non_gen": "Standard: Model version rollback.",
+      "gan": "CRITICAL: Deepfake incident response. Generated content take",
+      "autoencoder__vae": "Standard: Anomaly threshold adjustment. Model rollback.",
+      "gnn": "Standard: Model rollback. Graph data update."
+    },
+    "LG-04": {
+      "cnn": "CRITICAL: Facial recognition ethical use. Surveillance asses",
+      "rnnlstm_gru": "Standard: Sequence model ethical assessment.",
+      "transformer_non_gen": "Standard: Transformer ethical use. Pre-training data governa",
+      "gan": "CRITICAL: HIGHEST ethical governance burden. Deepfake preven",
+      "autoencoder__vae": "Standard: Anomaly detection ethical assessment.",
+      "gnn": "CRITICAL: Social network analysis ethical use. Privacy impac"
+    },
+    "LG-05": {
+      "cnn": "CRITICAL: Biometric regulation (BIPA, GDPR Art 9). Facial re",
+      "rnnlstm_gru": "Standard: Time-series model regulation. Domain-specific.",
+      "transformer_non_gen": "Standard: Transformer model regulation. EU AI Act compliance",
+      "gan": "CRITICAL: Deepfake regulation (EU AI Act Art 52). Synthetic",
+      "autoencoder__vae": "Standard: Anomaly detection regulation. Domain-specific.",
+      "gnn": "CRITICAL: Graph data privacy regulation. Social network anal"
+    }
+  }
+}

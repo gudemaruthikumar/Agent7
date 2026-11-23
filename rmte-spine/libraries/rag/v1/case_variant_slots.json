@@ -1,0 +1,160 @@
+{
+  "library_id": "agent5-case-variant-slots",
+  "version": "v1",
+  "note": "Each extra test case under a scenario must occupy a different slot. A slot is a distinct condition axis, not a renamed copy of the same test. Code never synthesises clones such as 'variant 2'.",
+  "generic_extras": [
+    {"slot_id": "short_query", "focus": "A one- or two-token query that still has a gold relevant set."},
+    {"slot_id": "long_multi_clause_query", "focus": "A long, multi-clause query that mixes two information needs."},
+    {"slot_id": "table_or_list_source", "focus": "The needed fact lives in a table, list, or numbered procedure rather than prose."},
+    {"slot_id": "near_duplicate_sources", "focus": "Two near-duplicate documents compete; the test must show which one the metric sees."},
+    {"slot_id": "stale_versus_current", "focus": "An older version and a current version of the same policy are both in the corpus."},
+    {"slot_id": "cross_source_join", "focus": "The answer requires joining facts from two different knowledge sources."},
+    {"slot_id": "empty_or_sparse_neighbourhood", "focus": "The query has few or no near neighbours in the index."},
+    {"slot_id": "max_k_boundary", "focus": "The first relevant item sits at exactly rank k of the retriever."}
+  ],
+  "by_family": {
+    "CQ": {
+      "positive": [
+        {"slot_id": "typical_policy_prose", "focus": "Adjacent chunks from mixed-length policy documents sit inside the overlap band."},
+        {"slot_id": "faq_heading_overlap", "focus": "Short FAQ chunks that share a heading still overlap inside the band."},
+        {"slot_id": "procedure_step_chunks", "focus": "Numbered procedure steps chunked sequentially with healthy overlap."}
+      ],
+      "negative": [
+        {"slot_id": "zero_overlap_split", "focus": "A hard split with no shared tokens between adjacent chunks."},
+        {"slot_id": "near_total_copy", "focus": "Adjacent chunks are almost copies of each other (overlap far above the band)."},
+        {"slot_id": "tiny_orphan_fragments", "focus": "Fragments so small they never retrieve and inflate orphan rate / bad overlap."}
+      ],
+      "edge": [
+        {"slot_id": "lower_band_edge", "focus": "Configured overlap sits on the lower edge of the pinned band."},
+        {"slot_id": "upper_band_edge", "focus": "Configured overlap sits on the upper edge of the pinned band."},
+        {"slot_id": "single_chunk_document", "focus": "A document that yields only one chunk, so adjacent-pair overlap is undefined or skipped."}
+      ]
+    },
+    "RE": {
+      "positive": [
+        {"slot_id": "gold_at_rank_one", "focus": "The gold relevant chunk is the top hit for a clear factual query."},
+        {"slot_id": "gold_in_top_k_diverse", "focus": "Several relevant sources appear in top-k without collapsing to one document."},
+        {"slot_id": "paraphrased_query", "focus": "A paraphrased query still retrieves the same gold chunk."}
+      ],
+      "negative": [
+        {"slot_id": "gold_removed", "focus": "The gold chunk was deleted from the index; retrieval must miss."},
+        {"slot_id": "distractor_neighbours", "focus": "High-similarity distractors outrank the true relevant chunk."},
+        {"slot_id": "out_of_corpus_query", "focus": "A well-formed query whose answer is not in the corpus at all."}
+      ],
+      "edge": [
+        {"slot_id": "relevant_at_rank_k", "focus": "The first relevant document sits at exactly rank k."},
+        {"slot_id": "tied_scores", "focus": "Two chunks share the same retrieval score; ranking order is the edge."},
+        {"slot_id": "partial_title_match", "focus": "Only the title overlaps the query; body relevance is weak."}
+      ]
+    },
+    "CS": {
+      "positive": [
+        {"slot_id": "selected_matches_gold", "focus": "Context assembly keeps the gold relevant passages and drops noise."},
+        {"slot_id": "rerank_promotes_gold", "focus": "Reranking promotes the gold passage into the selected window."},
+        {"slot_id": "multi_source_selection", "focus": "Selected context covers more than one distinct source."}
+      ],
+      "negative": [
+        {"slot_id": "duplicate_stuffing", "focus": "Near-duplicate passages are stuffed into the prompt."},
+        {"slot_id": "gold_dropped", "focus": "The gold passage was retrieved but not selected into context."},
+        {"slot_id": "cache_served_as_fresh", "focus": "Cached context is reused when the query needs novel content."}
+      ],
+      "edge": [
+        {"slot_id": "window_exactly_full", "focus": "Selected tokens sit at the context-window budget."},
+        {"slot_id": "one_novel_one_cached", "focus": "Half the selected chunks are cached, half are novel."},
+        {"slot_id": "used_versus_unused_span", "focus": "One selected passage is cited in the answer; another is unused."}
+      ]
+    },
+    "AQ": {
+      "positive": [
+        {"slot_id": "short_factoid", "focus": "A short factoid whose gold answer is a single span in retrieved context."},
+        {"slot_id": "multi_sentence_gold", "focus": "A gold answer of several sentences that the generator must cover."},
+        {"slot_id": "numeric_fact", "focus": "A numeric or date fact that must match gold exactly enough for the metric."}
+      ],
+      "negative": [
+        {"slot_id": "unanswerable", "focus": "The corpus cannot support the question; the system should abstain or fail EM/F1."},
+        {"slot_id": "conflicting_gold", "focus": "Two corpus passages disagree; a single gold cannot be matched cleanly."},
+        {"slot_id": "wrong_entity", "focus": "A lookalike entity is in context and tempts a wrong answer."}
+      ],
+      "edge": [
+        {"slot_id": "paraphrase_gold", "focus": "Gold and a correct paraphrase differ lexically (EM vs semantic)."},
+        {"slot_id": "partial_span", "focus": "The answer is a correct subset of the gold span."},
+        {"slot_id": "list_valued_gold", "focus": "Gold is a list of items; order and completeness are the edge."}
+      ]
+    },
+    "GH": {
+      "positive": [
+        {"slot_id": "fully_supported_claims", "focus": "Every claim in the answer has a supporting span in retrieved context."},
+        {"slot_id": "quoted_procedure", "focus": "The answer restates a procedure that is present verbatim in context."},
+        {"slot_id": "multi_passage_support", "focus": "Support for the answer is split across two retrieved passages."}
+      ],
+      "negative": [
+        {"slot_id": "invented_statistic", "focus": "The answer adds a statistic that is not in context."},
+        {"slot_id": "context_contradiction", "focus": "The answer contradicts a retrieved passage."},
+        {"slot_id": "prior_knowledge_leak", "focus": "The model answers from parametric knowledge while retrieved context is silent."}
+      ],
+      "edge": [
+        {"slot_id": "mixed_supported_claims", "focus": "A multi-claim answer with one unsupported clause at the threshold."},
+        {"slot_id": "hedged_but_unsupported", "focus": "Hedged wording ('may', 'typically') still asserts an unsupported fact."},
+        {"slot_id": "correct_but_uncited_detail", "focus": "A true detail that happens to be absent from this retrieved set."}
+      ]
+    },
+    "AE": {
+      "positive": [
+        {"slot_id": "span_resolving_citations", "focus": "Each citation resolves to a supporting span in retrieved context."},
+        {"slot_id": "multi_source_citations", "focus": "Citations name more than one source and each is used."},
+        {"slot_id": "quote_aligned_citation", "focus": "A quoted phrase in the answer maps to the cited chunk."}
+      ],
+      "negative": [
+        {"slot_id": "fabricated_citation", "focus": "A citation points at a document or span that was not retrieved."},
+        {"slot_id": "unused_over_citation", "focus": "Passages are cited but never used in the answer."},
+        {"slot_id": "wrong_span_same_doc", "focus": "The citation names the right document but a non-supporting span."}
+      ],
+      "edge": [
+        {"slot_id": "one_claim_two_cites", "focus": "A single claim is over-cited to two passages, only one of which supports it."},
+        {"slot_id": "partial_token_support", "focus": "Only some answer tokens have citation support (attribution coverage edge)."},
+        {"slot_id": "domain_explainability_trace", "focus": "Citation plus a reasoning trace; domain policy may be required."}
+      ]
+    },
+    "RS": {
+      "adversarial": [
+        {"slot_id": "direct_prompt_injection", "focus": "A user query that tries to override system policy in the prompt."},
+        {"slot_id": "indirect_doc_injection", "focus": "A retrieved document contains hidden instructions for the generator."},
+        {"slot_id": "jailbreak_roleplay", "focus": "A role-play jailbreak that should still be refused after retrieval."}
+      ],
+      "security": [
+        {"slot_id": "poisoned_corpus_snippet", "focus": "A poisoned corpus snippet attempts a policy override via retrieval."},
+        {"slot_id": "tool_or_system_exfil", "focus": "The query tries to extract system prompt or index internals."},
+        {"slot_id": "cross_user_context", "focus": "A query crafted to pull another tenant or user's retrieved context."}
+      ],
+      "negative": [
+        {"slot_id": "benign_policy_question", "focus": "A legitimate policy question must not be blocked by safety filters."},
+        {"slot_id": "benign_security_howto", "focus": "A benign 'how do we reset access' question that looks similar to an attack."},
+        {"slot_id": "benign_pii_in_corpus", "focus": "The corpus mentions a public office-holder name that is not a leakage failure."}
+      ]
+    },
+    "EO": {
+      "monitoring": [
+        {"slot_id": "pinned_eval_load", "focus": "Measure the metric on the pinned eval query set in the eval environment."},
+        {"slot_id": "cache_warm_path", "focus": "Repeat queries that should hit cache if caching is enabled."},
+        {"slot_id": "cold_start_path", "focus": "First-seen queries with a cold cache."}
+      ],
+      "regression": [
+        {"slot_id": "versus_last_signed_run", "focus": "Compare this run's telemetry to the last signed eval run."},
+        {"slot_id": "after_prompt_change", "focus": "Re-measure after a declared prompt-template version change."},
+        {"slot_id": "after_index_rebuild", "focus": "Re-measure after a declared index rebuild."}
+      ]
+    },
+    "LC": {
+      "monitoring": [
+        {"slot_id": "current_window", "focus": "Compute the lifecycle metric over the declared current monitoring window."},
+        {"slot_id": "schema_compliant_logs", "focus": "Logs that match the declared schema versus logs with missing fields."},
+        {"slot_id": "planned_versus_executed_tests", "focus": "TEVV planned tests versus tests actually executed in the window."}
+      ],
+      "regression": [
+        {"slot_id": "after_corpus_refresh", "focus": "Recompute after a declared corpus refresh event."},
+        {"slot_id": "after_model_bump", "focus": "Recompute after a generator or embedder version change."},
+        {"slot_id": "after_policy_change", "focus": "Recompute after a safety or retrieval-policy change."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "library_id": "agent5-agentic-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Agentic RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "AP": [
+      "positive",
+      "negative",
+      "security"
+    ],
+    "GT": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "HO": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "LC": [
+      "monitoring",
+      "regression"
+    ],
+    "PD": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "RA": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "RC": [
+      "monitoring",
+      "regression"
+    ],
+    "TE": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "TO": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "RA-01": [
+      "adversarial"
+    ],
+    "RA-02": [
+      "adversarial"
+    ],
+    "RA-03": [
+      "adversarial"
+    ],
+    "RA-04": [
+      "adversarial"
+    ],
+    "RA-05": [
+      "adversarial"
+    ]
+  }
+}

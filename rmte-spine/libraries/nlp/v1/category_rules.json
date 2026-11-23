@@ -1,0 +1,81 @@
+{
+  "library_id": "agent5-nlp-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI NLP RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "EA": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "FE": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "FH": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "LG": [
+      "monitoring",
+      "regression"
+    ],
+    "LR": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "OP": [
+      "monitoring",
+      "regression"
+    ],
+    "PP": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "PR": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "TP": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "LR-01": [
+      "adversarial"
+    ],
+    "LR-02": [
+      "adversarial"
+    ],
+    "LR-03": [
+      "adversarial"
+    ],
+    "LR-04": [
+      "adversarial"
+    ],
+    "LR-05": [
+      "adversarial"
+    ]
+  }
+}

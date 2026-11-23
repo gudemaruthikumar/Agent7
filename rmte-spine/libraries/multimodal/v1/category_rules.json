@@ -1,0 +1,81 @@
+{
+  "library_id": "agent5-multimodal-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Multimodal RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "CA": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "CR": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "FG": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "FR": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "LG": [
+      "monitoring",
+      "regression"
+    ],
+    "MQ": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "OP": [
+      "monitoring",
+      "regression"
+    ],
+    "PC": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "SP": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "CR-01": [
+      "adversarial"
+    ],
+    "CR-02": [
+      "adversarial"
+    ],
+    "CR-03": [
+      "adversarial"
+    ],
+    "CR-04": [
+      "adversarial"
+    ],
+    "CR-05": [
+      "adversarial"
+    ]
+  }
+}

@@ -1,0 +1,829 @@
+{
+  "library_id": "hla-a1-agentic-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_Agentic_Logs_Layers_Formulas.xlsx — sheet 'Agentic RMTE (Master)' inverted Risk ID × Metric ID",
+  "edges": [
+    {
+      "risk_id": "AG-01",
+      "metric_ids": [
+        "AP-01",
+        "AP-03",
+        "LC-02",
+        "PD-02",
+        "PD-03",
+        "RA-03"
+      ]
+    },
+    {
+      "risk_id": "AG-02",
+      "metric_ids": [
+        "AP-02",
+        "HO-01",
+        "HO-02",
+        "HO-03",
+        "HO-04"
+      ]
+    },
+    {
+      "risk_id": "AG-03",
+      "metric_ids": [
+        "GT-04",
+        "PD-02",
+        "PD-03",
+        "TE-02"
+      ]
+    },
+    {
+      "risk_id": "AG-04",
+      "metric_ids": [
+        "PD-05",
+        "RC-01",
+        "RC-02",
+        "RC-03",
+        "RC-04",
+        "TE-03"
+      ]
+    },
+    {
+      "risk_id": "AG-05",
+      "metric_ids": [
+        "RA-01",
+        "RA-02",
+        "RA-03",
+        "RA-04",
+        "TE-05"
+      ]
+    },
+    {
+      "risk_id": "AG-06",
+      "metric_ids": [
+        "AP-03",
+        "AP-04",
+        "RA-02",
+        "TE-05"
+      ]
+    },
+    {
+      "risk_id": "AG-07",
+      "metric_ids": [
+        "GT-02",
+        "GT-03",
+        "HO-03",
+        "LC-01",
+        "PD-01",
+        "PD-04",
+        "TO-01",
+        "TO-02",
+        "TO-03",
+        "TO-04",
+        "TO-05"
+      ]
+    },
+    {
+      "risk_id": "AG-08",
+      "metric_ids": [
+        "GT-02",
+        "PD-01",
+        "PD-04",
+        "TO-02",
+        "TO-04"
+      ]
+    },
+    {
+      "risk_id": "AG-09",
+      "metric_ids": [
+        "GT-01",
+        "RA-05",
+        "RC-01",
+        "TE-01",
+        "TO-05"
+      ]
+    },
+    {
+      "risk_id": "AG-10",
+      "metric_ids": [
+        "GT-01",
+        "GT-04",
+        "LC-01",
+        "LC-02",
+        "PD-05",
+        "RA-05",
+        "RC-04",
+        "TE-01",
+        "TE-04"
+      ]
+    }
+  ],
+  "derived_perspectives": [
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by TEVV Coverage Index (Agentic AI)",
+      "description": "Lifecycle failure detected by TEVV Coverage Index (Agentic AI)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LC-03"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Documentation Completeness (Agentic AI)",
+      "description": "Lifecycle failure detected by Documentation Completeness (Agentic AI)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LC-04"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Regulatory Framework Compliance (Agentic AI)",
+      "description": "Lifecycle failure detected by Regulatory Framework Compliance (Agentic AI)",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "LC-05"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy, Fairness; Original HLA primary TA: Accountability (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "description": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "category": "Business",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "PD-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Explainability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Security compromise causes data / financial loss and reputational damage",
+      "description": "Security compromise causes data / financial loss and reputational damage",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "metric_ids": [
+        "PD-02"
+      ],
+      "notes": "Derived from HLA — Business perspective of Security failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Loss of human control leads to unauthorized high-impact actions and liability",
+      "description": "Loss of human control leads to unauthorized high-impact actions and liability",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Human Oversight",
+      "metric_ids": [
+        "PD-02"
+      ],
+      "notes": "Derived from HLA — Business perspective of Human Control failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "description": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "metric_ids": [
+        "PD-05"
+      ],
+      "notes": "Derived from HLA — Business perspective of Reliability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "description": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "metric_ids": [
+        "TE-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Safety failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "description": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "LC-05"
+      ],
+      "notes": "Derived from HLA — Business perspective of Fairness & Policy Consistency failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    }
+  ],
+  "rmte_links": [
+    {
+      "metric_id": "PD-01",
+      "risk_id": "AG-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-01",
+      "risk_id": "AG-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incomplete reasoning or decision justification",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-02",
+      "risk_id": "AG-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent performs actions beyond permission scope",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-02",
+      "risk_id": "AG-03",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Agent executes irreversible action without confirmation",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-03",
+      "risk_id": "AG-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent performs actions beyond permission scope",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-03",
+      "risk_id": "AG-03",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Agent executes irreversible action without confirmation",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-04",
+      "risk_id": "AG-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-04",
+      "risk_id": "AG-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incomplete reasoning or decision justification",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-05",
+      "risk_id": "AG-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Agent makes too many tool calls (runaway loops / cost)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PD-05",
+      "risk_id": "AG-10",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Agent retries create duplicate actions (idempotency)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TE-01",
+      "risk_id": "AG-09",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Tool downtime causes unpredictable behavior",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TE-01",
+      "risk_id": "AG-10",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Agent retries create duplicate actions (idempotency)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TE-02",
+      "risk_id": "AG-03",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Agent executes irreversible action without confirmation",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TE-03",
+      "risk_id": "AG-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Agent makes too many tool calls (runaway loops / cost)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TE-04",
+      "risk_id": "AG-10",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent retries create duplicate actions (idempotency)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TE-05",
+      "risk_id": "AG-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Tool output contains malicious instructions agent follows",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TE-05",
+      "risk_id": "AG-06",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Data exfiltration through tool responses or invocation chains",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AP-01",
+      "risk_id": "AG-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent performs actions beyond permission scope",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AP-02",
+      "risk_id": "AG-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent bypasses required human approval step",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AP-03",
+      "risk_id": "AG-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent performs actions beyond permission scope",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AP-03",
+      "risk_id": "AG-06",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Data exfiltration through tool responses or invocation chains",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AP-04",
+      "risk_id": "AG-06",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Data exfiltration through tool responses or invocation chains",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TO-01",
+      "risk_id": "AG-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TO-02",
+      "risk_id": "AG-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TO-02",
+      "risk_id": "AG-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incomplete reasoning or decision justification",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TO-03",
+      "risk_id": "AG-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TO-04",
+      "risk_id": "AG-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TO-04",
+      "risk_id": "AG-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incomplete reasoning or decision justification",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TO-05",
+      "risk_id": "AG-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "TO-05",
+      "risk_id": "AG-09",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Tool downtime causes unpredictable behavior",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GT-01",
+      "risk_id": "AG-09",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Tool downtime causes unpredictable behavior",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GT-01",
+      "risk_id": "AG-10",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Agent retries create duplicate actions (idempotency)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GT-02",
+      "risk_id": "AG-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GT-02",
+      "risk_id": "AG-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Incomplete reasoning or decision justification",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GT-03",
+      "risk_id": "AG-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GT-04",
+      "risk_id": "AG-03",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Agent executes irreversible action without confirmation",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GT-04",
+      "risk_id": "AG-10",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Agent retries create duplicate actions (idempotency)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-01",
+      "risk_id": "AG-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Tool output contains malicious instructions agent follows",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-02",
+      "risk_id": "AG-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Tool output contains malicious instructions agent follows",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-02",
+      "risk_id": "AG-06",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Data exfiltration through tool responses or invocation chains",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-03",
+      "risk_id": "AG-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent performs actions beyond permission scope",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-03",
+      "risk_id": "AG-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Tool output contains malicious instructions agent follows",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-04",
+      "risk_id": "AG-05",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Tool output contains malicious instructions agent follows",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-05",
+      "risk_id": "AG-09",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Tool downtime causes unpredictable behavior",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RA-05",
+      "risk_id": "AG-10",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent retries create duplicate actions (idempotency)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "HO-01",
+      "risk_id": "AG-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent bypasses required human approval step",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "HO-02",
+      "risk_id": "AG-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent bypasses required human approval step",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "HO-03",
+      "risk_id": "AG-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent bypasses required human approval step",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "HO-03",
+      "risk_id": "AG-07",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "HO-04",
+      "risk_id": "AG-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent bypasses required human approval step",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RC-01",
+      "risk_id": "AG-04",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Agent makes too many tool calls (runaway loops / cost)",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RC-01",
+      "risk_id": "AG-09",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Tool downtime causes unpredictable behavior",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RC-02",
+      "risk_id": "AG-04",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Agent makes too many tool calls (runaway loops / cost)",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RC-03",
+      "risk_id": "AG-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Agent makes too many tool calls (runaway loops / cost)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RC-04",
+      "risk_id": "AG-04",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Agent makes too many tool calls (runaway loops / cost)",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RC-04",
+      "risk_id": "AG-10",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Agent retries create duplicate actions (idempotency)",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-01",
+      "risk_id": "AG-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Missing action trace for audit",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LC-01",
+      "risk_id": "AG-10",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Agent retries create duplicate actions (idempotency)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LC-02",
+      "risk_id": "AG-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Agent performs actions beyond permission scope",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LC-02",
+      "risk_id": "AG-10",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Agent retries create duplicate actions (idempotency)",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    }
+  ]
+}

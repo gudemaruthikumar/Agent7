@@ -1,0 +1,89 @@
+{
+  "library_id": "agent5-time_series-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Time-Series RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "AD": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "DQ": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "EX": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "FA": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "FE": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "LG": [
+      "monitoring",
+      "regression"
+    ],
+    "OP": [
+      "monitoring",
+      "regression"
+    ],
+    "PU": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "PV": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "RD": [
+      "monitoring",
+      "regression"
+    ],
+    "RS": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "TV": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "RS-01": [
+      "adversarial"
+    ],
+    "RS-02": [
+      "adversarial"
+    ],
+    "RS-03": [
+      "adversarial"
+    ]
+  }
+}

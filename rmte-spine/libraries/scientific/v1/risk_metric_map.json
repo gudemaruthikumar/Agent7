@@ -1,0 +1,650 @@
+{
+  "library_id": "tlai-rmte-scientific-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_Scientific_Logs_Layers_Formulas.xlsx — sheet 'Scientific RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "SCI-01",
+      "metric_ids": [
+        "SA-01",
+        "SA-02",
+        "SA-03"
+      ]
+    },
+    {
+      "risk_id": "SCI-02",
+      "metric_ids": [
+        "PP-01",
+        "PP-04"
+      ]
+    },
+    {
+      "risk_id": "SCI-03",
+      "metric_ids": [
+        "PP-02"
+      ]
+    },
+    {
+      "risk_id": "SCI-04",
+      "metric_ids": [
+        "PP-03"
+      ]
+    },
+    {
+      "risk_id": "SCI-05",
+      "metric_ids": [
+        "UQ-01",
+        "UQ-03",
+        "UQ-04"
+      ]
+    },
+    {
+      "risk_id": "SCI-06",
+      "metric_ids": [
+        "GE-01",
+        "GE-02",
+        "GE-03"
+      ]
+    },
+    {
+      "risk_id": "SCI-07",
+      "metric_ids": [
+        "EV-01",
+        "EV-03",
+        "EX-02"
+      ]
+    },
+    {
+      "risk_id": "SCI-08",
+      "metric_ids": [
+        "EV-02",
+        "OP-01",
+        "OP-02",
+        "OP-03"
+      ]
+    },
+    {
+      "risk_id": "SCI-09",
+      "metric_ids": [
+        "DK-01",
+        "DK-02",
+        "DK-03",
+        "DK-04",
+        "EX-01"
+      ]
+    },
+    {
+      "risk_id": "SCI-10",
+      "metric_ids": [
+        "DU-01"
+      ]
+    },
+    {
+      "risk_id": "SCI-11",
+      "metric_ids": [
+        "DU-02"
+      ]
+    },
+    {
+      "risk_id": "SCI-12",
+      "metric_ids": [
+        "DU-03"
+      ]
+    },
+    {
+      "risk_id": "SCI-13",
+      "metric_ids": [
+        "DU-04"
+      ]
+    },
+    {
+      "risk_id": "SCI-14",
+      "metric_ids": [
+        "DU-05"
+      ]
+    },
+    {
+      "risk_id": "SCI-15",
+      "metric_ids": [
+        "RS-01",
+        "RS-02"
+      ]
+    },
+    {
+      "risk_id": "SCI-16",
+      "metric_ids": [
+        "FE-01",
+        "FE-02"
+      ]
+    },
+    {
+      "risk_id": "SCI-17",
+      "metric_ids": [
+        "PV-01",
+        "PV-02"
+      ]
+    },
+    {
+      "risk_id": "SCI-18",
+      "metric_ids": [
+        "DQ-01",
+        "DQ-03",
+        "LG-03"
+      ]
+    },
+    {
+      "risk_id": "SCI-19",
+      "metric_ids": [
+        "EV-04",
+        "LG-01"
+      ]
+    },
+    {
+      "risk_id": "SCI-20",
+      "metric_ids": [
+        "DQ-02",
+        "EX-03",
+        "LG-02",
+        "LG-04"
+      ]
+    }
+  ],
+  "derived_perspectives": [],
+  "rmte_links": [
+    {
+      "metric_id": "SA-01",
+      "risk_id": "SCI-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Predictions inaccurate versus experimental ground truth",
+      "test_suite_id": "TS-SCI-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SA-02",
+      "risk_id": "SCI-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Predictions inaccurate versus experimental ground truth",
+      "test_suite_id": "TS-SCI-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SA-03",
+      "risk_id": "SCI-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Predictions inaccurate versus experimental ground truth",
+      "test_suite_id": "TS-SCI-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PP-01",
+      "risk_id": "SCI-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Outputs physically implausible / violate conservation laws",
+      "test_suite_id": "TS-SCI-02",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PP-02",
+      "risk_id": "SCI-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Symmetry / invariance violated (non-equivariant errors)",
+      "test_suite_id": "TS-SCI-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "PP-03",
+      "risk_id": "SCI-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Thermodynamically unstable / infeasible structures proposed",
+      "test_suite_id": "TS-SCI-02",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PP-04",
+      "risk_id": "SCI-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Outputs physically implausible / violate conservation laws",
+      "test_suite_id": "TS-SCI-02",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "UQ-01",
+      "risk_id": "SCI-05",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Overconfident predictions mislead costly experiments (miscalibrated UQ)",
+      "test_suite_id": "TS-SCI-03",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "UQ-03",
+      "risk_id": "SCI-05",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Overconfident predictions mislead costly experiments (miscalibrated UQ)",
+      "test_suite_id": "TS-SCI-03",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "UQ-04",
+      "risk_id": "SCI-05",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Overconfident predictions mislead costly experiments (miscalibrated UQ)",
+      "test_suite_id": "TS-SCI-03",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "GE-01",
+      "risk_id": "SCI-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Model fails to generalize / extrapolate beyond training domain",
+      "test_suite_id": "TS-SCI-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "GE-02",
+      "risk_id": "SCI-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Model fails to generalize / extrapolate beyond training domain",
+      "test_suite_id": "TS-SCI-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "GE-03",
+      "risk_id": "SCI-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Model fails to generalize / extrapolate beyond training domain",
+      "test_suite_id": "TS-SCI-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EV-01",
+      "risk_id": "SCI-07",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Predictions not confirmed by wet-lab / prospective experiment",
+      "test_suite_id": "TS-SCI-05",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EV-02",
+      "risk_id": "SCI-08",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Low screening hit-rate wastes experimental resources",
+      "test_suite_id": "TS-SCI-05",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EV-03",
+      "risk_id": "SCI-07",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Predictions not confirmed by wet-lab / prospective experiment",
+      "test_suite_id": "TS-SCI-05",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EV-04",
+      "risk_id": "SCI-19",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Results not reproducible (non-determinism, missing provenance)",
+      "test_suite_id": "TS-SCI-05",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "DK-01",
+      "risk_id": "SCI-09",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Output contradicts established theory / known constraints undetected",
+      "test_suite_id": "TS-SCI-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "DK-02",
+      "risk_id": "SCI-09",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Output contradicts established theory / known constraints undetected",
+      "test_suite_id": "TS-SCI-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "DK-03",
+      "risk_id": "SCI-09",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Output contradicts established theory / known constraints undetected",
+      "test_suite_id": "TS-SCI-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "DK-04",
+      "risk_id": "SCI-09",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Output contradicts established theory / known constraints undetected",
+      "test_suite_id": "TS-SCI-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "DU-01",
+      "risk_id": "SCI-10",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Hazardous output enables bio / chem / toxic harm (dual-use)",
+      "test_suite_id": "TS-SCI-07",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DU-02",
+      "risk_id": "SCI-11",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Weaponizable / gain-of-function capability ungated",
+      "test_suite_id": "TS-SCI-07",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DU-03",
+      "risk_id": "SCI-12",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Controlled-agent / select-agent sequence or structure generated",
+      "test_suite_id": "TS-SCI-07",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DU-04",
+      "risk_id": "SCI-13",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "High-risk capability accessed without authorization / KYC",
+      "test_suite_id": "TS-SCI-07",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DU-05",
+      "risk_id": "SCI-14",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Misuse attempt undetected",
+      "test_suite_id": "TS-SCI-07",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RS-01",
+      "risk_id": "SCI-15",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Adversarial input fools scientific prediction",
+      "test_suite_id": "TS-SCI-08",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RS-02",
+      "risk_id": "SCI-15",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial input fools scientific prediction",
+      "test_suite_id": "TS-SCI-08",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EX-01",
+      "risk_id": "SCI-09",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Output contradicts established theory / known constraints undetected",
+      "test_suite_id": "TS-SCI-09",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EX-02",
+      "risk_id": "SCI-07",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Business",
+      "risk": "Predictions not confirmed by wet-lab / prospective experiment",
+      "test_suite_id": "TS-SCI-09",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EX-03",
+      "risk_id": "SCI-20",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models/benchmarks, missing lineage / documentation",
+      "test_suite_id": "TS-SCI-09",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "DQ-01",
+      "risk_id": "SCI-18",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Benchmark contamination / data leakage inflates reported performance",
+      "test_suite_id": "TS-SCI-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "DQ-02",
+      "risk_id": "SCI-20",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models/benchmarks, missing lineage / documentation",
+      "test_suite_id": "TS-SCI-10",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "DQ-03",
+      "risk_id": "SCI-18",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Benchmark contamination / data leakage inflates reported performance",
+      "test_suite_id": "TS-SCI-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-01",
+      "risk_id": "SCI-19",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Results not reproducible (non-determinism, missing provenance)",
+      "test_suite_id": "TS-SCI-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": "SCI-20",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models/benchmarks, missing lineage / documentation",
+      "test_suite_id": "TS-SCI-11",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LG-03",
+      "risk_id": "SCI-18",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Benchmark contamination / data leakage inflates reported performance",
+      "test_suite_id": "TS-SCI-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "SCI-20",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models/benchmarks, missing lineage / documentation",
+      "test_suite_id": "TS-SCI-11",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-01",
+      "risk_id": "SCI-08",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Low screening hit-rate wastes experimental resources",
+      "test_suite_id": "TS-SCI-12",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-02",
+      "risk_id": "SCI-08",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Low screening hit-rate wastes experimental resources",
+      "test_suite_id": "TS-SCI-12",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "OP-03",
+      "risk_id": "SCI-08",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Low screening hit-rate wastes experimental resources",
+      "test_suite_id": "TS-SCI-12",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FE-01",
+      "risk_id": "SCI-16",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Population / cohort generalization inequity (e.g. ancestry bias in genomics)",
+      "test_suite_id": "TS-SCI-13",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FE-02",
+      "risk_id": "SCI-16",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Population / cohort generalization inequity (e.g. ancestry bias in genomics)",
+      "test_suite_id": "TS-SCI-13",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-01",
+      "risk_id": "SCI-17",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Sensitive biomedical / genomic data exposed; consent / use non-compliant",
+      "test_suite_id": "TS-SCI-14",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-02",
+      "risk_id": "SCI-17",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Sensitive biomedical / genomic data exposed; consent / use non-compliant",
+      "test_suite_id": "TS-SCI-14",
+      "severity": "High",
+      "priority": "P2"
+    }
+  ]
+}

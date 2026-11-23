@@ -1,0 +1,223 @@
+{
+  "schema_id": "agent5-test-case-14-fields",
+  "version": "v1",
+  "status": "proposed_until_evaluation_engineer_confirms",
+  "source": "Agent 5 14-field contract; formula terms and evidence observations bind to TrustLensAI Multimodal RMTE (Master) and Logs ↔ Formula Inputs",
+  "contract_note": "The original fourteen fields remain mandatory. The expected_evidence_model extension is step 8 on the Agent 5 architecture slide: it declares WHAT must be observed when the test runs so that every term of the metric formula can be calculated afterwards. It deliberately names no endpoints, payloads or trace paths; Agent 6's Expected Evidence Resolver resolves the type, source and format against the real product. The model designs it and agent5.evidence validates it for completeness, pipeline stage and cross-category consistency; a design that survives no ReAct attempt is stamped design_failed rather than quietly backfilled from a template.",
+  "fields": [
+    {
+      "name": "test_id",
+      "required": true
+    },
+    {
+      "name": "scenario_id",
+      "required": true
+    },
+    {
+      "name": "metric_ids",
+      "required": true,
+      "type": "array"
+    },
+    {
+      "name": "risk_ids",
+      "required": true,
+      "type": "array"
+    },
+    {
+      "name": "trust_attribute",
+      "required": true
+    },
+    {
+      "name": "category",
+      "required": true
+    },
+    {
+      "name": "preconditions",
+      "required": true
+    },
+    {
+      "name": "steps",
+      "required": true,
+      "type": "array"
+    },
+    {
+      "name": "expected_results",
+      "required": true
+    },
+    {
+      "name": "pass_fail_rules",
+      "required": true
+    },
+    {
+      "name": "test_data_requirements",
+      "required": true
+    },
+    {
+      "name": "evidence_requirements",
+      "required": true
+    },
+    {
+      "name": "environment_and_execution_boundaries",
+      "required": true
+    },
+    {
+      "name": "rmte_links",
+      "required": true
+    },
+    {
+      "name": "rmte_id",
+      "required": false,
+      "note": "RMTE identifier linking this case to the RMTE mapping (RMTE-RSK-...)",
+      "type": "string"
+    },
+    {
+      "name": "requirement_id",
+      "required": false,
+      "note": "References to one or more requirement IDs (e.g. REW-REQ-001)",
+      "type": "string_or_array"
+    },
+    {
+      "name": "severity",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "priority",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "test_suite_sheet",
+      "required": false,
+      "note": "The originating workbook sheet for the suite (e.g. 'INT-01')",
+      "type": "string"
+    },
+    {
+      "name": "test_types",
+      "required": false,
+      "type": "array",
+      "note": "E.g. Positive, Negative, Adversarial, Boundary, Multi-turn"
+    },
+    {
+      "name": "oracle",
+      "required": false,
+      "type": "string",
+      "note": "How the case is judged (deterministic, golden, LLM-judge, hybrid)"
+    },
+    {
+      "name": "evaluator",
+      "required": false,
+      "type": "string",
+      "note": "Who/what evaluates the result (APM, judge, deterministic script)"
+    },
+    {
+      "name": "gov_gate",
+      "required": false,
+      "type": "string",
+      "note": "Governance gate for this evidence (Gate 2, Gate 3, etc.)"
+    },
+    {
+      "name": "parity",
+      "required": false,
+      "type": "string",
+      "note": "Whether parity across surfaces is required (Yes/No or details)"
+    },
+    {
+      "name": "inputs",
+      "required": false,
+      "type": "object",
+      "note": "Optional inputs needed by this test case; may include prompts, example queries, fixtures or dataset ids",
+      "shape": {
+        "prompt": "string",
+        "input_dataset_id": "string",
+        "fixture": "string",
+        "notes": "string"
+      }
+    },
+    {
+      "name": "expected_outputs",
+      "required": false,
+      "type": "object",
+      "note": "Structured expected outputs for the case (used by deterministic or golden checks)",
+      "shape": {
+        "fields": "array",
+        "example_values": "array",
+        "notes": "string"
+      }
+    },
+    {
+      "name": "prompts",
+      "required": false,
+      "type": "array",
+      "note": "Optional prompt templates or generator inputs used when executing the case"
+    },
+    {
+      "name": "trace_requirements",
+      "required": false,
+      "type": "array",
+      "note": "List of traces/logs the execution must capture (routing trace, tool-call trace, APM, etc.)"
+    },
+    {
+      "name": "design_status",
+      "required": false,
+      "extension": "expected_evidence_model",
+      "type": "string",
+      "enum": [
+        "designed",
+        "design_failed"
+      ]
+    },
+    {
+      "name": "design_errors",
+      "required": false,
+      "extension": "expected_evidence_model",
+      "type": "array"
+    },
+    {
+      "name": "expected_evidence_model",
+      "required": false,
+      "extension": "expected_evidence_model",
+      "type": "object",
+      "shape": {
+        "observations": "array of {observation_id, name, capture_stage, granularity, attributes, derivation, why}",
+        "metric_input_bindings": "array of {formula_term, from_observation, computation}",
+        "ground_truth": "{required, dataset_id, label_fields, reason}"
+      }
+    },
+    {
+      "name": "expected_metric_behavior",
+      "required": false,
+      "extension": "expected_evidence_model",
+      "type": "string"
+    },
+    {
+      "name": "unbound_formula_terms",
+      "required": false,
+      "extension": "expected_evidence_model",
+      "type": "array"
+    },
+    {
+      "name": "react_trace",
+      "required": false,
+      "extension": "expected_evidence_model",
+      "type": "array",
+      "note": "One entry per design attempt: thought, action, and the validator's observation."
+    },
+    {
+      "name": "policy_findings",
+      "required": false,
+      "extension": "policy_engine",
+      "type": "array"
+    },
+    {
+      "name": "variant_id",
+      "required": false,
+      "note": "Library slot this case occupies under the scenario. Distinct cases must use distinct slots."
+    },
+    {
+      "name": "variant_focus",
+      "required": false,
+      "note": "The condition axis for this case; not a renamed copy of a sibling case."
+    }
+  ]
+}

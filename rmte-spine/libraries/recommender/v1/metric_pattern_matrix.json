@@ -1,0 +1,513 @@
+{
+  "library_id": "tlai-rmte-recommender-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_Recommender_Logs_Layers_Formulas.xlsx — sheet 'Recommender RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "collaborative_filtering",
+    "content_based",
+    "two_tower__neural_retrieval",
+    "learning_to_rank",
+    "sequential__session_based",
+    "bandit__rl_based",
+    "graph__gnn_based"
+  ],
+  "family_defaults": {
+    "RQ": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "BA": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "CC": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FE": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FL": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "RS": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "SC": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "PV": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "EX": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "OP": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "LG": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    }
+  },
+  "metric_overrides": {
+    "RQ-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "RQ-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "RQ-03": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "RQ-04": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "RQ-05": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "RQ-06": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "BA-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "BA-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "BA-03": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "BA-04": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "CC-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "CC-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FE-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FE-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FE-03": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FE-04": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FE-05": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FL-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FL-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FL-03": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "FL-04": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "RS-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "RS-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "RS-04": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "SC-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "SC-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "SC-03": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "SC-04": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "PV-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "PV-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "PV-03": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "PV-04": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "EX-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "EX-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "EX-03": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "EX-04": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "OP-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "OP-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "OP-04": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "LG-01": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "LG-02": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "LG-03": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "LG-04": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    },
+    "LG-05": {
+      "collaborative_filtering": "applies (measure per model/stage; adjust for collaborative filtering specifics)",
+      "content_based": "applies (measure per model/stage; adjust for content-based specifics)",
+      "two_tower": "applies (measure per model/stage; adjust for two-tower specifics)",
+      "learning_to_rank": "applies (measure per model/stage; adjust for learning-to-rank specifics)",
+      "sequential": "applies (measure per model/stage; adjust for sequential specifics)",
+      "bandit": "applies (measure per model/stage; adjust for bandit specifics)",
+      "graph": "applies (measure per model/stage; adjust for graph specifics)"
+    }
+  }
+}

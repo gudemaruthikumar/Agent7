@@ -1,0 +1,257 @@
+{
+  "library_id": "tlai-rmte-copilot-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_EnterpriseCopilot_Logs_Layers_Formulas.xlsx — sheet 'Copilot RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Enterprise Copilot pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Context Ingestion (IDE / Doc / App)",
+      "logs_telemetry": "Context log",
+      "key_fields": "IDE/doc/app context, project state, cursor/selection, open files",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Context Understanding"
+      ],
+      "notes": "Feeds CU-01..05; source of grounding context"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Grounding / Retrieval",
+      "logs_telemetry": "Retrieval log",
+      "key_fields": "enterprise data retrieved, grounding sources, permission scope",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Context Understanding",
+        "Privacy"
+      ],
+      "notes": "Enterprise-data grounding path"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Prompt Orchestration",
+      "logs_telemetry": "Prompt log",
+      "key_fields": "prompt, system-prompt version, assembled context ref, template",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Suggestion Quality"
+      ],
+      "notes": "Prompt/version governance"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Generation (LLM)",
+      "logs_telemetry": "Generation log",
+      "key_fields": "prompt, context, generated suggestion, claims, tokens, model version",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance (AAJ)",
+      "related_metric_families": [
+        "Suggestion Quality"
+      ],
+      "notes": "Feeds SQ-03 hallucination, CU-05"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Suggestion / Ranking",
+      "logs_telemetry": "Suggestion log",
+      "key_fields": "candidate suggestions, ranking scores, shown suggestion, timing",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Suggestion Quality",
+        "User Interaction"
+      ],
+      "notes": "Feeds SQ-01/02, UI-02"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Tool / Action Execution",
+      "logs_telemetry": "Action log",
+      "key_fields": "action invoked, arguments, result, harmful-action flags",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Safety"
+      ],
+      "notes": "Feeds SC-04 harmful-action prevention"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Authorization / Policy Enforcement",
+      "logs_telemetry": "Authorization log",
+      "key_fields": "permission checks, access control, consent, retention, isolation",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PD-02..05 (zero-tolerance)"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Guardrails / Safety",
+      "logs_telemetry": "Guardrail log",
+      "key_fields": "security-scan, license/IP-scan, policy check, PII detector, injection verdict",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Safety",
+        "Adversarial",
+        "Privacy"
+      ],
+      "notes": "Feeds SC-01/02/03/05, RA-01, PD-01"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Human Acceptance / Feedback",
+      "logs_telemetry": "Interaction log",
+      "key_fields": "shown, accepted, modified/override, explanation provided, timing",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "User Interaction",
+        "Suggestion Quality"
+      ],
+      "notes": "Feeds SQ-01, UI-01/02/03"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Citation / Post-processing",
+      "logs_telemetry": "Citation log",
+      "key_fields": "citations, resolved sources, provenance, stated confidence",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Attribution"
+      ],
+      "notes": "Feeds AP-01..04"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Serving & Integration",
+      "logs_telemetry": "Serving telemetry",
+      "key_fields": "latency, cost, concurrency, throughput, context-change timing",
+      "ingested_by": "L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Efficiency"
+      ],
+      "notes": "Feeds EP-01..04"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (Copilot)",
+      "layer": "Monitoring & Lifecycle",
+      "logs_telemetry": "Monitoring telemetry",
+      "key_fields": "metric snapshots, drift, incidents, TEVV, config-change governance",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Feeds LG-01..05 (continuous)"
+    },
+    {
+      "index": 13,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered copilot, IDE/app connectors, tenancy, permission registry",
+      "ingested_by": "Anchors identity, permissions & tenancy for all logs",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Permission & connector registry origin"
+    },
+    {
+      "index": 14,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized copilot spans/events, redaction applied, event-bus refs",
+      "ingested_by": "Consumes all copilot product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Raw content redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 15,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed session traces, dependency views, time-series",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 16,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator/judge outputs, rubric scores, hallucination, metric scores",
+      "ingested_by": "Consumes generation/suggestion/citation logs + gold sets",
+      "related_metric_families": [
+        "Suggestion Quality",
+        "Context Understanding",
+        "Attribution"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, gold sets & rubrics, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the Copilot RMTE metric corpus"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "policy, license/IP, access-control decisions, risk register, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Safety",
+        "Privacy",
+        "Adversarial"
+      ],
+      "notes": "Gates 0–4; zero-tolerance controls"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Risk personas"
+    }
+  ]
+}

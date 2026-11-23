@@ -1,0 +1,25 @@
+[project]
+name = "rmte-spine"
+version = "0.1.0"
+description = "TrustLensAI RMTE spine — governed Risk/Metric/Test/Evaluation catalog for every archetype."
+requires-python = ">=3.11"
+dependencies = [
+    "sqlalchemy>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "openpyxl>=3.1.0",
+]
+
+[project.optional-dependencies]
+postgres = ["psycopg[binary]>=3.1.0"]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+rmte-spine = "rmte_spine.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rmte_spine*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

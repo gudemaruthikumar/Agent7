@@ -1,0 +1,710 @@
+{
+  "library_id": "tlai-rmte-recommender-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_Recommender_Logs_Layers_Formulas.xlsx — sheet 'Recommender RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "REC-01",
+      "metric_ids": [
+        "RQ-01",
+        "RQ-02",
+        "RQ-03",
+        "RQ-04",
+        "RQ-05"
+      ]
+    },
+    {
+      "risk_id": "REC-02",
+      "metric_ids": [
+        "BA-01",
+        "BA-02",
+        "BA-03",
+        "FL-02"
+      ]
+    },
+    {
+      "risk_id": "REC-03",
+      "metric_ids": [
+        "BA-02",
+        "BA-04",
+        "CC-02",
+        "FE-03",
+        "FL-04"
+      ]
+    },
+    {
+      "risk_id": "REC-04",
+      "metric_ids": [
+        "FE-01"
+      ]
+    },
+    {
+      "risk_id": "REC-05",
+      "metric_ids": [
+        "FE-02",
+        "FE-04",
+        "FE-05"
+      ]
+    },
+    {
+      "risk_id": "REC-06",
+      "metric_ids": [
+        "FL-01",
+        "FL-04"
+      ]
+    },
+    {
+      "risk_id": "REC-07",
+      "metric_ids": [
+        "CC-01",
+        "CC-02"
+      ]
+    },
+    {
+      "risk_id": "REC-08",
+      "metric_ids": [
+        "RS-01"
+      ]
+    },
+    {
+      "risk_id": "REC-09",
+      "metric_ids": [
+        "RS-02"
+      ]
+    },
+    {
+      "risk_id": "REC-10",
+      "metric_ids": [
+        "SC-01",
+        "SC-02"
+      ]
+    },
+    {
+      "risk_id": "REC-11",
+      "metric_ids": [
+        "SC-03"
+      ]
+    },
+    {
+      "risk_id": "REC-12",
+      "metric_ids": [
+        "SC-04"
+      ]
+    },
+    {
+      "risk_id": "REC-13",
+      "metric_ids": [
+        "PV-01",
+        "PV-02"
+      ]
+    },
+    {
+      "risk_id": "REC-14",
+      "metric_ids": [
+        "PV-03"
+      ]
+    },
+    {
+      "risk_id": "REC-15",
+      "metric_ids": [
+        "LG-05",
+        "PV-04"
+      ]
+    },
+    {
+      "risk_id": "REC-16",
+      "metric_ids": [
+        "EX-01",
+        "EX-02",
+        "EX-03"
+      ]
+    },
+    {
+      "risk_id": "REC-17",
+      "metric_ids": [
+        "RQ-01",
+        "RS-04"
+      ]
+    },
+    {
+      "risk_id": "REC-18",
+      "metric_ids": [
+        "FL-03",
+        "LG-02",
+        "LG-03",
+        "RQ-06"
+      ]
+    },
+    {
+      "risk_id": "REC-19",
+      "metric_ids": [
+        "EX-04",
+        "LG-01",
+        "LG-02",
+        "LG-04",
+        "LG-05"
+      ]
+    },
+    {
+      "risk_id": "REC-20",
+      "metric_ids": [
+        "OP-01",
+        "OP-02",
+        "OP-04"
+      ]
+    }
+  ],
+  "derived_perspectives": [],
+  "rmte_links": [
+    {
+      "metric_id": "RQ-01",
+      "risk_id": "REC-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Ranking surfaces irrelevant or low-quality items for the query/user",
+      "test_suite_id": "TS-REC-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RQ-01",
+      "risk_id": "REC-17",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Position / presentation bias confounds evaluation and training",
+      "test_suite_id": "TS-REC-01",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RQ-02",
+      "risk_id": "REC-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Ranking surfaces irrelevant or low-quality items for the query/user",
+      "test_suite_id": "TS-REC-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RQ-03",
+      "risk_id": "REC-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Ranking surfaces irrelevant or low-quality items for the query/user",
+      "test_suite_id": "TS-REC-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RQ-04",
+      "risk_id": "REC-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Ranking surfaces irrelevant or low-quality items for the query/user",
+      "test_suite_id": "TS-REC-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RQ-05",
+      "risk_id": "REC-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Ranking surfaces irrelevant or low-quality items for the query/user",
+      "test_suite_id": "TS-REC-01",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RQ-06",
+      "risk_id": "REC-18",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Online performance diverges from offline evaluation (metric inconsistency)",
+      "test_suite_id": "TS-REC-01",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "BA-01",
+      "risk_id": "REC-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Recommendations lack diversity, creating filter bubbles / echo chambers",
+      "test_suite_id": "TS-REC-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "BA-02",
+      "risk_id": "REC-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Recommendations lack diversity, creating filter bubbles / echo chambers",
+      "test_suite_id": "TS-REC-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "BA-02",
+      "risk_id": "REC-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Popularity bias concentrates exposure on few items, starving the long tail",
+      "test_suite_id": "TS-REC-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "BA-03",
+      "risk_id": "REC-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Recommendations lack diversity, creating filter bubbles / echo chambers",
+      "test_suite_id": "TS-REC-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "BA-04",
+      "risk_id": "REC-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Popularity bias concentrates exposure on few items, starving the long tail",
+      "test_suite_id": "TS-REC-02",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CC-01",
+      "risk_id": "REC-07",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Miscalibrated scores misstate engagement / conversion likelihood",
+      "test_suite_id": "TS-REC-03",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CC-02",
+      "risk_id": "REC-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Popularity bias concentrates exposure on few items, starving the long tail",
+      "test_suite_id": "TS-REC-03",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CC-02",
+      "risk_id": "REC-07",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Miscalibrated scores misstate engagement / conversion likelihood",
+      "test_suite_id": "TS-REC-03",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FE-01",
+      "risk_id": "REC-04",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Provider/item-side unfairness: inequitable exposure across content providers",
+      "test_suite_id": "TS-REC-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FE-02",
+      "risk_id": "REC-05",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "User-side unfairness: recommendation quality varies across demographic groups",
+      "test_suite_id": "TS-REC-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FE-03",
+      "risk_id": "REC-03",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Popularity bias concentrates exposure on few items, starving the long tail",
+      "test_suite_id": "TS-REC-04",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FE-04",
+      "risk_id": "REC-05",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "User-side unfairness: recommendation quality varies across demographic groups",
+      "test_suite_id": "TS-REC-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FE-05",
+      "risk_id": "REC-05",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "User-side unfairness: recommendation quality varies across demographic groups",
+      "test_suite_id": "TS-REC-04",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FL-01",
+      "risk_id": "REC-06",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Feedback loops amplify bias/popularity over successive retraining cycles",
+      "test_suite_id": "TS-REC-05",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "FL-02",
+      "risk_id": "REC-02",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Recommendations lack diversity, creating filter bubbles / echo chambers",
+      "test_suite_id": "TS-REC-05",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FL-03",
+      "risk_id": "REC-18",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Online performance diverges from offline evaluation (metric inconsistency)",
+      "test_suite_id": "TS-REC-05",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FL-04",
+      "risk_id": "REC-03",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Popularity bias concentrates exposure on few items, starving the long tail",
+      "test_suite_id": "TS-REC-05",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "FL-04",
+      "risk_id": "REC-06",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Feedback loops amplify bias/popularity over successive retraining cycles",
+      "test_suite_id": "TS-REC-05",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RS-01",
+      "risk_id": "REC-08",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Shilling / profile-injection attacks manipulate rankings",
+      "test_suite_id": "TS-REC-06",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RS-02",
+      "risk_id": "REC-09",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Cold-start degradation for new users or new items",
+      "test_suite_id": "TS-REC-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RS-04",
+      "risk_id": "REC-17",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Position / presentation bias confounds evaluation and training",
+      "test_suite_id": "TS-REC-06",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "SC-01",
+      "risk_id": "REC-10",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Harmful, unsafe, or policy-violating items are recommended",
+      "test_suite_id": "TS-REC-07",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-02",
+      "risk_id": "REC-10",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Harmful, unsafe, or policy-violating items are recommended",
+      "test_suite_id": "TS-REC-07",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-03",
+      "risk_id": "REC-11",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Engagement optimization drives addictive / rabbit-hole behaviour (user-wellbeing harm)",
+      "test_suite_id": "TS-REC-07",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "SC-04",
+      "risk_id": "REC-12",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Minors exposed to age-inappropriate recommendations",
+      "test_suite_id": "TS-REC-07",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PV-01",
+      "risk_id": "REC-13",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Behavioural / preference PII exposed or leaked across users",
+      "test_suite_id": "TS-REC-08",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PV-02",
+      "risk_id": "REC-13",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Behavioural / preference PII exposed or leaked across users",
+      "test_suite_id": "TS-REC-08",
+      "severity": "Critical",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PV-03",
+      "risk_id": "REC-14",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Sensitive attributes inferable from recommendations (inference attack)",
+      "test_suite_id": "TS-REC-08",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "PV-04",
+      "risk_id": "REC-15",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Personalization performed without a valid consent basis (regulatory exposure)",
+      "test_suite_id": "TS-REC-08",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "EX-01",
+      "risk_id": "REC-16",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Recommendations are unexplainable / opaque to users and auditors",
+      "test_suite_id": "TS-REC-09",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EX-02",
+      "risk_id": "REC-16",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Recommendations are unexplainable / opaque to users and auditors",
+      "test_suite_id": "TS-REC-09",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EX-03",
+      "risk_id": "REC-16",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Recommendations are unexplainable / opaque to users and auditors",
+      "test_suite_id": "TS-REC-09",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EX-04",
+      "risk_id": "REC-19",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing lineage",
+      "test_suite_id": "TS-REC-09",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "OP-01",
+      "risk_id": "REC-20",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Serving latency / scale failures degrade experience or force fallback",
+      "test_suite_id": "TS-REC-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "OP-02",
+      "risk_id": "REC-20",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Serving latency / scale failures degrade experience or force fallback",
+      "test_suite_id": "TS-REC-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "OP-04",
+      "risk_id": "REC-20",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Deployment",
+      "risk": "Serving latency / scale failures degrade experience or force fallback",
+      "test_suite_id": "TS-REC-10",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-01",
+      "risk_id": "REC-19",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing lineage",
+      "test_suite_id": "TS-REC-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": "REC-18",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Delivery",
+      "risk": "Online performance diverges from offline evaluation (metric inconsistency)",
+      "test_suite_id": "TS-REC-11",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LG-02",
+      "risk_id": "REC-19",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing lineage",
+      "test_suite_id": "TS-REC-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-03",
+      "risk_id": "REC-18",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Online performance diverges from offline evaluation (metric inconsistency)",
+      "test_suite_id": "TS-REC-11",
+      "severity": "Medium",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LG-04",
+      "risk_id": "REC-19",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing lineage",
+      "test_suite_id": "TS-REC-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-05",
+      "risk_id": "REC-15",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Personalization performed without a valid consent basis (regulatory exposure)",
+      "test_suite_id": "TS-REC-11",
+      "severity": "High",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LG-05",
+      "risk_id": "REC-19",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Delivery",
+      "risk": "Governance gaps: unversioned models, no champion/challenger, missing lineage",
+      "test_suite_id": "TS-REC-11",
+      "severity": "High",
+      "priority": "P2"
+    }
+  ]
+}

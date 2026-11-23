@@ -1,0 +1,53 @@
+{
+  "designer": {
+    "provider": "openai",
+    "model_id_source": "AGENT5_OPENAI_MODEL",
+    "base_url": "https://api.openai.com/v1",
+    "api_key_env": "OPENAI_API_KEY",
+    "note": "The OpenAI model name lives only in .env as AGENT5_OPENAI_MODEL. Do not pin it in code. Groq remains an optional fallback."
+  },
+  "designed_steps": {
+    "2": "identify scenario categories (library supplies a mandatory floor only)",
+    "3": "define test conditions",
+    "4": "design scenarios",
+    "5": "create test cases and steps",
+    "6": "expected results and the pass/fail rule (threshold numbers stay governed)",
+    "7": "example test data (optional)",
+    "8": "expected evidence model: what must be observed for the metric to be calculable"
+  },
+  "react": {
+    "pattern": "ReAct within steps, the supporting pattern on the architecture slide",
+    "attempts_env": "AGENT5_MAX_REACT_ATTEMPTS",
+    "note": "A rejected design is returned to the model with the validator's reasons attached so it repairs its own work. Code never substitutes a design of its own."
+  },
+  "families": [
+    "CA",
+    "CT",
+    "EX",
+    "FS",
+    "HO",
+    "HR",
+    "LG",
+    "OD",
+    "OP",
+    "PC",
+    "PL",
+    "PV",
+    "RS",
+    "SR"
+  ],
+  "context_aware_selection": "deferred - a later change will pick the model from architecture, metric family, and data classification",
+  "governed_in_code_not_by_llm": [
+    "metric_ids",
+    "risk_ids",
+    "thresholds",
+    "trust_attribute",
+    "evidence_requirements",
+    "rmte_links",
+    "formula_inputs",
+    "pass_fail_rule",
+    "environment_and_execution_boundaries",
+    "variant_slots"
+  ],
+  "forbidden": "Never use the SUT generator as the test designer. The designer is a separate OpenAI (or Groq) client."
+}

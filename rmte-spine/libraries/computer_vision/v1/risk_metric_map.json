@@ -1,0 +1,1112 @@
+{
+  "library_id": "tlai-rmte-computer_vision-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_ComputerVision_Logs_Layers_Formulas.xlsx — sheet 'Computer Vision RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "edges": [
+    {
+      "risk_id": "AUTO-01",
+      "metric_ids": [
+        "SC-01"
+      ]
+    },
+    {
+      "risk_id": "AUTO-02",
+      "metric_ids": [
+        "ER-02"
+      ]
+    },
+    {
+      "risk_id": "AUTO-03",
+      "metric_ids": [
+        "DP-04",
+        "SC-01",
+        "SC-03"
+      ]
+    },
+    {
+      "risk_id": "AUTO-05",
+      "metric_ids": [
+        "SC-03"
+      ]
+    },
+    {
+      "risk_id": "AUTO-07",
+      "metric_ids": [
+        "SC-04"
+      ]
+    },
+    {
+      "risk_id": "CV-01",
+      "metric_ids": [
+        "AR-01",
+        "AR-02",
+        "AR-04",
+        "DP-01",
+        "DP-03",
+        "DP-04",
+        "DP-05",
+        "ET-04",
+        "ET-05"
+      ]
+    },
+    {
+      "risk_id": "CV-02",
+      "metric_ids": [
+        "DP-02",
+        "ER-01",
+        "ER-02",
+        "ER-03",
+        "ER-04"
+      ]
+    },
+    {
+      "risk_id": "CV-03",
+      "metric_ids": [
+        "DE-01",
+        "DP-01"
+      ]
+    },
+    {
+      "risk_id": "CV-04",
+      "metric_ids": [
+        "ER-05"
+      ]
+    },
+    {
+      "risk_id": "CV-05",
+      "metric_ids": [
+        "LR-02",
+        "PB-05"
+      ]
+    },
+    {
+      "risk_id": "CV-06",
+      "metric_ids": [
+        "DE-01",
+        "DE-02",
+        "DE-03",
+        "DE-04",
+        "DE-05"
+      ]
+    },
+    {
+      "risk_id": "CV-07",
+      "metric_ids": [
+        "DP-02",
+        "ER-03"
+      ]
+    },
+    {
+      "risk_id": "CV-08",
+      "metric_ids": [
+        "OP-01",
+        "OP-02",
+        "OP-03",
+        "OP-04"
+      ]
+    },
+    {
+      "risk_id": "CV-09",
+      "metric_ids": [
+        "ET-01",
+        "ET-02",
+        "ET-03"
+      ]
+    },
+    {
+      "risk_id": "CV-10",
+      "metric_ids": [
+        "OP-01",
+        "OP-03"
+      ]
+    },
+    {
+      "risk_id": "DET-06",
+      "metric_ids": [
+        "PB-03"
+      ]
+    },
+    {
+      "risk_id": "FACE-01",
+      "metric_ids": [
+        "DE-02"
+      ]
+    },
+    {
+      "risk_id": "FACE-02",
+      "metric_ids": [
+        "AR-02",
+        "AR-03"
+      ]
+    },
+    {
+      "risk_id": "FACE-03",
+      "metric_ids": [
+        "PB-01"
+      ]
+    },
+    {
+      "risk_id": "FACE-04",
+      "metric_ids": [
+        "PB-03"
+      ]
+    },
+    {
+      "risk_id": "FACE-05",
+      "metric_ids": [
+        "PB-02"
+      ]
+    },
+    {
+      "risk_id": "FACE-06",
+      "metric_ids": [
+        "PB-04"
+      ]
+    },
+    {
+      "risk_id": "FACE-07",
+      "metric_ids": [
+        "AR-03"
+      ]
+    },
+    {
+      "risk_id": "MED-01",
+      "metric_ids": [
+        "DP-04",
+        "SC-01"
+      ]
+    },
+    {
+      "risk_id": "MED-02",
+      "metric_ids": [
+        "DP-05",
+        "SC-02"
+      ]
+    },
+    {
+      "risk_id": "MED-03",
+      "metric_ids": [
+        "SC-04"
+      ]
+    },
+    {
+      "risk_id": "MED-05",
+      "metric_ids": [
+        "ET-01",
+        "ET-03"
+      ]
+    },
+    {
+      "risk_id": "MED-07",
+      "metric_ids": [
+        "ER-03"
+      ]
+    }
+  ],
+  "derived_perspectives": [
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Model Registry Coverage (Computer Vision)",
+      "description": "Lifecycle failure detected by Model Registry Coverage (Computer Vision)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LR-01"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by TEVV Coverage Index (Computer Vision)",
+      "description": "Lifecycle failure detected by TEVV Coverage Index (Computer Vision)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LR-03"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Transparency; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Regulatory Compliance (Computer Vision)",
+      "description": "Lifecycle failure detected by Regulatory Compliance (Computer Vision)",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "LR-04"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Privacy, Fairness; Original HLA primary TA: Accountability (normalised to Fairness & Policy Consistency); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Lifecycle failure detected by Incident Response & Post-Market Surveillance (Computer Vision)",
+      "description": "Lifecycle failure detected by Incident Response & Post-Market Surveillance (Computer Vision)",
+      "category": "Technical",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "LR-05"
+      ],
+      "notes": "Metric/definition from HLA A1; test suite, scenario, evidence, cause/impact derived per assurance spec; HLA secondary TA(s): Robustness; Original HLA primary TA: Accountability (normalised to Explainability); Gate mapping derived from HLA A3/A8 (validate); TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Security compromise causes data / financial loss and reputational damage",
+      "description": "Security compromise causes data / financial loss and reputational damage",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "metric_ids": [
+        "DP-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Security failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "description": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "metric_ids": [
+        "DP-02"
+      ],
+      "notes": "Derived from HLA — Business perspective of Reliability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "description": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "metric_ids": [
+        "DP-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Safety failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "description": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "category": "Business",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "metric_ids": [
+        "ET-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Explainability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "description": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "metric_ids": [
+        "DE-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Privacy failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "description": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "metric_ids": [
+        "LR-04"
+      ],
+      "notes": "Derived from HLA — Business perspective of Fairness & Policy Consistency failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    },
+    {
+      "risk_id": "(derived)",
+      "name": "Loss of human control leads to unauthorized high-impact actions and liability",
+      "description": "Loss of human control leads to unauthorized high-impact actions and liability",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Human Oversight",
+      "metric_ids": [
+        "ET-01"
+      ],
+      "notes": "Derived from HLA — Business perspective of Human Control failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    }
+  ],
+  "rmte_links": [
+    {
+      "metric_id": "DP-01",
+      "risk_id": "CV-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial attacks cause misclassification/misdetection",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DP-02",
+      "risk_id": "CV-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Environmental variation degrades performance (lighting, weather, camera)",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DP-03",
+      "risk_id": "CV-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial attacks cause misclassification/misdetection",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DP-04",
+      "risk_id": "CV-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial attacks cause misclassification/misdetection",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DP-04",
+      "risk_id": "MED-01",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "False negative = missed disease, delayed treatment, potentially fatal",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DP-04",
+      "risk_id": "AUTO-03",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Edge case handling — long tail of unusual scenarios not in training",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DP-05",
+      "risk_id": "CV-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial attacks cause misclassification/misdetection",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DP-05",
+      "risk_id": "MED-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "False positive = unnecessary intervention, patient harm",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ER-01",
+      "risk_id": "CV-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Environmental variation degrades performance (lighting, weather, camera)",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ER-02",
+      "risk_id": "CV-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Environmental variation degrades performance (lighting, weather, camera)",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ER-02",
+      "risk_id": "AUTO-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Delivery",
+      "risk": "Weather/lighting extremes degrade perception below safety threshold",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ER-03",
+      "risk_id": "CV-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Environmental variation degrades performance (lighting, weather, camera)",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ER-03",
+      "risk_id": "MED-07",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Environmental failure detected by Camera/Sensor Variation Robustness (Computer Vision)",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ER-04",
+      "risk_id": "CV-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Environmental variation degrades performance (lighting, weather, camera)",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ER-05",
+      "risk_id": "CV-04",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "OOD inputs not flagged — model confidently misclassifies unknown categories",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AR-01",
+      "risk_id": "CV-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial attacks cause misclassification/misdetection",
+      "test_suite_id": "TS-CV-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AR-02",
+      "risk_id": "CV-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial attacks cause misclassification/misdetection",
+      "test_suite_id": "TS-CV-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AR-02",
+      "risk_id": "FACE-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Spoofing/presentation attacks bypass face recognition",
+      "test_suite_id": "TS-CV-02",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AR-03",
+      "risk_id": "FACE-02",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Spoofing/presentation attacks bypass face recognition",
+      "test_suite_id": "TS-CV-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AR-03",
+      "risk_id": "FACE-07",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial failure detected by Presentation Attack Detection (PAD) (Computer Vision)",
+      "test_suite_id": "TS-CV-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "AR-04",
+      "risk_id": "CV-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial attacks cause misclassification/misdetection",
+      "test_suite_id": "TS-CV-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ET-01",
+      "risk_id": "CV-09",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Black-box model decisions cannot be explained to stakeholders",
+      "test_suite_id": "TS-CV-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ET-02",
+      "risk_id": "CV-09",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Black-box model decisions cannot be explained to stakeholders",
+      "test_suite_id": "TS-CV-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ET-03",
+      "risk_id": "CV-09",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Black-box model decisions cannot be explained to stakeholders",
+      "test_suite_id": "TS-CV-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ET-04",
+      "risk_id": "CV-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial attacks cause misclassification/misdetection",
+      "test_suite_id": "TS-CV-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ET-05",
+      "risk_id": "CV-01",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial attacks cause misclassification/misdetection",
+      "test_suite_id": "TS-CV-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DE-01",
+      "risk_id": "CV-06",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias — performance gaps across race, gender, age, skin tone",
+      "test_suite_id": "TS-CV-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DE-02",
+      "risk_id": "CV-06",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias — performance gaps across race, gender, age, skin tone",
+      "test_suite_id": "TS-CV-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DE-02",
+      "risk_id": "FACE-01",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic accuracy gaps in face recognition (race, gender, age)",
+      "test_suite_id": "TS-CV-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DE-03",
+      "risk_id": "CV-06",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias — performance gaps across race, gender, age, skin tone",
+      "test_suite_id": "TS-CV-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DE-04",
+      "risk_id": "CV-06",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias — performance gaps across race, gender, age, skin tone",
+      "test_suite_id": "TS-CV-06",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DE-05",
+      "risk_id": "CV-06",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Demographic bias — performance gaps across race, gender, age, skin tone",
+      "test_suite_id": "TS-CV-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PB-01",
+      "risk_id": "FACE-03",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Biometric template theft = irrevocable identity compromise",
+      "test_suite_id": "TS-CV-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PB-02",
+      "risk_id": "FACE-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy failure detected by Consent Governance Rate (Computer Vision)",
+      "test_suite_id": "TS-CV-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PB-03",
+      "risk_id": "FACE-04",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Mass surveillance capability enables disproportionate monitoring",
+      "test_suite_id": "TS-CV-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PB-03",
+      "risk_id": "DET-06",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy failure detected by Surveillance Impact Assessment (Computer Vision)",
+      "test_suite_id": "TS-CV-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PB-04",
+      "risk_id": "FACE-06",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Privacy failure detected by Data Retention Compliance (Computer Vision)",
+      "test_suite_id": "TS-CV-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "PB-05",
+      "risk_id": "CV-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Training data annotation quality issues",
+      "test_suite_id": "TS-CV-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-01",
+      "risk_id": "MED-01",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "False negative = missed disease, delayed treatment, potentially fatal",
+      "test_suite_id": "TS-CV-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-01",
+      "risk_id": "AUTO-03",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Edge case handling — long tail of unusual scenarios not in training",
+      "test_suite_id": "TS-CV-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-02",
+      "risk_id": "MED-02",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "False positive = unnecessary intervention, patient harm",
+      "test_suite_id": "TS-CV-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-03",
+      "risk_id": "AUTO-03",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Edge case handling — long tail of unusual scenarios not in training",
+      "test_suite_id": "TS-CV-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-03",
+      "risk_id": "AUTO-05",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Safety failure detected by Operational Design Domain (ODD) Coverage (Computer Vision)",
+      "test_suite_id": "TS-CV-03",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-04",
+      "risk_id": "AUTO-07",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "ISO 26262 / SOTIF compliance failure",
+      "test_suite_id": "TS-CV-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-04",
+      "risk_id": "MED-03",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Deployment",
+      "risk": "Regulatory approval (FDA 510(k), CE marking) required for clinical deployment",
+      "test_suite_id": "TS-CV-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OP-01",
+      "risk_id": "CV-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Deployment",
+      "risk": "Edge deployment governance gaps",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OP-02",
+      "risk_id": "CV-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Deployment",
+      "risk": "Edge deployment governance gaps",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OP-03",
+      "risk_id": "CV-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Deployment",
+      "risk": "Edge deployment governance gaps",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OP-04",
+      "risk_id": "CV-08",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Deployment",
+      "risk": "Edge deployment governance gaps",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LR-01",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Model Registry Coverage (Computer Vision)",
+      "test_suite_id": "TS-CV-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LR-02",
+      "risk_id": "CV-05",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Training data annotation quality issues",
+      "test_suite_id": "TS-CV-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LR-03",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by TEVV Coverage Index (Computer Vision)",
+      "test_suite_id": "TS-CV-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LR-04",
+      "risk_id": null,
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Regulatory Compliance (Computer Vision)",
+      "test_suite_id": "TS-CV-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "LR-05",
+      "risk_id": null,
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Incident Response & Post-Market Surveillance (Computer Vision)",
+      "test_suite_id": "TS-CV-08",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DP-01",
+      "risk_id": "CV-03",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Class/category imbalance causes underperformance on rare classes",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DE-01",
+      "risk_id": "CV-03",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Class/category imbalance causes underperformance on rare classes",
+      "test_suite_id": "TS-CV-05",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DP-02",
+      "risk_id": "CV-07",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Data/domain drift degrades deployed model performance",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ER-03",
+      "risk_id": "CV-07",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Data/domain drift degrades deployed model performance",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OP-01",
+      "risk_id": "CV-10",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Deployment",
+      "risk": "Pipeline and infrastructure failures",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "OP-03",
+      "risk_id": "CV-10",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Deployment",
+      "risk": "Pipeline and infrastructure failures",
+      "test_suite_id": "TS-CV-01",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ET-01",
+      "risk_id": "MED-05",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Explainability essential for clinical adoption and regulatory approval",
+      "test_suite_id": "TS-CV-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "ET-03",
+      "risk_id": "MED-05",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Explainability essential for clinical adoption and regulatory approval",
+      "test_suite_id": "TS-CV-04",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "SC-01",
+      "risk_id": "AUTO-01",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Sensor fusion failure — disagreement between camera, LiDAR, radar",
+      "test_suite_id": "TS-CV-07",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "DP-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Security compromise causes data / financial loss and reputational damage",
+      "test_suite_id": "TS-CV-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "DP-02",
+      "risk_id": "(derived)",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Business",
+      "risk": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "test_suite_id": "TS-CV-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "DP-04",
+      "risk_id": "(derived)",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Unsafe output causes user harm and reputational / regulatory exposure",
+      "test_suite_id": "TS-CV-01",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "ET-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Business",
+      "risk": "Missing explanation / audit trail blocks regulatory defensibility and erodes customer trust",
+      "test_suite_id": "TS-CV-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "DE-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Business",
+      "risk": "Privacy exposure triggers regulatory penalties and loss of customer trust",
+      "test_suite_id": "TS-CV-06",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LR-04",
+      "risk_id": "(derived)",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Biased or policy-inconsistent outcomes create discrimination and compliance exposure",
+      "test_suite_id": "TS-CV-08",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "ET-01",
+      "risk_id": "(derived)",
+      "trust_attribute": "Human Oversight",
+      "pillar": "Govern",
+      "risk_category": "Business",
+      "risk": "Loss of human control leads to unauthorized high-impact actions and liability",
+      "test_suite_id": "TS-CV-04",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    }
+  ]
+}

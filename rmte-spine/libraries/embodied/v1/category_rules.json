@@ -1,0 +1,97 @@
+{
+  "library_id": "agent5-embodied-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Embodied RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "CA": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "CT": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "EX": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "FS": [
+      "monitoring",
+      "regression"
+    ],
+    "HO": [
+      "positive",
+      "negative",
+      "security"
+    ],
+    "HR": [
+      "monitoring",
+      "regression"
+    ],
+    "LG": [
+      "monitoring",
+      "regression"
+    ],
+    "OD": [
+      "monitoring",
+      "regression"
+    ],
+    "OP": [
+      "monitoring",
+      "regression"
+    ],
+    "PC": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "PL": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "PV": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "RS": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "SR": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "RS-01": [
+      "adversarial"
+    ],
+    "RS-02": [
+      "adversarial"
+    ],
+    "RS-03": [
+      "adversarial"
+    ]
+  }
+}

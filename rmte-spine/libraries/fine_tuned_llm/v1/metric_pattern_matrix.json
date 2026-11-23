@@ -1,0 +1,426 @@
+{
+  "library_id": "tlai-rmte-fine_tuned_llm-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_FineTunedLLM_Logs_Layers_Formulas.xlsx — sheet 'Fine-Tuned LLM RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "lora__peft",
+    "full_fine_tuning",
+    "instruction_tuning__rlhf",
+    "knowledge_distillation",
+    "continued_pre_training",
+    "multi_task_fine_tuning",
+    "All patterns (perspective-level)"
+  ],
+  "family_defaults": {
+    "DA": {
+      "lora__peft": "Standard: Domain benchmark improvement over base model. Rank",
+      "full_fine_tuning": "STRENGTH: Highest potential domain performance. No rank cons",
+      "instruction_tuning__rlhf": "Standard: Instruction-following + domain quality combined. A",
+      "knowledge_distillation": "CRITICAL: Student must approach teacher domain performance.",
+      "continued_pre_training": "STRENGTH: Deepest domain knowledge injection. Best foundatio",
+      "multi_task_fine_tuning": "Per-task domain performance. Tasks compete for model capacit"
+    },
+    "BP": {
+      "lora__peft": "STRENGTH: Base frozen → general capability preserved by arch",
+      "full_fine_tuning": "CRITICAL: HIGHEST forgetting risk. All weights updated → gen",
+      "instruction_tuning__rlhf": "MODERATE: SFT moderate risk. RLHF alignment tax reduces raw",
+      "knowledge_distillation": "MODERATE: Student architecture limits base retention. Compre",
+      "continued_pre_training": "CRITICAL: Extended pre-training on domain can overwrite gene",
+      "multi_task_fine_tuning": "MODERATE: Multi-task may preserve breadth if tasks are diver"
+    },
+    "TG": {
+      "lora__peft": "Standard: Adapter training data quality. Smaller datasets =",
+      "full_fine_tuning": "Standard: Full FT data quality. Larger datasets needed = har",
+      "instruction_tuning__rlhf": "CRITICAL: Instruction pair quality + preference pair quality",
+      "knowledge_distillation": "N/A: Student trained on teacher outputs, not raw data. Teach",
+      "continued_pre_training": "CRITICAL: Corpus quality is existential. Millions of documen",
+      "multi_task_fine_tuning": "Standard: Per-task data quality. N quality dimensions for N"
+    },
+    "SA": {
+      "lora__peft": "STRENGTH: Base refusal behavior preserved (frozen base). Ada",
+      "full_fine_tuning": "CRITICAL: Full FT can undo refusal training. Must include sa",
+      "instruction_tuning__rlhf": "STRENGTH: RLHF explicitly trains refusal. Primary safety mec",
+      "knowledge_distillation": "MODERATE: Refusal behavior may compress imperfectly. Student",
+      "continued_pre_training": "CRITICAL: Domain pre-training has no refusal objective. Must",
+      "multi_task_fine_tuning": "MODERATE: Safety task must be explicitly included. Without i"
+    },
+    "RA": {
+      "lora__peft": "STRENGTH: Base adversarial resilience preserved (frozen base",
+      "full_fine_tuning": "MODERATE: Full FT may degrade or improve adversarial resilie",
+      "instruction_tuning__rlhf": "STRENGTH: Red-team data in RLHF training improves adversaria",
+      "knowledge_distillation": "MODERATE: Adversarial resilience may degrade under compressi",
+      "continued_pre_training": "MODERATE: Domain pre-training neutral to adversarial resilie",
+      "multi_task_fine_tuning": "MODERATE: Cross-task adversarial transfer possible."
+    },
+    "EP": {
+      "lora__peft": "Standard: Base model + adapter + training config. Relatively",
+      "full_fine_tuning": "Standard: Base model + full FT data + training config + chec",
+      "instruction_tuning__rlhf": "CRITICAL: Base + SFT data + preference data + reward model +",
+      "knowledge_distillation": "Standard: Teacher model + distillation config + student arch",
+      "continued_pre_training": "Standard: Base model + domain corpus + pre-training config.",
+      "multi_task_fine_tuning": "Standard: Base model + per-task data + task weights + traini"
+    },
+    "PM": {
+      "lora__peft": "Standard: Low memorization risk — adapter has limited capaci",
+      "full_fine_tuning": "▲ AMPLIFIED: HIGHEST memorization risk. All weights see all",
+      "instruction_tuning__rlhf": "MODERATE: SFT data memorization. Preference data less extrac",
+      "knowledge_distillation": "MODERATE: Student may memorize teacher outputs. Less risk th",
+      "continued_pre_training": "▲ AMPLIFIED: Pre-training scale = high memorization surface.",
+      "multi_task_fine_tuning": "Standard: Per-task memorization. Cross-task memorization pos"
+    },
+    "OE": {
+      "lora__peft": "LOWEST: Hours on single GPU. Most cost-effective fine-tuning",
+      "full_fine_tuning": "HIGHEST: Days/weeks on multi-GPU. Full backward pass through",
+      "instruction_tuning__rlhf": "HIGH: SFT + reward model training + PPO. Three training phas",
+      "knowledge_distillation": "MODERATE: Distillation training moderate. Teacher inference",
+      "continued_pre_training": "HIGHEST: Pre-training scale compute. Days/weeks on multi-nod",
+      "multi_task_fine_tuning": "Standard: Single training run but longer than single-task FT"
+    },
+    "MG": {
+      "lora__peft": "Standard: Base model + adapter lineage. Simple chain.",
+      "full_fine_tuning": "Standard: Base model + FT lineage. Full model chain.",
+      "instruction_tuning__rlhf": "CRITICAL: Base → SFT → RM training → RLHF. Longest lineage c",
+      "knowledge_distillation": "Standard: Teacher → student lineage. Clear dependency.",
+      "continued_pre_training": "Standard: Base → CPT lineage. Corpus lineage is complex.",
+      "multi_task_fine_tuning": "Standard: Base → multi-task FT lineage."
+    }
+  },
+  "metric_overrides": {
+    "DA-01": {
+      "lora__peft": "Standard: Domain benchmark improvement over base model. Rank",
+      "full_fine_tuning": "STRENGTH: Highest potential domain performance. No rank cons",
+      "instruction_tuning__rlhf": "Standard: Instruction-following + domain quality combined. A",
+      "knowledge_distillation": "CRITICAL: Student must approach teacher domain performance.",
+      "continued_pre_training": "STRENGTH: Deepest domain knowledge injection. Best foundatio",
+      "multi_task_fine_tuning": "Per-task domain performance. Tasks compete for model capacit"
+    },
+    "DA-02": {
+      "lora__peft": "Standard: Adapter adapts terminology usage. Moderate depth.",
+      "full_fine_tuning": "Standard: Full parameter update enables deep terminology acq",
+      "instruction_tuning__rlhf": "Standard: Instruction data includes terminology examples.",
+      "knowledge_distillation": "MODERATE: Student may lose nuanced terminology from teacher",
+      "continued_pre_training": "STRENGTH: Vocabulary expansion captures domain terminology n",
+      "multi_task_fine_tuning": "Standard: Shared across tasks that use domain terminology."
+    },
+    "DA-03": {
+      "lora__peft": "Standard: Adapter specialization naturally narrows domain. M",
+      "full_fine_tuning": "Standard: Full fine-tuning may improve or degrade boundary d",
+      "instruction_tuning__rlhf": "STRENGTH: Instruction tuning can explicitly train \"I don't k",
+      "knowledge_distillation": "MODERATE: Student boundary awareness depends on teacher + co",
+      "continued_pre_training": "MODERATE: Continued pre-training does NOT train explicit bou",
+      "multi_task_fine_tuning": "MODERATE: Multi-task format may confuse domain boundaries ac"
+    },
+    "DA-04": {
+      "lora__peft": "STRENGTH: LoRA excels at few-shot adaptation. Low rank + sma",
+      "full_fine_tuning": "INCREASED RISK: Full FT on few examples = severe overfitting",
+      "instruction_tuning__rlhf": "MODERATE: Few-shot instruction examples. Depends on base ins",
+      "knowledge_distillation": "N/A: Distillation requires teacher, not few-shot domain data",
+      "continued_pre_training": "N/A: Continued pre-training requires large corpus by design.",
+      "multi_task_fine_tuning": "MODERATE: Few-shot per-task data. Task weighting more sensit"
+    },
+    "DA-05": {
+      "lora__peft": "STRENGTH: Highest efficiency — maximum performance per FLOP.",
+      "full_fine_tuning": "LOWEST efficiency — most compute for comparable domain gain.",
+      "instruction_tuning__rlhf": "MODERATE: SFT efficient, but RLHF adds significant compute (",
+      "knowledge_distillation": "MODERATE: Distillation training efficient, but teacher infer",
+      "continued_pre_training": "LOWEST: Pre-training scale compute. Justified only for found",
+      "multi_task_fine_tuning": "Standard: Single training run for multiple tasks = efficient"
+    },
+    "BP-01": {
+      "lora__peft": "STRENGTH: Base frozen → general capability preserved by arch",
+      "full_fine_tuning": "CRITICAL: HIGHEST forgetting risk. All weights updated → gen",
+      "instruction_tuning__rlhf": "MODERATE: SFT moderate risk. RLHF alignment tax reduces raw",
+      "knowledge_distillation": "MODERATE: Student architecture limits base retention. Compre",
+      "continued_pre_training": "CRITICAL: Extended pre-training on domain can overwrite gene",
+      "multi_task_fine_tuning": "MODERATE: Multi-task may preserve breadth if tasks are diver"
+    },
+    "BP-02": {
+      "lora__peft": "STRENGTH: Near-zero forgetting by design (base frozen). Adap",
+      "full_fine_tuning": "CRITICAL: Track per-category forgetting. Math, reasoning, co",
+      "instruction_tuning__rlhf": "MODERATE: SFT forgetting controlled by data mix. RLHF can ca",
+      "knowledge_distillation": "Standard: Distillation forgetting depends on teacher-student",
+      "continued_pre_training": "CRITICAL: Extended pre-training = extended forgetting opport",
+      "multi_task_fine_tuning": "MODERATE: Multi-task training mix controls forgetting. Repla"
+    },
+    "BP-03": {
+      "lora__peft": "STRENGTH: Reasoning preserved (base frozen). Adapter focuses",
+      "full_fine_tuning": "CRITICAL: Reasoning most vulnerable to catastrophic forgetti",
+      "instruction_tuning__rlhf": "MODERATE: RLHF may reshape reasoning patterns. Chain-of-thou",
+      "knowledge_distillation": "MODERATE: Complex reasoning chains may compress poorly. Mult",
+      "continued_pre_training": "MODERATE: Domain pre-training may shift reasoning toward dom",
+      "multi_task_fine_tuning": "Standard: Multi-task may preserve reasoning if reasoning-hea"
+    },
+    "BP-04": {
+      "lora__peft": "Standard: Base multilingual preserved. Adapter language-spec",
+      "full_fine_tuning": "CRITICAL: English-dominated FT data erodes non-English langu",
+      "instruction_tuning__rlhf": "CRITICAL: RLHF preference data often English-centric. Non-En",
+      "knowledge_distillation": "Standard: Student multilingual depends on teacher + training",
+      "continued_pre_training": "CRITICAL: Domain corpus often English-dominant. Non-English",
+      "multi_task_fine_tuning": "MODERATE: Multi-task language mix controls retention. Task-l"
+    },
+    "BP-05": {
+      "lora__peft": "STRENGTH: Base safety preserved (frozen). Adapter unlikely t",
+      "full_fine_tuning": "CRITICAL: Full FT can undo safety training. Domain data may",
+      "instruction_tuning__rlhf": "STRENGTH: RLHF explicitly optimizes for safety. Primary purp",
+      "knowledge_distillation": "MODERATE: Safety behavior may compress imperfectly. Edge-cas",
+      "continued_pre_training": "CRITICAL: Domain pre-training has no safety objective. Safet",
+      "multi_task_fine_tuning": "MODERATE: Multi-task mix should include safety task. Without"
+    },
+    "TG-01": {
+      "lora__peft": "Standard: Adapter training data quality. Smaller datasets =",
+      "full_fine_tuning": "Standard: Full FT data quality. Larger datasets needed = har",
+      "instruction_tuning__rlhf": "CRITICAL: Instruction pair quality + preference pair quality",
+      "knowledge_distillation": "N/A: Student trained on teacher outputs, not raw data. Teach",
+      "continued_pre_training": "CRITICAL: Corpus quality is existential. Millions of documen",
+      "multi_task_fine_tuning": "Standard: Per-task data quality. N quality dimensions for N"
+    },
+    "TG-02": {
+      "lora__peft": "Standard: Adapter data bias audit. Smaller scale = feasible.",
+      "full_fine_tuning": "Standard: Full FT data bias audit. Larger scale.",
+      "instruction_tuning__rlhf": "CRITICAL: Preference data reflects annotator bias. Annotator",
+      "knowledge_distillation": "N/A: Bias inherited from teacher. Teacher bias audit is the",
+      "continued_pre_training": "CRITICAL: Domain corpus bias at scale. Legal corpus skews to",
+      "multi_task_fine_tuning": "Standard: Per-task data bias audit. Cross-task bias interact"
+    },
+    "TG-03": {
+      "lora__peft": "Standard: Adapter data licensing. Smaller datasets = managea",
+      "full_fine_tuning": "Standard: Full FT data licensing.",
+      "instruction_tuning__rlhf": "Standard: Instruction + preference data licensing.",
+      "knowledge_distillation": "N/A: No external training data (teacher outputs).",
+      "continued_pre_training": "CRITICAL: Domain corpus licensing at pre-training scale. Mil",
+      "multi_task_fine_tuning": "Standard: Per-task data licensing."
+    },
+    "TG-04": {
+      "lora__peft": "Standard: Adapter training data versioning.",
+      "full_fine_tuning": "Standard: Full FT data versioning. Checkpoint-data alignment",
+      "instruction_tuning__rlhf": "CRITICAL: Instruction data version + preference data version",
+      "knowledge_distillation": "Standard: Teacher model version + distillation dataset versi",
+      "continued_pre_training": "Standard: Domain corpus version. Corpus update tracking.",
+      "multi_task_fine_tuning": "Standard: Per-task data versioning. N version tracks for N t"
+    },
+    "TG-05": {
+      "lora__peft": "Standard: Adapter data filtering. Manageable scale.",
+      "full_fine_tuning": "Standard: Full FT data filtering.",
+      "instruction_tuning__rlhf": "Standard: Instruction + preference data filtering.",
+      "knowledge_distillation": "N/A: No raw training data. Teacher output filtering instead.",
+      "continued_pre_training": "CRITICAL: Domain corpus PII/toxic filtering at scale. Medica",
+      "multi_task_fine_tuning": "Standard: Per-task data filtering."
+    },
+    "SA-01": {
+      "lora__peft": "STRENGTH: Base refusal behavior preserved (frozen base). Ada",
+      "full_fine_tuning": "CRITICAL: Full FT can undo refusal training. Must include sa",
+      "instruction_tuning__rlhf": "STRENGTH: RLHF explicitly trains refusal. Primary safety mec",
+      "knowledge_distillation": "MODERATE: Refusal behavior may compress imperfectly. Student",
+      "continued_pre_training": "CRITICAL: Domain pre-training has no refusal objective. Must",
+      "multi_task_fine_tuning": "MODERATE: Safety task must be explicitly included. Without i"
+    },
+    "SA-02": {
+      "lora__peft": "STRENGTH: Lowest safety regression by design (base frozen).",
+      "full_fine_tuning": "▲ AMPLIFIED: HIGHEST safety regression risk. Full weight upd",
+      "instruction_tuning__rlhf": "★ STRENGTH: Net safety improvement (RLHF purpose). But align",
+      "knowledge_distillation": "MODERATE: Compression may lose safety nuance.",
+      "continued_pre_training": "▲ AMPLIFIED: HIGH safety regression risk. Domain pre-trainin",
+      "multi_task_fine_tuning": "MODERATE: Depends on safety task inclusion and weighting."
+    },
+    "SA-03": {
+      "lora__peft": "N/A: No reward model in LoRA.",
+      "full_fine_tuning": "N/A: No reward model in full FT.",
+      "instruction_tuning__rlhf": "CRITICAL: Core RLHF metric. If reward model diverges from hu",
+      "knowledge_distillation": "N/A: No reward model in distillation.",
+      "continued_pre_training": "N/A: No reward model in continued pre-training.",
+      "multi_task_fine_tuning": "N/A: No reward model in multi-task FT (typically)."
+    },
+    "SA-04": {
+      "lora__peft": "STRENGTH: Base jailbreak resistance preserved (frozen base).",
+      "full_fine_tuning": "CRITICAL: Jailbreak resistance may degrade if safety data ab",
+      "instruction_tuning__rlhf": "STRENGTH: RLHF red-teaming data strengthens jailbreak resist",
+      "knowledge_distillation": "MODERATE: Jailbreak resistance may degrade under compression",
+      "continued_pre_training": "CRITICAL: Domain pre-training may create new jailbreak vecto",
+      "multi_task_fine_tuning": "MODERATE: Depends on safety task inclusion."
+    },
+    "SA-05": {
+      "lora__peft": "Standard: Base toxicity behavior preserved. Adapter data may",
+      "full_fine_tuning": "CRITICAL: FT data toxicity directly transfers. Toxic trainin",
+      "instruction_tuning__rlhf": "STRENGTH: RLHF explicitly penalizes toxicity via reward mode",
+      "knowledge_distillation": "MODERATE: Teacher toxicity inherited by student.",
+      "continued_pre_training": "CRITICAL: Domain corpus toxicity at scale. Unfiltered domain",
+      "multi_task_fine_tuning": "MODERATE: Cross-task toxicity transfer possible."
+    },
+    "RA-01": {
+      "lora__peft": "STRENGTH: Base adversarial resilience preserved (frozen base",
+      "full_fine_tuning": "MODERATE: Full FT may degrade or improve adversarial resilie",
+      "instruction_tuning__rlhf": "STRENGTH: Red-team data in RLHF training improves adversaria",
+      "knowledge_distillation": "MODERATE: Adversarial resilience may degrade under compressi",
+      "continued_pre_training": "MODERATE: Domain pre-training neutral to adversarial resilie",
+      "multi_task_fine_tuning": "MODERATE: Cross-task adversarial transfer possible."
+    },
+    "RA-02": {
+      "lora__peft": "Standard: Small adapter datasets easier to audit for poisoni",
+      "full_fine_tuning": "INCREASED: Larger FT datasets harder to audit. More poisonin",
+      "instruction_tuning__rlhf": "CRITICAL: Preference data poisoning = reward model poisoning",
+      "knowledge_distillation": "Standard: Teacher output poisoning indirect.",
+      "continued_pre_training": "CRITICAL: Domain corpus poisoning at scale. Adversarial docu",
+      "multi_task_fine_tuning": "MODERATE: Per-task data poisoning. Cross-task poisoning vect"
+    },
+    "RA-03": {
+      "lora__peft": "Standard: Adapter robustness to distribution shift. Base gen",
+      "full_fine_tuning": "MODERATE: Full FT may overfit to training distribution. Redu",
+      "instruction_tuning__rlhf": "Standard: RLHF training distribution determines robustness b",
+      "knowledge_distillation": "MODERATE: Student may be less robust than teacher at distrib",
+      "continued_pre_training": "MODERATE: Domain pre-training narrows distribution. May redu",
+      "multi_task_fine_tuning": "Standard: Multi-task diversity may improve OOD robustness."
+    },
+    "RA-04": {
+      "lora__peft": "Standard: Adapter extraction risk — adapter weights are smal",
+      "full_fine_tuning": "Standard: Full model extraction through API queries.",
+      "instruction_tuning__rlhf": "INCREASED: RLHF-tuned models are high-value targets. Behavio",
+      "knowledge_distillation": "MODERATE: Distilled models already \"extracted\" from teacher.",
+      "continued_pre_training": "INCREASED: Domain pre-trained models represent massive inves",
+      "multi_task_fine_tuning": "Standard: Multi-task model extraction."
+    },
+    "EP-01": {
+      "lora__peft": "Standard: Base model + adapter + training config. Relatively",
+      "full_fine_tuning": "Standard: Base model + full FT data + training config + chec",
+      "instruction_tuning__rlhf": "CRITICAL: Base + SFT data + preference data + reward model +",
+      "knowledge_distillation": "Standard: Teacher model + distillation config + student arch",
+      "continued_pre_training": "Standard: Base model + domain corpus + pre-training config.",
+      "multi_task_fine_tuning": "Standard: Base model + per-task data + task weights + traini"
+    },
+    "EP-02": {
+      "lora__peft": "Standard: Adapter attributable to adapter training data. Cle",
+      "full_fine_tuning": "CRITICAL: All behavior changes intermingled. Hard to attribu",
+      "instruction_tuning__rlhf": "CRITICAL: SFT vs RLHF behavior changes hard to disentangle.",
+      "knowledge_distillation": "MODERATE: Student behavior attributable to teacher + distill",
+      "continued_pre_training": "MODERATE: Domain knowledge attribution across massive corpus",
+      "multi_task_fine_tuning": "CRITICAL: Per-task behavior changes interact. Attribution ac"
+    },
+    "EP-03": {
+      "lora__peft": "Standard: Model card for adapter + base model reference.",
+      "full_fine_tuning": "Standard: Full model card including catastrophic forgetting",
+      "instruction_tuning__rlhf": "CRITICAL: Model card must cover base + SFT + RLHF stages. Re",
+      "knowledge_distillation": "Standard: Student model card + teacher reference + compressi",
+      "continued_pre_training": "Standard: Model card + domain corpus documentation + vocabul",
+      "multi_task_fine_tuning": "Standard: Model card + per-task performance + task interacti"
+    },
+    "EP-04": {
+      "lora__peft": "CRITICAL: Rank, learning rate, target modules. Rank selectio",
+      "full_fine_tuning": "Standard: Learning rate, batch size, epochs, regularization.",
+      "instruction_tuning__rlhf": "CRITICAL: KL penalty coefficient, PPO clip range, reward sca",
+      "knowledge_distillation": "Standard: Temperature, layer mapping, compression ratio.",
+      "continued_pre_training": "Standard: Learning rate, mixing ratio, curriculum schedule.",
+      "multi_task_fine_tuning": "CRITICAL: Task weights are highest-sensitivity parameter. Sm"
+    },
+    "PM-01": {
+      "lora__peft": "Standard: Low memorization risk — adapter has limited capaci",
+      "full_fine_tuning": "▲ AMPLIFIED: HIGHEST memorization risk. All weights see all",
+      "instruction_tuning__rlhf": "MODERATE: SFT data memorization. Preference data less extrac",
+      "knowledge_distillation": "MODERATE: Student may memorize teacher outputs. Less risk th",
+      "continued_pre_training": "▲ AMPLIFIED: Pre-training scale = high memorization surface.",
+      "multi_task_fine_tuning": "Standard: Per-task memorization. Cross-task memorization pos"
+    },
+    "PM-02": {
+      "lora__peft": "Standard: Adapter membership inference — limited surface.",
+      "full_fine_tuning": "INCREASED: Full FT increases membership inference vulnerabil",
+      "instruction_tuning__rlhf": "MODERATE: SFT + preference data membership inference.",
+      "knowledge_distillation": "Standard: Distilled model membership inference.",
+      "continued_pre_training": "INCREASED: Large corpus membership inference at scale.",
+      "multi_task_fine_tuning": "Standard: Multi-task membership inference."
+    },
+    "PM-03": {
+      "lora__peft": "Standard: Low PII exposure — adapter limited capacity.",
+      "full_fine_tuning": "▲ AMPLIFIED: Highest PII exposure risk. All training data to",
+      "instruction_tuning__rlhf": "MODERATE: Instruction/preference data PII exposure.",
+      "knowledge_distillation": "Standard: Teacher PII propagated to student.",
+      "continued_pre_training": "▲ AMPLIFIED: Domain corpus PII at scale. Medical, legal, fin",
+      "multi_task_fine_tuning": "Standard: Per-task PII exposure."
+    },
+    "PM-04": {
+      "lora__peft": "Standard: DP-LoRA applicable. Privacy-accuracy trade-off at",
+      "full_fine_tuning": "Standard: DP-SGD applicable but costly. Privacy-accuracy tra",
+      "instruction_tuning__rlhf": "MODERATE: DP for SFT feasible. DP for RLHF preference data i",
+      "knowledge_distillation": "N/A: Distillation from teacher — DP applied at teacher level",
+      "continued_pre_training": "CRITICAL: DP at pre-training scale is extremely expensive. A",
+      "multi_task_fine_tuning": "Standard: Per-task DP budget allocation."
+    },
+    "OE-01": {
+      "lora__peft": "LOWEST: Hours on single GPU. Most cost-effective fine-tuning",
+      "full_fine_tuning": "HIGHEST: Days/weeks on multi-GPU. Full backward pass through",
+      "instruction_tuning__rlhf": "HIGH: SFT + reward model training + PPO. Three training phas",
+      "knowledge_distillation": "MODERATE: Distillation training moderate. Teacher inference",
+      "continued_pre_training": "HIGHEST: Pre-training scale compute. Days/weeks on multi-nod",
+      "multi_task_fine_tuning": "Standard: Single training run but longer than single-task FT"
+    },
+    "OE-02": {
+      "lora__peft": "Standard: Merged adapter = no latency impact. Unmerged = sma",
+      "full_fine_tuning": "Standard: Same architecture = same latency.",
+      "instruction_tuning__rlhf": "Standard: Same architecture = same latency. Reward model not",
+      "knowledge_distillation": "STRENGTH: Primary benefit — smaller model = lower latency. 2",
+      "continued_pre_training": "Standard: Same architecture = same latency.",
+      "multi_task_fine_tuning": "Standard: Same architecture = same latency. Task routing add"
+    },
+    "OE-03": {
+      "lora__peft": "STRENGTH: Adapter = 0.1–1% of base model size. Multi-adapter",
+      "full_fine_tuning": "HIGHEST: Full model copy per specialization. N domains = N f",
+      "instruction_tuning__rlhf": "Standard: Full model copy (same as full FT).",
+      "knowledge_distillation": "STRENGTH: 10–100x smaller than teacher. Primary storage bene",
+      "continued_pre_training": "Standard: Full model copy.",
+      "multi_task_fine_tuning": "STRENGTH: Single model for N tasks vs N separate models."
+    },
+    "OE-04": {
+      "lora__peft": "STRENGTH: Fast retraining (hours). Can retrain weekly or eve",
+      "full_fine_tuning": "Slowest retraining. Days-to-weeks cycle limits update freque",
+      "instruction_tuning__rlhf": "Slowest retraining (3-phase). Limits update cadence. Reward",
+      "knowledge_distillation": "MODERATE: Teacher must be available. Student retraining mode",
+      "continued_pre_training": "SLOWEST: Pre-training scale retraining impractical for frequ",
+      "multi_task_fine_tuning": "Standard: Single retraining for all tasks."
+    },
+    "OE-05": {
+      "lora__peft": "STRENGTH: Multiple adapters on single base model. Best multi",
+      "full_fine_tuning": "LOWEST: Full model per tenant. N tenants = N models loaded.",
+      "instruction_tuning__rlhf": "Standard: Full model per alignment variant.",
+      "knowledge_distillation": "STRENGTH: Smaller models = more tenants per GPU.",
+      "continued_pre_training": "Standard: Full model. Similar to full FT.",
+      "multi_task_fine_tuning": "STRENGTH: Single model serves multiple tasks/tenants. No per"
+    },
+    "MG-01": {
+      "lora__peft": "Standard: Base model + adapter lineage. Simple chain.",
+      "full_fine_tuning": "Standard: Base model + FT lineage. Full model chain.",
+      "instruction_tuning__rlhf": "CRITICAL: Base → SFT → RM training → RLHF. Longest lineage c",
+      "knowledge_distillation": "Standard: Teacher → student lineage. Clear dependency.",
+      "continued_pre_training": "Standard: Base → CPT lineage. Corpus lineage is complex.",
+      "multi_task_fine_tuning": "Standard: Base → multi-task FT lineage."
+    },
+    "MG-02": {
+      "lora__peft": "CRITICAL: Base model version lock-in. New base version requi",
+      "full_fine_tuning": "CRITICAL: Base model update requires full retraining. High i",
+      "instruction_tuning__rlhf": "CRITICAL: Base model update invalidates SFT + RLHF. Requires",
+      "knowledge_distillation": "CRITICAL: Teacher model update requires student retraining.",
+      "continued_pre_training": "CRITICAL: Base model update requires re-pre-training. Highes",
+      "multi_task_fine_tuning": "CRITICAL: Base model update requires multi-task retraining a"
+    },
+    "MG-03": {
+      "lora__peft": "Standard: Domain + base retention + safety + adapter-specifi",
+      "full_fine_tuning": "Standard: Domain + base retention + safety + forgetting test",
+      "instruction_tuning__rlhf": "CRITICAL: Domain + SFT quality + reward model validation + R",
+      "knowledge_distillation": "Standard: Teacher-student comparison + compression quality +",
+      "continued_pre_training": "Standard: Domain + base retention + safety + corpus quality",
+      "multi_task_fine_tuning": "CRITICAL: Per-task evaluation + cross-task interaction + min"
+    },
+    "MG-04": {
+      "lora__peft": "STRENGTH: Adapter swap = instant rollback. Load different ad",
+      "full_fine_tuning": "Standard: Model version rollback. Requires model swap in ser",
+      "instruction_tuning__rlhf": "CRITICAL: Three-component rollback (base, SFT, RLHF). Most c",
+      "knowledge_distillation": "Standard: Student model rollback. Edge deployment updates ma",
+      "continued_pre_training": "Standard: Model version rollback.",
+      "multi_task_fine_tuning": "Standard: Model version rollback. But per-task impact assess"
+    },
+    "MG-05": {
+      "lora__peft": "Standard: Fine-tuning regulation emerging (EU AI Act Article",
+      "full_fine_tuning": "Standard: Same regulatory requirements. Higher evidence burd",
+      "instruction_tuning__rlhf": "CRITICAL: RLHF alignment claims require evidence. Safety cla",
+      "knowledge_distillation": "Standard: Edge deployment adds regulatory considerations (me",
+      "continued_pre_training": "CRITICAL: Training data copyright at pre-training scale. Hig",
+      "multi_task_fine_tuning": "Standard: Per-task regulatory requirements. Multi-jurisdicti"
+    }
+  }
+}

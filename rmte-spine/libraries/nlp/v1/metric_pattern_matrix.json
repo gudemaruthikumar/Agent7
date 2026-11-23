@@ -1,0 +1,410 @@
+{
+  "library_id": "tlai-rmte-nlp-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_NLP_Logs_Layers_Formulas.xlsx — sheet 'NLP RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "text_classification",
+    "ner",
+    "text_summarization",
+    "machine_translation",
+    "extractive_qa",
+    "topic_modeling__clustering",
+    "All patterns (perspective-level)"
+  ],
+  "family_defaults": {
+    "TP": {
+      "text_classification": "STRENGTH: F1 (macro/micro), accuracy, AUC-ROC. Most mature e",
+      "ner": "Span-level F1 (strict: exact match; relaxed: partial overlap",
+      "text_summarization": "ROUGE-1/2/L, BERTScore, METEOR. But ROUGE correlates poorly",
+      "machine_translation": "BLEU (n-gram overlap), COMET (neural), chrF (character-level",
+      "extractive_qa": "STRENGTH: Exact Match + token-level F1. Clear, unambiguous e",
+      "topic_modeling__clustering": "NPMI coherence, CV coherence, topic diversity. No single acc"
+    },
+    "LR": {
+      "text_classification": "CRITICAL: Character substitution, homoglyphs, zero-width cha",
+      "ner": "MODERATE: Entity boundary manipulation. Adversarial entity i",
+      "text_summarization": "MODERATE: Adversarial source text designed to cause unfaithf",
+      "machine_translation": "MODERATE: Adversarial input to trigger mistranslation. Homog",
+      "extractive_qa": "MODERATE: Adversarial question/passage to extract wrong span",
+      "topic_modeling__clustering": "MODERATE: Adversarial documents to distort topic distributio"
+    },
+    "FH": {
+      "text_classification": "N/A: Classification doesn't generate text.",
+      "ner": "N/A: NER extracts from source, doesn't generate.",
+      "text_summarization": "CRITICAL: Core summarization metric. Abstractive summaries m",
+      "machine_translation": "CRITICAL: Translation must preserve source meaning. Adequacy",
+      "extractive_qa": "★ STRENGTH: Inherently faithful — answer from passage verbat",
+      "topic_modeling__clustering": "N/A: Topic modeling doesn't generate text."
+    },
+    "FE": {
+      "text_classification": "CRITICAL: Sentiment classifiers penalize AAVE, colloquial En",
+      "ner": "MODERATE: NER performance on non-standard text. Informal ent",
+      "text_summarization": "MODERATE: Summarization of dialect text. Tone normalization",
+      "machine_translation": "CRITICAL: Dialect translation quality. Formal vs informal re",
+      "extractive_qa": "MODERATE: QA on dialect text. Question understanding of non-",
+      "topic_modeling__clustering": "MODERATE: Topic modeling on diverse language varieties."
+    },
+    "EA": {
+      "text_classification": "STRENGTH: Attention visualization. SHAP/LIME per-token. \"Cla",
+      "ner": "STRENGTH: Token-level labeling IS the explanation. Entity bo",
+      "text_summarization": "MODERATE: Source-summary alignment. Extractive highlights. A",
+      "machine_translation": "MODERATE: Cross-lingual attention alignment. Source-target t",
+      "extractive_qa": "STRENGTH: Answer span IS the explanation. Highlighted in pas",
+      "topic_modeling__clustering": "MODERATE: Word importance in topic representation (c-TF-IDF)"
+    },
+    "PP": {
+      "text_classification": "Standard: PII in input text for classification. Less critica",
+      "ner": "CRITICAL: NER IS PII detection for PERSON, LOCATION, PHONE,",
+      "text_summarization": "CRITICAL: PII in source text must not appear in summary if r",
+      "machine_translation": "CRITICAL: PII must be handled appropriately in translation (",
+      "extractive_qa": "MODERATE: PII in passages. Answer may contain PII from sourc",
+      "topic_modeling__clustering": "MODERATE: PII in document corpus for topic modeling."
+    },
+    "PR": {
+      "text_classification": "Standard: BERT WordPiece / BPE coverage. Domain vocabulary g",
+      "ner": "CRITICAL: Entity names split by tokenizer = NER boundary err",
+      "text_summarization": "Standard: Tokenization coverage for source text.",
+      "machine_translation": "CRITICAL: Cross-lingual tokenizer coverage. Low-resource scr",
+      "extractive_qa": "Standard: Tokenization coverage for passage/question.",
+      "topic_modeling__clustering": "Standard: Tokenization coverage for document corpus."
+    },
+    "OP": {
+      "text_classification": "LOWEST for simple models (TF-IDF+LR: <10ms). BERT: 20–50ms.",
+      "ner": "Standard: Similar to classification. Per-document processing",
+      "text_summarization": "INCREASED: Autoregressive generation slow. Output length pro",
+      "machine_translation": "INCREASED: Autoregressive decoding. Latency proportional to",
+      "extractive_qa": "Standard: BERT-QA single forward pass. ~30–50ms. Fast.",
+      "topic_modeling__clustering": "Standard: Batch processing. Embedding + clustering. Not typi"
+    },
+    "LG": {
+      "text_classification": "Standard: Classification model registry. Well-established pr",
+      "ner": "Standard: NER model registry. Entity type version tracking.",
+      "text_summarization": "Standard: Summarization model registry. Faithfulness benchma",
+      "machine_translation": "CRITICAL: Per-language-pair model versioning. Language cover",
+      "extractive_qa": "Standard: QA model registry.",
+      "topic_modeling__clustering": "Standard: Topic model registry. Reproducibility parameters s"
+    }
+  },
+  "metric_overrides": {
+    "TP-01": {
+      "text_classification": "STRENGTH: F1 (macro/micro), accuracy, AUC-ROC. Most mature e",
+      "ner": "Span-level F1 (strict: exact match; relaxed: partial overlap",
+      "text_summarization": "ROUGE-1/2/L, BERTScore, METEOR. But ROUGE correlates poorly",
+      "machine_translation": "BLEU (n-gram overlap), COMET (neural), chrF (character-level",
+      "extractive_qa": "STRENGTH: Exact Match + token-level F1. Clear, unambiguous e",
+      "topic_modeling__clustering": "NPMI coherence, CV coherence, topic diversity. No single acc"
+    },
+    "TP-02": {
+      "text_classification": "CRITICAL: Per-class F1. Rare class (toxic, urgent) performan",
+      "ner": "Per-entity-type F1. PERSON vs ORG vs DATE performance variat",
+      "text_summarization": "Per-source-type performance (news vs legal vs medical). Docu",
+      "machine_translation": "CRITICAL: Per-language-pair quality. Low-resource language g",
+      "extractive_qa": "Per-question-type performance (factoid vs how vs why). Answe",
+      "topic_modeling__clustering": "Per-cluster quality. Topic coherence variance across topics."
+    },
+    "TP-03": {
+      "text_classification": "CRITICAL: Calibrated probabilities enable threshold tuning.",
+      "ner": "Entity-level confidence calibration. Span confidence meaning",
+      "text_summarization": "MODERATE: Summary quality confidence. Less directly calibrat",
+      "machine_translation": "CRITICAL: Translation quality estimation (COMET-QE) calibrat",
+      "extractive_qa": "STRENGTH: Span confidence calibratable. Answerability confid",
+      "topic_modeling__clustering": "N/A: Unsupervised — no confidence in traditional sense. Topi"
+    },
+    "TP-04": {
+      "text_classification": "Standard: Automatic metrics correlate well for classificatio",
+      "ner": "Standard: Span-level metrics correlate well with human NER e",
+      "text_summarization": "CRITICAL: ROUGE correlates poorly with abstractive quality.",
+      "machine_translation": "CRITICAL: BLEU has known correlation issues. COMET much bett",
+      "extractive_qa": "Standard: EM/F1 correlate well with human QA evaluation.",
+      "topic_modeling__clustering": "CRITICAL: No standard automatic metric. Human topic quality"
+    },
+    "TP-05": {
+      "text_classification": "Standard: Domain transfer studied extensively. Fine-tuning b",
+      "ner": "MODERATE: Entity types change across domains. Medical NER ≠",
+      "text_summarization": "MODERATE: Summarization style varies across domains. Legal v",
+      "machine_translation": "Standard: Domain terminology translation varies. General vs",
+      "extractive_qa": "Standard: QA transfer across document types. Technical vs co",
+      "topic_modeling__clustering": "Standard: Topic structure varies across corpora. Cross-domai"
+    },
+    "LR-01": {
+      "text_classification": "CRITICAL: Character substitution, homoglyphs, zero-width cha",
+      "ner": "MODERATE: Entity boundary manipulation. Adversarial entity i",
+      "text_summarization": "MODERATE: Adversarial source text designed to cause unfaithf",
+      "machine_translation": "MODERATE: Adversarial input to trigger mistranslation. Homog",
+      "extractive_qa": "MODERATE: Adversarial question/passage to extract wrong span",
+      "topic_modeling__clustering": "MODERATE: Adversarial documents to distort topic distributio"
+    },
+    "LR-02": {
+      "text_classification": "Standard: Subword tokenization provides some robustness. Cha",
+      "ner": "CRITICAL: Misspelled entity names cause NER failures. \"Gogle",
+      "text_summarization": "Standard: Summarization relatively robust to source typos.",
+      "machine_translation": "Standard: MT handles typos moderately via subword tokenizati",
+      "extractive_qa": "Standard: QA models moderate robustness to question typos.",
+      "topic_modeling__clustering": "Standard: Embedding-based models moderate robustness to typo"
+    },
+    "LR-03": {
+      "text_classification": "CRITICAL: \"I love this\" vs \"I do NOT love this\" — sentiment",
+      "ner": "Standard: Negation doesn't typically affect NER entity detec",
+      "text_summarization": "CRITICAL: Negation in source must be preserved in summary. \"",
+      "machine_translation": "CRITICAL: Negation must be correctly translated. Double nega",
+      "extractive_qa": "Standard: Negation in passage/question affects answer span s",
+      "topic_modeling__clustering": "N/A: Topic modeling operates at document level, not sentence"
+    },
+    "LR-04": {
+      "text_classification": "Standard: Classification relatively length-robust (truncatio",
+      "ner": "Standard: NER on very long documents requires sliding window",
+      "text_summarization": "CRITICAL: Long document summarization degrades. Context wind",
+      "machine_translation": "CRITICAL: Very long sentences challenge autoregressive decod",
+      "extractive_qa": "CRITICAL: Long passage QA requires efficient retrieval. Answ",
+      "topic_modeling__clustering": "Standard: Topic modeling handles variable-length documents w"
+    },
+    "LR-05": {
+      "text_classification": "MODERATE: Multilingual models handle some code-switching. Mo",
+      "ner": "MODERATE: Entity detection in code-switched text challenging",
+      "text_summarization": "MODERATE: Code-switched source text summarization quality.",
+      "machine_translation": "CRITICAL: Code-switched input is primary challenge. Which la",
+      "extractive_qa": "MODERATE: Code-switched QA passage handling.",
+      "topic_modeling__clustering": "MODERATE: Code-switched documents in topic modeling."
+    },
+    "FH-01": {
+      "text_classification": "N/A: Classification doesn't generate text.",
+      "ner": "N/A: NER extracts from source, doesn't generate.",
+      "text_summarization": "CRITICAL: Core summarization metric. Abstractive summaries m",
+      "machine_translation": "CRITICAL: Translation must preserve source meaning. Adequacy",
+      "extractive_qa": "★ STRENGTH: Inherently faithful — answer from passage verbat",
+      "topic_modeling__clustering": "N/A: Topic modeling doesn't generate text."
+    },
+    "FH-02": {
+      "text_classification": "N/A",
+      "ner": "N/A",
+      "text_summarization": "CRITICAL: Abstractive models fabricate entities, statistics,",
+      "machine_translation": "MODERATE: Translation \"hallucination\" — generating text unre",
+      "extractive_qa": "★ STRENGTH: Zero hallucination by design — answer is always",
+      "topic_modeling__clustering": "N/A"
+    },
+    "FH-03": {
+      "text_classification": "N/A",
+      "ner": "N/A",
+      "text_summarization": "CRITICAL: Summarization must capture key points. Omission an",
+      "machine_translation": "CRITICAL: Translation must not omit source content. Omission",
+      "extractive_qa": "MODERATE: QA doesn't omit — but wrong span selection is form",
+      "topic_modeling__clustering": "N/A"
+    },
+    "FH-04": {
+      "text_classification": "N/A",
+      "ner": "STRENGTH: Entity accuracy IS the NER task. Span-level precis",
+      "text_summarization": "CRITICAL: Names, numbers, dates must be exactly correct in s",
+      "machine_translation": "CRITICAL: Named entity translation accuracy. Names, places,",
+      "extractive_qa": "STRENGTH: Entities extracted verbatim from passage. No entit",
+      "topic_modeling__clustering": "N/A"
+    },
+    "FE-01": {
+      "text_classification": "CRITICAL: Sentiment classifiers penalize AAVE, colloquial En",
+      "ner": "MODERATE: NER performance on non-standard text. Informal ent",
+      "text_summarization": "MODERATE: Summarization of dialect text. Tone normalization",
+      "machine_translation": "CRITICAL: Dialect translation quality. Formal vs informal re",
+      "extractive_qa": "MODERATE: QA on dialect text. Question understanding of non-",
+      "topic_modeling__clustering": "MODERATE: Topic modeling on diverse language varieties."
+    },
+    "FE-02": {
+      "text_classification": "Standard: Sentiment/toxicity scores for gendered text. Stere",
+      "ner": "Standard: Gendered entity resolution (he/she → PERSON).",
+      "text_summarization": "MODERATE: Gendered summarization — selective emphasis based",
+      "machine_translation": "CRITICAL: Gendered language translation forces gender choice",
+      "extractive_qa": "Standard: QA gender bias in answer selection.",
+      "topic_modeling__clustering": "MODERATE: Gendered topic clusters. Stereotype reinforcement"
+    },
+    "FE-03": {
+      "text_classification": "MODERATE: Classification for low-resource languages. Transfe",
+      "ner": "MODERATE: NER for low-resource languages. Limited training d",
+      "text_summarization": "MODERATE: Summarization in low-resource languages.",
+      "machine_translation": "CRITICAL: HIGHEST FAIRNESS CONCERN. EN→DE quality ≫ EN→Yorub",
+      "extractive_qa": "MODERATE: QA in low-resource languages.",
+      "topic_modeling__clustering": "MODERATE: Topic modeling on low-resource text."
+    },
+    "FE-04": {
+      "text_classification": "Standard: Cultural context in sentiment (irony varies by cul",
+      "ner": "Standard: Cultural entity recognition (honorifics, naming co",
+      "text_summarization": "MODERATE: Cultural framing in summarization. Western vs non-",
+      "machine_translation": "CRITICAL: Cultural mistranslation beyond literal errors. Idi",
+      "extractive_qa": "Standard: Cultural context in QA.",
+      "topic_modeling__clustering": "MODERATE: Cultural topics in clustering. Western-centric top"
+    },
+    "FE-05": {
+      "text_classification": "N/A: Classification outputs labels, not text.",
+      "ner": "N/A: NER outputs structured entities.",
+      "text_summarization": "Standard: Summary readability. Simplification for accessibil",
+      "machine_translation": "Standard: Translation readability in target language.",
+      "extractive_qa": "N/A: QA outputs source spans.",
+      "topic_modeling__clustering": "Standard: Topic label readability and interpretability."
+    },
+    "EA-01": {
+      "text_classification": "STRENGTH: Attention visualization. SHAP/LIME per-token. \"Cla",
+      "ner": "STRENGTH: Token-level labeling IS the explanation. Entity bo",
+      "text_summarization": "MODERATE: Source-summary alignment. Extractive highlights. A",
+      "machine_translation": "MODERATE: Cross-lingual attention alignment. Source-target t",
+      "extractive_qa": "STRENGTH: Answer span IS the explanation. Highlighted in pas",
+      "topic_modeling__clustering": "MODERATE: Word importance in topic representation (c-TF-IDF)"
+    },
+    "EA-02": {
+      "text_classification": "N/A: Input text is the source.",
+      "ner": "N/A: Source text contains entities.",
+      "text_summarization": "CRITICAL: Which source sentences contributed to each summary",
+      "machine_translation": "Standard: Source sentence → target sentence alignment.",
+      "extractive_qa": "★ STRENGTH: Answer span location in passage is inherent prov",
+      "topic_modeling__clustering": "Standard: Which documents contribute to each topic? Document"
+    },
+    "EA-03": {
+      "text_classification": "CRITICAL: \"If 'terrible' were 'great', sentiment would be po",
+      "ner": "MODERATE: \"If this token were different, entity boundary wou",
+      "text_summarization": "MODERATE: \"If this source sentence were omitted, summary wou",
+      "machine_translation": "MODERATE: \"If source word X were Y, translation would differ",
+      "extractive_qa": "MODERATE: \"If passage contained X, answer would be Y.\"",
+      "topic_modeling__clustering": "N/A: Counterfactuals less meaningful for unsupervised topics"
+    },
+    "EA-04": {
+      "text_classification": "Standard: Classification model cards well-established.",
+      "ner": "Standard: NER model cards with entity type coverage document",
+      "text_summarization": "Standard + faithfulness limitations disclosure.",
+      "machine_translation": "CRITICAL: Per-language-pair documentation. Low-resource lang",
+      "extractive_qa": "Standard: QA model cards with passage type limitations.",
+      "topic_modeling__clustering": "CRITICAL: Methodology documentation essential (no ground tru"
+    },
+    "PP-01": {
+      "text_classification": "Standard: PII in input text for classification. Less critica",
+      "ner": "CRITICAL: NER IS PII detection for PERSON, LOCATION, PHONE,",
+      "text_summarization": "CRITICAL: PII in source text must not appear in summary if r",
+      "machine_translation": "CRITICAL: PII must be handled appropriately in translation (",
+      "extractive_qa": "MODERATE: PII in passages. Answer may contain PII from sourc",
+      "topic_modeling__clustering": "MODERATE: PII in document corpus for topic modeling."
+    },
+    "PP-02": {
+      "text_classification": "Standard: Classification training data PII audit.",
+      "ner": "CRITICAL: NER training data contains annotated PII by defini",
+      "text_summarization": "Standard: Summarization training pairs PII audit.",
+      "machine_translation": "Standard: Parallel corpus PII audit.",
+      "extractive_qa": "Standard: QA training data PII.",
+      "topic_modeling__clustering": "Standard: Document corpus PII."
+    },
+    "PP-03": {
+      "text_classification": "N/A: Classification doesn't generate text.",
+      "ner": "N/A: NER extracts from input, not training data.",
+      "text_summarization": "MODERATE: Abstractive summarization may leak memorized PII f",
+      "machine_translation": "MODERATE: Translation model may memorize and leak training p",
+      "extractive_qa": "N/A: Extractive QA extracts from passage, not training data.",
+      "topic_modeling__clustering": "N/A: Topic modeling doesn't generate text."
+    },
+    "PP-04": {
+      "text_classification": "Standard: Process only needed text fields.",
+      "ner": "CRITICAL: NER processes full text for entity extraction. Dat",
+      "text_summarization": "Standard: Summarization on necessary documents.",
+      "machine_translation": "Standard: Translation of requested content only.",
+      "extractive_qa": "Standard: QA on requested passage/question.",
+      "topic_modeling__clustering": "Standard: Topic modeling on authorized corpus."
+    },
+    "PR-01": {
+      "text_classification": "Standard: BERT WordPiece / BPE coverage. Domain vocabulary g",
+      "ner": "CRITICAL: Entity names split by tokenizer = NER boundary err",
+      "text_summarization": "Standard: Tokenization coverage for source text.",
+      "machine_translation": "CRITICAL: Cross-lingual tokenizer coverage. Low-resource scr",
+      "extractive_qa": "Standard: Tokenization coverage for passage/question.",
+      "topic_modeling__clustering": "Standard: Tokenization coverage for document corpus."
+    },
+    "PR-02": {
+      "text_classification": "CRITICAL: Stopword list changes affect TF-IDF classifiers. C",
+      "ner": "MODERATE: Tokenization choices affect NER span boundaries.",
+      "text_summarization": "Standard: Preprocessing less critical for transformer-based",
+      "machine_translation": "Standard: Preprocessing less critical for neural MT.",
+      "extractive_qa": "Standard: Preprocessing less critical for BERT-QA.",
+      "topic_modeling__clustering": "CRITICAL: TF-IDF-based topic modeling highly sensitive to pr"
+    },
+    "PR-03": {
+      "text_classification": "Standard: Subword tokenization handles most OOV. Domain term",
+      "ner": "CRITICAL: Domain-specific entity names as OOV. New entity ty",
+      "text_summarization": "Standard: OOV in source text handled by subword tokenization",
+      "machine_translation": "CRITICAL: Script-specific OOV. Rare language characters. Emo",
+      "extractive_qa": "Standard: OOV in passage/question.",
+      "topic_modeling__clustering": "Standard: OOV terms may become isolated noise in topic model"
+    },
+    "PR-04": {
+      "text_classification": "Standard: Preprocessing → encoding → classification consiste",
+      "ner": "Standard: Tokenization → encoding → labeling → span aggregat",
+      "text_summarization": "Standard: Preprocessing → encoding → generation → post-proce",
+      "machine_translation": "Standard: Source tokenization → encoding → decoding → detoke",
+      "extractive_qa": "Standard: Question + passage preprocessing → encoding → span",
+      "topic_modeling__clustering": "Standard: Embedding → reduction → clustering → representatio"
+    },
+    "OP-01": {
+      "text_classification": "LOWEST for simple models (TF-IDF+LR: <10ms). BERT: 20–50ms.",
+      "ner": "Standard: Similar to classification. Per-document processing",
+      "text_summarization": "INCREASED: Autoregressive generation slow. Output length pro",
+      "machine_translation": "INCREASED: Autoregressive decoding. Latency proportional to",
+      "extractive_qa": "Standard: BERT-QA single forward pass. ~30–50ms. Fast.",
+      "topic_modeling__clustering": "Standard: Batch processing. Embedding + clustering. Not typi"
+    },
+    "OP-02": {
+      "text_classification": "HIGHEST: Simple models process thousands/sec. BERT hundreds/",
+      "ner": "Standard: Similar to classification. Per-document throughput",
+      "text_summarization": "LOWEST for abstractive: generation bottleneck. Extractive mo",
+      "machine_translation": "LOW: Autoregressive decoding limits throughput. Batch transl",
+      "extractive_qa": "Standard: Similar to classification throughput.",
+      "topic_modeling__clustering": "Standard: Batch embedding + clustering. Offline processing a"
+    },
+    "OP-03": {
+      "text_classification": "LOWEST for simple models. BERT-base 110M params. DistilBERT",
+      "ner": "Standard: Similar to classification models.",
+      "text_summarization": "INCREASED: Seq2seq models larger (T5-base 220M, BART 140M).",
+      "machine_translation": "HIGHEST: Multilingual models large (NLLB-200 ~3.3B, mBART 68",
+      "extractive_qa": "Standard: Same as classification BERT models.",
+      "topic_modeling__clustering": "MODERATE: Embedding models + UMAP + clustering. Memory for l"
+    },
+    "OP-04": {
+      "text_classification": "LOWEST: CPU inference for simple models. GPU for BERT but ef",
+      "ner": "Standard: Similar cost to classification.",
+      "text_summarization": "INCREASED: Generation cost per document. Output-length-propo",
+      "machine_translation": "HIGHEST per-document: Translation of full documents expensiv",
+      "extractive_qa": "Standard: Low cost per QA query.",
+      "topic_modeling__clustering": "Standard: Batch processing amortizes cost."
+    },
+    "LG-01": {
+      "text_classification": "Standard: Classification model registry. Well-established pr",
+      "ner": "Standard: NER model registry. Entity type version tracking.",
+      "text_summarization": "Standard: Summarization model registry. Faithfulness benchma",
+      "machine_translation": "CRITICAL: Per-language-pair model versioning. Language cover",
+      "extractive_qa": "Standard: QA model registry.",
+      "topic_modeling__clustering": "Standard: Topic model registry. Reproducibility parameters s"
+    },
+    "LG-02": {
+      "text_classification": "Standard: Classification annotation quality. Label guideline",
+      "ner": "CRITICAL: NER annotation most expensive and error-prone. IAA",
+      "text_summarization": "Standard: Summary quality annotation. Reference summary crea",
+      "machine_translation": "Standard: Translation quality annotation. Post-editing metri",
+      "extractive_qa": "Standard: QA annotation quality. Answer span validation.",
+      "topic_modeling__clustering": "N/A: Unsupervised — no annotation. But human evaluation of t"
+    },
+    "LG-03": {
+      "text_classification": "Standard: Classification + adversarial + fairness + preproce",
+      "ner": "Standard: NER + entity boundary + entity type + domain cover",
+      "text_summarization": "Standard: Summarization + faithfulness + hallucination + omi",
+      "machine_translation": "CRITICAL: Per-language-pair tests + gender bias + cultural +",
+      "extractive_qa": "Standard: QA + span accuracy + answerability + position bias",
+      "topic_modeling__clustering": "Standard: Coherence + stability + granularity + embedding bi"
+    },
+    "LG-04": {
+      "text_classification": "Standard: Input text distribution monitoring. Vocabulary shi",
+      "ner": "Standard: Entity distribution monitoring. New entity type em",
+      "text_summarization": "Standard: Source document distribution monitoring. Length an",
+      "machine_translation": "Standard: Language pair distribution monitoring. Source lang",
+      "extractive_qa": "Standard: Question distribution monitoring. Topic shift in q",
+      "topic_modeling__clustering": "Standard: Corpus composition monitoring. Topic distribution"
+    },
+    "LG-05": {
+      "text_classification": "CRITICAL for content moderation: Platform liability (DSA, Se",
+      "ner": "CRITICAL: PII processing regulation (GDPR Article 9). NER on",
+      "text_summarization": "Standard: Summarization of regulated content (financial, med",
+      "machine_translation": "CRITICAL: Accessibility regulation (multilingual requirement",
+      "extractive_qa": "Standard: QA on regulated knowledge bases.",
+      "topic_modeling__clustering": "Standard: Topic modeling on regulated corpora."
+    }
+  }
+}

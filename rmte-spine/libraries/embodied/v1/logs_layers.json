@@ -1,0 +1,310 @@
+{
+  "library_id": "tlai-rmte-embodied-logs-layers",
+  "version": "v1",
+  "source": "TrustLensAI_Embodied_Logs_Layers_Formulas.xlsx — sheet 'Embodied RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "notes": "Each Embodied pipeline stage emits telemetry; TrustLensAI platform layers ingest and evaluate it. TrustLensAI produces evidence; it does not certify compliance.",
+  "layers": [
+    {
+      "index": 1,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Sensor Suite / Data Acquisition",
+      "logs_telemetry": "Sensor log",
+      "key_fields": "camera/LiDAR/radar/IMU/force-torque streams, timestamps, sensor health",
+      "ingested_by": "L0 · Foundation & Integration → L1 · Instrumentation & Telemetry",
+      "related_metric_families": [
+        "Perception",
+        "Robustness & Adversarial"
+      ],
+      "notes": "Raw sensor evidence; spoofing surface"
+    },
+    {
+      "index": 2,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Sensor Fusion & World Model",
+      "logs_telemetry": "Fusion / world-model log",
+      "key_fields": "fused state estimate, cross-sensor agreement, degradation flags",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Perception",
+        "Robustness & Adversarial"
+      ],
+      "notes": "Feeds PC-03, RS-02"
+    },
+    {
+      "index": 3,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Perception",
+      "logs_telemetry": "Perception log",
+      "key_fields": "detections, tracks, classes, confidence, safety-critical objects",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Perception"
+      ],
+      "notes": "Feeds PC-01/02 (miss rate = safety)"
+    },
+    {
+      "index": 4,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Localization & Mapping",
+      "logs_telemetry": "Localization log",
+      "key_fields": "estimated pose, map, covariance",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Perception"
+      ],
+      "notes": "Feeds PC-04"
+    },
+    {
+      "index": 5,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Prediction (Intent)",
+      "logs_telemetry": "Prediction log",
+      "key_fields": "agent/human trajectory & intent forecasts",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Human-Robot Interaction Safety"
+      ],
+      "notes": "Feeds HRI safety"
+    },
+    {
+      "index": 6,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Planning & Decision",
+      "logs_telemetry": "Planning log",
+      "key_fields": "motion/path plan, feasibility, constraint checks, decision timing",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Planning & Decision"
+      ],
+      "notes": "Feeds PL-01/02/03"
+    },
+    {
+      "index": 7,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Safety Monitor / Runtime Assurance",
+      "logs_telemetry": "Safety-monitor log",
+      "key_fields": "envelope checks, separation, ODD boundary, safe-state triggers, response times",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Functional Safety",
+        "Collision & Hazard Avoidance",
+        "ODD"
+      ],
+      "notes": "Runtime safety enforcement (FS/CA/OD)"
+    },
+    {
+      "index": 8,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Control & Actuation",
+      "logs_telemetry": "Control log",
+      "key_fields": "actuator commands, tracking error, loop timing / deadline adherence, jitter",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Control & Actuation"
+      ],
+      "notes": "Feeds CT-01/02 (deadline = safety)"
+    },
+    {
+      "index": 9,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Emergency-Stop / Safe-State Manager",
+      "logs_telemetry": "Safe-state log",
+      "key_fields": "E-stop events, trigger-to-halt time, fallback / redundancy status",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Functional Safety"
+      ],
+      "notes": "Feeds FS-02 (E-stop)"
+    },
+    {
+      "index": 10,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Human-Robot Interaction / Teleoperation",
+      "logs_telemetry": "HRI / teleop log",
+      "key_fields": "human detection, speed/separation, contact force, override, handover, authorization",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Human-Robot Interaction Safety",
+        "Human Oversight"
+      ],
+      "notes": "Feeds HR-01..03, HO-01..03"
+    },
+    {
+      "index": 11,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Health Monitoring & Diagnostics",
+      "logs_telemetry": "Diagnostics log",
+      "key_fields": "fault detection, diagnostic coverage, MTBF, mission success",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L2 · Observability → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Functional Safety",
+        "Operational"
+      ],
+      "notes": "Feeds FS-04, OP-01/02"
+    },
+    {
+      "index": 12,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Cyber-Physical Security",
+      "logs_telemetry": "Security log",
+      "key_fields": "spoofing/attack detection, comms integrity, authentication",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Robustness & Adversarial",
+        "Privacy"
+      ],
+      "notes": "Feeds RS-01/03, PV-03"
+    },
+    {
+      "index": 13,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Privacy / Bystander Data Handling",
+      "logs_telemetry": "Privacy log",
+      "key_fields": "bystander-PII detection, redaction, retention/minimization",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Privacy"
+      ],
+      "notes": "Feeds PV-01/02"
+    },
+    {
+      "index": 14,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Verification & Validation (Sim-to-Real / Field)",
+      "logs_telemetry": "Validation log",
+      "key_fields": "sim vs real performance, safety-scenario coverage, verification records",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Sim-to-Real & Validation",
+        "ODD"
+      ],
+      "notes": "Feeds SR-01..03, OD-01"
+    },
+    {
+      "index": 15,
+      "architecture": "AI Product (Embodied)",
+      "layer": "Explainability / Black-Box Recorder",
+      "logs_telemetry": "Black-box recorder log",
+      "key_fields": "action rationale, decision trace, incident reconstruction data",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance",
+      "related_metric_families": [
+        "Explainability & Accountability"
+      ],
+      "notes": "Feeds EX-01/02 (tamper-evident)"
+    },
+    {
+      "index": 16,
+      "architecture": "AI Product (Embodied)",
+      "layer": "OTA / Firmware & Model Governance",
+      "logs_telemetry": "Governance log",
+      "key_fields": "firmware/model registry, lineage, OTA & rollback, safety case, standards, TEVV",
+      "ingested_by": "L1 · Instrumentation & Telemetry → L5 · Risk & Governance",
+      "related_metric_families": [
+        "Lifecycle",
+        "Explainability & Accountability"
+      ],
+      "notes": "Feeds LG-01..05, EX-03"
+    },
+    {
+      "index": 17,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L0 · Foundation & Integration",
+      "logs_telemetry": "Registration / asset / connector / IAM log",
+      "key_fields": "registered robots/vehicles, sensor & firmware registry, tenancy, lineage",
+      "ingested_by": "Anchors identity, asset/firmware registry & tenancy",
+      "related_metric_families": [
+        "Lifecycle"
+      ],
+      "notes": "Robot/firmware registry origin (LG-01)"
+    },
+    {
+      "index": 18,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L1 · Instrumentation & Telemetry",
+      "logs_telemetry": "Canonical event log (post-ingest)",
+      "key_fields": "normalized robotics spans/events, bystander-PII redaction, event-bus refs",
+      "ingested_by": "Consumes all embodied product logs; normalizes & redacts",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Bystander PII redacted at capture (in-perimeter)"
+    },
+    {
+      "index": 19,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L2 · Observability",
+      "logs_telemetry": "Trace / dependency log",
+      "key_fields": "reconstructed mission/loop traces, dependency views, time-series",
+      "ingested_by": "Consumes canonical events (D1-gated / target)",
+      "related_metric_families": [
+        "Operational",
+        "Functional Safety"
+      ],
+      "notes": "Amber — D1-gated"
+    },
+    {
+      "index": 20,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L3 · Evaluation & Assurance (AAJ)",
+      "logs_telemetry": "Evaluation-run log",
+      "key_fields": "evaluator outputs, perception/planning/control/safety metric scores",
+      "ingested_by": "Consumes perception/planning/control/safety logs + scenarios & ground truth",
+      "related_metric_families": [
+        "Perception",
+        "Functional Safety",
+        "Collision & Hazard Avoidance"
+      ],
+      "notes": "AAJ 11-agent / 15-step pipeline"
+    },
+    {
+      "index": 21,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L4 · Metric Library",
+      "logs_telemetry": "Metric-definition log",
+      "key_fields": "metric defs, thresholds, mappings, safety scenarios & standards refs, versions",
+      "ingested_by": "Supplies formulas/thresholds & reference data to L3",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Governs the Embodied RMTE metric corpus (net-new)"
+    },
+    {
+      "index": 22,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L5 · Risk & Governance (Gates 0–4)",
+      "logs_telemetry": "Policy / gate log",
+      "key_fields": "functional-safety, HRI, security, ODD, standards decisions, risk register, gates",
+      "ingested_by": "Consumes evaluation evidence; runs release gates",
+      "related_metric_families": [
+        "Functional Safety",
+        "Human-Robot Interaction Safety",
+        "Human Oversight"
+      ],
+      "notes": "Gates 0–4; safety-critical zero-tolerance"
+    },
+    {
+      "index": 23,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L6 · Evidence & Trust Score",
+      "logs_telemetry": "Evidence-Pack log",
+      "key_fields": "Evidence Pack manifest, RFC 6962 inclusion proofs / hashes, Trust Score (Q6)",
+      "ingested_by": "Assembles tamper-evident evidence + verdict",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Trust Score = governed Q6 placeholder"
+    },
+    {
+      "index": 24,
+      "architecture": "TrustLensAI Platform",
+      "layer": "L9 · Experience & Reporting",
+      "logs_telemetry": "Reporting / notification log",
+      "key_fields": "persona surfaces, safety scorecards, reports, notifications",
+      "ingested_by": "Consumes evidence & verdicts for reporting",
+      "related_metric_families": [
+        "All"
+      ],
+      "notes": "Executive / Engineering / Safety personas"
+    }
+  ]
+}

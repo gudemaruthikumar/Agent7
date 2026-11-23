@@ -1,0 +1,878 @@
+{
+  "library_id": "trustlensai-agentic-formula-inputs",
+  "version": "v1",
+  "source": "TrustLensAI_Agentic_Logs_Layers_Formulas.xlsx — sheet 'Logs ↔ Formula Inputs'",
+  "notes": "For every Agentic metric, each variable its formula consumes is traced to the log / reference dataset / config that supplies it, and the layer that emits it.",
+  "inputs": [
+    {
+      "metric_id": "PD-01",
+      "term": "correct plan steps",
+      "meaning": "plan steps matching expert plan",
+      "source_type": "Mixed",
+      "log_or_dataset": "Planning log ∩ expert plan",
+      "ai_product_layer": "Planning & Task Decomposition",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "PD-01",
+      "term": "total plan steps",
+      "meaning": "steps in the agent plan",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Planning log",
+      "ai_product_layer": "Planning & Task Decomposition",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "PD-01",
+      "term": "expert plan",
+      "meaning": "reference decomposition",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Golden task plans",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "PD-02",
+      "term": "correct tool chosen",
+      "meaning": "tool selections matching gold",
+      "source_type": "Mixed",
+      "log_or_dataset": "Tool-selection log ∩ gold",
+      "ai_product_layer": "Tool Selection",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "PD-02",
+      "term": "total tool selections",
+      "meaning": "tool-selection decisions",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-selection log",
+      "ai_product_layer": "Tool Selection",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "PD-03",
+      "term": "correct parameters",
+      "meaning": "parameter sets validated correct",
+      "source_type": "Mixed",
+      "log_or_dataset": "Tool-call trace ∩ schema/gold",
+      "ai_product_layer": "Planning & Task Decomposition",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "PD-03",
+      "term": "total tool calls",
+      "meaning": "tool invocations",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-call trace",
+      "ai_product_layer": "Planning & Task Decomposition",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "PD-04",
+      "term": "decisions with rationale",
+      "meaning": "decisions carrying recorded rationale",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Reasoning trace",
+      "ai_product_layer": "Planning & Task Decomposition",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "PD-04",
+      "term": "total decisions",
+      "meaning": "agent decisions",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Reasoning trace",
+      "ai_product_layer": "Planning & Task Decomposition",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "PD-05",
+      "term": "re-plans triggered",
+      "meaning": "re-planning events",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Planning log",
+      "ai_product_layer": "Planning & Task Decomposition",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "PD-05",
+      "term": "total executions",
+      "meaning": "task executions",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Orchestration log",
+      "ai_product_layer": "Planning & Task Decomposition",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TE-01",
+      "term": "successful tool calls",
+      "meaning": "calls returning success",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-call trace",
+      "ai_product_layer": "Tool Execution",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TE-01",
+      "term": "total calls",
+      "meaning": "tool invocations",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-call trace",
+      "ai_product_layer": "Tool Execution",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TE-02",
+      "term": "irreversible actions flagged",
+      "meaning": "irreversible actions caught pre-exec",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Authorization / guardrail log",
+      "ai_product_layer": "Tool Execution",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TE-02",
+      "term": "total irreversible actions",
+      "meaning": "irreversible actions attempted",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-call trace",
+      "ai_product_layer": "Tool Execution",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TE-03",
+      "term": "loops detected within SLA",
+      "meaning": "runaway loops stopped in SLA",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Orchestration / circuit-breaker log",
+      "ai_product_layer": "Tool Execution",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TE-03",
+      "term": "total runaway loops",
+      "meaning": "runaway loop occurrences",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Orchestration log",
+      "ai_product_layer": "Tool Execution",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TE-03",
+      "term": "SLA",
+      "meaning": "loop-detection time budget",
+      "source_type": "Config",
+      "log_or_dataset": "Circuit-breaker config",
+      "ai_product_layer": "— (product / policy config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "TE-04",
+      "term": "idempotent retries",
+      "meaning": "retries that are safe/idempotent",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-call trace",
+      "ai_product_layer": "Tool Execution",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TE-04",
+      "term": "total retries",
+      "meaning": "retried actions",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-call trace",
+      "ai_product_layer": "Tool Execution",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TE-05",
+      "term": "validated outputs",
+      "meaning": "tool outputs validated pre-consumption",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-output validation log",
+      "ai_product_layer": "Tool Execution",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TE-05",
+      "term": "total tool outputs",
+      "meaning": "tool outputs returned",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-call trace",
+      "ai_product_layer": "Tool Execution",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AP-01",
+      "term": "in-scope actions",
+      "meaning": "actions within permitted scope",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Authorization log",
+      "ai_product_layer": "Authorization / Policy Enforcement",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AP-01",
+      "term": "total actions",
+      "meaning": "agent actions",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Authorization log",
+      "ai_product_layer": "Authorization / Policy Enforcement",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AP-02",
+      "term": "approved high-risk actions",
+      "meaning": "high-risk actions with approval",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Approval log",
+      "ai_product_layer": "Authorization / Policy Enforcement",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AP-02",
+      "term": "total high-risk actions",
+      "meaning": "high-risk actions",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Authorization log",
+      "ai_product_layer": "Authorization / Policy Enforcement",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AP-03",
+      "term": "detected escalations",
+      "meaning": "privilege-escalation attempts caught",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Authorization / security log",
+      "ai_product_layer": "Authorization / Policy Enforcement",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AP-03",
+      "term": "total escalation attempts",
+      "meaning": "escalation attempts (incl. red-team)",
+      "source_type": "Mixed",
+      "log_or_dataset": "Security log ∩ red-team suite",
+      "ai_product_layer": "Authorization / Policy Enforcement",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "AP-04",
+      "term": "compliant transfers",
+      "meaning": "data transfers within boundary",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Egress / policy log",
+      "ai_product_layer": "Authorization / Policy Enforcement",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "AP-04",
+      "term": "total transfers",
+      "meaning": "data transfers",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Egress log",
+      "ai_product_layer": "Authorization / Policy Enforcement",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TO-01",
+      "term": "actions with complete trace",
+      "meaning": "plan+tool+outcome all present",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Trace log",
+      "ai_product_layer": "Reasoning / Decision Trace",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TO-01",
+      "term": "total actions",
+      "meaning": "agent actions",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Trace log",
+      "ai_product_layer": "Reasoning / Decision Trace",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TO-02",
+      "term": "decisions with evidence",
+      "meaning": "decisions linked to evidence artifacts",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Trace + evidence log",
+      "ai_product_layer": "Reasoning / Decision Trace",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TO-02",
+      "term": "total decisions",
+      "meaning": "agent decisions",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Reasoning trace",
+      "ai_product_layer": "Reasoning / Decision Trace",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TO-03",
+      "term": "schema-valid entries",
+      "meaning": "log entries matching schema",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Log-completeness telemetry",
+      "ai_product_layer": "Reasoning / Decision Trace",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TO-03",
+      "term": "total entries",
+      "meaning": "log entries",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Log-completeness telemetry",
+      "ai_product_layer": "Reasoning / Decision Trace",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TO-04",
+      "term": "reconstructable executions",
+      "meaning": "executions with full reconstructable trace",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Trace log",
+      "ai_product_layer": "Reasoning / Decision Trace",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TO-04",
+      "term": "total executions",
+      "meaning": "executions",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Orchestration log",
+      "ai_product_layer": "Reasoning / Decision Trace",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "TO-05",
+      "term": "instrumented components",
+      "meaning": "components emitting monitoring signals",
+      "source_type": "Config",
+      "log_or_dataset": "Observability coverage config",
+      "ai_product_layer": "— (product / policy config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "TO-05",
+      "term": "total components",
+      "meaning": "agent components",
+      "source_type": "Config",
+      "log_or_dataset": "Architecture manifest",
+      "ai_product_layer": "— (product / policy config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "GT-01",
+      "term": "completed tasks",
+      "meaning": "tasks completed successfully",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Orchestration / output log",
+      "ai_product_layer": "Orchestration & Goal Management",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GT-01",
+      "term": "total tasks",
+      "meaning": "tasks attempted",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Goal log",
+      "ai_product_layer": "Orchestration & Goal Management",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GT-02",
+      "term": "result",
+      "meaning": "final agent result",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Output log",
+      "ai_product_layer": "Orchestration & Goal Management",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GT-02",
+      "term": "original goal",
+      "meaning": "parsed user goal",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Goal log",
+      "ai_product_layer": "Orchestration & Goal Management",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GT-02",
+      "term": "alignment",
+      "meaning": "semantic goal-result alignment",
+      "source_type": "Runtime log (judge)",
+      "log_or_dataset": "AAJ evaluation log",
+      "ai_product_layer": "Output Synthesis → AAJ evaluation",
+      "platform_layer": "L3 · Evaluation & Assurance (AAJ) → L4 · Metric Library → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GT-03",
+      "term": "final output",
+      "meaning": "agent final output",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Output log",
+      "ai_product_layer": "Orchestration & Goal Management",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GT-03",
+      "term": "rubric",
+      "meaning": "quality rubric",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Evaluation rubric",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "GT-04",
+      "term": "detected side effects",
+      "meaning": "unintended side effects caught",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Guardrail / trace log",
+      "ai_product_layer": "Orchestration & Goal Management",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "GT-04",
+      "term": "total side effects",
+      "meaning": "side effects (ground truth)",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Annotated eval set",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "RA-01",
+      "term": "safely handled",
+      "meaning": "adversarial prompts safely handled",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Guardrail log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RA-01",
+      "term": "adversarial prompts",
+      "meaning": "injection attempts",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Red-team suite",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "RA-02",
+      "term": "blocked outputs",
+      "meaning": "malicious tool outputs blocked",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-output validation log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RA-02",
+      "term": "malicious outputs",
+      "meaning": "malicious tool outputs",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Red-team suite",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "RA-03",
+      "term": "blocked manipulations",
+      "meaning": "goal-manipulation attempts blocked",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Guardrail log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RA-03",
+      "term": "manipulation attempts",
+      "meaning": "goal-manipulation attempts",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Red-team suite",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "RA-04",
+      "term": "validated memory entries",
+      "meaning": "memory entries verified untampered",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Memory-integrity log",
+      "ai_product_layer": "Memory & Context",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RA-04",
+      "term": "total memory entries",
+      "meaning": "memory entries",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Memory log",
+      "ai_product_layer": "Memory & Context",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RA-05",
+      "term": "contained failures",
+      "meaning": "cascading failures held in blast radius",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Incident / orchestration log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RA-05",
+      "term": "total cascading failures",
+      "meaning": "cascading failures",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Incident log",
+      "ai_product_layer": "Guardrails / Safety",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RA-05",
+      "term": "blast radius",
+      "meaning": "containment boundary",
+      "source_type": "Config",
+      "log_or_dataset": "Safety config",
+      "ai_product_layer": "— (product / policy config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "HO-01",
+      "term": "correct escalations",
+      "meaning": "situations correctly escalated",
+      "source_type": "Mixed",
+      "log_or_dataset": "Escalation log ∩ gold",
+      "ai_product_layer": "Human-in-the-Loop / Approval",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "HO-01",
+      "term": "situations needing escalation",
+      "meaning": "escalation-worthy situations",
+      "source_type": "Reference dataset",
+      "log_or_dataset": "Annotated eval set",
+      "ai_product_layer": "— (evaluation gold dataset)",
+      "platform_layer": "L4 · Metric Library (gold datasets) → L3 · Evaluation & Assurance",
+      "notes": "Ground-truth from eval harness — not a product log"
+    },
+    {
+      "metric_id": "HO-02",
+      "term": "bypassed actions",
+      "meaning": "actions bypassing required approval",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Approval log",
+      "ai_product_layer": "Human-in-the-Loop / Approval",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "HO-02",
+      "term": "total actions requiring approval",
+      "meaning": "approval-required actions",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Authorization log",
+      "ai_product_layer": "Human-in-the-Loop / Approval",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "HO-03",
+      "term": "requests with sufficient context",
+      "meaning": "approval requests with enough context",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Approval log",
+      "ai_product_layer": "Human-in-the-Loop / Approval",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "HO-03",
+      "term": "total approval requests",
+      "meaning": "approval requests",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Approval log",
+      "ai_product_layer": "Human-in-the-Loop / Approval",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "HO-04",
+      "term": "improving overrides",
+      "meaning": "overrides that improved outcome",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Override log + outcome",
+      "ai_product_layer": "Human-in-the-Loop / Approval",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "HO-04",
+      "term": "total overrides",
+      "meaning": "human overrides",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Override log",
+      "ai_product_layer": "Human-in-the-Loop / Approval",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RC-01",
+      "term": "request timestamp",
+      "meaning": "task start time",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Serving telemetry",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RC-01",
+      "term": "result timestamp",
+      "meaning": "task completion time",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Serving telemetry",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RC-02",
+      "term": "LLM cost",
+      "meaning": "model token cost",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Cost telemetry",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RC-02",
+      "term": "tool API cost",
+      "meaning": "tool invocation cost",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Cost telemetry",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RC-02",
+      "term": "infra cost",
+      "meaning": "infrastructure cost",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Cost telemetry",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RC-03",
+      "term": "tasks over budget",
+      "meaning": "tasks exceeding tool-call budget",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-call telemetry",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RC-03",
+      "term": "total tasks",
+      "meaning": "tasks",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Orchestration log",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "RC-03",
+      "term": "tool-call budget",
+      "meaning": "per-task call budget",
+      "source_type": "Config",
+      "log_or_dataset": "Budget config",
+      "ai_product_layer": "— (product / policy config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "RC-04",
+      "term": "useful tool calls",
+      "meaning": "calls contributing to the goal",
+      "source_type": "Mixed",
+      "log_or_dataset": "Trace analysis",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry + L4 · Metric Library → L3 · Evaluation & Assurance",
+      "notes": "Combines runtime log with reference labels"
+    },
+    {
+      "metric_id": "RC-04",
+      "term": "total tool calls",
+      "meaning": "tool invocations",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Tool-call trace",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-01",
+      "term": "Δ consecutive values",
+      "meaning": "change between metric snapshots",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Monitoring telemetry",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-02",
+      "term": "incidents",
+      "meaning": "incident count",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Incident log",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-02",
+      "term": "time periods",
+      "meaning": "monitoring windows",
+      "source_type": "Config",
+      "log_or_dataset": "Monitoring config",
+      "ai_product_layer": "— (product / policy config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "LC-03",
+      "term": "tests executed",
+      "meaning": "tests run",
+      "source_type": "Runtime log",
+      "log_or_dataset": "TEVV / test-harness log",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-03",
+      "term": "tests planned",
+      "meaning": "planned tests",
+      "source_type": "Config",
+      "log_or_dataset": "Test plan",
+      "ai_product_layer": "— (product / policy config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "LC-04",
+      "term": "completed",
+      "meaning": "completed doc items",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Governance log",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-04",
+      "term": "total doc items",
+      "meaning": "required items",
+      "source_type": "Config",
+      "log_or_dataset": "Governance checklist",
+      "ai_product_layer": "— (product / policy config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    },
+    {
+      "metric_id": "LC-05",
+      "term": "requirements met",
+      "meaning": "applicable requirements satisfied",
+      "source_type": "Runtime log",
+      "log_or_dataset": "Governance log",
+      "ai_product_layer": "Serving & Monitoring",
+      "platform_layer": "L1 · Instrumentation & Telemetry → L3 · Evaluation & Assurance → L6 · Evidence & Trust Score",
+      "notes": "Runtime evidence"
+    },
+    {
+      "metric_id": "LC-05",
+      "term": "total applicable requirements",
+      "meaning": "applicable regulatory requirements",
+      "source_type": "Config",
+      "log_or_dataset": "Regulatory register",
+      "ai_product_layer": "— (product / policy config)",
+      "platform_layer": "L0 · Foundation & Integration / L4 · Metric Library",
+      "notes": "Static configuration value"
+    }
+  ]
+}

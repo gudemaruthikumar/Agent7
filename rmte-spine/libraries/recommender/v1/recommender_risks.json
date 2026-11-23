@@ -1,0 +1,391 @@
+{
+  "library_id": "tlai-rmte-recommender-risks",
+  "version": "v1",
+  "source": "TrustLensAI_Recommender_Logs_Layers_Formulas.xlsx — sheet 'Recommender RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "reconstruction": true,
+  "notes": {
+    "compliance": "TrustLensAI produces evidence; it does not certify compliance."
+  },
+  "risks": [
+    {
+      "risk_id": "REC-01",
+      "name": "Ranking surfaces irrelevant or low-quality items for the query/user",
+      "description": "Ranking surfaces irrelevant or low-quality items for the query/user",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Ranking surfaces irrelevant or low-quality items for the query/user arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-02",
+      "name": "Recommendations lack diversity, creating filter bubbles / echo chambers",
+      "description": "Recommendations lack diversity, creating filter bubbles / echo chambers",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Recommendations lack diversity, creating filter bubbles / echo chamber arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-03",
+      "name": "Popularity bias concentrates exposure on few items, starving the long tail",
+      "description": "Popularity bias concentrates exposure on few items, starving the long tail",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Popularity bias concentrates exposure on few items, starving the long  arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-04",
+      "name": "Provider/item-side unfairness: inequitable exposure across content providers",
+      "description": "Provider/item-side unfairness: inequitable exposure across content providers",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness & Policy Consistency",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Provider/item-side unfairness: inequitable exposure across content pro arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Fairness & Policy Consistency (7-TA taxonomy); pillar Govern. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-05",
+      "name": "User-side unfairness: recommendation quality varies across demographic groups",
+      "description": "User-side unfairness: recommendation quality varies across demographic groups",
+      "category": "Business",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness & Policy Consistency",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — User-side unfairness: recommendation quality varies across demographic arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Fairness & Policy Consistency (7-TA taxonomy); pillar Govern. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-06",
+      "name": "Feedback loops amplify bias/popularity over successive retraining cycles",
+      "description": "Feedback loops amplify bias/popularity over successive retraining cycles",
+      "category": "Technical",
+      "pillar": "Govern",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "trust_attributes": [
+        "Fairness & Policy Consistency"
+      ],
+      "hla_primary_trust_attribute": "Fairness & Policy Consistency",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Feedback loops amplify bias/popularity over successive retraining cycl arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Fairness & Policy Consistency (7-TA taxonomy); pillar Govern. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-07",
+      "name": "Miscalibrated scores misstate engagement / conversion likelihood",
+      "description": "Miscalibrated scores misstate engagement / conversion likelihood",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Miscalibrated scores misstate engagement / conversion likelihood arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-08",
+      "name": "Shilling / profile-injection attacks manipulate rankings",
+      "description": "Shilling / profile-injection attacks manipulate rankings",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Security",
+      "trust_attributes": [
+        "Security"
+      ],
+      "hla_primary_trust_attribute": "Security",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Shilling / profile-injection attacks manipulate rankings arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Security (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-09",
+      "name": "Cold-start degradation for new users or new items",
+      "description": "Cold-start degradation for new users or new items",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Cold-start degradation for new users or new items arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-10",
+      "name": "Harmful, unsafe, or policy-violating items are recommended",
+      "description": "Harmful, unsafe, or policy-violating items are recommended",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Harmful, unsafe, or policy-violating items are recommended arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-11",
+      "name": "Engagement optimization drives addictive / rabbit-hole behaviour (user-wellbeing harm)",
+      "description": "Engagement optimization drives addictive / rabbit-hole behaviour (user-wellbeing harm)",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Engagement optimization drives addictive / rabbit-hole behaviour (user arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-12",
+      "name": "Minors exposed to age-inappropriate recommendations",
+      "description": "Minors exposed to age-inappropriate recommendations",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Safety",
+      "trust_attributes": [
+        "Safety"
+      ],
+      "hla_primary_trust_attribute": "Safety",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Minors exposed to age-inappropriate recommendations arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Safety (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-13",
+      "name": "Behavioural / preference PII exposed or leaked across users",
+      "description": "Behavioural / preference PII exposed or leaked across users",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Behavioural / preference PII exposed or leaked across users arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "Critical",
+      "priority": "P1",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Privacy (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-14",
+      "name": "Sensitive attributes inferable from recommendations (inference attack)",
+      "description": "Sensitive attributes inferable from recommendations (inference attack)",
+      "category": "Technical",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Sensitive attributes inferable from recommendations (inference attack) arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Privacy (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-15",
+      "name": "Personalization performed without a valid consent basis (regulatory exposure)",
+      "description": "Personalization performed without a valid consent basis (regulatory exposure)",
+      "category": "Business",
+      "pillar": "Secure",
+      "trust_attribute": "Privacy",
+      "trust_attributes": [
+        "Privacy"
+      ],
+      "hla_primary_trust_attribute": "Privacy",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Personalization performed without a valid consent basis (regulatory ex arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — reputational / regulatory / commercial harm",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Privacy (7-TA taxonomy); pillar Secure. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-16",
+      "name": "Recommendations are unexplainable / opaque to users and auditors",
+      "description": "Recommendations are unexplainable / opaque to users and auditors",
+      "category": "Delivery",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Explainability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Recommendations are unexplainable / opaque to users and auditors arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — undetected defect reaches release",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Explainability (7-TA taxonomy); pillar Prove. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-17",
+      "name": "Position / presentation bias confounds evaluation and training",
+      "description": "Position / presentation bias confounds evaluation and training",
+      "category": "Technical",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Position / presentation bias confounds evaluation and training arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — degraded metric / failed assurance check",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-18",
+      "name": "Online performance diverges from offline evaluation (metric inconsistency)",
+      "description": "Online performance diverges from offline evaluation (metric inconsistency)",
+      "category": "Delivery",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Online performance diverges from offline evaluation (metric inconsiste arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — undetected defect reaches release",
+      "severity": "Medium",
+      "priority": "P3",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-19",
+      "name": "Governance gaps: unversioned models, no champion/challenger, missing lineage",
+      "description": "Governance gaps: unversioned models, no champion/challenger, missing lineage",
+      "category": "Delivery",
+      "pillar": "Prove",
+      "trust_attribute": "Explainability",
+      "trust_attributes": [
+        "Explainability"
+      ],
+      "hla_primary_trust_attribute": "Explainability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Governance gaps: unversioned models, no champion/challenger, missing l arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — undetected defect reaches release",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Explainability (7-TA taxonomy); pillar Prove. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    },
+    {
+      "risk_id": "REC-20",
+      "name": "Serving latency / scale failures degrade experience or force fallback",
+      "description": "Serving latency / scale failures degrade experience or force fallback",
+      "category": "Deployment",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "trust_attributes": [
+        "Reliability"
+      ],
+      "hla_primary_trust_attribute": "Reliability",
+      "secondary_trust_attributes": [],
+      "cause": "Net-new (derived) — Serving latency / scale failures degrade experience or force fallback arising in recommender/ranking execution",
+      "impact": "Net-new (derived) — production reliability / residency impact",
+      "severity": "High",
+      "priority": "P2",
+      "source_section": "NET-NEW archetype — Recommender/Ranking (proposed HLA appendix A1/A2 addition)",
+      "notes": "NET-NEW archetype — not in HLA v1. Illustrative TrustLensAI Recommender/Ranking RMTE draft; true-up and add to HLA appendix before external use. Metric/formula/threshold are illustrative TrustLensAI definitions (not from HLA). Primary trust attribute Reliability (7-TA taxonomy); pillar Observe. Gate mapping derived per assurance spec. Trust Score composite governed by Q6 (placeholder). TrustLensAI produces evidence; it does not certify compliance. Illustrative — true-up before external use."
+    }
+  ]
+}

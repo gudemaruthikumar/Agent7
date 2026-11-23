@@ -1,0 +1,522 @@
+{
+  "library_id": "tlai-rmte-time_series-pattern-matrix",
+  "version": "v1",
+  "source": "TrustLensAI_TimeSeries_Logs_Layers_Formulas.xlsx — sheet 'Time-Series RMTE (Master)' plus 'Logs ↔ Formula Inputs' and 'Logs ↔ Architecture Layers'",
+  "patterns": [
+    "classical__statistical_arimaets",
+    "exponential_smoothing",
+    "gradient_boosted_trees",
+    "deep_sequence_rnnlstmtcn",
+    "transformer_based",
+    "probabilistic__bayesian",
+    "anomaly_isolation__reconstruction"
+  ],
+  "family_defaults": {
+    "FA": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "PU": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "TV": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "AD": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "RD": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "RS": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "FE": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "EX": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "DQ": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "PV": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "OP": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "LG": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    }
+  },
+  "metric_overrides": {
+    "FA-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "FA-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "FA-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "FA-04": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "PU-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "PU-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "PU-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "PU-04": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "TV-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "TV-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "TV-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "TV-04": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "TV-05": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "AD-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "AD-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "AD-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "AD-04": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "RD-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "RD-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "RD-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "RS-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "RS-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "RS-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "FE-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "FE-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "FE-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "EX-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "EX-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "EX-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "EX-04": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "DQ-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "DQ-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "DQ-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "DQ-04": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "PV-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "PV-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "PV-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "OP-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "OP-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "OP-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "LG-01": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "LG-02": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "LG-03": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    },
+    "LG-04": {
+      "classicalstatistical": "applies (adjust evaluation to model class specifics)",
+      "exp_smoothing": "applies (adjust evaluation to model class specifics)",
+      "gradient_boosted": "applies (adjust evaluation to model class specifics)",
+      "deep_sequence": "applies (adjust evaluation to model class specifics)",
+      "transformer": "applies (adjust evaluation to model class specifics)",
+      "probabilisticbayesian": "applies (adjust evaluation to model class specifics)",
+      "anomaly_isolationrecon": "applies (adjust evaluation to model class specifics)"
+    }
+  }
+}

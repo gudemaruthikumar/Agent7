@@ -1,0 +1,988 @@
+{
+  "library_id": "hla-a1-rag-risk-metric-map",
+  "version": "v1",
+  "source": "TrustLensAI_RAG_Logs_Layers_Formulas.xlsx — sheet 'RAG RMTE (Master)' inverted Risk ID × Metric ID",
+  "edges": [
+    {
+      "risk_id": "RAG-01",
+      "metric_ids": [
+        "AQ-01",
+        "AQ-02",
+        "AQ-03",
+        "AQ-04",
+        "CQ-01",
+        "CQ-04",
+        "CS-01",
+        "CS-02",
+        "GH-01",
+        "GH-02",
+        "GH-04",
+        "RE-01",
+        "RE-02",
+        "RE-03",
+        "RE-04",
+        "RE-05"
+      ]
+    },
+    {
+      "risk_id": "RAG-02",
+      "metric_ids": [
+        "AE-01",
+        "AE-02",
+        "AE-03",
+        "AE-04",
+        "AQ-01",
+        "AQ-02",
+        "AQ-03",
+        "CS-01",
+        "GH-01",
+        "GH-02",
+        "GH-03",
+        "GH-04"
+      ]
+    },
+    {
+      "risk_id": "RAG-03",
+      "metric_ids": [
+        "AE-01",
+        "AE-02",
+        "AE-04",
+        "AQ-03",
+        "GH-01",
+        "GH-02"
+      ]
+    },
+    {
+      "risk_id": "RAG-04",
+      "metric_ids": [
+        "RS-05"
+      ]
+    },
+    {
+      "risk_id": "RAG-05",
+      "metric_ids": [
+        "RS-05"
+      ]
+    },
+    {
+      "risk_id": "RAG-06",
+      "metric_ids": [
+        "CQ-04",
+        "CS-02",
+        "RE-02",
+        "RS-05"
+      ]
+    },
+    {
+      "risk_id": "RAG-07",
+      "metric_ids": [
+        "RS-01",
+        "RS-02"
+      ]
+    },
+    {
+      "risk_id": "RAG-08",
+      "metric_ids": [
+        "RE-01",
+        "RE-05",
+        "RE-06",
+        "RE-07",
+        "RS-01",
+        "RS-02"
+      ]
+    },
+    {
+      "risk_id": "RAG-09",
+      "metric_ids": [
+        "RS-01"
+      ]
+    },
+    {
+      "risk_id": "RAG-10",
+      "metric_ids": [
+        "CQ-01",
+        "CQ-03",
+        "CS-04",
+        "LC-01",
+        "RE-07"
+      ]
+    },
+    {
+      "risk_id": "RAG-11",
+      "metric_ids": [
+        "CS-04",
+        "LC-01"
+      ]
+    },
+    {
+      "risk_id": "RAG-12",
+      "metric_ids": [
+        "CQ-02",
+        "CS-03",
+        "CS-05",
+        "EO-01",
+        "EO-02",
+        "EO-03",
+        "EO-04",
+        "EO-05",
+        "LC-02"
+      ]
+    },
+    {
+      "risk_id": "RAG-13",
+      "metric_ids": [
+        "AQ-04",
+        "CQ-02",
+        "CQ-03",
+        "CS-05",
+        "RE-03"
+      ]
+    },
+    {
+      "risk_id": "RAG-14",
+      "metric_ids": [
+        "AE-02",
+        "GH-02",
+        "GH-03",
+        "RS-04"
+      ]
+    },
+    {
+      "risk_id": "RAG-15",
+      "metric_ids": [
+        "LC-02",
+        "RS-03",
+        "RS-04"
+      ]
+    },
+    {
+      "risk_id": "ALL",
+      "metric_ids": [
+        "LC-03",
+        "LC-04",
+        "LC-05"
+      ]
+    }
+  ],
+  "derived_perspectives": [
+    {
+      "risk_id": "(derived)",
+      "name": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "description": "Unreliable output drives an incorrect business decision or degrades customer experience",
+      "category": "Business",
+      "pillar": "Observe",
+      "trust_attribute": "Reliability",
+      "metric_ids": [
+        "AQ-03",
+        "CQ-01",
+        "RE-01",
+        "RS-01",
+        "RS-03",
+        "RS-05"
+      ],
+      "notes": "Derived from HLA — Business perspective of Reliability failure (per prompt §27, all four risk dimensions assessed). TrustLensAI produces evidence; it does not certify compliance."
+    }
+  ],
+  "rmte_links": [
+    {
+      "metric_id": "CQ-01",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CQ-01",
+      "risk_id": "RAG-10",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Corpus governance gaps (orphaned, stale, unversioned content) undermine reproducibility and lineage",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CQ-02",
+      "risk_id": "RAG-12",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CQ-02",
+      "risk_id": "RAG-13",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incomplete answers due to poor chunking, low hit-rate, or unused context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CQ-03",
+      "risk_id": "RAG-10",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Corpus governance gaps (orphaned, stale, unversioned content) undermine reproducibility and lineage",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CQ-03",
+      "risk_id": "RAG-13",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incomplete answers due to poor chunking, low hit-rate, or unused context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CQ-04",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CQ-04",
+      "risk_id": "RAG-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Corpus coverage gaps cause unanswerable queries or retrieval from out-of-scope content",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RE-01",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RE-01",
+      "risk_id": "RAG-08",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Retrieval bias or low source diversity skews answers and enables manipulation",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RE-02",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RE-02",
+      "risk_id": "RAG-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Corpus coverage gaps cause unanswerable queries or retrieval from out-of-scope content",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RE-03",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RE-03",
+      "risk_id": "RAG-13",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incomplete answers due to poor chunking, low hit-rate, or unused context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RE-04",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RE-05",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RE-05",
+      "risk_id": "RAG-08",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Retrieval bias or low source diversity skews answers and enables manipulation",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RE-06",
+      "risk_id": "RAG-08",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Retrieval bias or low source diversity skews answers and enables manipulation",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RE-07",
+      "risk_id": "RAG-08",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Retrieval bias or low source diversity skews answers and enables manipulation",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RE-07",
+      "risk_id": "RAG-10",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Delivery",
+      "risk": "Corpus governance gaps (orphaned, stale, unversioned content) undermine reproducibility and lineage",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CS-01",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CS-01",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CS-02",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CS-02",
+      "risk_id": "RAG-06",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Corpus coverage gaps cause unanswerable queries or retrieval from out-of-scope content",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "CS-03",
+      "risk_id": "RAG-12",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CS-04",
+      "risk_id": "RAG-10",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Delivery",
+      "risk": "Corpus governance gaps (orphaned, stale, unversioned content) undermine reproducibility and lineage",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CS-04",
+      "risk_id": "RAG-11",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Stale cached or non-fresh knowledge is served as current",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CS-05",
+      "risk_id": "RAG-12",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "CS-05",
+      "risk_id": "RAG-13",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incomplete answers due to poor chunking, low hit-rate, or unused context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AQ-01",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AQ-01",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AQ-02",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AQ-02",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AQ-03",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AQ-03",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AQ-03",
+      "risk_id": "RAG-03",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Citations are fabricated, wrong, or do not resolve to the supporting span",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AQ-04",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AQ-04",
+      "risk_id": "RAG-13",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Incomplete answers due to poor chunking, low hit-rate, or unused context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "GH-01",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GH-01",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GH-01",
+      "risk_id": "RAG-03",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Citations are fabricated, wrong, or do not resolve to the supporting span",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GH-02",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GH-02",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GH-02",
+      "risk_id": "RAG-03",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Citations are fabricated, wrong, or do not resolve to the supporting span",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GH-02",
+      "risk_id": "RAG-14",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Contradictory or hallucinated content, especially damaging in regulated / high-risk domains",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "GH-03",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Reliability",
+      "pillar": "Observe",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "GH-03",
+      "risk_id": "RAG-14",
+      "trust_attribute": "Fairness & Policy Consistency",
+      "pillar": "Govern",
+      "risk_category": "Technical",
+      "risk": "Contradictory or hallucinated content, especially damaging in regulated / high-risk domains",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "GH-04",
+      "risk_id": "RAG-01",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Retrieval fails to surface the context needed to answer the query",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "GH-04",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AE-01",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AE-01",
+      "risk_id": "RAG-03",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Citations are fabricated, wrong, or do not resolve to the supporting span",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AE-02",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AE-02",
+      "risk_id": "RAG-03",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Citations are fabricated, wrong, or do not resolve to the supporting span",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AE-02",
+      "risk_id": "RAG-14",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Contradictory or hallucinated content, especially damaging in regulated / high-risk domains",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AE-03",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AE-04",
+      "risk_id": "RAG-02",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Generated answer contains claims not supported by or attributable to retrieved context",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "AE-04",
+      "risk_id": "RAG-03",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Citations are fabricated, wrong, or do not resolve to the supporting span",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RS-01",
+      "risk_id": "RAG-07",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial or malicious corpus/query content manipulates behaviour (prompt injection)",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RS-01",
+      "risk_id": "RAG-08",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Retrieval bias or low source diversity skews answers and enables manipulation",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RS-01",
+      "risk_id": "RAG-09",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "System is not robust to jailbreak or adversarial prompting despite retrieval",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RS-02",
+      "risk_id": "RAG-07",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Adversarial or malicious corpus/query content manipulates behaviour (prompt injection)",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RS-02",
+      "risk_id": "RAG-08",
+      "trust_attribute": "Security",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Retrieval bias or low source diversity skews answers and enables manipulation",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RS-03",
+      "risk_id": "RAG-15",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Toxic, biased, or drifting outputs emerge over the corpus/model lifecycle",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RS-04",
+      "risk_id": "RAG-14",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Contradictory or hallucinated content, especially damaging in regulated / high-risk domains",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "RS-04",
+      "risk_id": "RAG-15",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Toxic, biased, or drifting outputs emerge over the corpus/model lifecycle",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "RS-05",
+      "risk_id": "RAG-04",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Sensitive or personal information is leaked through retrieved context or generated output",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RS-05",
+      "risk_id": "RAG-05",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Deployment",
+      "risk": "Context or data leaks across tenant / user isolation boundaries",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "RS-05",
+      "risk_id": "RAG-06",
+      "trust_attribute": "Privacy",
+      "pillar": "Secure",
+      "risk_category": "Delivery",
+      "risk": "Corpus coverage gaps cause unanswerable queries or retrieval from out-of-scope content",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EO-01",
+      "risk_id": "RAG-12",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EO-02",
+      "risk_id": "RAG-12",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "severity": "Critical (Derived)",
+      "priority": "P1"
+    },
+    {
+      "metric_id": "EO-03",
+      "risk_id": "RAG-12",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EO-04",
+      "risk_id": "RAG-12",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "EO-05",
+      "risk_id": "RAG-12",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-01",
+      "risk_id": "RAG-10",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Delivery",
+      "risk": "Corpus governance gaps (orphaned, stale, unversioned content) undermine reproducibility and lineage",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-01",
+      "risk_id": "RAG-11",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Stale cached or non-fresh knowledge is served as current",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-02",
+      "risk_id": "RAG-12",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Inefficient context construction inflates cost/latency and wastes context budget",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-02",
+      "risk_id": "RAG-15",
+      "trust_attribute": "Safety",
+      "pillar": "Secure",
+      "risk_category": "Technical",
+      "risk": "Toxic, biased, or drifting outputs emerge over the corpus/model lifecycle",
+      "severity": "High (Derived)",
+      "priority": "P2"
+    },
+    {
+      "metric_id": "LC-03",
+      "risk_id": "ALL",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Test Coverage (TEVV) (RAG)",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-04",
+      "risk_id": "ALL",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Documentation Completeness (RAG)",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    },
+    {
+      "metric_id": "LC-05",
+      "risk_id": "ALL",
+      "trust_attribute": "Explainability",
+      "pillar": "Prove",
+      "risk_category": "Technical",
+      "risk": "Lifecycle failure detected by Log Completeness (RAG)",
+      "severity": "Medium (Derived)",
+      "priority": "P3"
+    }
+  ]
+}

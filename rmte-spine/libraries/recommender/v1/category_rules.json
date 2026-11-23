@@ -1,0 +1,84 @@
+{
+  "library_id": "agent5-recommender-category-rules",
+  "version": "v1",
+  "source": "SAD A7 scenario dimensions + TrustLensAI Recommender RMTE test-suite routing",
+  "note": "required_categories_by_family is a floor, not the answer. Agent 5 asks the designer which categories a metric needs; the floor is what the designer may not drop, and category_vocabulary bounds what it may add.",
+  "category_vocabulary": [
+    "positive",
+    "negative",
+    "edge",
+    "adversarial",
+    "security",
+    "monitoring",
+    "regression",
+    "robustness",
+    "stress",
+    "recovery",
+    "drift"
+  ],
+  "required_categories_by_family": {
+    "BA": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "CC": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "EX": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "FE": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "FL": [
+      "monitoring",
+      "regression"
+    ],
+    "LG": [
+      "monitoring",
+      "regression"
+    ],
+    "OP": [
+      "monitoring",
+      "regression"
+    ],
+    "PV": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "RQ": [
+      "positive",
+      "negative",
+      "edge"
+    ],
+    "RS": [
+      "adversarial",
+      "security",
+      "negative"
+    ],
+    "SC": [
+      "positive",
+      "negative",
+      "edge"
+    ]
+  },
+  "mvp_extra": {
+    "RS-01": [
+      "adversarial"
+    ],
+    "RS-02": [
+      "adversarial"
+    ],
+    "RS-04": [
+      "adversarial"
+    ]
+  }
+}
